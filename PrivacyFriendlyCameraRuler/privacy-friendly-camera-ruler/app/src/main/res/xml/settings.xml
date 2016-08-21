@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/pref_ruler">
+    <ListPreference android:id="@+id/pref_leftruler"
+        android:key="pref_leftruler"
+        android:title="@string/pref_leftruler"
+        android:dialogTitle="@string/pref_leftruler_verbose"
+        android:entries="@array/pref_leftruler_entries"
+        android:entryValues="@array/pref_leftruler_evs"
+        android:defaultValue="@string/pref_leftruler_default" />
+
+    <ListPreference android:id="@+id/pref_rightruler"
+        android:key="pref_rightruler"
+        android:title="@string/pref_rightruler"
+        android:dialogTitle="@string/pref_rightruler_verbose"
+        android:entries="@array/pref_rightruler_entries"
+        android:entryValues="@array/pref_rightruler_evs"
+        android:defaultValue="@string/pref_rightruler_default" />
+
+    <ListPreference android:id="@+id/pref_anglemeasure"
+        android:key="pref_anglemeasure"
+        android:title="@string/pref_anglemeasure"
+        android:dialogTitle="@string/pref_anglemeasure_verbose"
+        android:entries="@array/pref_anglemeasure_entries"
+        android:entryValues="@array/pref_anglemeasure_evs"
+        android:defaultValue="@string/pref_anglemeasure_default" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

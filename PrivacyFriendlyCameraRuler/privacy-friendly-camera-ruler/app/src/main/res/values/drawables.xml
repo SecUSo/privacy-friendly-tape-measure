@@ -1,0 +1,8 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <item name="ic_menu_ruler" type="drawable">@android:drawable/ic_menu_sort_by_size</item>
+    <item name="ic_menu_gallery" type="drawable">@android:drawable/ic_menu_gallery</item>
+    <item name="ic_menu_camera" type="drawable">@android:drawable/ic_menu_camera</item>
+    <item name="ic_menu_settings" type="drawable">@android:drawable/ic_menu_manage</item>
+    <item name="ic_menu_help" type="drawable">@android:drawable/ic_menu_help</item>
+    <item name="ic_menu_about" type="drawable">@android:drawable/ic_menu_info_details</item>
+</resources>
