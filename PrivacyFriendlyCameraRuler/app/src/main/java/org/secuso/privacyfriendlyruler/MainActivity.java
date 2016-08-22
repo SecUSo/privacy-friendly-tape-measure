@@ -6,11 +6,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.FragmentManager;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.util.DisplayMetrics;
 import android.support.design.widget.NavigationView;
@@ -22,7 +23,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
@@ -30,6 +30,8 @@ public class MainActivity extends AppCompatActivity
 
     FragmentManager fragmentManager = getFragmentManager();
     SharedPreferences prefs;
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
+    private static final int PICK_IMAGE_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -161,15 +163,18 @@ public class MainActivity extends AppCompatActivity
             prefs.edit().putString("lastMode", "ruler").commit();
             return true;
         } else if (id == R.id.nav_gallery) {
-            fragmentManager.beginTransaction().
-                    replace(R.id.content_main, new GalleryFragment()).commit();
-            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+//            fragmentManager.beginTransaction().
+//                    replace(R.id.content_main, new GalleryFragment()).commit();
+//            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
             prefs.edit().putString("lastMode", "gallery").commit();
             return true;
         } else if (id == R.id.nav_camera) {
-            fragmentManager.beginTransaction().
-                    replace(R.id.content_main, new CameraFragment()).commit();
-            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, false);
+            startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             prefs.edit().putString("lastMode", "camera").commit();
             return true;
         } else if (id == R.id.nav_settings) {
@@ -191,6 +196,37 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE || requestCode == PICK_IMAGE_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                startImageFragment(data.getData());
+            } else {
+                if (resultCode != RESULT_CANCELED) {
+                    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE){
+                        Toast.makeText(this, R.string.camera_crash, Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(this, R.string.gallery_crash, Toast.LENGTH_LONG).show();
+                    }
+                }
+                fragmentManager.beginTransaction().
+                        replace(R.id.content_main, new RulerFragment()).commit();
+                ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+                prefs.edit().putString("lastMode", "ruler").commit();
+            }
+        }
+    }
+
+    public void startImageFragment(Uri uri) {
+//        Bundle args = new Bundle();
+//        args.putString("uri", uri);
+        CameraFragment cf = new CameraFragment();
+        cf.setUri(uri);
+//        cf.setArguments(args);
+        fragmentManager.beginTransaction().replace(R.id.content_main, cf).commit();
+        ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+    }
+
     private void startLastMode() {
         String lastMode = prefs.getString("lastMode", "ruler");
         if (lastMode.equals("ruler")) {
@@ -198,13 +234,16 @@ public class MainActivity extends AppCompatActivity
                     replace(R.id.content_main, new RulerFragment()).commit();
             ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
         } else if (lastMode.equals("gallery")) {
-            fragmentManager.beginTransaction().
-                    replace(R.id.content_main, new GalleryFragment()).commit();
-            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+//            fragmentManager.beginTransaction().
+//                    replace(R.id.content_main, new GalleryFragment()).commit();
+//            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
         } else { //if (lastMode.equals("camera"))
-            fragmentManager.beginTransaction().
-                    replace(R.id.content_main, new CameraFragment()).commit();
-            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+//            fragmentManager.beginTransaction().
+//                    replace(R.id.content_main, new RulerFragment()).commit();
+//            ((DrawerLayout) findViewById(R.id.drawer_layout)).closeDrawer(GravityCompat.START);
+//            Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, false);
+//            startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
     }
 }

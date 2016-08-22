@@ -12,7 +12,10 @@
     <string name="mode">Mode</string>
     <string name="ruler">Ruler</string>
     <string name="gallery">Picture from Gallery</string>
+
     <string name="camera">Take Picture</string>
+    <string name="camera_crash">Camera App crashed.</string>
+    <string name="gallery_crash">Gallery App crashed.</string>
 
     <string name="calibrate">Calibrate</string>
     <string name="measureLineHeading">1. Measure</string>

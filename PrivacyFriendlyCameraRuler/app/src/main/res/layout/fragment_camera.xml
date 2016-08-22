@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/fragment_camera"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/heading_TextView"
+    <ImageView
+        android:id="@+id/pictureView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Camera Fragment Started" />
-</LinearLayout>
+        android:layout_height="wrap_content"/>
+</FrameLayout>
