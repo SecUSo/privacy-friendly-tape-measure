@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Ruler</string>
+    <string name="app_name">Camera Ruler</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
-    <string name="app_name_long">Privacy Friendly Ruler</string>
+    <string name="app_name_long">Privacy Friendly Camera Ruler</string>
     <string name="version_number">Version 1.0</string>
 
 

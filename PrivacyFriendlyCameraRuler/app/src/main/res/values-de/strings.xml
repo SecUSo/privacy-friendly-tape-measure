@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">Lineal</string>
+    <string name="app_name">Fotolineal</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
 
-    <string name="app_name_long">Privacy Friendly Lineal</string>
+    <string name="app_name_long">Privacy Friendly Fotolineal</string>
     <string name="version_number">Version 1.0</string>
 
 
