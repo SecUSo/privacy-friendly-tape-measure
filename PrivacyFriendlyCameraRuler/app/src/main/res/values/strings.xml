@@ -32,6 +32,10 @@
 
     <string name="action_calibration">Calibrate</string>
     <string name="action_resetcalibration">Reset Calibration</string>
+    <string name="action_newRefObject">New Reference Object</string>
+    <string name="action_newLine">Measure Distance</string>
+    <string name="action_newArea">Measure Area</string>
+
     <string name="calibrationReset">Calibration reset.</string>
 
     <string name="pref_ruler">Ruler Settings</string>
