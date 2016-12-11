@@ -35,3 +35,11 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Documents
+*.pdf
+*.doc
+*.docx
+*.odt
+
+
