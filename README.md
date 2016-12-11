@@ -1,10 +1,12 @@
-## Privacy Friendly App Example
+## Privacy Friendly Camera Ruler
 
-This application contains the basic design of a Privacy Friendly App without any other functionality. It includes a Navigation Drawer, examples for buttons, a help page and the about page. It further shows an example of the main menu for a Privacy Friendly Game App. This app belongs to the group of Privacy Friendly Apps developed by the Technische Universität Darmstadt. 
+Privacy Friendly Ruler turns the phone screen into a ruler for quick measurments on the go. It also allows to measure size of things in a 2D scene provided a comon reference object like a coin is also present.
+
+This app is optimized regarding the user's privacy. It doesn't use any tracking mechanisms, neither it displays any advertisement. This app belongs to the group of Privacy Friendly Apps developed by the Technische Universität Darmstadt. 
 
 ## Motivation
 
-This application has been developed to be used as a basis for a Privacy Friendly App. Privacy Friendly Apps are group of Android applications which are optimized regarding privacy. Further information can be found on secuso.org/pfa
+This application has been developed to provide a privacy friendly measuring application for when you need to quickly measure something but don't have a measuring tape handy. Privacy Friendly Apps are group of Android applications which are optimized regarding privacy. Further information can be found on secuso.org/pfa
 
 ## Download and more Information
 
@@ -12,7 +14,7 @@ Further development requires Android Studio, we recommend to use at least versio
  
 ### API Reference
 
-Mininum SDK: 17
+Mininum SDK: 21
 Target SDK: 23 
 
 ## License
@@ -41,8 +43,7 @@ App-Icon: <br />
 Markus Hau<br />
 
 Github-Users: <br />
-Yonjuni <br />
-Kamuno
+rkolosovs
 
 
 
