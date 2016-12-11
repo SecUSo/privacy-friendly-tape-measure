@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlyexample;
+package org.secuso.privacyfriendlycameraruler;
 
 import android.app.Activity;
 import android.app.AlertDialog;

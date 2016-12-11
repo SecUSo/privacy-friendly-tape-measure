@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlyexample;
+package org.secuso.privacyfriendlycameraruler;
 
 import android.content.Intent;
 import android.content.SharedPreferences;

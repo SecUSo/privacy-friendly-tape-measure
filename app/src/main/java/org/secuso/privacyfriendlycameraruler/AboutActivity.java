@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlyexample;
+package org.secuso.privacyfriendlycameraruler;
 
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
