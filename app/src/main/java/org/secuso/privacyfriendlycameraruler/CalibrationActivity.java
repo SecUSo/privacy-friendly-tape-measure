@@ -57,7 +57,7 @@ public class CalibrationActivity extends AppCompatActivity {
                     prefs.edit().putFloat("dpmm", dpmm).commit();
                     calibrationDoneToast.show();
                     Intent intent = new Intent();
-                    intent.setClass(getBaseContext(), MainActivity.class);
+                    intent.setClass(getBaseContext(), RulerActivity.class);
                     startActivityForResult(intent, 0);
                 }
             }

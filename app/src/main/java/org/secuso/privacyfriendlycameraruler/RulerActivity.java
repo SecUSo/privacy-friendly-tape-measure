@@ -34,6 +34,15 @@ public class RulerActivity extends BaseActivity {
         mSharedPreferences.edit().putString("lastMode", "ruler").commit();
         mHandler = new Handler();
 
+        RelativeLayout rulerLayout = (RelativeLayout) findViewById(R.id.ruler_content);
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        float dpmm = mSharedPreferences.getFloat("dpmm", (float) (displayMetrics.ydpi/25.4));
+
+        RulerView rulerView = new RulerView(getBaseContext(), dpmm,
+                dpmm*25.4/32, PreferenceManager.getDefaultSharedPreferences(getBaseContext()));
+        rulerLayout.addView(rulerView);
+
         overridePendingTransition(0, 0);
     }
 
@@ -51,9 +60,6 @@ public class RulerActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         if (id == R.id.action_calibration) {
@@ -72,10 +78,14 @@ public class RulerActivity extends BaseActivity {
             int duration = Toast.LENGTH_SHORT;
             Toast calibrationResetToast = Toast.makeText(context, calibrationResetText, duration);
             calibrationResetToast.show();
+            Intent intent = new Intent();
+            intent.setClass(getBaseContext(), RulerActivity.class);
+            startActivityForResult(intent, 0);
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 //    Activity activity;
 //    View rootView;
