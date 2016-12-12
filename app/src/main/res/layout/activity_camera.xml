@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="org.secuso.privacyfriendlyexample.CameraActivity">
+        tools:context="org.secuso.privacyfriendlycameraruler.CameraActivity">
 
         <include layout="@layout/toolbar"/>
 

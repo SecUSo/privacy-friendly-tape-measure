@@ -25,7 +25,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
 
     // delay to launch nav drawer item, to allow close animation to play
     static final int NAVDRAWER_LAUNCH_DELAY = 250;
-    // fade in and fade out durations for the main content when switching between
+    // fade in and fade out durations for the ruler_action_menu content when switching between
     // different Activities of the app through the Nav Drawer
     static final int MAIN_CONTENT_FADEOUT_DURATION = 150;
     static final int MAIN_CONTENT_FADEIN_DURATION = 250;

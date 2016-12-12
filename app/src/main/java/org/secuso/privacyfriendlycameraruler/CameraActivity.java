@@ -26,7 +26,5 @@ public class CameraActivity extends BaseActivity {
     }
 
     @Override
-    protected int getNavigationDrawerID() {
-        return R.id.nav_camera;
-    }
+    protected int getNavigationDrawerID() { return R.id.nav_camera; }
 }
