@@ -7,7 +7,7 @@ android {
         applicationId 'org.secuso.cameraruler'
         minSdkVersion 21
         targetSdkVersion 23
-        versionCode 3
+        versionCode 1
         versionName '1.0'
     }
     buildTypes {

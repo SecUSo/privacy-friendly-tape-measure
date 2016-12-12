@@ -20,6 +20,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".CalibrationActivity"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity
             android:name="org.secuso.privacyfriendlycameraruler.AboutActivity"
             android:label="@string/about"
             android:parentActivityName="org.secuso.privacyfriendlycameraruler.MainActivity"

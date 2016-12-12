@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">Example</string>
-    <string name="app_name_long">Privacy Friendly Example</string>
+    <string name="app_name">Camera Ruler</string>
+    <string name="app_name_long">Privacy Friendly Camera Ruler</string>
 
     <!-- ###DRAWER###-->
+    <string name="action_ruler">Screen Ruler</string>
+    <string name="action_camera">Camera Ruler</string>
     <string name="action_help">Help</string>
     <string name="action_about">About</string>
     <string name="action_settings">Settings</string>
@@ -11,6 +13,21 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <!-- ###RULER### -->
+
+    <!-- ###CALIBRATION### -->
+    <string name="measureLineHeading">1. Measure</string>
+    <string name="measureLine">Please measure the length of the line below as precisely as possible.</string>
+    <string name="headingEnter">2. Enter Measured Length</string>
+    <string name="calibrationMM">mm</string>
+    <string name="calibrationInch">inch</string>
+    <string name="calibrateConfirmButton">Calibrate</string>
+    <string name="calibrationWarning">Manual calibration does not eliminate inaccuracies due to rounding.
+        Do not use this app as a professionally calibrated measuring device.</string>
+    <string name="calibrate">Calibrate</string>
+    <string name="noInput">Please input the length of the line.</string>
+    <string name="calibrationDone">Calibration finished.</string>
 
     <!-- ###MAIN### -->
     <string name="main_button_text">Full Width Button</string>
@@ -46,14 +63,14 @@
 
     <!--###ABOUT###-->
     <string name="about">About</string>
-    <string name="version_number">Version 2.0</string>
+    <string name="version_number">Version 1.0</string>
     <string name="about_author">Authors: </string>
-    <string name="about_author_names" translatable="false">Karola Marky</string>
+    <string name="about_author_names" translatable="false">Roberts Kolosovs</string>
     <string name="about_author_contributors">and contributors.</string>
     <string name="about_affiliation">In affiliation with</string>
     <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by Technische Universität Darmstadt. Sourcecode licensed under GPLv3. Images copyright TU Darmstadt and Google Inc.</string>
     <string name="more_info">More information can be found on:</string>
-    <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-app-example">Github-Repo</a></string>
+    <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
 
     <!-- ###SETTINGS### -->
