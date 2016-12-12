@@ -20,9 +20,25 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="org.secuso.privacyfriendlycameraruler.RulerActivity"
+            android:label="@string/screen_ruler"
+            android:parentActivityName="org.secuso.privacyfriendlycameraruler.RulerActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name="org.secuso.privacyfriendlycameraruler.CameraActivity"
+            android:label="@string/camera_ruler"
+            android:parentActivityName="org.secuso.privacyfriendlycameraruler.CameraActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
             android:name=".CalibrationActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".RulerActivity">
         </activity>
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.AboutActivity"
@@ -46,16 +62,6 @@
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="org.secuso.privacyfriendlycameraruler.MainActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.secuso.privacyfriendlycameraruler.MainActivity" />
-        </activity>
-        <activity
-            android:name="org.secuso.privacyfriendlycameraruler.GameActivity"
-            android:label="@string/title_activity_game"
             android:parentActivityName="org.secuso.privacyfriendlycameraruler.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">

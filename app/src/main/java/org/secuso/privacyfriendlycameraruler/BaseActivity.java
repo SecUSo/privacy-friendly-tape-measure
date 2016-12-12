@@ -21,7 +21,7 @@ import android.view.View;
 /**
  * Created by Chris on 04.07.2016.
  */
-public class BaseActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
+public abstract class BaseActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {
 
     // delay to launch nav drawer item, to allow close animation to play
     static final int NAVDRAWER_LAUNCH_DELAY = 250;
@@ -65,9 +65,7 @@ public class BaseActivity extends AppCompatActivity implements OnNavigationItemS
         }
     }
 
-    protected int getNavigationDrawerID() {
-        return 0;
-    }
+    abstract protected int getNavigationDrawerID();
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -133,13 +131,12 @@ public class BaseActivity extends AppCompatActivity implements OnNavigationItemS
         Intent intent;
 
         switch(itemId) {
-            case R.id.nav_example:
-                intent = new Intent(this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+            case R.id.nav_ruler:
+                intent = new Intent(this, RulerActivity.class);
+                createBackStack(intent);
                 break;
-            case R.id.nav_game:
-                intent = new Intent(this, GameActivity.class);
+            case R.id.nav_camera:
+                intent = new Intent(this, CameraActivity.class);
                 createBackStack(intent);
                 break;
             case R.id.nav_about:
