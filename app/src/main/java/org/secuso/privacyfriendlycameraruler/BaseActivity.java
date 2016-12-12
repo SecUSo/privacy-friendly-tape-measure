@@ -41,16 +41,9 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
 
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mHandler = new Handler();
-
-        //ActionBar ab = getSupportActionBar();
-        //if (ab != null) {
-        //    mActionBar = ab;
-        //    ab.setDisplayHomeAsUpEnabled(true);
-        //}
 
         overridePendingTransition(0, 0);
     }
@@ -133,11 +126,13 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
         switch(itemId) {
             case R.id.nav_ruler:
                 intent = new Intent(this, RulerActivity.class);
-                createBackStack(intent);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.nav_camera:
                 intent = new Intent(this, CameraActivity.class);
-                createBackStack(intent);
+                startActivity(intent);
+                finish();
                 break;
             case R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);
@@ -176,13 +171,6 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
         mNavigationView.setNavigationItemSelectedListener(this);
 
         selectNavigationItem(getNavigationDrawerID());
-
-        View mainContent = findViewById(R.id.main_content);
-        if (mainContent != null) {
-            mainContent.setAlpha(0);
-            mainContent.animate().alpha(1).setDuration(MAIN_CONTENT_FADEIN_DURATION);
-        }
     }
-
 
 }

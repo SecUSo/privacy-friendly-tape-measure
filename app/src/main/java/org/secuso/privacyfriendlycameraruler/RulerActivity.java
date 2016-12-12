@@ -3,7 +3,6 @@ package org.secuso.privacyfriendlycameraruler;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -16,17 +15,12 @@ import android.widget.Toast;
  */
 public class RulerActivity extends BaseActivity {
 
-    // Helper
-    private Handler mHandler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ruler);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         mSharedPreferences.edit().putString("lastMode", "ruler").commit();
-        mHandler = new Handler();
 
         RelativeLayout rulerLayout = (RelativeLayout) findViewById(R.id.ruler_content);
         DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -47,7 +41,6 @@ public class RulerActivity extends BaseActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.ruler_action_menu, menu);
         return true;
     }
@@ -79,36 +72,4 @@ public class RulerActivity extends BaseActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-
-//    Activity activity;
-//    View rootView;
-//
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-//
-//        rootView = inflater.inflate(R.layout.activity_ruler, container, false);
-//        container.removeAllViews();
-//
-//        RelativeLayout rulerLayout = (RelativeLayout) rootView.findViewById(R.id.fragment_ruler);
-//
-//        DisplayMetrics displayMetrics = new DisplayMetrics();
-//        activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity.getBaseContext());
-//        float dpmm = prefs.getFloat("dpmm", (float) (displayMetrics.ydpi/25.4));
-//
-//        RulerView rulerView = new RulerView(activity.getBaseContext(), dpmm,
-//                dpmm*25.4/32, PreferenceManager.getDefaultSharedPreferences(activity.getBaseContext()));
-//        rulerLayout.addView(rulerView);
-//
-//        return rootView;
-//    }
-//
-//    public void onResume() {
-//        super.onResume();
-//    }
-//
-//    public void onPause() {
-//        super.onPause();
-//    }
-
 }
