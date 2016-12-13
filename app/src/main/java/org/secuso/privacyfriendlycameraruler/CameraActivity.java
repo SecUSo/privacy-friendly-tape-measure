@@ -20,6 +20,8 @@ import static android.view.View.VISIBLE;
 
 public class CameraActivity extends BaseActivity {
 
+    private boolean active = false;
+
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
     private ImageButton cameraButton;
@@ -95,12 +97,28 @@ public class CameraActivity extends BaseActivity {
     }
 
     public void startImageFragment(Uri uri) {
+        active = true;
         cameraButton.setVisibility(GONE);
         cameraButton.setClickable(false);
         galleryButton.setVisibility(GONE);
         galleryButton.setClickable(false);
         pictureView.setImageURI(uri);
         pictureView.setVisibility(VISIBLE);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (active) {
+            active = false;
+            cameraButton.setVisibility(VISIBLE);
+            cameraButton.setClickable(true);
+            galleryButton.setVisibility(VISIBLE);
+            galleryButton.setClickable(true);
+            pictureView.setVisibility(GONE);
+            pictureView.setImageURI(null);
+        } else {
+            super.onBackPressed();
+        }
     }
 
     @Override
