@@ -6,6 +6,7 @@ import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -28,6 +29,8 @@ public class CameraActivity extends BaseActivity {
     private ImageButton galleryButton;
     private ImageView pictureView;
     Uri uri;
+
+    DisplayMetrics displayMetrics = new DisplayMetrics();
 
     private static final String TAG = "Touch";
 
@@ -52,10 +55,21 @@ public class CameraActivity extends BaseActivity {
         setContentView(R.layout.activity_camera);
 
         mSharedPreferences.edit().putString("lastMode", "camera").commit();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
+
+        matrix.postRotate(90);
+        pictureView.setImageMatrix(matrix);
+
+        matrix.postScale(2.5f, 2.5f);
+        pictureView.setImageMatrix(matrix);
+
+        matrix.postTranslate(displayMetrics.widthPixels,
+                pictureView.getDrawable().getCurrent().getIntrinsicWidth());
+        pictureView.setImageMatrix(matrix);
 
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,7 +129,7 @@ public class CameraActivity extends BaseActivity {
             galleryButton.setVisibility(VISIBLE);
             galleryButton.setClickable(true);
             pictureView.setVisibility(GONE);
-            pictureView.setImageURI(null);
+            pictureView.setImageURI(Uri.EMPTY);
         } else {
             super.onBackPressed();
         }

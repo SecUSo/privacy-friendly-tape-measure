@@ -54,6 +54,7 @@
             android:id="@+id/pictureView"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:src="@color/middleblue"
             android:visibility="gone"
             android:scaleType="matrix"/>
 
