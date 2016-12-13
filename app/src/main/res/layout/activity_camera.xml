@@ -28,6 +28,26 @@
             android:layout_marginTop="?attr/actionBarSize"
             android:weightSum="1">
 
+            <ImageButton
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:id="@+id/from_camera_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/ic_menu_camera"
+                android:scaleType="fitCenter"
+                android:background="@drawable/button_fullwidth" />
+
+            <ImageButton
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:id="@+id/from_gallery_button"
+                android:layout_gravity="center"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/ic_menu_gallery"
+                android:scaleType="fitCenter"
+                android:background="@drawable/button_fullwidth" />
+
         </LinearLayout>
 
     </android.support.design.widget.CoordinatorLayout>
