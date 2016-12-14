@@ -1,7 +1,10 @@
 package org.secuso.privacyfriendlycameraruler;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Canvas;
 import android.graphics.Matrix;
+import android.graphics.Paint;
 import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ public class CameraActivity extends BaseActivity {
     private ImageButton cameraButton;
     private ImageButton galleryButton;
     private ImageView pictureView;
+    private View drawView;
     Uri uri;
 
     DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -60,13 +64,12 @@ public class CameraActivity extends BaseActivity {
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
+        drawView = findViewById(R.id.drawView);
 
         matrix.postRotate(90);
         pictureView.setImageMatrix(matrix);
-
         matrix.postScale(2.5f, 2.5f);
         pictureView.setImageMatrix(matrix);
-
         matrix.postTranslate(displayMetrics.widthPixels,
                 pictureView.getDrawable().getCurrent().getIntrinsicWidth());
         pictureView.setImageMatrix(matrix);
@@ -87,6 +90,19 @@ public class CameraActivity extends BaseActivity {
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), PICK_IMAGE_REQUEST);
+            }
+        });
+
+        drawView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Canvas c = new Canvas();
+                Paint p = new Paint();
+                p.setColor(getResources().getColor(R.color.middleblue));
+                p.setAlpha(255);
+//                c.drawLine(0, 0, 100, 100, p);
+                c.drawCircle(0, 0, 100, p);
+                drawView.draw(c);
             }
         });
 
@@ -118,6 +134,9 @@ public class CameraActivity extends BaseActivity {
         galleryButton.setClickable(false);
         pictureView.setImageURI(uri);
         pictureView.setVisibility(VISIBLE);
+        drawView.setVisibility(VISIBLE);
+        drawView.setClickable(true);
+        drawView.bringToFront();
     }
 
     @Override
@@ -128,6 +147,8 @@ public class CameraActivity extends BaseActivity {
             cameraButton.setClickable(true);
             galleryButton.setVisibility(VISIBLE);
             galleryButton.setClickable(true);
+            drawView.setVisibility(GONE);
+            drawView.setClickable(false);
             pictureView.setVisibility(GONE);
             pictureView.setImageURI(Uri.EMPTY);
         } else {
