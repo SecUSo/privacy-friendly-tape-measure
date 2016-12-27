@@ -1,7 +1,9 @@
 package org.secuso.privacyfriendlycameraruler;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.Paint;
@@ -9,10 +11,13 @@ import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.design.widget.CoordinatorLayout;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import static android.view.View.GONE;
@@ -31,7 +36,7 @@ public class CameraActivity extends BaseActivity {
     private ImageButton cameraButton;
     private ImageButton galleryButton;
     private ImageView pictureView;
-    private View drawView;
+    private CameraRulerView drawView;
     Uri uri;
 
     DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -64,7 +69,11 @@ public class CameraActivity extends BaseActivity {
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
-        drawView = findViewById(R.id.drawView);
+
+        drawView = new CameraRulerView(getBaseContext());
+        drawView.setVisibility(GONE);
+        RelativeLayout cl = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
+        cl.addView(drawView);
 
         matrix.postRotate(90);
         pictureView.setImageMatrix(matrix);
@@ -90,19 +99,6 @@ public class CameraActivity extends BaseActivity {
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), PICK_IMAGE_REQUEST);
-            }
-        });
-
-        drawView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Canvas c = new Canvas();
-                Paint p = new Paint();
-                p.setColor(getResources().getColor(R.color.middleblue));
-                p.setAlpha(255);
-//                c.drawLine(0, 0, 100, 100, p);
-                c.drawCircle(0, 0, 100, p);
-                drawView.draw(c);
             }
         });
 
