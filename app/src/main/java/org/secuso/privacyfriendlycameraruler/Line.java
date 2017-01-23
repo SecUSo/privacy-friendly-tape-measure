@@ -5,5 +5,9 @@ package org.secuso.privacyfriendlycameraruler;
  */
 
 public class Line extends Shape {
-    //TODO
+    public Point[] ends = {new Point(0, 0), new Point(0, 0)};
+
+    public float getLength() {
+        return ends[0].dist(ends[1]);
+    }
 }
