@@ -12,6 +12,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
@@ -37,6 +39,11 @@ public class CameraActivity extends BaseActivity {
     private ImageButton galleryButton;
     private ImageView pictureView;
     private CameraRulerView drawView;
+    private FloatingActionsMenu newMeasureButton;
+    private FloatingActionButton newTetragonButton;
+    private FloatingActionButton newTriangleButton;
+    private FloatingActionButton newCircleButton;
+    private FloatingActionButton newLineButton;
     Uri uri;
 
     DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -70,6 +77,12 @@ public class CameraActivity extends BaseActivity {
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
 
+        newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
+        newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
+        newTriangleButton = (FloatingActionButton) findViewById(R.id.new_triangle_fab);
+        newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
+        newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
+
         drawView = new CameraRulerView(getBaseContext());
         drawView.setVisibility(GONE);
         RelativeLayout cl = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
@@ -99,6 +112,34 @@ public class CameraActivity extends BaseActivity {
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), PICK_IMAGE_REQUEST);
+            }
+        });
+
+        newTetragonButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawView.newTetragon();
+            }
+        });
+
+        newTriangleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawView.newTriangle();
+            }
+        });
+
+        newCircleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawView.newCircle();
+            }
+        });
+
+        newLineButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                drawView.newLine();
             }
         });
 
@@ -133,6 +174,7 @@ public class CameraActivity extends BaseActivity {
         drawView.setVisibility(VISIBLE);
         drawView.setClickable(true);
         drawView.bringToFront();
+        newMeasureButton.setVisibility(VISIBLE);
     }
 
     @Override
@@ -147,6 +189,8 @@ public class CameraActivity extends BaseActivity {
             drawView.setClickable(false);
             pictureView.setVisibility(GONE);
             pictureView.setImageURI(Uri.EMPTY);
+            newMeasureButton.collapse();
+            newMeasureButton.setVisibility(GONE);
         } else {
             super.onBackPressed();
         }

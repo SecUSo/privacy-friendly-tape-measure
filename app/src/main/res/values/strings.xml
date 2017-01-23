@@ -23,6 +23,10 @@
     <string name="camera_ruler">Camera Ruler</string>
     <string name="camera_crash">Camera App crashed.</string>
     <string name="gallery_crash">Gallery App crashed.</string>
+    <string name="new_tetragon">New Tetragon</string>
+    <string name="new_triangle">New Triangle</string>
+    <string name="new_circle">New Circle</string>
+    <string name="new_line">New Line</string>
 
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Measure</string>
