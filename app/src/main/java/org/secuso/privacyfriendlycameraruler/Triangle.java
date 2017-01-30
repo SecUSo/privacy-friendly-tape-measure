@@ -7,6 +7,12 @@ package org.secuso.privacyfriendlycameraruler;
 public class Triangle extends Polygon {
     public Point[] corners = {new Point(0, 0), new Point(0, 0), new Point(0, 0)};
 
+    public Triangle(Point p0, Point p1, Point p2) {
+        corners[0] = p0;
+        corners[1] = p1;
+        corners[2] = p2;
+    }
+
     public float getArea() {
         // Using the formula of Heron A=sqrt[s*(s-a)*(s-b)*(s-c)]
         // with s=0.5*(a+b+c) where a,b,c are the lengths of the sides.

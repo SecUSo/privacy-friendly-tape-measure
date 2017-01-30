@@ -7,6 +7,11 @@ package org.secuso.privacyfriendlycameraruler;
 public class Line extends Shape {
     public Point[] ends = {new Point(0, 0), new Point(0, 0)};
 
+    public Line(Point start, Point end){
+        ends[0] = start;
+        ends[1] = end;
+    }
+
     public float getLength() {
         return ends[0].dist(ends[1]);
     }

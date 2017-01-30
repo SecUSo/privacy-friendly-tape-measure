@@ -7,6 +7,13 @@ package org.secuso.privacyfriendlycameraruler;
 public class Tetragon extends Polygon {
     public Point[] corners = {new Point(0, 0), new Point(0, 0), new Point(0, 0), new Point(0, 0)};
 
+    public Tetragon(Point p0, Point p1, Point p2, Point p3) {
+        corners[0] = p0;
+        corners[1] = p1;
+        corners[2] = p2;
+        corners[3] = p3;
+    }
+
     public float getArea() {
         double a1 = corners[0].dist(corners[1]);
         double b1 = corners[0].dist(corners[3]);

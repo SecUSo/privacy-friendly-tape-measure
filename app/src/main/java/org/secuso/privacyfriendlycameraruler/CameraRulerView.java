@@ -29,8 +29,9 @@ public class CameraRulerView extends View {
 
         paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
         paint.setAlpha(255);
-        paint.setStrokeWidth(8);
+        paint.setStrokeWidth(12);
         paint.setAntiAlias(true);
+        paint.setStyle(Paint.Style.STROKE);
 
         this.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,20 +69,68 @@ public class CameraRulerView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        if (p1 && p2){
-//            point2[0] += 100;
-//            point2[1] += 100;
-//            canvas.drawLine(point1[0], point1[1], point2[0], point2[1], paint);
-//        }
+        if (measure instanceof Line) {
+            Point[] ends = ((Line) measure).ends;
+            canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
+        } else if (measure instanceof Triangle) {
+            Point[] corners = ((Triangle) measure).corners;
+            float[] points = {corners[0].x, corners[0].y, corners[1].x, corners[1].y,
+                    corners[1].x, corners[1].y, corners[2].x, corners[2].y,
+                    corners[2].x, corners[2].y, corners[0].x, corners[0].y};
+            canvas.drawLines(points, paint);
+        } else if (measure instanceof Tetragon) {
+            Point[] corners = ((Tetragon) measure).corners;
+            float[] points = {corners[0].x, corners[0].y, corners[1].x, corners[1].y,
+                    corners[1].x, corners[1].y, corners[2].x, corners[2].y,
+                    corners[2].x, corners[2].y, corners[3].x, corners[3].y,
+                    corners[3].x, corners[3].y, corners[0].x, corners[0].y};
+            canvas.drawLines(points, paint);
+        } else if (measure instanceof Circle) {
+            Circle circle = (Circle) measure;
+            canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
+        }
     }
 
-    protected void newTetragon(){}
+    protected void newTetragon(){
+        float centreX = this.getWidth()/2;
+        float offsetX = centreX/4;
+        float centreY = this.getHeight()/2;
+        float offsetY = centreY/4;
+        measure = new Tetragon(new Point(centreX-offsetX, centreY-offsetY),
+                new Point(centreX+offsetX, centreY-offsetY),
+                new Point(centreX+offsetX, centreY+offsetY),
+                new Point(centreX-offsetX, centreY+offsetY));
+        this.invalidate();
+    }
 
-    protected void newTriangle(){}
+    protected void newTriangle(){
+        float centreX = this.getWidth()/2;
+        float offsetX = centreX/4;
+        float centreY = this.getHeight()/2;
+        float offsetY = centreY/4;
+        measure = new Triangle(new Point(centreX, centreY-offsetY),
+                new Point(centreX-offsetX, centreY+offsetY),
+                new Point(centreX+offsetX, centreY+offsetY));
+        this.invalidate();
+    }
 
-    protected void newCircle(){}
+    protected void newCircle(){
+        float centreX = this.getWidth()/2;
+        float offsetX = centreX/4;
+        float centreY = this.getHeight()/2;
+        measure = new Circle(new Point(centreX, centreY), offsetX);
+        this.invalidate();
+    }
 
-    protected void newLine(){}
+    protected void newLine(){
+        float centreX = this.getWidth()/2;
+        float offsetX = centreX/4;
+        float centreY = this.getHeight()/2;
+        float offsetY = centreY/4;
+        measure = new Line(new Point(centreX-offsetX, centreY-offsetY),
+                new Point(centreX+offsetX, centreY+offsetY));
+        this.invalidate();
+    }
 
 
 
