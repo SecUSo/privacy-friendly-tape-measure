@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
+import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_UP;
 
 /**
@@ -16,9 +17,11 @@ import static android.view.MotionEvent.ACTION_UP;
 
 public class CameraRulerView extends View {
 
+    public final static float TOUCHPOINT_RADIUS = 150;
+
     Paint paint = new Paint();
     Paint touchPointPaint = new Paint();
-    Shape measure;
+    Shape measure = null;
     Shape reference;
 //    float[] point1 = {0, 0};
 //    float[] point2 = {300, 300};
@@ -49,6 +52,11 @@ public class CameraRulerView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == ACTION_DOWN) {
+            if(clickInTouchpoint(event)) {
+                System.out.println("<<<<<<<<<<<<<<CLICK>>>>>>>>>>>>>>");
+            }
+        }
 //        if (event.getAction() == ACTION_UP){
 //            float x = event.getX();
 //            float y = event.getY();
@@ -109,7 +117,45 @@ public class CameraRulerView extends View {
     }
 
     private void drawTouchPoint(Canvas canvas, Point point) {
-        canvas.drawCircle(point.x, point.y, 50, touchPointPaint);
+        canvas.drawCircle(point.x, point.y, TOUCHPOINT_RADIUS, touchPointPaint);
+    }
+
+    private boolean clickInTouchpoint(MotionEvent event){
+        Point click = new Point(event.getX(), event.getY());
+        boolean result = false;
+
+        if (measure == null) {
+            result = false;
+        } else if (measure instanceof Line) {
+            Point[] ends = ((Line) measure).ends;
+            if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS ||
+                    click.dist(ends[1]) <= TOUCHPOINT_RADIUS) {
+                result = true;
+            }
+        } else if (measure instanceof Tetragon) {
+            Point[] corners = ((Tetragon) measure).corners;
+            if (click.dist(corners[0]) <= TOUCHPOINT_RADIUS ||
+                    click.dist(corners[1]) <= TOUCHPOINT_RADIUS ||
+                    click.dist(corners[2]) <= TOUCHPOINT_RADIUS ||
+                    click.dist(corners[3]) <= TOUCHPOINT_RADIUS) {
+                result = true;
+            }
+        } else if (measure instanceof Triangle) {
+            Point[] corners = ((Triangle) measure).corners;
+            if (click.dist(corners[0]) <= TOUCHPOINT_RADIUS ||
+                    click.dist(corners[1]) <= TOUCHPOINT_RADIUS ||
+                    click.dist(corners[2]) <= TOUCHPOINT_RADIUS) {
+                result = true;
+            }
+        } else if (measure instanceof Circle) {
+            Circle circle = (Circle) measure;
+            if (click.dist(circle.center) <= TOUCHPOINT_RADIUS ||
+                    click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
+                result = true;
+            }
+        } else {result = false;}
+
+        return result;
     }
 
     protected void newTetragon(){

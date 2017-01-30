@@ -14,7 +14,7 @@ public class Circle extends Shape {
     public Circle(Point center, float radius) {
         this.center = center;
         this.radius = radius;
-        radiusTouchPoint = new Point(center.x+radius+50, center.y); //50 = touch point radius
+        radiusTouchPoint = new Point(center.x+radius+CameraRulerView.TOUCHPOINT_RADIUS, center.y);
     }
 
     public float getArea() {
