@@ -118,6 +118,7 @@ public class CameraActivity extends BaseActivity {
         newTetragonButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                newMeasureButton.collapseImmediately();
                 drawView.newTetragon();
             }
         });
@@ -125,6 +126,7 @@ public class CameraActivity extends BaseActivity {
         newTriangleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                newMeasureButton.collapseImmediately();
                 drawView.newTriangle();
             }
         });
@@ -132,6 +134,7 @@ public class CameraActivity extends BaseActivity {
         newCircleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                newMeasureButton.collapseImmediately();
                 drawView.newCircle();
             }
         });
@@ -139,6 +142,7 @@ public class CameraActivity extends BaseActivity {
         newLineButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                newMeasureButton.collapseImmediately();
                 drawView.newLine();
             }
         });
@@ -189,7 +193,7 @@ public class CameraActivity extends BaseActivity {
             drawView.setClickable(false);
             pictureView.setVisibility(GONE);
             pictureView.setImageURI(Uri.EMPTY);
-            newMeasureButton.collapse();
+            newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
         } else {
             super.onBackPressed();

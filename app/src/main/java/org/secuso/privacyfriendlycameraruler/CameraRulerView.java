@@ -17,6 +17,7 @@ import static android.view.MotionEvent.ACTION_UP;
 public class CameraRulerView extends View {
 
     Paint paint = new Paint();
+    Paint touchPointPaint = new Paint();
     Shape measure;
     Shape reference;
 //    float[] point1 = {0, 0};
@@ -32,6 +33,11 @@ public class CameraRulerView extends View {
         paint.setStrokeWidth(12);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
+
+        touchPointPaint.setColor(ContextCompat.getColor(context, R.color.lightblue));
+        touchPointPaint.setAlpha(123);
+        touchPointPaint.setStrokeWidth(8);
+        touchPointPaint.setAntiAlias(true);
 
         this.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,12 +78,17 @@ public class CameraRulerView extends View {
         if (measure instanceof Line) {
             Point[] ends = ((Line) measure).ends;
             canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
+            drawTouchPoint(canvas, ends[0]);
+            drawTouchPoint(canvas, ends[1]);
         } else if (measure instanceof Triangle) {
             Point[] corners = ((Triangle) measure).corners;
             float[] points = {corners[0].x, corners[0].y, corners[1].x, corners[1].y,
                     corners[1].x, corners[1].y, corners[2].x, corners[2].y,
                     corners[2].x, corners[2].y, corners[0].x, corners[0].y};
             canvas.drawLines(points, paint);
+            drawTouchPoint(canvas, corners[0]);
+            drawTouchPoint(canvas, corners[1]);
+            drawTouchPoint(canvas, corners[2]);
         } else if (measure instanceof Tetragon) {
             Point[] corners = ((Tetragon) measure).corners;
             float[] points = {corners[0].x, corners[0].y, corners[1].x, corners[1].y,
@@ -85,10 +96,20 @@ public class CameraRulerView extends View {
                     corners[2].x, corners[2].y, corners[3].x, corners[3].y,
                     corners[3].x, corners[3].y, corners[0].x, corners[0].y};
             canvas.drawLines(points, paint);
+            drawTouchPoint(canvas, corners[0]);
+            drawTouchPoint(canvas, corners[1]);
+            drawTouchPoint(canvas, corners[2]);
+            drawTouchPoint(canvas, corners[3]);
         } else if (measure instanceof Circle) {
             Circle circle = (Circle) measure;
             canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
+            drawTouchPoint(canvas, circle.center);
+            drawTouchPoint(canvas, circle.radiusTouchPoint);
         }
+    }
+
+    private void drawTouchPoint(Canvas canvas, Point point) {
+        canvas.drawCircle(point.x, point.y, 50, touchPointPaint);
     }
 
     protected void newTetragon(){
