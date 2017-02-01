@@ -28,4 +28,9 @@ public class Triangle extends Polygon {
 
         return (float) (0.25 * Math.sqrt((a+(b+c))*(c-(a-b))*(c+(a-b))*(a+(b-c))));
     }
+
+    @Override
+    public boolean isSelfIntersecting() {
+        return false; //a triangle can't self-intersect
+    }
 }
