@@ -8,8 +8,19 @@ public abstract class Polygon extends Shape {
 
     public Point[] corners;
 
+    /**
+     * Computes the area of the polygon.
+     * @return The polygon's area.
+     */
     public abstract float getArea();
 
+    /**
+     * Sorts an array of three doubles from biggest to smallest.
+     * @param a a double
+     * @param b another double
+     * @param c yet another double
+     * @return Array sorted in descending order.
+     */
     protected double[] sort3(double a, double b, double c) {
         double[] res = new double[3];
         if (a < b) {
@@ -36,12 +47,16 @@ public abstract class Polygon extends Shape {
         return res;
     }
 
+    /**
+     * Tests if a polygon self-intersects (at least two of its sides intersect).
+     * @return true if the figure self-intersects.
+     */
     public boolean isSelfIntersecting() {
         boolean result = false;
         int length = corners.length;
         Line[] sides = new Line[length];
         for (int i = 0; i < length; i++) {
-            sides[i] = new Line(corners[i], corners[i % length]);
+            sides[i] = new Line(corners[i], corners[(i+1)%length]);
         }
 
         int i = 0;
@@ -50,7 +65,8 @@ public abstract class Polygon extends Shape {
             while (j < length && !result) {
                 if (i != j) {
                     Point intersection = sides[i].intersects(sides[j]);
-                    if (intersection != null && sides[i].contains(intersection)){result = true;}
+                    if (intersection != null && sides[i].contains(intersection) &&
+                            sides[j].contains(intersection)){result = true;}
                 }
                 j++;
             }

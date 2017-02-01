@@ -19,6 +19,10 @@ public class Circle extends Shape {
         radiusTouchPoint = new Point(center.x+radius+TOUCHPOINT_RADIUS, center.y);
     }
 
+    /**
+     * Computes the area of the circle.
+     * @return The circle's area.
+     */
     public float getArea() {
         return (float) (Math.PI * Math.pow(radius, 2));
     }

@@ -4,14 +4,12 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.v4.content.ContextCompat;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
-import static android.view.MotionEvent.ACTION_POINTER_DOWN;
 import static android.view.MotionEvent.ACTION_UP;
 
 /**
@@ -23,6 +21,7 @@ public class CameraRulerView extends View {
     public final static float TOUCHPOINT_RADIUS = 120;
 
     Paint paint = new Paint();
+    Paint warningPaint = new Paint();
     Paint touchPointPaint = new Paint();
     Shape measure = null;
     Shape reference;
@@ -36,6 +35,12 @@ public class CameraRulerView extends View {
         paint.setStrokeWidth(12);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
+
+        warningPaint.setColor(ContextCompat.getColor(context, R.color.red));
+        warningPaint.setAlpha(255);
+        warningPaint.setStrokeWidth(12);
+        warningPaint.setAntiAlias(true);
+        warningPaint.setStyle(Paint.Style.STROKE);
 
         touchPointPaint.setColor(ContextCompat.getColor(context, R.color.lightblue));
         touchPointPaint.setAlpha(123);
@@ -102,31 +107,33 @@ public class CameraRulerView extends View {
             canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
             drawTouchPoint(canvas, ends[0]);
             drawTouchPoint(canvas, ends[1]);
-        } else if (measure instanceof Triangle) {
-            Point[] corners = ((Triangle) measure).corners;
-            float[] points = {corners[0].x, corners[0].y, corners[1].x, corners[1].y,
-                    corners[1].x, corners[1].y, corners[2].x, corners[2].y,
-                    corners[2].x, corners[2].y, corners[0].x, corners[0].y};
-            canvas.drawLines(points, paint);
-            drawTouchPoint(canvas, corners[0]);
-            drawTouchPoint(canvas, corners[1]);
-            drawTouchPoint(canvas, corners[2]);
-        } else if (measure instanceof Tetragon) {
-            Point[] corners = ((Tetragon) measure).corners;
-            float[] points = {corners[0].x, corners[0].y, corners[1].x, corners[1].y,
-                    corners[1].x, corners[1].y, corners[2].x, corners[2].y,
-                    corners[2].x, corners[2].y, corners[3].x, corners[3].y,
-                    corners[3].x, corners[3].y, corners[0].x, corners[0].y};
-            canvas.drawLines(points, paint);
-            drawTouchPoint(canvas, corners[0]);
-            drawTouchPoint(canvas, corners[1]);
-            drawTouchPoint(canvas, corners[2]);
-            drawTouchPoint(canvas, corners[3]);
+            //TODO: Display length.
+        } else if (measure instanceof Polygon) {
+            Point[] corners = ((Polygon) measure).corners;
+            int length = corners.length;
+            float[] points = new float[length*4];
+            for (int i = 0; i < length; i++){
+                points[i*4] = corners[i].x;
+                points[i*4+1] = corners[i].y;
+                points[i*4+2] = corners[(i+1)%length].x;
+                points[i*4+3] = corners[(i+1)%length].y;
+            }
+//            if (((Polygon) measure).isSelfIntersecting()) {
+//                canvas.drawLines(points, warningPaint);
+//                //TODO: Display warning of uncomputable area.
+//            } else {
+                canvas.drawLines(points, paint);
+                //TODO: Display area.
+//            }
+            for (int i = 0; i < length; i++) {
+                drawTouchPoint(canvas, corners[i]);
+            }
         } else if (measure instanceof Circle) {
             Circle circle = (Circle) measure;
             canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
             drawTouchPoint(canvas, circle.center);
             drawTouchPoint(canvas, circle.radiusTouchPoint);
+            //TODO: Display area.
         }
     }
 
