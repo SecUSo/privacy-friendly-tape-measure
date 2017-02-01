@@ -1,5 +1,7 @@
 package org.secuso.privacyfriendlycameraruler;
 
+import static org.secuso.privacyfriendlycameraruler.CameraRulerView.TOUCHPOINT_RADIUS;
+
 /**
  * Created by roberts on 23.01.17.
  */
@@ -14,7 +16,7 @@ public class Circle extends Shape {
     public Circle(Point center, float radius) {
         this.center = center;
         this.radius = radius;
-        radiusTouchPoint = new Point(center.x+radius+CameraRulerView.TOUCHPOINT_RADIUS, center.y);
+        radiusTouchPoint = new Point(center.x+radius+TOUCHPOINT_RADIUS, center.y);
     }
 
     public float getArea() {

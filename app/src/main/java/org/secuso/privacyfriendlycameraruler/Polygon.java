@@ -6,9 +6,11 @@ package org.secuso.privacyfriendlycameraruler;
 
 public abstract class Polygon extends Shape {
 
+    public Point[] corners;
+
     public abstract float getArea();
 
-    protected double[] sort3(double a, double b, double c){
+    protected double[] sort3(double a, double b, double c) {
         double[] res = new double[3];
         if (a < b) {
             if (a < c) {
@@ -32,5 +34,29 @@ public abstract class Polygon extends Shape {
             }
         }
         return res;
+    }
+
+    public boolean isSelfIntersecting() {
+        boolean result = false;
+        int length = corners.length;
+        Line[] sides = new Line[length];
+        for (int i = 0; i < length; i++) {
+            sides[i] = new Line(corners[i], corners[i % length]);
+        }
+
+        int i = 0;
+        int j = 0;
+        while (i < length && !result) {
+            while (j < length && !result) {
+                if (i != j) {
+                    Point intersection = sides[i].intersects(sides[j]);
+                    if (intersection != null && sides[i].contains(intersection)){result = true;}
+                }
+                j++;
+            }
+            i++;
+        }
+
+        return result;
     }
 }
