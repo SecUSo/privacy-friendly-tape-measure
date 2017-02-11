@@ -18,7 +18,7 @@ public class Tetragon extends Polygon {
         double a1 = corners[0].dist(corners[1]);
         double b1 = corners[0].dist(corners[3]);
         double c = corners[3].dist(corners[1]);
-        double a2 = corners[1].dist(corners[1]);
+        double a2 = corners[1].dist(corners[2]);
         double b2 = corners[2].dist(corners[3]);
 
         double[] lengths1 = sort3(a1, b1, c);

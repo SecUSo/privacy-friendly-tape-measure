@@ -27,8 +27,8 @@ public class Line extends Shape {
         float m2 = other.gradient();
         float b1 = this.ends[0].y - this.ends[0].x * m1;
         float b2 = other.ends[0].y - other.ends[0].x * m2;
-        if (m1 != m2) {
-            float intersectX = (b2 - b1) / (m1 - m2);
+        if (Math.abs(m1) != Math.abs(m2)) {
+            float intersectX = (b2 - b1)/(m1 - m2);
             float intersectY = intersectX * m1 + b1;
             return new Point(intersectX, intersectY);
         } else {
@@ -45,11 +45,7 @@ public class Line extends Shape {
     public boolean contains(Point p) {
         float x0 = ends[0].x;
         float x1 = ends[1].x;
-//        float y0 = ends[0].y;
-//        float y1 = ends[1].y;
-        boolean xInRange = (p.x > Math.min(x0, x1)) && (p.x < Math.max(x0, x1));
-//        boolean yInRange = (p.y >= Math.min(y0, y1)) && (p.y <= Math.max(y0, y1));
-//        return xInRange && yInRange;
+        boolean xInRange = (p.x > Math.min(x0, x1)+0.01) && (p.x < Math.max(x0, x1)-0.01);
         return xInRange;
     }
 
@@ -60,9 +56,9 @@ public class Line extends Shape {
      */
     private float gradient() {
         if (ends[1].x < ends[0].x) {
-            return (ends[0].y - ends[1].y) / ends[0].x - ends[1].x;
+            return (ends[0].y - ends[1].y)/(ends[0].x - ends[1].x);
         } else {
-            return (ends[1].y - ends[0].y) / Math.abs(ends[1].x - ends[0].x);
+            return (ends[1].y - ends[0].y)/(ends[1].x - ends[0].x);
         }
     }
 }

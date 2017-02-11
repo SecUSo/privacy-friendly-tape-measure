@@ -3,9 +3,12 @@ package org.secuso.privacyfriendlycameraruler;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.support.v4.content.ContextCompat;
+import android.text.Editable;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
@@ -20,15 +23,18 @@ public class CameraRulerView extends View {
 
     public final static float TOUCHPOINT_RADIUS = 120;
 
-    Paint paint = new Paint();
-    Paint warningPaint = new Paint();
-    Paint touchPointPaint = new Paint();
-    Shape measure = null;
-    Shape reference;
-    int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
+    private TextView output;
+    private Paint paint = new Paint();
+    private Paint warningPaint = new Paint();
+    private Paint touchPointPaint = new Paint();
+    private Shape measure = null;
+    private Shape reference;
+    private int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
-    public CameraRulerView(Context context) {
+    public CameraRulerView(Context context, TextView tw) {
         super(context);
+
+        output = tw;
 
         paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
         paint.setAlpha(255);
@@ -46,13 +52,6 @@ public class CameraRulerView extends View {
         touchPointPaint.setAlpha(123);
         touchPointPaint.setStrokeWidth(8);
         touchPointPaint.setAntiAlias(true);
-
-//        this.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                System.out.println("<<<<<<<<<<<<<<CLICK>>>>>>>>>>>>>>");
-//            }
-//        });
     }
 
     @Override
@@ -107,7 +106,7 @@ public class CameraRulerView extends View {
             canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
             drawTouchPoint(canvas, ends[0]);
             drawTouchPoint(canvas, ends[1]);
-            //TODO: Display length.
+            output.setText("Length: " + ((Line) measure).getLength() + "px");
         } else if (measure instanceof Polygon) {
             Point[] corners = ((Polygon) measure).corners;
             int length = corners.length;
@@ -118,13 +117,15 @@ public class CameraRulerView extends View {
                 points[i*4+2] = corners[(i+1)%length].x;
                 points[i*4+3] = corners[(i+1)%length].y;
             }
-//            if (((Polygon) measure).isSelfIntersecting()) {
-//                canvas.drawLines(points, warningPaint);
-//                //TODO: Display warning of uncomputable area.
-//            } else {
+
+            if (((Polygon) measure).isSelfIntersecting()) {
+                canvas.drawLines(points, warningPaint);
+                output.setText("Can't compute area of self-intersecting polygon.");
+            } else {
                 canvas.drawLines(points, paint);
-                //TODO: Display area.
-//            }
+                output.setText("Area: " + ((Polygon) measure).getArea() + "px^2");
+            }
+
             for (int i = 0; i < length; i++) {
                 drawTouchPoint(canvas, corners[i]);
             }
@@ -133,7 +134,7 @@ public class CameraRulerView extends View {
             canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
             drawTouchPoint(canvas, circle.center);
             drawTouchPoint(canvas, circle.radiusTouchPoint);
-            //TODO: Display area.
+            output.setText("Area: " + circle.getArea() + "px^2");
         }
     }
 

@@ -59,18 +59,16 @@ public abstract class Polygon extends Shape {
             sides[i] = new Line(corners[i], corners[(i+1)%length]);
         }
 
-        int i = 0;
-        int j = 0;
-        while (i < length && !result) {
-            while (j < length && !result) {
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
                 if (i != j) {
-                    Point intersection = sides[i].intersects(sides[j]);
-                    if (intersection != null && sides[i].contains(intersection) &&
-                            sides[j].contains(intersection)){result = true;}
+                    Line l1 = sides[i];
+                    Line l2 = sides[j];
+                    Point intersection = l1.intersects(l2);
+                    if (intersection != null && l1.contains(intersection) &&
+                            l2.contains(intersection)){result = true;}
                 }
-                j++;
             }
-            i++;
         }
 
         return result;

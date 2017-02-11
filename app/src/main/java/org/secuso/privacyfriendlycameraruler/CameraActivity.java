@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.view.View.GONE;
@@ -44,6 +45,7 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton newTriangleButton;
     private FloatingActionButton newCircleButton;
     private FloatingActionButton newLineButton;
+    private TextView output;
     Uri uri;
 
     DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -76,6 +78,7 @@ public class CameraActivity extends BaseActivity {
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
+        output = (TextView) findViewById(R.id.output_tf);
 
         newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
         newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
@@ -83,7 +86,7 @@ public class CameraActivity extends BaseActivity {
         newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
         newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
 
-        drawView = new CameraRulerView(getBaseContext());
+        drawView = new CameraRulerView(getBaseContext(), output);
         drawView.setVisibility(GONE);
         RelativeLayout cl = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
         cl.addView(drawView);
@@ -179,6 +182,7 @@ public class CameraActivity extends BaseActivity {
         drawView.setClickable(true);
         drawView.bringToFront();
         newMeasureButton.setVisibility(VISIBLE);
+        output.setVisibility(VISIBLE);
     }
 
     @Override
@@ -195,6 +199,7 @@ public class CameraActivity extends BaseActivity {
             pictureView.setImageURI(Uri.EMPTY);
             newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
+            output.setVisibility(GONE);
         } else {
             super.onBackPressed();
         }
