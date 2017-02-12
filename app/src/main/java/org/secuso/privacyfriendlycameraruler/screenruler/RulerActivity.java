@@ -2,6 +2,7 @@ package org.secuso.privacyfriendlycameraruler.screenruler;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
@@ -18,12 +19,15 @@ import org.secuso.privacyfriendlycameraruler.R;
  */
 public class RulerActivity extends BaseActivity {
 
+    private SharedPreferences mSharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ruler);
 
-        mSharedPreferences.edit().putString("lastMode", "ruler").commit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        prefManager.putLastMode("ruler");
 
         RelativeLayout rulerLayout = (RelativeLayout) findViewById(R.id.ruler_content);
         DisplayMetrics displayMetrics = new DisplayMetrics();

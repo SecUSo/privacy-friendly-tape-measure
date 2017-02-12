@@ -77,7 +77,7 @@ public class CameraActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
-        mSharedPreferences.edit().putString("lastMode", "camera").commit();
+        prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);

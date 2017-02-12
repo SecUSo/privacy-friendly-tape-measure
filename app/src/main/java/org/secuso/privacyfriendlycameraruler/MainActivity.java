@@ -1,34 +1,29 @@
 package org.secuso.privacyfriendlycameraruler;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 
 import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
+import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
+import org.secuso.privacyfriendlycameraruler.tutorial.DisclaimerDialog;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences prefs;
+    private PrefManager prefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        prefManager = new PrefManager(this);
 
-        prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        if (!prefs.contains("lastMode")) {
-            prefs.edit().putString("lastMode", "camera").commit();
-
-            WelcomeDialog welcomeDialog = new WelcomeDialog();
-            welcomeDialog.show(this.getSupportFragmentManager(), "WelcomeDialog");
-
-            Intent intent = new Intent();
-            intent.setClass(getBaseContext(), CameraActivity.class);
-            startActivityForResult(intent, 0);
-            finish();
+        if (prefManager.isFirstTimeLaunch()) {
+            FragmentManager fm = getSupportFragmentManager();
+            DisclaimerDialog disclaimerDialog = new DisclaimerDialog();
+            disclaimerDialog.show(fm, "DisclaimerDialog");
         } else {
             startLastMode();
         }
@@ -37,11 +32,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        startLastMode();
+        if (!prefManager.isFirstTimeLaunch()) {
+            startLastMode();
+        }
     }
 
     private void startLastMode() {
-        String lastMode = prefs.getString("lastMode", "camera");
+        String lastMode = prefManager.getLastMode();
+        System.out.println(lastMode);
         Intent intent = new Intent();
 
         if (lastMode.equals("ruler")) {

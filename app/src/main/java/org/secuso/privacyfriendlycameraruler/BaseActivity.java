@@ -20,6 +20,7 @@ import android.view.View;
 
 import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
+import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
 
 /**
  * Created by Chris on 04.07.2016.
@@ -39,13 +40,13 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
 
     // Helper
     private Handler mHandler;
-    protected SharedPreferences mSharedPreferences;
+    protected PrefManager prefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        prefManager = new PrefManager(this);
         mHandler = new Handler();
 
         overridePendingTransition(0, 0);

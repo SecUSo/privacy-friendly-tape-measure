@@ -3,12 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_aabe2752f85835c49ed5389b90b19d39b79ce4cf/classes.dex" />
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_8fc27b6bf072d7fa4fedb526619fbfe3806d40b4/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,15 +18,6 @@
         revision="23.0.3"
         sha1="f40cf334cdc8b098b74312e21c7741c6eefbeb0e">
         <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.getbase-floatingactionbutton-1.10.1_026c34fe3e7412e9de4512f5e23710d68e9e4029/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_8fc27b6bf072d7fa4fedb526619fbfe3806d40b4/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,33 +39,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_87478030fccd6b381f16692e3cd2ceff56929913/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="76cc934ebf8173cc4a5c0b589217f371f682da90">
-        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_dc8c92e0fb871bd56026a7510afad24e9bae4412/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_fb7337e6333a3085c6a2e16bdc4f90d319e9bff6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/home/roberts/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.4.0/support-annotations-23.4.0.jar"
         jumboMode="true"
         optimize="true"
@@ -93,11 +57,47 @@
     </item>
     <item
         is-multidex="true"
+        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_aabe2752f85835c49ed5389b90b19d39b79ce4cf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_87478030fccd6b381f16692e3cd2ceff56929913/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f65a26952d1b44524aa46b7ee3e9f49e81ff8fb6">
+        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_dc8c92e0fb871bd56026a7510afad24e9bae4412/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.4.0/jars/libs/internal_impl-23.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.4.0_fb7337e6333a3085c6a2e16bdc4f90d319e9bff6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="23.0.3"
-        sha1="e988b8bb88de6b24bf6b4cd6cb70d8d21ad680c6">
+        sha1="4e4850ae37b1321782242caaadf97793f58fb0c0">
         <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2bf7499ac11c994d44235c3d539d05e35f37f474/classes.dex" />
     </item>
 

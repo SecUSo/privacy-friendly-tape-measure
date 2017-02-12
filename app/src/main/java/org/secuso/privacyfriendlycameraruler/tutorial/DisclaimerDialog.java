@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.tutorial;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -12,10 +12,14 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.Toast;
 
-public class WelcomeDialog extends DialogFragment {
+import org.secuso.privacyfriendlycameraruler.HelpActivity;
+import org.secuso.privacyfriendlycameraruler.R;
+import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 
-    boolean closeDialog = false;
+public class DisclaimerDialog extends DialogFragment {
+
     Activity activity;
+    private PrefManager prefManager;
 
     @Override
     public void onAttach(Activity activity) {
@@ -26,13 +30,14 @@ public class WelcomeDialog extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
+        prefManager = new PrefManager(getContext());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        View rootView = inflater.inflate(R.layout.welcome_dialog, null);
+        View rootView = inflater.inflate(R.layout.disclaimer_dialog, null);
         builder.setView(rootView);
 
         builder.setIcon(R.mipmap.icon_drawer);
-        builder.setTitle(getActivity().getString(R.string.welcome));
+        builder.setTitle(getActivity().getString(R.string.disclaimer_dialog_title));
 
         final View rootViewFinal = rootView;
 
@@ -46,6 +51,9 @@ public class WelcomeDialog extends DialogFragment {
                 if (!readCheckBox.isChecked()) {
                     Toast.makeText(activity.getBaseContext(), getString(R.string.disclaimer_check_toast), Toast.LENGTH_LONG).show();
                 } else {
+                    prefManager.setFirstTimeLaunch(false);
+                    startActivity(new Intent(getActivity().getBaseContext(), CameraActivity.class));
+                    getActivity().finish();
                     dismiss();
                 }
             }
@@ -58,8 +66,8 @@ public class WelcomeDialog extends DialogFragment {
                 if (!readCheckBox.isChecked()) {
                     Toast.makeText(activity.getBaseContext(), getString(R.string.disclaimer_check_toast), Toast.LENGTH_LONG).show();
                 } else {
-                    Intent i = new Intent(getActivity(), HelpActivity.class);
-                    getActivity().startActivity(i);
+                    prefManager.setFirstTimeLaunch(false);
+                    startActivity(new Intent(getActivity().getBaseContext(), HelpActivity.class));
                     dismiss();
                 }
             }
