@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.screenruler;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
+
+import org.secuso.privacyfriendlycameraruler.R;
 
 /**
  * Created by roberts on 02.06.16.

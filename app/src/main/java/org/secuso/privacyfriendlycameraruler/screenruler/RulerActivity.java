@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.screenruler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,6 +9,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import org.secuso.privacyfriendlycameraruler.BaseActivity;
+import org.secuso.privacyfriendlycameraruler.R;
 
 /**
  * Created by roberts on 02.06.16.

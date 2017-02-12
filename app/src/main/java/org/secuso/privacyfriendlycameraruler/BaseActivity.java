@@ -18,6 +18,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 
+import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
+import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
+
 /**
  * Created by Chris on 04.07.2016.
  */

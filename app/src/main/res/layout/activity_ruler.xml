@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context="org.secuso.privacyfriendlycameraruler.RulerActivity">
+        tools:context="org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity">
 
         <include layout="@layout/toolbar" />
 
@@ -25,7 +25,7 @@
             android:fitsSystemWindows="true"
             android:orientation="vertical"
             android:weightSum="1"
-            tools:context=".RulerActivity">
+            tools:context=".screenruler.RulerActivity">
 
         </RelativeLayout>
 

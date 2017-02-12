@@ -1,27 +1,24 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.cameraruler;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Matrix;
-import android.graphics.Paint;
 import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.CoordinatorLayout;
+
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.secuso.privacyfriendlycameraruler.BaseActivity;
+import org.secuso.privacyfriendlycameraruler.R;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;

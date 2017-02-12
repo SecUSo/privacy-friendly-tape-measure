@@ -1,6 +1,6 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.cameraruler;
 
-import static org.secuso.privacyfriendlycameraruler.CameraRulerView.TOUCHPOINT_RADIUS;
+import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.TOUCHPOINT_RADIUS;
 
 /**
  * Created by roberts on 23.01.17.

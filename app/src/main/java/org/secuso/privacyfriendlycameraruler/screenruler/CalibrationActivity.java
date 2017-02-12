@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.screenruler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import org.secuso.privacyfriendlycameraruler.R;
 
 /**
  * Created by yonjuni on 25.08.15.

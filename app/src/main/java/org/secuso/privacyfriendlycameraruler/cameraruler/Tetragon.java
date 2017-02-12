@@ -1,4 +1,4 @@
-package org.secuso.privacyfriendlycameraruler;
+package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 /**
  * Created by roberts on 23.01.17.

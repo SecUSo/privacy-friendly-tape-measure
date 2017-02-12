@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
+import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
+import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences prefs;

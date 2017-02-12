@@ -20,25 +20,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.secuso.privacyfriendlycameraruler.RulerActivity"
+            android:name="org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity"
             android:label="@string/screen_ruler"
-            android:parentActivityName="org.secuso.privacyfriendlycameraruler.RulerActivity"
+            android:parentActivityName="org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTop">
         </activity>
         <activity
-            android:name="org.secuso.privacyfriendlycameraruler.CameraActivity"
+            android:name="org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity"
             android:label="@string/camera_ruler"
-            android:parentActivityName="org.secuso.privacyfriendlycameraruler.CameraActivity"
+            android:parentActivityName="org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:launchMode="singleTop">
         </activity>
         <activity
-            android:name=".CalibrationActivity"
+            android:name=".screenruler.CalibrationActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".RulerActivity">
+            android:parentActivityName=".screenruler.RulerActivity">
         </activity>
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.AboutActivity"
