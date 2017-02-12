@@ -1,11 +1,13 @@
 # Built application files
 /*/build/
+build/
 
 # Crashlytics configuations
 com_crashlytics_export_strings.xml
 
 # Local configuration file (sdk path, etc)
 local.properties
+.gitignore~
 
 # Gradle generated files
 .gradle/
@@ -14,6 +16,7 @@ local.properties
 .signing/
 
 # User-specific configurations
+.idea/
 .idea/libraries/
 .idea/workspace.xml
 .idea/tasks.xml

@@ -19,8 +19,8 @@ Target SDK: 23
 
 ## License
 
-Privacy Friendly App Example is licensed under the GPLv3.
-Copyright (C) 2016  Karola Marky
+Privacy Friendly Camera Ruler is licensed under the GPLv3.
+Copyright (C) 2016 Roberts Kolosovs
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
