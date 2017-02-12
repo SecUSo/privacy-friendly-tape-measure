@@ -3,9 +3,7 @@ package org.secuso.privacyfriendlycameraruler;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.support.v4.content.ContextCompat;
-import android.text.Editable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -24,25 +22,32 @@ public class CameraRulerView extends View {
     public final static float TOUCHPOINT_RADIUS = 120;
 
     private TextView output;
-    private CameraActivity.Status ctxStatus;
+    CameraActivity.Status ctxStatus;
     private Paint paint = new Paint();
+    private Paint referencePaint = new Paint();
     private Paint warningPaint = new Paint();
     private Paint touchPointPaint = new Paint();
+    private Paint referenceTouchPointPaint = new Paint();
     Shape measure = null;
     Shape reference = null;
     private int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
-    public CameraRulerView(Context context, TextView tw, CameraActivity.Status st) {
+    public CameraRulerView(Context context, TextView tw) {
         super(context);
 
         output = tw;
-        ctxStatus = st;
 
         paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
         paint.setAlpha(255);
         paint.setStrokeWidth(12);
         paint.setAntiAlias(true);
         paint.setStyle(Paint.Style.STROKE);
+
+        referencePaint.setColor(ContextCompat.getColor(context, R.color.green));
+        referencePaint.setAlpha(255);
+        referencePaint.setStrokeWidth(12);
+        referencePaint.setAntiAlias(true);
+        referencePaint.setStyle(Paint.Style.STROKE);
 
         warningPaint.setColor(ContextCompat.getColor(context, R.color.red));
         warningPaint.setAlpha(255);
@@ -54,6 +59,11 @@ public class CameraRulerView extends View {
         touchPointPaint.setAlpha(123);
         touchPointPaint.setStrokeWidth(8);
         touchPointPaint.setAntiAlias(true);
+
+        referenceTouchPointPaint.setColor(ContextCompat.getColor(context, R.color.green));
+        referenceTouchPointPaint.setAlpha(123);
+        referenceTouchPointPaint.setStrokeWidth(8);
+        referenceTouchPointPaint.setAntiAlias(true);
     }
 
     @Override
@@ -63,7 +73,28 @@ public class CameraRulerView extends View {
         } else if (event.getAction() == ACTION_UP || event.getAction() == ACTION_CANCEL) {
             activeTouchpoint = -1;
         } else if (event.getAction() == ACTION_MOVE && activeTouchpoint >= 0) {
-            if (measure instanceof Line) {
+            if (ctxStatus == CameraActivity.Status.REFERENCE) {
+                Circle circle = (Circle) reference;
+                switch (activeTouchpoint) {
+                    case 0:
+                        Point center = circle.center;
+                        float oldCenterX = center.x;
+                        float oldCenterY = center.y;
+                        center.x = event.getX();
+                        center.y = event.getY();
+                        circle.radiusTouchPoint.x = circle.radiusTouchPoint.x + (center.x - oldCenterX);
+                        circle.radiusTouchPoint.y = circle.radiusTouchPoint.y + (center.y - oldCenterY);
+                        break;
+                    case 1:
+                        Point radiusTouchpoint = circle.radiusTouchPoint;
+                        radiusTouchpoint.x = event.getX();
+                        radiusTouchpoint.y = event.getY();
+                        circle.radius = radiusTouchpoint.dist(circle.center) - TOUCHPOINT_RADIUS;
+                        break;
+                    default:
+                        break;
+                }
+            } else if (measure instanceof Line) {
                 Point end = ((Line) measure).ends[activeTouchpoint];
                 end.x = event.getX();
                 end.y = event.getY();
@@ -102,49 +133,55 @@ public class CameraRulerView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        System.out.println("STATUS: "+ctxStatus);
+        Circle refCircle = (Circle) reference;
+        canvas.drawCircle(refCircle.center.x, refCircle.center.y, refCircle.radius, referencePaint);
 
         if (ctxStatus == CameraActivity.Status.REFERENCE) {
-            //TODO: draw the reference shape
-            //draw nothing
-        } else if (measure instanceof Line) {
-            Point[] ends = ((Line) measure).ends;
-            canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
-            drawTouchPoint(canvas, ends[0]);
-            drawTouchPoint(canvas, ends[1]);
-            output.setText(getResources().getString(R.string.length) + ((Line) measure).getLength() + "px");
-        } else if (measure instanceof Polygon) {
-            Point[] corners = ((Polygon) measure).corners;
-            int length = corners.length;
-            float[] points = new float[length*4];
-            for (int i = 0; i < length; i++){
-                points[i*4] = corners[i].x;
-                points[i*4+1] = corners[i].y;
-                points[i*4+2] = corners[(i+1)%length].x;
-                points[i*4+3] = corners[(i+1)%length].y;
-            }
+            drawTouchPoint(canvas, refCircle.center, referenceTouchPointPaint);
+            drawTouchPoint(canvas, refCircle.radiusTouchPoint, referenceTouchPointPaint);
+        } else {
+            if (measure == null) {//draw nothing
+            } else if (measure instanceof Line) {
+                Point[] ends = ((Line) measure).ends;
+                canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
+                drawTouchPoint(canvas, ends[0], touchPointPaint);
+                drawTouchPoint(canvas, ends[1], touchPointPaint);
+                output.setText(getResources().getString(R.string.length) + ((Line) measure).getLength() + "px");
+            } else if (measure instanceof Polygon) {
+                Point[] corners = ((Polygon) measure).corners;
+                int length = corners.length;
+                float[] points = new float[length * 4];
+                for (int i = 0; i < length; i++) {
+                    points[i * 4] = corners[i].x;
+                    points[i * 4 + 1] = corners[i].y;
+                    points[i * 4 + 2] = corners[(i + 1) % length].x;
+                    points[i * 4 + 3] = corners[(i + 1) % length].y;
+                }
 
-            if (((Polygon) measure).isSelfIntersecting()) {
-                canvas.drawLines(points, warningPaint);
-                output.setText(R.string.self_intersection_warning);
-            } else {
-                canvas.drawLines(points, paint);
-                output.setText(getResources().getString(R.string.area) + ((Polygon) measure).getArea() + "px^2");
-            }
+                if (((Polygon) measure).isSelfIntersecting()) {
+                    canvas.drawLines(points, warningPaint);
+                    output.setText(R.string.self_intersection_warning);
+                } else {
+                    canvas.drawLines(points, paint);
+                    output.setText(getResources().getString(R.string.area) + ((Polygon) measure).getArea() + "px^2");
+                }
 
-            for (int i = 0; i < length; i++) {
-                drawTouchPoint(canvas, corners[i]);
+                for (int i = 0; i < length; i++) {
+                    drawTouchPoint(canvas, corners[i], touchPointPaint);
+                }
+            } else if (measure instanceof Circle) {
+                Circle circle = (Circle) measure;
+                canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
+                drawTouchPoint(canvas, circle.center, touchPointPaint);
+                drawTouchPoint(canvas, circle.radiusTouchPoint, touchPointPaint);
+                output.setText(getResources().getString(R.string.area) + circle.getArea() + "px^2");
             }
-        } else if (measure instanceof Circle) {
-            Circle circle = (Circle) measure;
-            canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
-            drawTouchPoint(canvas, circle.center);
-            drawTouchPoint(canvas, circle.radiusTouchPoint);
-            output.setText(getResources().getString(R.string.area) + circle.getArea() + "px^2");
         }
     }
 
-    private void drawTouchPoint(Canvas canvas, Point point) {
-        canvas.drawCircle(point.x, point.y, TOUCHPOINT_RADIUS, touchPointPaint);
+    private void drawTouchPoint(Canvas canvas, Point point, Paint p) {
+        canvas.drawCircle(point.x, point.y, TOUCHPOINT_RADIUS, p);
     }
 
     private boolean clickInTouchpoint(MotionEvent event) {
@@ -152,8 +189,17 @@ public class CameraRulerView extends View {
         Point click = new Point(event.getX(pc), event.getY(pc));
         boolean result = false;
 
-        if (measure == null) {
-            result = false;
+        if (ctxStatus == CameraActivity.Status.REFERENCE) {
+            Circle circle = (Circle) reference;
+            if (click.dist(circle.center) <= TOUCHPOINT_RADIUS) {
+                activeTouchpoint = 0;
+                result = true;
+            } else if (click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
+                activeTouchpoint = 1;
+                result = true;
+            }
+        } else if (measure == null) {
+            return false;
         } else if (measure instanceof Line) {
             Point[] ends = ((Line) measure).ends;
             if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS) {

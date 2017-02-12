@@ -55,6 +55,7 @@ public class Line extends Shape {
      * @return The gradient of the line.
      */
     private float gradient() {
+        //TODO: check x0 == x1
         if (ends[1].x < ends[0].x) {
             return (ends[0].y - ends[1].y)/(ends[0].x - ends[1].x);
         } else {

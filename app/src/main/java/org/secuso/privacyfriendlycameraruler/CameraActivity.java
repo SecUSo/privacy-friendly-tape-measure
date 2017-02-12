@@ -95,7 +95,8 @@ public class CameraActivity extends BaseActivity {
         newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
         newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
 
-        drawView = new CameraRulerView(getBaseContext(), output, status);
+        drawView = new CameraRulerView(getBaseContext(), output);
+        drawView.ctxStatus = status;
         drawView.setVisibility(GONE);
         RelativeLayout cl = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
         cl.addView(drawView);
@@ -188,6 +189,7 @@ public class CameraActivity extends BaseActivity {
 
     public void startImageFragment(Uri uri) {
         status = Status.REFERENCE;
+        drawView.ctxStatus = status;
         cameraButton.setVisibility(GONE);
         cameraButton.setClickable(false);
         galleryButton.setVisibility(GONE);
@@ -198,20 +200,24 @@ public class CameraActivity extends BaseActivity {
         drawView.setClickable(true);
         drawView.bringToFront();
         confirmButton.setVisibility(VISIBLE);
+        drawView.reference = new Circle(new Point(400, 400), 100);
     }
 
     public void setReference() {
         //TODO: compute scale from reference and saved object size
         status = Status.MEASUREMENT;
+        drawView.ctxStatus = status;
         confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
         output.setVisibility(VISIBLE);
+        drawView.invalidate();
     }
 
     @Override
     public void onBackPressed() {
         if (status == Status.REFERENCE) {
             status = Status.MODE_CHOICE;
+            drawView.ctxStatus = status;
             cameraButton.setVisibility(VISIBLE);
             cameraButton.setClickable(true);
             galleryButton.setVisibility(VISIBLE);
@@ -223,6 +229,7 @@ public class CameraActivity extends BaseActivity {
             confirmButton.setVisibility(GONE);
         } else if (status == Status.MEASUREMENT) {
             status = Status.REFERENCE;
+            drawView.ctxStatus = status;
             newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
             output.setVisibility(GONE);
