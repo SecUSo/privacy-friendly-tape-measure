@@ -124,5 +124,9 @@
     <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
     <string name="okay">Okay</string>
     <string name="view_help">View Help</string>
+    <string name="confrim_reference">Confirm Reference</string>
+    <string name="length">Length:</string>
+    <string name="area">Area:</string>
+    <string name="self_intersection_warning">Can\'t compute area of self-intersecting polygon.</string>
 
 </resources>

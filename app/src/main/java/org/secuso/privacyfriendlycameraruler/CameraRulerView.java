@@ -24,17 +24,19 @@ public class CameraRulerView extends View {
     public final static float TOUCHPOINT_RADIUS = 120;
 
     private TextView output;
+    private CameraActivity.Status ctxStatus;
     private Paint paint = new Paint();
     private Paint warningPaint = new Paint();
     private Paint touchPointPaint = new Paint();
-    private Shape measure = null;
-    private Shape reference;
+    Shape measure = null;
+    Shape reference = null;
     private int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
-    public CameraRulerView(Context context, TextView tw) {
+    public CameraRulerView(Context context, TextView tw, CameraActivity.Status st) {
         super(context);
 
         output = tw;
+        ctxStatus = st;
 
         paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
         paint.setAlpha(255);
@@ -101,12 +103,15 @@ public class CameraRulerView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (measure instanceof Line) {
+        if (ctxStatus == CameraActivity.Status.REFERENCE) {
+            //TODO: draw the reference shape
+            //draw nothing
+        } else if (measure instanceof Line) {
             Point[] ends = ((Line) measure).ends;
             canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
             drawTouchPoint(canvas, ends[0]);
             drawTouchPoint(canvas, ends[1]);
-            output.setText("Length: " + ((Line) measure).getLength() + "px");
+            output.setText(getResources().getString(R.string.length) + ((Line) measure).getLength() + "px");
         } else if (measure instanceof Polygon) {
             Point[] corners = ((Polygon) measure).corners;
             int length = corners.length;
@@ -120,10 +125,10 @@ public class CameraRulerView extends View {
 
             if (((Polygon) measure).isSelfIntersecting()) {
                 canvas.drawLines(points, warningPaint);
-                output.setText("Can't compute area of self-intersecting polygon.");
+                output.setText(R.string.self_intersection_warning);
             } else {
                 canvas.drawLines(points, paint);
-                output.setText("Area: " + ((Polygon) measure).getArea() + "px^2");
+                output.setText(getResources().getString(R.string.area) + ((Polygon) measure).getArea() + "px^2");
             }
 
             for (int i = 0; i < length; i++) {
@@ -134,7 +139,7 @@ public class CameraRulerView extends View {
             canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
             drawTouchPoint(canvas, circle.center);
             drawTouchPoint(canvas, circle.radiusTouchPoint);
-            output.setText("Area: " + circle.getArea() + "px^2");
+            output.setText(getResources().getString(R.string.area) + circle.getArea() + "px^2");
         }
     }
 

@@ -111,6 +111,16 @@
                 fab:fab_icon="@drawable/ic_line"/>
         </com.getbase.floatingactionbutton.FloatingActionsMenu>
 
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/confirm_reference"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_title="@string/confrim_reference"
+            fab:fab_icon="@drawable/ic_checkmark"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:visibility="gone"/>
+
         <TextView
             android:id="@+id/output_tf"
             android:layout_width="wrap_content"

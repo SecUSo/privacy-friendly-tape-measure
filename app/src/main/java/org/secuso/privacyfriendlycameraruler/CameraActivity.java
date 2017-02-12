@@ -32,7 +32,7 @@ import static android.view.View.VISIBLE;
 
 public class CameraActivity extends BaseActivity {
 
-    private boolean active = false;
+    private Status status = Status.MODE_CHOICE;
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -45,10 +45,12 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton newTriangleButton;
     private FloatingActionButton newCircleButton;
     private FloatingActionButton newLineButton;
+    private FloatingActionButton confirmButton;
     private TextView output;
     Uri uri;
 
     DisplayMetrics displayMetrics = new DisplayMetrics();
+    private float scale;
 
     private static final String TAG = "Touch";
 
@@ -67,6 +69,12 @@ public class CameraActivity extends BaseActivity {
     PointF mid = new PointF();
     float oldDist = 1f;
 
+    enum Status {
+        MODE_CHOICE,
+        REFERENCE,
+        MEASUREMENT
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +86,7 @@ public class CameraActivity extends BaseActivity {
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
+        confirmButton = (FloatingActionButton) findViewById(R.id.confirm_reference);
         output = (TextView) findViewById(R.id.output_tf);
 
         newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
@@ -86,7 +95,7 @@ public class CameraActivity extends BaseActivity {
         newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
         newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
 
-        drawView = new CameraRulerView(getBaseContext(), output);
+        drawView = new CameraRulerView(getBaseContext(), output, status);
         drawView.setVisibility(GONE);
         RelativeLayout cl = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
         cl.addView(drawView);
@@ -115,6 +124,13 @@ public class CameraActivity extends BaseActivity {
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), PICK_IMAGE_REQUEST);
+            }
+        });
+
+        confirmButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setReference();
             }
         });
 
@@ -171,7 +187,7 @@ public class CameraActivity extends BaseActivity {
     }
 
     public void startImageFragment(Uri uri) {
-        active = true;
+        status = Status.REFERENCE;
         cameraButton.setVisibility(GONE);
         cameraButton.setClickable(false);
         galleryButton.setVisibility(GONE);
@@ -181,14 +197,21 @@ public class CameraActivity extends BaseActivity {
         drawView.setVisibility(VISIBLE);
         drawView.setClickable(true);
         drawView.bringToFront();
+        confirmButton.setVisibility(VISIBLE);
+    }
+
+    public void setReference() {
+        //TODO: compute scale from reference and saved object size
+        status = Status.MEASUREMENT;
+        confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
         output.setVisibility(VISIBLE);
     }
 
     @Override
     public void onBackPressed() {
-        if (active) {
-            active = false;
+        if (status == Status.REFERENCE) {
+            status = Status.MODE_CHOICE;
             cameraButton.setVisibility(VISIBLE);
             cameraButton.setClickable(true);
             galleryButton.setVisibility(VISIBLE);
@@ -197,9 +220,15 @@ public class CameraActivity extends BaseActivity {
             drawView.setClickable(false);
             pictureView.setVisibility(GONE);
             pictureView.setImageURI(Uri.EMPTY);
+            confirmButton.setVisibility(GONE);
+        } else if (status == Status.MEASUREMENT) {
+            status = Status.REFERENCE;
             newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
             output.setVisibility(GONE);
+            drawView.measure = null;
+            drawView.invalidate();
+            confirmButton.setVisibility(VISIBLE);
         } else {
             super.onBackPressed();
         }
