@@ -94,155 +94,322 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
 
     /**
-     * Adds a single sampleData to our Table
-     * As no ID is provided and KEY_ID is autoincremented (see line 50)
-     * the last available key of the table is taken and incremented by 1
+     * Adds a single objectType to our Table
+     * As no ID is provided and OT_ID is autoincremented the last
+     * available key of the table is taken and incremented by 1
      *
-     * @param sampleData data that will be added
+     * @param objectType data that will be added
      */
-//    public void addSampleData(PFASampleDataType sampleData) {
-//        SQLiteDatabase database = this.getWritableDatabase();
-//
-//        //To adjust this class for your own data, please add your values here.
-//        ContentValues values = new ContentValues();
-//        values.put(KEY_DOMAIN, sampleData.getDOMAIN());
-//        values.put(KEY_USERNAME, sampleData.getUSERNAME());
-//        values.put(KEY_LENGTH, sampleData.getLENGTH());
-//
-//        database.insert(TABLE_SAMPLEDATA, null, values);
-//        database.close();
-//    }
+    public void addObjectType(ObjectType objectType) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(OT_NAME, objectType.getOT_NAME());
+        values.put(OT_SHAPE, objectType.getOT_SHAPE());
+
+        database.insert(TABLE_TYPE, null, values);
+        database.close();
+    }
 
     /**
-     * Adds a single sampleData to our Table
-     * This method can be used for re-insertion for example an undo-action
-     * Therefore, the key of the sampleData will also be written into the database
+     * Adds a single predefinedReference to our Table
+     * As no ID is provided and OT_ID is autoincremented the last
+     * available key of the table is taken and incremented by 1
      *
-     * @param sampleData data that will be added
-     *                   Only use this for undo options and re-insertions
+     * @param predefRef data that will be added
      */
-//    public void addSampleDataWithID(PFASampleDataType sampleData) {
-//        SQLiteDatabase database = this.getWritableDatabase();
-//
-//        //To adjust this class for your own data, please add your values here.
-//        ContentValues values = new ContentValues();
-//        values.put(KEY_ID, sampleData.getID());
-//        values.put(KEY_DOMAIN, sampleData.getDOMAIN());
-//        values.put(KEY_USERNAME, sampleData.getUSERNAME());
-//        values.put(KEY_LENGTH, sampleData.getLENGTH());
-//
-//        database.insert(TABLE_SAMPLEDATA, null, values);
-//
-//        //always close the database after insertion
-//        database.close();
-//    }
+    public void addPredefinedReference(PredefinedReferences predefRef) {
+        SQLiteDatabase database = this.getWritableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(PR_NAME, predefRef.getPR_NAME());
+        values.put(PR_TYPE_ID, predefRef.getPR_TYPE().getOT_ID());
+        values.put(PR_SIZE, predefRef.getPR_SIZE());
+
+        database.insert(TABLE_PREDEFINED, null, values);
+        database.close();
+    }
 
     /**
-     * This method gets a single sampleData entry based on its ID
+     * Adds a single userDefinedReference to our Table
+     * As no ID is provided and OT_ID is autoincremented the last
+     * available key of the table is taken and incremented by 1
      *
-     * @param id of the sampleData that is requested, could be get by the get-method
-     * @return the sampleData that is requested.
+     * @param userDefRef data that will be added
      */
-//    public PFASampleDataType getSampleData(int id) {
-//        SQLiteDatabase database = this.getWritableDatabase();
-//
-//        Log.d("DATABASE", Integer.toString(id));
-//
-//        Cursor cursor = database.query(TABLE_SAMPLEDATA, new String[]{KEY_ID,
-//                        KEY_DOMAIN, KEY_USERNAME, KEY_LENGTH}, KEY_ID + "=?",
-//                new String[]{String.valueOf(id)}, null, null, null, null);
-//
-//        PFASampleDataType sampleData = new PFASampleDataType();
-//
-//        if (cursor != null && cursor.moveToFirst()) {
-//            sampleData.setID(Integer.parseInt(cursor.getString(0)));
-//            sampleData.setDOMAIN(cursor.getString(1));
-//            sampleData.setUSERNAME(cursor.getString(2));
-//            sampleData.setLENGTH(Integer.parseInt(cursor.getString(3)));
-//
-//            Log.d("DATABASE", "Read " + cursor.getString(1) + " from DB");
-//
-//            cursor.close();
-//        }
-//
-//        return sampleData;
-//
-//    }
+    public void addUserDefinedRef(UserDefinedReferences userDefRef) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(UDR_NAME, userDefRef.getUDR_NAME());
+        values.put(UDR_SHAPE, userDefRef.getUDR_SHAPE());
+        values.put(UDR_SIZE, userDefRef.getUDR_SIZE());
+        values.put(UDR_ACTIVE, userDefRef.getUDR_ACTIVE());
+
+        database.insert(TABLE_USERDEFINED, null, values);
+        database.close();
+    }
 
     /**
-     * This method returns all data from the DB as a list
-     * This could be used for instance to fill a recyclerView
+     * This method gets a single objectType entry based on its ID
      *
-     * @return A list of all available sampleData in the Database
+     * @param id of the objectType that is requested, could be get by the get-method
+     * @return the objectType that is requested.
      */
-//    public List<PFASampleDataType> getAllSampleData() {
-//        List<PFASampleDataType> sampleDataList = new ArrayList<PFASampleDataType>();
-//
-//        String selectQuery = "SELECT  * FROM " + TABLE_SAMPLEDATA;
-//
-//        SQLiteDatabase database = this.getWritableDatabase();
-//        Cursor cursor = database.rawQuery(selectQuery, null);
-//
-//        PFASampleDataType sampleData = null;
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                //To adjust this class for your own data, please add your values here.
-//                //be careful to use the right get-method to get the data from the cursor
-//                sampleData = new PFASampleDataType();
-//                sampleData.setID(Integer.parseInt(cursor.getString(0)));
-//                sampleData.setDOMAIN(cursor.getString(1));
-//                sampleData.setUSERNAME(cursor.getString(2));
-//                sampleData.setLENGTH(Integer.parseInt(cursor.getString(3)));
-//
-//                sampleDataList.add(sampleData);
-//            } while (cursor.moveToNext());
-//        }
-//
-//        return sampleDataList;
-//    }
+    public ObjectType getObjectType(int id) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        Log.d("DATABASE", Integer.toString(id));
+
+        Cursor cursor = database.query(TABLE_TYPE, new String[]{OT_ID,
+                        OT_NAME, OT_SHAPE}, OT_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
+
+        ObjectType objectType = new ObjectType();
+
+        if (cursor != null && cursor.moveToFirst()) {
+            objectType.setOT_ID(Integer.parseInt(cursor.getString(0)));
+            objectType.setOT_NAME(cursor.getString(1));
+            objectType.setOT_SHAPE(cursor.getString(2));
+
+            Log.d("DATABASE", "Read " + cursor.getString(1) + " from DB");
+
+            cursor.close();
+        }
+
+        return objectType;
+    }
+
+    /**
+     * This method gets a single predefinedReference entry based on its ID
+     *
+     * @param id of the predefinedReference that is requested, could be get by the get-method
+     * @return the predefinedReference that is requested.
+     */
+    public PredefinedReferences getPredefRef(int id) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        Log.d("DATABASE", Integer.toString(id));
+
+        Cursor cursor = database.rawQuery(
+                "SELECT " + PR_ID +
+                        ", " + PR_NAME +
+                        ", " + PR_TYPE_ID +
+                        ", " + OT_ID +
+                        ", " + OT_NAME +
+                        ", " + OT_SHAPE +
+                        ", " + PR_SIZE +
+                        " FROM " + TABLE_PREDEFINED + " INNER JOIN " + TABLE_TYPE +
+                        " ON " + TABLE_PREDEFINED + "." + PR_TYPE_ID + " = " + TABLE_TYPE + "." + OT_ID +
+                        " WHERE " + PR_ID + " = " + id
+                , new String[]{});
+
+        PredefinedReferences predefRef = new PredefinedReferences();
+
+        if (cursor != null && cursor.moveToFirst()) {
+            predefRef.setPR_ID(Integer.parseInt(cursor.getString(0)));
+            predefRef.setPR_NAME(cursor.getString(1));
+
+            ObjectType ot = new ObjectType();
+            ot.setOT_ID(Integer.parseInt(cursor.getString(2)));
+            ot.setOT_NAME(cursor.getString(3));
+            ot.setOT_SHAPE(cursor.getString(4));
+
+            predefRef.setPR_TYPE(ot);
+            predefRef.setPR_SIZE(Float.parseFloat(cursor.getString(5)));
+
+            Log.d("DATABASE", "Read " + cursor.getString(1) + " from DB");
+
+            cursor.close();
+        }
+        return predefRef;
+    }
+
+    /**
+     * This method gets a single userDefinedReference entry based on its ID
+     *
+     * @param id of the userDefinedReference that is requested, could be get by the get-method
+     * @return the userDefinedReference that is requested.
+     */
+    public UserDefinedReferences getUserDefRef(int id) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        Log.d("DATABASE", Integer.toString(id));
+
+        Cursor cursor = database.query(TABLE_USERDEFINED, new String[]{UDR_ID,
+                        UDR_NAME, UDR_SHAPE, UDR_SIZE, UDR_ACTIVE}, UDR_ID + "=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
+
+        UserDefinedReferences userDefRef = new UserDefinedReferences();
+
+        if (cursor != null && cursor.moveToFirst()) {
+            userDefRef.setUDR_ID(Integer.parseInt(cursor.getString(0)));
+            userDefRef.setUDR_NAME(cursor.getString(1));
+            userDefRef.setUDR_SHAPE(cursor.getString(2));
+            userDefRef.setUDR_SIZE(Float.parseFloat(cursor.getString(3)));
+            userDefRef.setUDR_ACTIVE(Integer.parseInt(cursor.getString(4)) == 1);
+
+            Log.d("DATABASE", "Read " + cursor.getString(1) + " from DB");
+
+            cursor.close();
+        }
+        return userDefRef;
+    }
 
     /**
      * Updates a database entry.
      *
-     * @param sampleData
+     * @param userDefRef
      * @return actually makes the update
      */
-//    public int updateSampleData(PFASampleDataType sampleData) {
-//        SQLiteDatabase database = this.getWritableDatabase();
-//
-//        //To adjust this class for your own data, please add your values here.
-//        ContentValues values = new ContentValues();
-//        values.put(KEY_DOMAIN, sampleData.getDOMAIN());
-//        values.put(KEY_USERNAME, sampleData.getUSERNAME());
-//        values.put(KEY_LENGTH, sampleData.getLENGTH());
-//
-//        return database.update(TABLE_SAMPLEDATA, values, KEY_ID + " = ?",
-//                new String[]{String.valueOf(sampleData.getID())});
-//    }
+    public int updateUserDefRef(UserDefinedReferences userDefRef) {
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        //To adjust this class for your own data, please add your values here.
+        ContentValues values = new ContentValues();
+        values.put(UDR_NAME, userDefRef.getUDR_NAME());
+        values.put(UDR_SHAPE, userDefRef.getUDR_SHAPE());
+        values.put(UDR_SIZE, userDefRef.getUDR_SIZE());
+        values.put(UDR_ACTIVE, userDefRef.getUDR_ACTIVE());
+
+        return database.update(TABLE_USERDEFINED, values, UDR_ID + " = ?",
+                new String[]{String.valueOf(userDefRef.getUDR_ID())});
+    }
 
     /**
-     * Deletes sampleData from the DB
-     * This method takes the sampleData and extracts its key to build the delete-query
+     * This method returns all objectType from the DB as a list
+     * This could be used for instance to fill a recyclerView
      *
-     * @param sampleData that will be deleted
+     * @return A list of all available objectType in the Database
      */
-//    public void deleteSampleData(PFASampleDataType sampleData) {
-//        SQLiteDatabase database = this.getWritableDatabase();
-//        database.delete(TABLE_SAMPLEDATA, KEY_ID + " = ?",
-//                new String[]{Integer.toString(sampleData.getID())});
-//        //always close the DB after deletion of single entries
-//        database.close();
-//    }
+    public List<ObjectType> getAllObjectTypes() {
+        List<ObjectType> objectTypeList = new ArrayList<ObjectType>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_TYPE;
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        ObjectType objectType = null;
+
+        if (cursor.moveToFirst()) {
+            do {
+                objectType = new ObjectType();
+                objectType.setOT_ID(Integer.parseInt(cursor.getString(0)));
+                objectType.setOT_NAME(cursor.getString(1));
+                objectType.setOT_SHAPE(cursor.getString(2));
+                objectTypeList.add(objectType);
+            } while (cursor.moveToNext());
+        }
+
+        return objectTypeList;
+    }
 
     /**
-     * deletes all sampleData from the table.
-     * This could be used in case of a reset of the app.
+     * This method returns all userDefinedReferences from the DB as a list
+     * This could be used for instance to fill a recyclerView
+     *
+     * @return A list of all available userDefinedReferences in the Database
      */
-//    public void deleteAllSampleData() {
-//        SQLiteDatabase database = this.getWritableDatabase();
-//        database.execSQL("delete from " + TABLE_SAMPLEDATA);
-//    }
+    public List<UserDefinedReferences> getAllUDefRef() {
+        List<UserDefinedReferences> uDefRefList = new ArrayList<UserDefinedReferences>();
 
+        String selectQuery = "SELECT  * FROM " + TABLE_USERDEFINED;
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        UserDefinedReferences uDefRef = null;
+
+        if (cursor.moveToFirst()) {
+            do {
+                uDefRef = new UserDefinedReferences();
+                uDefRef.setUDR_ID(Integer.parseInt(cursor.getString(0)));
+                uDefRef.setUDR_NAME(cursor.getString(1));
+                uDefRef.setUDR_SHAPE(cursor.getString(2));
+                uDefRef.setUDR_SIZE(Float.parseFloat(cursor.getString(3)));
+                uDefRef.setUDR_ACTIVE(Integer.parseInt(cursor.getString(4)) == 1);
+                uDefRefList.add(uDefRef);
+            } while (cursor.moveToNext());
+        }
+
+        return uDefRefList;
+    }
+
+    /**
+     * This method returns all active userDefinedReferences from the DB as a list
+     * This could be used for instance to fill a recyclerView
+     *
+     * @return A list of all active userDefinedReferences in the Database
+     */
+    public List<UserDefinedReferences> getAllActiveUDefRef() {
+        List<UserDefinedReferences> uDefRefList = new ArrayList<UserDefinedReferences>();
+
+        String selectQuery = "SELECT  * FROM " + TABLE_USERDEFINED + " WHERE " + UDR_ACTIVE + " = 1";
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        UserDefinedReferences uDefRef = null;
+
+        if (cursor.moveToFirst()) {
+            do {
+                uDefRef = new UserDefinedReferences();
+                uDefRef.setUDR_ID(Integer.parseInt(cursor.getString(0)));
+                uDefRef.setUDR_NAME(cursor.getString(1));
+                uDefRef.setUDR_SHAPE(cursor.getString(2));
+                uDefRef.setUDR_SIZE(Float.parseFloat(cursor.getString(3)));
+                uDefRef.setUDR_ACTIVE(Integer.parseInt(cursor.getString(4)) == 1);
+                uDefRefList.add(uDefRef);
+            } while (cursor.moveToNext());
+        }
+
+        return uDefRefList;
+    }
+
+    /**
+     * This method returns all predefinedReferences with a certain type from the DB as a list
+     * This could be used for instance to fill a recyclerView
+     *
+     * @param type the name of type to be filtered for
+     * @return A list of all userDefinedReferences with a certain type in the Database
+     */
+    public List<PredefinedReferences> getAllPredRefOfType(String type) {
+        List<PredefinedReferences> predefRefList = new ArrayList<PredefinedReferences>();
+
+        String selectQuery = "SELECT " + PR_ID +
+                ", " + PR_NAME +
+                ", " + PR_TYPE_ID +
+                ", " + OT_ID +
+                ", " + OT_NAME +
+                ", " + OT_SHAPE +
+                ", " + PR_SIZE +
+                " FROM " + TABLE_PREDEFINED + " INNER JOIN " + TABLE_TYPE +
+                " ON " + TABLE_PREDEFINED + "." + PR_TYPE_ID + " = " + TABLE_TYPE + "." + OT_ID +
+                " WHERE " + OT_NAME + " = " + type;
+
+        SQLiteDatabase database = this.getWritableDatabase();
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        PredefinedReferences predefRef = null;
+
+        if (cursor.moveToFirst()) {
+            do {
+                predefRef = new PredefinedReferences();
+                predefRef.setPR_ID(Integer.parseInt(cursor.getString(0)));
+                predefRef.setPR_NAME(cursor.getString(1));
+
+                ObjectType ot = new ObjectType();
+                ot.setOT_ID(Integer.parseInt(cursor.getString(2)));
+                ot.setOT_NAME(cursor.getString(3));
+                ot.setOT_SHAPE(cursor.getString(4));
+
+                predefRef.setPR_TYPE(ot);
+                predefRef.setPR_SIZE(Float.parseFloat(cursor.getString(5)));
+                predefRefList.add(predefRef);
+            } while (cursor.moveToNext());
+        }
+
+        return predefRefList;
+    }
 }
