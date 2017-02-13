@@ -1,5 +1,7 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
+import static java.lang.Float.NaN;
+
 /**
  * Created by roberts on 23.01.17.
  */
@@ -25,8 +27,23 @@ public class Line extends Shape {
     public Point intersects(Line other) {
         float m1 = this.gradient();
         float m2 = other.gradient();
+
+        if (Float.isNaN(m1)){
+            if (Float.isNaN(m2)) {
+                if (this.ends[0].x == other.ends[0].x) {return this.ends[0];}
+                else {return null;}
+            } else {
+                float b2 = other.ends[0].y - other.ends[0].x * m2;
+                return new Point(this.ends[0].x, this.ends[0].x*m2+b2);
+            }
+        } else if (Float.isNaN(m2)) {
+            float b1 = this.ends[0].y - this.ends[0].x * m1;
+            return new Point(other.ends[0].x, other.ends[0].x*m1+b1);
+        }
+
         float b1 = this.ends[0].y - this.ends[0].x * m1;
         float b2 = other.ends[0].y - other.ends[0].x * m2;
+
         if (Math.abs(m1) != Math.abs(m2)) {
             float intersectX = (b2 - b1)/(m1 - m2);
             float intersectY = intersectX * m1 + b1;
@@ -55,8 +72,9 @@ public class Line extends Shape {
      * @return The gradient of the line.
      */
     private float gradient() {
-        //TODO: check x0 == x1
-        if (ends[1].x < ends[0].x) {
+        if (ends[1].x == ends[0].x) {
+            return NaN;
+        } else if (ends[1].x < ends[0].x) {
             return (ends[0].y - ends[1].y)/(ends[0].x - ends[1].x);
         } else {
             return (ends[1].y - ends[0].y)/(ends[1].x - ends[0].x);
