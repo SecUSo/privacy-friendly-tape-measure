@@ -9,16 +9,24 @@ import android.provider.MediaStore;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 import android.util.DisplayMetrics;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
 import org.secuso.privacyfriendlycameraruler.R;
+import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
+import org.secuso.privacyfriendlycameraruler.database.ReferenceObject;
+
+import java.util.ArrayList;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -44,8 +52,10 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton newLineButton;
     private FloatingActionButton confirmButton;
     private TextView output;
+    private Menu refsMenu;
     Uri uri;
 
+    private ArrayList<ReferenceObject> refs;
     DisplayMetrics displayMetrics = new DisplayMetrics();
     private float scale;
 
@@ -79,6 +89,7 @@ public class CameraActivity extends BaseActivity {
 
         prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        refs = ReferenceManager.getPredefinedReferenceObjects();
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
@@ -168,6 +179,33 @@ public class CameraActivity extends BaseActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        refsMenu = menu;
+        for (int i = 0; i < refs.size(); i++) {
+            menu.add(0, i, Menu.NONE, refs.get(i).name);//setIcon(R.drawable.your-add-icon)
+            menu.getItem(i).setVisible(false);
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        super.onOptionsItemSelected(item);
+        ReferenceObject refObj = refs.get(item.getItemId());
+
+        System.out.println(refObj.name + " " + refObj.type.name + " " + refObj.type.shape + " " + refObj.size + (refObj.type.shape.equals("circle") ? "mm" : "mm²"));
+
+//        switch (item.getItemId()) {
+//            case 0: System.out.println("one"); break;
+//            case 1: System.out.println("two"); break;
+//            case 2: System.out.println("three"); break;
+//        }
+        return false;
+    }
+
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE || requestCode == PICK_IMAGE_REQUEST) {
             if (resultCode == RESULT_OK) {
@@ -198,6 +236,7 @@ public class CameraActivity extends BaseActivity {
         drawView.bringToFront();
         confirmButton.setVisibility(VISIBLE);
         drawView.reference = new Circle(new Point(400, 400), 100);
+        showMenu();
     }
 
     public void setReference() {
@@ -208,6 +247,7 @@ public class CameraActivity extends BaseActivity {
         newMeasureButton.setVisibility(VISIBLE);
         output.setVisibility(VISIBLE);
         drawView.invalidate();
+        hideMenu();
     }
 
     @Override
@@ -224,6 +264,7 @@ public class CameraActivity extends BaseActivity {
             pictureView.setVisibility(GONE);
             pictureView.setImageURI(Uri.EMPTY);
             confirmButton.setVisibility(GONE);
+            hideMenu();
         } else if (status == Status.MEASUREMENT) {
             status = Status.REFERENCE;
             drawView.ctxStatus = status;
@@ -233,8 +274,21 @@ public class CameraActivity extends BaseActivity {
             drawView.measure = null;
             drawView.invalidate();
             confirmButton.setVisibility(VISIBLE);
+            showMenu();
         } else {
             super.onBackPressed();
+        }
+    }
+
+    private void showMenu(){
+        for (int i = 0; i < refsMenu.size(); i++){
+            refsMenu.getItem(i).setVisible(true);
+        }
+    }
+
+    private void hideMenu(){
+        for (int i = 0; i < refsMenu.size(); i++){
+            refsMenu.getItem(i).setVisible(false);
         }
     }
 
