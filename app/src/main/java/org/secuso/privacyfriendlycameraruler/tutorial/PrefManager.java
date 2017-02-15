@@ -2,6 +2,7 @@ package org.secuso.privacyfriendlycameraruler.tutorial;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
@@ -17,6 +18,8 @@ public class PrefManager {
     private static final String PREF_NAME = "androidhive-welcome";
 
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
+    private static final String LAST_MODE = "lastMode";
+    private static final String UNITS_OF_MEASUREMENT = "pref_units_of_measurement";
 
     public PrefManager(Context context) {
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);
@@ -33,18 +36,22 @@ public class PrefManager {
     }
 
     public void addHiddenPrefs() {
-        if (!pref.contains("lastMode")) {
-            editor.putString("lastMode", "camera").commit();
+        if (!pref.contains(LAST_MODE)) {
+            editor.putString(LAST_MODE, "camera").commit();
             editor.commit();
         }
     }
 
     public String getLastMode() {
-        return pref.getString("lastMode", "camera");
+        return pref.getString(LAST_MODE, "camera");
     }
 
+//    public String getUnitOfMeasurement() {
+//        return pref.getString(UNITS_OF_MEASUREMENT, "in");
+//    }
+
     public void putLastMode(String value) {
-        editor.putString("lastMode", value).commit();
+        editor.putString(LAST_MODE, value).commit();
         editor.commit();
     }
 }

@@ -31,7 +31,7 @@
         <item>off</item>
     </string-array>
     <string-array name="pref_uom_entries"><item>SI units</item><item>imperial</item></string-array>
-    <string-array name="pref_uom_evs"><item>SI units</item><item>imperial</item></string-array>
+    <string-array name="pref_uom_evs"><item>mm</item><item>in</item></string-array>
     <string-array name="pref_type_selection_entries">
         <item>US-dollar Coins</item>
         <item>US-dollar Notes</item>

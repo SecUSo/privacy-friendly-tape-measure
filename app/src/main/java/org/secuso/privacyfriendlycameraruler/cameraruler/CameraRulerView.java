@@ -1,14 +1,17 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 
 import org.secuso.privacyfriendlycameraruler.R;
+import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
@@ -30,6 +33,7 @@ public class CameraRulerView extends View {
     private Paint warningPaint = new Paint();
     private Paint touchPointPaint = new Paint();
     private Paint referenceTouchPointPaint = new Paint();
+    private String unitOfMeasurement = getResources().getString(R.string.pref_uom_default);
     Shape measure = null;
     Shape reference = new Circle(new Point(400, 400), 100);
     float scale = 1;
@@ -39,6 +43,8 @@ public class CameraRulerView extends View {
         super(context);
 
         output = outputView;
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        unitOfMeasurement = pref.getString("pref_units_of_measurement", "mm");
 
         paint.setColor(ContextCompat.getColor(context, R.color.darkblue));
         paint.setAlpha(255);
@@ -143,13 +149,6 @@ public class CameraRulerView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-//        if (referenceShape.equals("circle") && !(reference instanceof Circle)) {
-//            reference = new Circle(new Point(400, 400), 100);
-//        } else if (referenceShape.equals("tetragon") && !(reference instanceof Tetragon)) {
-//            reference = new Tetragon(new Point(400, 400), new Point(600, 400),
-//                    new Point(600, 600), new Point(400, 600));
-//        }
-
         if (reference instanceof Circle) {
             Circle refCircle = (Circle) reference;
             canvas.drawCircle(refCircle.center.x, refCircle.center.y, refCircle.radius, referencePaint);
@@ -185,7 +184,9 @@ public class CameraRulerView extends View {
                 canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
                 drawTouchPoint(canvas, ends[0], touchPointPaint);
                 drawTouchPoint(canvas, ends[1], touchPointPaint);
-                output.setText(getResources().getString(R.string.length) + ((Line) measure).getLength()*scale + "mm");
+                float length = ((Line) measure).getLength()*scale;
+                if (unitOfMeasurement.equals("in")) {length = (float) (length/25.4);}
+                output.setText(getResources().getString(R.string.length) + length + unitOfMeasurement);
             } else if (measure instanceof Polygon) {
                 Point[] corners = ((Polygon) measure).corners;
                 int length = corners.length;
@@ -202,7 +203,9 @@ public class CameraRulerView extends View {
                     output.setText(R.string.self_intersection_warning);
                 } else {
                     canvas.drawLines(points, paint);
-                    output.setText(getResources().getString(R.string.area) + ((Polygon) measure).getArea()*scale*scale + "mm²");
+                    float area = ((Polygon) measure).getArea()*scale*scale;
+                    if (unitOfMeasurement.equals("in")) {area = (float) (area/Math.pow(25.4, 2));}
+                    output.setText(getResources().getString(R.string.area) + area + unitOfMeasurement + "²");
                 }
 
                 for (int i = 0; i < length; i++) {
@@ -213,7 +216,9 @@ public class CameraRulerView extends View {
                 canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
                 drawTouchPoint(canvas, circle.center, touchPointPaint);
                 drawTouchPoint(canvas, circle.radiusTouchPoint, touchPointPaint);
-                output.setText(getResources().getString(R.string.area) + circle.getArea()*scale*scale + "mm²");
+                float area = circle.getArea()*scale*scale;
+                if (unitOfMeasurement.equals("in")) {area = (float) (area/Math.pow(25.4, 2));}
+                output.setText(getResources().getString(R.string.area) + area + unitOfMeasurement + "²");
             }
         }
     }
