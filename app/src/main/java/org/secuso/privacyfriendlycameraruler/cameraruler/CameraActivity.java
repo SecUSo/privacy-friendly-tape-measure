@@ -53,28 +53,29 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton confirmButton;
     private TextView output;
     private Menu refsMenu;
-    Uri uri;
 
     private ArrayList<ReferenceObject> refs;
     DisplayMetrics displayMetrics = new DisplayMetrics();
+    private String referenceObjectShape;
+    private float referenceObjectSize;
     private float scale;
-
-    private static final String TAG = "Touch";
 
     // These matrices will be used to move and zoom image
     Matrix matrix = new Matrix();
-    Matrix savedMatrix = new Matrix();
 
-    // We can be in one of these 3 states
-    static final int NONE = 0;
-    static final int DRAG = 1;
-    static final int ZOOM = 2;
-    int mode = NONE;
-
-    // Remember some things for zooming
-    PointF start = new PointF();
-    PointF mid = new PointF();
-    float oldDist = 1f;
+    //variables for image transformation
+//    Matrix savedMatrix = new Matrix();
+//    Uri uri;
+//    private static final String TAG = "Touch";
+//    // We can be in one of these 3 states
+//    static final int NONE = 0;
+//    static final int DRAG = 1;
+//    static final int ZOOM = 2;
+//    int mode = NONE;
+//    // Remember some things for zooming
+//    PointF start = new PointF();
+//    PointF mid = new PointF();
+//    float oldDist = 1f;
 
     enum Status {
         MODE_CHOICE,
@@ -89,7 +90,8 @@ public class CameraActivity extends BaseActivity {
 
         prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        refs = ReferenceManager.getPredefinedReferenceObjects();
+        refs = ReferenceManager.getAllActiveRefPredefObjects();
+        referenceObjectShape = "circle";
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
@@ -183,7 +185,7 @@ public class CameraActivity extends BaseActivity {
         super.onCreateOptionsMenu(menu);
         refsMenu = menu;
         for (int i = 0; i < refs.size(); i++) {
-            menu.add(0, i, Menu.NONE, refs.get(i).name);//setIcon(R.drawable.your-add-icon)
+            menu.add(0, i, Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
 
@@ -194,14 +196,17 @@ public class CameraActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
         ReferenceObject refObj = refs.get(item.getItemId());
+        referenceObjectShape = refObj.type.shape;
+        referenceObjectSize = refObj.size;
 
-        System.out.println(refObj.name + " " + refObj.type.name + " " + refObj.type.shape + " " + refObj.size + (refObj.type.shape.equals("circle") ? "mm" : "mm²"));
+        if (referenceObjectShape.equals("circle") && !(drawView.reference instanceof Circle)) {
+            drawView.reference = new Circle(new Point(400, 400), 100);
+        } else if (referenceObjectShape.equals("tetragon") && !(drawView.reference instanceof Tetragon)) {
+            drawView.reference = new Tetragon(new Point(400, 400), new Point(600, 400),
+                    new Point(600, 600), new Point(400, 600));
+        }
 
-//        switch (item.getItemId()) {
-//            case 0: System.out.println("one"); break;
-//            case 1: System.out.println("two"); break;
-//            case 2: System.out.println("three"); break;
-//        }
+        drawView.invalidate();
         return false;
     }
 
@@ -235,7 +240,7 @@ public class CameraActivity extends BaseActivity {
         drawView.setClickable(true);
         drawView.bringToFront();
         confirmButton.setVisibility(VISIBLE);
-        drawView.reference = new Circle(new Point(400, 400), 100);
+//        drawView.reference = new Circle(new Point(400, 400), 100);
         showMenu();
     }
 
