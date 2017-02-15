@@ -1,7 +1,13 @@
 package org.secuso.privacyfriendlycameraruler.database;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 /**
  * Class for providing the list of predefined references.
@@ -126,13 +132,15 @@ public class ReferenceManager {
      *
      * @return List of all ReferenceObjects not disabled in the settings.
      */
-    public static ArrayList<ReferenceObject> getAllActiveRefPredefObjects() {
-        //TODO: check settings and filter accordingly
+    public static ArrayList<ReferenceObject> getAllActiveRefPredefObjects(Context context) {
+        SharedPreferences sPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+        Set<String> active = sPrefs.getStringSet("pref_type_selection", new HashSet<String>());
         ArrayList<ReferenceObject> result = new ArrayList<ReferenceObject>();
 
         for (Iterator<ReferenceObject> it = predefinedReferenceObjects.iterator(); it.hasNext();) {
             ReferenceObject ro = it.next();
-            if (ro.type.name.equals("us-coins") || ro.type.name.equals("us-notes")){
+//            if (ro.type.name.equals("us-coins") || ro.type.name.equals("us-notes")){
+            if (active.contains(ro.type.name)) {
                 result.add(ro);
             }
         }

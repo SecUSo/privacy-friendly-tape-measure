@@ -89,7 +89,7 @@ public class CameraActivity extends BaseActivity {
 
         prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        refs = ReferenceManager.getAllActiveRefPredefObjects();
+        refs = ReferenceManager.getAllActiveRefPredefObjects(getBaseContext());
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
