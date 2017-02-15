@@ -141,5 +141,13 @@
     <string name="skip">Skip</string>
     <string name="okay">Okay</string>
     <string name="view_help">View Help</string>
+    <string name="camera_ruler_settings">Camera Ruler Settings</string>
+    <string name="pref_units_of_measurement">Units of measurement</string>
+    <string name="pref_uom_verbose">What units of measurement to use in the screen ruler?</string>
+    <string name="pref_uom_default">mm</string>
+    <string name="pref_autodetect">Autodetect circular references</string>
+    <string name="pref_type_selection">Reference Type Selection</string>
+    <string name="pref_type_selection_verbose">What reference object types to use?</string>
+    <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
 
 </resources>

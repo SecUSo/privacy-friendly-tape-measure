@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_uom_entries" />
+    <string-array name="pref_uom_evs" />
+    <string-array name="pref_type_selection_entries" />
+    <string-array name="pref_type_selection_evs" />
+</resources>

@@ -4,15 +4,25 @@ package org.secuso.privacyfriendlycameraruler;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
+import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
+
+import org.secuso.privacyfriendlycameraruler.database.ObjectType;
+import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
+import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -55,6 +65,9 @@ public class SettingsActivity extends BaseActivity {
         }
     };
 
+//    protected static void populatePreference(MultiSelectListPreference pref) {
+//    }
+
     /**
      * Helper method to determine if the device has an extra-large screen. For
      * example, 10" tablets are extra-large.
@@ -91,6 +104,8 @@ public class SettingsActivity extends BaseActivity {
 
         setContentView(R.layout.activity_settings);
 
+//        MultiSelectListPreference mslPref = (MultiSelectListPreference) findViewById(R.id.pref_type_selection);
+//        populatePreference(mslPref);
         //setupActionBar();
 
 
@@ -164,6 +179,7 @@ public class SettingsActivity extends BaseActivity {
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class GeneralPreferenceFragment extends PreferenceFragment {
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);

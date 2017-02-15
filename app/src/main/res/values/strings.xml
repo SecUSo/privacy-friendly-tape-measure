@@ -79,43 +79,21 @@
     <string name="title_activity_settings">Settings</string><string name="pref_ruler">Ruler Settings</string>
     <string name="pref_leftruler">Left Ruler</string>
     <string name="pref_leftruler_verbose">What should be displayed on left ruler?</string>
-    <string-array name="pref_leftruler_entries">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_leftruler_evs">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
     <string name="pref_leftruler_default">cm</string>
     <string name="pref_rightruler">Right Ruler</string>
     <string name="pref_rightruler_verbose">What should be displayed on right ruler?</string>
-    <string-array name="pref_rightruler_entries">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_rightruler_evs">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
     <string name="pref_rightruler_default">inch</string>
     <string name="pref_anglemeasure">Angle Measure</string>
     <string name="pref_anglemeasure_verbose">Turn on scale for angle measuring?</string>
-    <string-array name="pref_anglemeasure_entries">
-        <item>degree</item>
-        <item>radian</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_anglemeasure_evs">
-        <item>degree</item>
-        <item>radian</item>
-        <item>off</item>
-    </string-array>
     <string name="pref_anglemeasure_default">off</string>
+
+    <string name="camera_ruler_settings">Camera Ruler Settings</string>
+    <string name="pref_units_of_measurement">Units of measurement</string>
+    <string name="pref_uom_verbose">What units of measurement to use in the screen ruler?</string>
+    <string name="pref_uom_default">mm</string>
+    <string name="pref_autodetect">Autodetect circular references</string>
+    <string name="pref_type_selection">Reference Type Selection</string>
+    <string name="pref_type_selection_verbose">What reference object types to use?</string>
 
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Disclaimer</string>
@@ -137,5 +115,6 @@
     <string name="skip">Skip</string>
     <string name="okay">Okay</string>
     <string name="view_help">View Help</string>
+    <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
 
 </resources>

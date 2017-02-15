@@ -28,6 +28,32 @@
             android:defaultValue="@string/pref_anglemeasure_default" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:title="@string/camera_ruler_settings">
+        <ListPreference android:id="@+id/pref_units_of_measurement"
+            android:key="pref_units_of_measurement"
+            android:title="@string/pref_units_of_measurement"
+            android:dialogTitle="@string/pref_uom_verbose"
+            android:entries="@array/pref_uom_entries"
+            android:entryValues="@array/pref_uom_evs"
+            android:defaultValue="@string/pref_uom_default" />
+
+        <MultiSelectListPreference android:id="@+id/pref_type_selection"
+            android:key="pref_type_selection"
+            android:title="@string/pref_type_selection"
+            android:dialogTitle="@string/pref_type_selection_verbose"
+            android:summary="@string/pref_type_selection_summary"
+            android:entries="@array/pref_type_selection_entries"
+            android:entryValues="@array/pref_type_selection_evs"
+            android:defaultValue="@array/pref_type_selection_evs"/>
+
+        <SwitchPreference
+            android:key="pref_autodetect"
+            android:title="@string/pref_autodetect"
+            android:defaultValue="false"/>
+
+    </PreferenceCategory>
+
     <!-- NOTE: EditTextPreference accepts EditText attributes. -->
     <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
     <!-- <EditTextPreference

@@ -20,6 +20,8 @@ import android.widget.TextView;
 
 import org.secuso.privacyfriendlycameraruler.R;
 import org.secuso.privacyfriendlycameraruler.MainActivity;
+import org.secuso.privacyfriendlycameraruler.database.PFASQLiteHelper;
+import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
@@ -54,6 +56,7 @@ public class TutorialActivity extends AppCompatActivity {
         }
 
         prefManager.addHiddenPrefs();
+        fillDatabase();
         setContentView(R.layout.activity_tutorial);
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -205,5 +208,22 @@ public class TutorialActivity extends AppCompatActivity {
             View view = (View) object;
             container.removeView(view);
         }
+    }
+
+    /**
+     * Puts ten empty, inactive user defined reference objects into the database.
+     */
+    private void fillDatabase() {
+        PFASQLiteHelper dbHelper = new PFASQLiteHelper(getBaseContext());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(0));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(1));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(2));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(3));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(4));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(5));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(6));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(7));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(8));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences(9));
     }
 }
