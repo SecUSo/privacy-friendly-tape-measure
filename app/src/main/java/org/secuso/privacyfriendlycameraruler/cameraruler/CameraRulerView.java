@@ -32,6 +32,7 @@ public class CameraRulerView extends View {
     private Paint referenceTouchPointPaint = new Paint();
     Shape measure = null;
     Shape reference = new Circle(new Point(400, 400), 100);
+    float scale = 1;
     private int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
     public CameraRulerView(Context context, TextView outputView) {
@@ -184,7 +185,7 @@ public class CameraRulerView extends View {
                 canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
                 drawTouchPoint(canvas, ends[0], touchPointPaint);
                 drawTouchPoint(canvas, ends[1], touchPointPaint);
-                output.setText(getResources().getString(R.string.length) + ((Line) measure).getLength() + "mm");
+                output.setText(getResources().getString(R.string.length) + ((Line) measure).getLength()*scale + "mm");
             } else if (measure instanceof Polygon) {
                 Point[] corners = ((Polygon) measure).corners;
                 int length = corners.length;
@@ -201,7 +202,7 @@ public class CameraRulerView extends View {
                     output.setText(R.string.self_intersection_warning);
                 } else {
                     canvas.drawLines(points, paint);
-                    output.setText(getResources().getString(R.string.area) + ((Polygon) measure).getArea() + "mm²");
+                    output.setText(getResources().getString(R.string.area) + ((Polygon) measure).getArea()*scale*scale + "mm²");
                 }
 
                 for (int i = 0; i < length; i++) {
@@ -212,7 +213,7 @@ public class CameraRulerView extends View {
                 canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
                 drawTouchPoint(canvas, circle.center, touchPointPaint);
                 drawTouchPoint(canvas, circle.radiusTouchPoint, touchPointPaint);
-                output.setText(getResources().getString(R.string.area) + circle.getArea() + "mm²");
+                output.setText(getResources().getString(R.string.area) + circle.getArea()*scale*scale + "mm²");
             }
         }
     }

@@ -56,9 +56,8 @@ public class CameraActivity extends BaseActivity {
 
     private ArrayList<ReferenceObject> refs;
     DisplayMetrics displayMetrics = new DisplayMetrics();
-    private String referenceObjectShape;
+    private String referenceObjectShape = "circle";
     private float referenceObjectSize;
-    private float scale;
 
     // These matrices will be used to move and zoom image
     Matrix matrix = new Matrix();
@@ -91,7 +90,6 @@ public class CameraActivity extends BaseActivity {
         prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         refs = ReferenceManager.getAllActiveRefPredefObjects();
-        referenceObjectShape = "circle";
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
@@ -188,6 +186,8 @@ public class CameraActivity extends BaseActivity {
             menu.add(0, i, Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
+        referenceObjectShape = refs.get(0).type.shape;
+        referenceObjectSize = refs.get(0).size;
 
         return true;
     }
@@ -240,12 +240,16 @@ public class CameraActivity extends BaseActivity {
         drawView.setClickable(true);
         drawView.bringToFront();
         confirmButton.setVisibility(VISIBLE);
-//        drawView.reference = new Circle(new Point(400, 400), 100);
         showMenu();
     }
 
     public void setReference() {
-        //TODO: compute scale from reference and saved object size
+        if (drawView.reference instanceof Circle) {
+            drawView.scale = referenceObjectSize/(((Circle) drawView.reference).radius*2);
+        } else {
+            drawView.scale = (float) Math.sqrt(referenceObjectSize/((Polygon) drawView.reference).getArea());
+        }
+
         status = Status.MEASUREMENT;
         drawView.ctxStatus = status;
         confirmButton.setVisibility(GONE);
@@ -285,14 +289,14 @@ public class CameraActivity extends BaseActivity {
         }
     }
 
-    private void showMenu(){
-        for (int i = 0; i < refsMenu.size(); i++){
+    private void showMenu() {
+        for (int i = 0; i < refsMenu.size(); i++) {
             refsMenu.getItem(i).setVisible(true);
         }
     }
 
-    private void hideMenu(){
-        for (int i = 0; i < refsMenu.size(); i++){
+    private void hideMenu() {
+        for (int i = 0; i < refsMenu.size(); i++) {
             refsMenu.getItem(i).setVisible(false);
         }
     }
