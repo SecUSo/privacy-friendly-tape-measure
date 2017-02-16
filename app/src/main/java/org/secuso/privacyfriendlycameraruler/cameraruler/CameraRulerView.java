@@ -104,6 +104,10 @@ public class CameraRulerView extends View {
                         default:
                             break;
                     }
+                } else if (reference instanceof Line) {
+                    Point end = ((Line) reference).ends[activeTouchpoint];
+                    end.x = event.getX();
+                    end.y = event.getY();
                 } else {
                     Point corner = ((Polygon) reference).corners[activeTouchpoint];
                     corner.x = event.getX();
@@ -152,6 +156,9 @@ public class CameraRulerView extends View {
         if (reference instanceof Circle) {
             Circle refCircle = (Circle) reference;
             canvas.drawCircle(refCircle.center.x, refCircle.center.y, refCircle.radius, referencePaint);
+        } else if (reference instanceof Line) {
+            Point[] ends = ((Line) reference).ends;
+            canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, referencePaint);
         } else {
             Point[] corners = ((Polygon) reference).corners;
             int length = corners.length;
@@ -170,6 +177,10 @@ public class CameraRulerView extends View {
                 Circle refCircle = (Circle) reference;
                 drawTouchPoint(canvas, refCircle.center, referenceTouchPointPaint);
                 drawTouchPoint(canvas, refCircle.radiusTouchPoint, referenceTouchPointPaint);
+            } else if (reference instanceof Line) {
+                Point[] ends = ((Line) reference).ends;
+                drawTouchPoint(canvas, ends[0], referenceTouchPointPaint);
+                drawTouchPoint(canvas, ends[1], referenceTouchPointPaint);
             } else {
                 Point[] corners = ((Polygon) reference).corners;
                 int length = corners.length;
@@ -184,8 +195,10 @@ public class CameraRulerView extends View {
                 canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
                 drawTouchPoint(canvas, ends[0], touchPointPaint);
                 drawTouchPoint(canvas, ends[1], touchPointPaint);
-                float length = ((Line) measure).getLength()*scale;
-                if (unitOfMeasurement.equals("in")) {length = (float) (length/25.4);}
+                float length = ((Line) measure).getLength() * scale;
+                if (unitOfMeasurement.equals("in")) {
+                    length = (float) (length / 25.4);
+                }
                 output.setText(getResources().getString(R.string.length) + length + unitOfMeasurement);
             } else if (measure instanceof Polygon) {
                 Point[] corners = ((Polygon) measure).corners;
@@ -203,8 +216,10 @@ public class CameraRulerView extends View {
                     output.setText(R.string.self_intersection_warning);
                 } else {
                     canvas.drawLines(points, paint);
-                    float area = ((Polygon) measure).getArea()*scale*scale;
-                    if (unitOfMeasurement.equals("in")) {area = (float) (area/Math.pow(25.4, 2));}
+                    float area = ((Polygon) measure).getArea() * scale * scale;
+                    if (unitOfMeasurement.equals("in")) {
+                        area = (float) (area / Math.pow(25.4, 2));
+                    }
                     output.setText(getResources().getString(R.string.area) + area + unitOfMeasurement + "²");
                 }
 
@@ -216,8 +231,10 @@ public class CameraRulerView extends View {
                 canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
                 drawTouchPoint(canvas, circle.center, touchPointPaint);
                 drawTouchPoint(canvas, circle.radiusTouchPoint, touchPointPaint);
-                float area = circle.getArea()*scale*scale;
-                if (unitOfMeasurement.equals("in")) {area = (float) (area/Math.pow(25.4, 2));}
+                float area = circle.getArea() * scale * scale;
+                if (unitOfMeasurement.equals("in")) {
+                    area = (float) (area / Math.pow(25.4, 2));
+                }
                 output.setText(getResources().getString(R.string.area) + area + unitOfMeasurement + "²");
             }
         }
@@ -239,6 +256,15 @@ public class CameraRulerView extends View {
                     activeTouchpoint = 0;
                     result = true;
                 } else if (click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
+                    activeTouchpoint = 1;
+                    result = true;
+                }
+            } else if (reference instanceof Line) {
+                Point[] ends = ((Line) reference).ends;
+                if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS) {
+                    activeTouchpoint = 0;
+                    result = true;
+                } else if (click.dist(ends[1]) <= TOUCHPOINT_RADIUS) {
                     activeTouchpoint = 1;
                     result = true;
                 }
@@ -327,5 +353,34 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    protected void newReferenceTetragon() {
+        float centreX = this.getWidth() / 2;
+        float offsetX = centreX / 4;
+        float centreY = this.getHeight() / 2;
+        float offsetY = centreY / 4;
+        reference = new Tetragon(new Point(centreX - offsetX, centreY - offsetY),
+                new Point(centreX + offsetX, centreY - offsetY),
+                new Point(centreX + offsetX, centreY + offsetY),
+                new Point(centreX - offsetX, centreY + offsetY));
+        this.invalidate();
+    }
+
+    protected void newReferenceCircle() {
+        float centreX = this.getWidth() / 2;
+        float offsetX = centreX / 4;
+        float centreY = this.getHeight() / 2;
+        reference = new Circle(new Point(centreX, centreY), offsetX);
+        this.invalidate();
+    }
+
+    protected void newReferenceLine() {
+        float centreX = this.getWidth() / 2;
+        float offsetX = centreX / 4;
+        float centreY = this.getHeight() / 2;
+        float offsetY = centreY / 4;
+        reference = new Line(new Point(centreX - offsetX, centreY - offsetY),
+                new Point(centreX + offsetX, centreY + offsetY));
+        this.invalidate();
+    }
 
 }

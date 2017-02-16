@@ -215,15 +215,15 @@ public class TutorialActivity extends AppCompatActivity {
      */
     private void fillDatabase() {
         PFASQLiteHelper dbHelper = new PFASQLiteHelper(getBaseContext());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(0));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(1));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(2));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(3));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(4));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(5));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(6));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(7));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(8));
-        dbHelper.addUserDefinedRef(new UserDefinedReferences(9));
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        dbHelper.addUserDefinedRef(new UserDefinedReferences());
     }
 }

@@ -55,7 +55,7 @@ public class ReferenceEditor extends AppCompatActivity {
                 }
 
                 UserDefinedReferences udf;
-                if (id >=0 && id <= 9) {
+                if (id > 0 && id <= 10) {
                     if (name.isEmpty() || size <= 0 || shape.isEmpty()) {
                         udf = new UserDefinedReferences(id);
                         Toast.makeText(getBaseContext(), "Deactivated user defined reference object "+id, Toast.LENGTH_LONG).show();
@@ -65,7 +65,7 @@ public class ReferenceEditor extends AppCompatActivity {
                     }
                     dbHelper.updateUserDefRef(udf);
                 } else {
-                    Toast.makeText(getBaseContext(), "ID must be between 0 and 9", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getBaseContext(), "ID must be between 1 and 10", Toast.LENGTH_LONG).show();
                 }
 
             }

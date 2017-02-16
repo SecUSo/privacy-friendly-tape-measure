@@ -21,8 +21,10 @@ import android.widget.Toast;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
 import org.secuso.privacyfriendlycameraruler.R;
+import org.secuso.privacyfriendlycameraruler.database.PFASQLiteHelper;
 import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
 import org.secuso.privacyfriendlycameraruler.database.ReferenceObject;
+import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
 
 import java.util.ArrayList;
 
@@ -55,6 +57,7 @@ public class CameraActivity extends BaseActivity {
     private Menu refsMenu;
 
     private ArrayList<ReferenceObject> refs;
+    private ArrayList<UserDefinedReferences> udrefs;
     DisplayMetrics displayMetrics = new DisplayMetrics();
     private String referenceObjectShape = "circle";
     private float referenceObjectSize = 1;
@@ -88,6 +91,14 @@ public class CameraActivity extends BaseActivity {
         setContentView(R.layout.activity_camera);
 
         refs = ReferenceManager.getAllActiveRefPredefObjects(getBaseContext());
+        PFASQLiteHelper dbHelper = new PFASQLiteHelper(getBaseContext());
+        udrefs = (ArrayList<UserDefinedReferences>) dbHelper.getAllUDefRef();
+        for (int i = udrefs.size() - 1; i >= 0; i--) {
+            if (!udrefs.get(i).getUDR_ACTIVE()) {
+                udrefs.remove(i);
+            }
+        }
+
         prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
 
@@ -182,11 +193,24 @@ public class CameraActivity extends BaseActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         refsMenu = menu;
+
+        //add active user defined objects
+        for (int i = 0; i < udrefs.size(); i++) {
+            menu.add(0, i, Menu.NONE, udrefs.get(i).getUDR_NAME());//.setIcon(R.drawable.your-add-icon) to add icon to menu item
+            menu.getItem(i).setVisible(false);
+        }
+
+        //add active predefined objects
         for (int i = 0; i < refs.size(); i++) {
             menu.add(0, i, Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
-        if (!refs.isEmpty()) {
+
+        //set topmost item as active
+        if (!udrefs.isEmpty()) {
+            referenceObjectShape = udrefs.get(0).getUDR_SHAPE();
+            referenceObjectSize = udrefs.get(0).getUDR_SIZE();
+        } else if (!refs.isEmpty()) {
             referenceObjectShape = refs.get(0).type.shape;
             referenceObjectSize = refs.get(0).size;
         }
@@ -197,15 +221,24 @@ public class CameraActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
-        ReferenceObject refObj = refs.get(item.getItemId());
-        referenceObjectShape = refObj.type.shape;
-        referenceObjectSize = refObj.size;
+        int itemId = item.getItemId();
+
+        if (itemId < udrefs.size()) {
+            UserDefinedReferences refObj = udrefs.get(itemId);
+            referenceObjectShape = refObj.getUDR_SHAPE();
+            referenceObjectSize = refObj.getUDR_SIZE();
+        } else {
+            ReferenceObject refObj = refs.get(itemId);
+            referenceObjectShape = refObj.type.shape;
+            referenceObjectSize = refObj.size;
+        }
 
         if (referenceObjectShape.equals("circle") && !(drawView.reference instanceof Circle)) {
-            drawView.reference = new Circle(new Point(400, 400), 100);
+            drawView.newReferenceCircle();
         } else if (referenceObjectShape.equals("tetragon") && !(drawView.reference instanceof Tetragon)) {
-            drawView.reference = new Tetragon(new Point(400, 400), new Point(600, 400),
-                    new Point(600, 600), new Point(400, 600));
+            drawView.newReferenceTetragon();
+        } else if (referenceObjectShape.equals("line") && !(drawView.reference instanceof Line)) {
+            drawView.newReferenceLine();
         }
 
         drawView.invalidate();
@@ -248,6 +281,8 @@ public class CameraActivity extends BaseActivity {
     public void setReference() {
         if (drawView.reference instanceof Circle) {
             drawView.scale = referenceObjectSize / (((Circle) drawView.reference).radius * 2);
+        } else if (drawView.reference instanceof Line) {
+            drawView.scale = referenceObjectSize / ((Line) drawView.reference).getLength();
         } else {
             drawView.scale = (float) Math.sqrt(referenceObjectSize / ((Polygon) drawView.reference).getArea());
         }

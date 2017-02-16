@@ -139,7 +139,6 @@ public class ReferenceManager {
 
         for (Iterator<ReferenceObject> it = predefinedReferenceObjects.iterator(); it.hasNext();) {
             ReferenceObject ro = it.next();
-//            if (ro.type.name.equals("us-coins") || ro.type.name.equals("us-notes")){
             if (active.contains(ro.type.name)) {
                 result.add(ro);
             }

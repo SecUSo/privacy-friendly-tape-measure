@@ -18,7 +18,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:text="ID (0-9): "
+            android:text="ID (1-10): "
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/id_discription"
