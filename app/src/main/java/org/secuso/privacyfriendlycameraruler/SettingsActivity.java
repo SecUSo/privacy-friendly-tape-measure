@@ -4,25 +4,17 @@ package org.secuso.privacyfriendlycameraruler;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
-import android.preference.MultiSelectListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 
-import org.secuso.privacyfriendlycameraruler.database.ObjectType;
-import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
-import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
+import org.secuso.privacyfriendlycameraruler.database.ReferenceEditor;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -103,9 +95,6 @@ public class SettingsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_settings);
-
-//        MultiSelectListPreference mslPref = (MultiSelectListPreference) findViewById(R.id.pref_type_selection);
-//        populatePreference(mslPref);
         //setupActionBar();
 
 
@@ -186,6 +175,15 @@ public class SettingsActivity extends BaseActivity {
             addPreferencesFromResource(R.xml.pref_general);
             //setHasOptionsMenu(true);
 
+            Preference editUDefRefPref = findPreference("pref_edit_user_def_refs");
+            editUDefRefPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    startActivity(new Intent(getActivity().getBaseContext(), ReferenceEditor.class));
+                    return false;
+                }
+            });
+
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
@@ -199,7 +197,6 @@ public class SettingsActivity extends BaseActivity {
             int id = item.getItemId();
             if (id == android.R.id.home) {
                 //getActivity().finish();
-                startActivity(new Intent(getActivity(), SettingsActivity.class));
                 return true;
             }
             return super.onOptionsItemSelected(item);

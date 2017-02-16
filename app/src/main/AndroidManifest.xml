@@ -83,6 +83,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.secuso.privacyfriendlycameraruler.MainActivity" />
         </activity>
+        <activity android:name=".database.ReferenceEditor"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_ref_editor"
+            android:parentActivityName="org.secuso.privacyfriendlycameraruler.SettingsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.secuso.privacyfriendlycameraruler.SettingsActivity" />
+        </activity>
     </application>
 
 </manifest>

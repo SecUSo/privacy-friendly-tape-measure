@@ -47,6 +47,11 @@
             android:entryValues="@array/pref_type_selection_evs"
             android:defaultValue="@array/pref_type_selection_evs"/>
 
+        <Preference android:id="@+id/pref_edit_user_def_refs"
+            android:key="pref_edit_user_def_refs"
+            android:title="@string/pref_edit_user_def_refs"
+            />
+
         <SwitchPreference
             android:key="pref_autodetect"
             android:title="@string/pref_autodetect"

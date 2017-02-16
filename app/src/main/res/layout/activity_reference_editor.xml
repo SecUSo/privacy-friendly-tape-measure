@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/list_view_user_defs"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
+
+    <!--</android.support.v7.widget.RecyclerView>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="ID (0-9): "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/id_discription"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/id_input"
+            android:layout_weight="1"
+            tools:maxLength="1" />
+
+        <TextView
+            android:text="Name: "
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_discription" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/name_input"
+            android:layout_weight="1"
+            android:singleLine="true" />
+
+        <TextView
+            android:text="Shape: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/shape_discription"
+            android:layout_weight="1" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/shape_rdbtn_group">
+
+            <RadioButton
+                android:text="Line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdbtn_line"
+                android:layout_weight="1"
+                android:checked="true" />
+
+            <RadioButton
+                android:text="Circle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdbtn_circle"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:text="Tetragon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rdbtn_tetragon"
+                android:layout_weight="1" />
+        </RadioGroup>
+
+        <TextView
+            android:text="Size (length if shape is line, diameter if circle and area if tetragon): "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/size_discription"
+            android:layout_weight="1" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:ems="10"
+            android:id="@+id/size_input"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="OK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edit_confirm_button"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+</ScrollView>

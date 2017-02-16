@@ -2,7 +2,6 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 import android.content.Intent;
 import android.graphics.Matrix;
-import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -19,7 +18,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
 import org.secuso.privacyfriendlycameraruler.R;
@@ -32,6 +30,8 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 /**
+ * Main activity for the Camera Ruler functionality.
+ * <p>
  * Created by roberts on 12.12.16.
  */
 
@@ -57,7 +57,7 @@ public class CameraActivity extends BaseActivity {
     private ArrayList<ReferenceObject> refs;
     DisplayMetrics displayMetrics = new DisplayMetrics();
     private String referenceObjectShape = "circle";
-    private float referenceObjectSize;
+    private float referenceObjectSize = 1;
 
     // These matrices will be used to move and zoom image
     Matrix matrix = new Matrix();
@@ -87,9 +87,9 @@ public class CameraActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
 
+        refs = ReferenceManager.getAllActiveRefPredefObjects(getBaseContext());
         prefManager.putLastMode("camera");
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        refs = ReferenceManager.getAllActiveRefPredefObjects(getBaseContext());
 
         cameraButton = (ImageButton) findViewById(R.id.from_camera_button);
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
@@ -186,8 +186,10 @@ public class CameraActivity extends BaseActivity {
             menu.add(0, i, Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
-        referenceObjectShape = refs.get(0).type.shape;
-        referenceObjectSize = refs.get(0).size;
+        if (!refs.isEmpty()) {
+            referenceObjectShape = refs.get(0).type.shape;
+            referenceObjectSize = refs.get(0).size;
+        }
 
         return true;
     }
@@ -245,9 +247,9 @@ public class CameraActivity extends BaseActivity {
 
     public void setReference() {
         if (drawView.reference instanceof Circle) {
-            drawView.scale = referenceObjectSize/(((Circle) drawView.reference).radius*2);
+            drawView.scale = referenceObjectSize / (((Circle) drawView.reference).radius * 2);
         } else {
-            drawView.scale = (float) Math.sqrt(referenceObjectSize/((Polygon) drawView.reference).getArea());
+            drawView.scale = (float) Math.sqrt(referenceObjectSize / ((Polygon) drawView.reference).getArea());
         }
 
         status = Status.MEASUREMENT;

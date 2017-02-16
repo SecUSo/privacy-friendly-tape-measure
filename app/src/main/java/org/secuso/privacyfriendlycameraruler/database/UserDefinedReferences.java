@@ -18,20 +18,28 @@ public class UserDefinedReferences {
     private float UDR_SIZE;
     private boolean UDR_ACTIVE;
 
-    public UserDefinedReferences() {    }
+    public UserDefinedReferences() {
+        this.UDR_NAME="";
+        this.UDR_SHAPE="";
+        this.UDR_SIZE=0;
+        this.UDR_ACTIVE=false;
+    }
 
-
-    /**
-     * Always use this constructor to generate data with values.
-     * @param UDR_ID The primary key for the database (will be automatically set by the DB)
-     */
     public UserDefinedReferences(int UDR_ID) {
-
         this.UDR_ID=UDR_ID;
         this.UDR_NAME="";
         this.UDR_SHAPE="";
         this.UDR_SIZE=0;
         this.UDR_ACTIVE=false;
+    }
+
+    public UserDefinedReferences(int UDR_ID, String name, String shape, float size) {
+
+        this.UDR_ID=UDR_ID;
+        this.UDR_NAME=name;
+        this.UDR_SHAPE=shape;
+        this.UDR_SIZE=size;
+        this.UDR_ACTIVE=true;
     }
 
     /**
