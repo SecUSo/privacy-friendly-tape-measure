@@ -95,6 +95,22 @@
     <string name="pref_type_selection">Reference Type Selection</string>
     <string name="pref_type_selection_verbose">What reference object types to use?</string>
     <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
+    <string name="pref_edit_user_def_refs">Edit user defined references</string>
+
+    <!-- ###USER DEFINED REFERENCE EDITOR### -->
+    <string name="title_activity_ref_editor">Reference Editor</string>
+    <string name="title_activity_ref_viewer">User Defined References</string>
+    <string name="list_item">Empty Slot</string>
+    <string name="edit_dialog_title">Edit Reference Object</string>
+    <string name="toast_input_failure">Invalid input.</string>
+    <string name="toast_edit_done">User defined reference sucessfully set.</string>
+    <string name="toast_delete_done">User set reference deleted.</string>
+    <string name="edit_name">Name:</string>
+    <string name="edit_shape">Shape:</string>
+    <string name="edit_line">Line</string>
+    <string name="edit_circle">Circle</string>
+    <string name="edit_tetragon">Tetragon</string>
+    <string name="edit_size">Size:</string>
 
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Disclaimer</string>
@@ -116,7 +132,5 @@
     <string name="skip">Skip</string>
     <string name="okay">Okay</string>
     <string name="view_help">View Help</string>
-    <string name="pref_edit_user_def_refs">Edit user defined references</string>
-    <string name="title_activity_ref_editor">Reference Editor</string>
 
 </resources>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/edit_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/name_discription"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:ems="10"
+                android:id="@+id/name_input"
+                android:layout_weight="1"
+                android:gravity="center"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:text="@string/edit_shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/shape_discription"
+                android:layout_weight="1"
+                android:gravity="center"/>
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/shape_rdbtn_group"
+                android:gravity="start">
+
+                <RadioButton
+                    android:text="@string/edit_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdbtn_line"
+                    android:layout_weight="1"
+                    android:checked="true" />
+
+                <RadioButton
+                    android:text="@string/edit_circle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdbtn_circle"
+                    android:layout_weight="1" />
+
+                <RadioButton
+                    android:text="@string/edit_tetragon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/rdbtn_tetragon"
+                    android:layout_weight="1" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:text="@string/edit_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/size_discription"
+                android:layout_weight="1"
+                android:gravity="center" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:ems="10"
+                android:id="@+id/size_input"
+                android:layout_weight="1"
+                android:gravity="center" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:text="Cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_cancel_button"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="Delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_delete_button"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="OK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/edit_confirm_button"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

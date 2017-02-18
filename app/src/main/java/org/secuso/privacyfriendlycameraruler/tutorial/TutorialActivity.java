@@ -25,6 +25,7 @@ import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
+ *
  * @author Karola Marky
  * @version 20161214
  */
@@ -48,6 +49,9 @@ public class TutorialActivity extends AppCompatActivity {
         if (!prefManager.isFirstTimeLaunch()) {
             launchHomeScreen();
             finish();
+        } else {
+            prefManager.addHiddenPrefs();
+            fillDatabase();
         }
 
         // Making notification bar transparent
@@ -55,8 +59,6 @@ public class TutorialActivity extends AppCompatActivity {
             getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         }
 
-        prefManager.addHiddenPrefs();
-        fillDatabase();
         setContentView(R.layout.activity_tutorial);
 
         viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -215,15 +217,8 @@ public class TutorialActivity extends AppCompatActivity {
      */
     private void fillDatabase() {
         PFASQLiteHelper dbHelper = new PFASQLiteHelper(getBaseContext());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
-        dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        for (int i = 0; i < 10; i++) {
+            dbHelper.addUserDefinedRef(new UserDefinedReferences());
+        }
     }
 }

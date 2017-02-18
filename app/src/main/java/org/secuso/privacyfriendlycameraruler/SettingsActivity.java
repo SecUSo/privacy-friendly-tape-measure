@@ -14,7 +14,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
 
-import org.secuso.privacyfriendlycameraruler.database.ReferenceEditor;
+import org.secuso.privacyfriendlycameraruler.database.ReferenceListViewer;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -179,7 +179,7 @@ public class SettingsActivity extends BaseActivity {
             editUDefRefPref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    startActivity(new Intent(getActivity().getBaseContext(), ReferenceEditor.class));
+                    startActivity(new Intent(getActivity().getBaseContext(), ReferenceListViewer.class));
                     return false;
                 }
             });

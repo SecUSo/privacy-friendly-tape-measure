@@ -138,8 +138,8 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      *
      * @return A list of all available userDefinedReferences in the Database
      */
-    public List<UserDefinedReferences> getAllUDefRef() {
-        List<UserDefinedReferences> uDefRefList = new ArrayList<UserDefinedReferences>();
+    public ArrayList<UserDefinedReferences> getAllUDefRef() {
+        ArrayList<UserDefinedReferences> uDefRefList = new ArrayList<UserDefinedReferences>();
 
         String selectQuery = "SELECT  * FROM " + TABLE_USERDEFINED;
 

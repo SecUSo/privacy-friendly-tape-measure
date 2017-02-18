@@ -36,10 +36,8 @@ public class PrefManager {
     }
 
     public void addHiddenPrefs() {
-        if (!pref.contains(LAST_MODE)) {
-            editor.putString(LAST_MODE, "camera").commit();
-            editor.commit();
-        }
+        editor.putString(LAST_MODE, "camera").commit();
+        editor.commit();
     }
 
     public String getLastMode() {
