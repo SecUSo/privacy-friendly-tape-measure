@@ -22,6 +22,11 @@ import org.secuso.privacyfriendlycameraruler.R;
 public class EditDialog extends DialogFragment {
     Activity activity;
     UserDefinedReferences reference;
+    private EditText nameInput;
+    private EditText sizeInput;
+    private RadioButton btnLine;
+    private RadioButton btnCircle;
+    private RadioButton btnTetragon;
 
     @Override
     public void onAttach(Activity activity) {
@@ -41,12 +46,15 @@ public class EditDialog extends DialogFragment {
 
         final View rootViewFinal = rootView;
 
-        Button okayButton = (Button) rootView.findViewById(R.id.edit_cancel_button);
-        Button cancelButton = (Button) rootView.findViewById(R.id.edit_confirm_button);
+        Button okayButton = (Button) rootView.findViewById(R.id.edit_confirm_button);
+        Button cancelButton = (Button) rootView.findViewById(R.id.edit_cancel_button);
         Button deleteButton = (Button) rootView.findViewById(R.id.edit_delete_button);
-        final EditText nameInput = (EditText) activity.findViewById(R.id.name_input);
-        final RadioGroup shapeRBtnGroup = (RadioGroup) activity.findViewById(R.id.shape_rdbtn_group);
-        final EditText sizeInput = (EditText) activity.findViewById(R.id.size_input);
+        btnLine = (RadioButton) rootView.findViewById(R.id.rdbtn_line);
+        btnCircle = (RadioButton) rootView.findViewById(R.id.rdbtn_circle);
+        btnTetragon = (RadioButton) rootView.findViewById(R.id.rdbtn_tetragon);
+        nameInput = (EditText) rootView.findViewById(R.id.name_input);
+//        final RadioGroup shapeRBtnGroup = (RadioGroup) activity.findViewById(R.id.shape_rdbtn_group);
+        sizeInput = (EditText) rootView.findViewById(R.id.size_input);
         final PFASQLiteHelper dbHelper = new PFASQLiteHelper(activity.getBaseContext());
 
         if (reference.getUDR_ACTIVE()) {
@@ -55,14 +63,11 @@ public class EditDialog extends DialogFragment {
             String shape = reference.getUDR_SHAPE();
             RadioButton btn;
             if (shape.equals("line")) {
-                btn = (RadioButton) activity.findViewById(R.id.rdbtn_line);
-                btn.setChecked(true);
+                btnLine.setChecked(true);
             } else if (shape.equals("circle")) {
-                btn = (RadioButton) activity.findViewById(R.id.rdbtn_circle);
-                btn.setChecked(true);
+                btnCircle.setChecked(true);
             } else if (shape.equals("tetragon")) {
-                btn = (RadioButton) activity.findViewById(R.id.rdbtn_tetragon);
-                btn.setChecked(true);
+                btnTetragon.setChecked(true);
             }
         }
 
@@ -93,9 +98,6 @@ public class EditDialog extends DialogFragment {
                 float size = Float.parseFloat(sizeInput.getText().toString());
                 String shape = "";
 
-                RadioButton btnLine = (RadioButton) activity.findViewById(R.id.rdbtn_line);
-                RadioButton btnCircle = (RadioButton) activity.findViewById(R.id.rdbtn_circle);
-                RadioButton btnTetragon = (RadioButton) activity.findViewById(R.id.rdbtn_tetragon);
                 if (btnLine.isChecked()) {
                     shape = "line";
                 } else if (btnCircle.isChecked()) {
