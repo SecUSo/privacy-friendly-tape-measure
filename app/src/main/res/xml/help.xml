@@ -9,12 +9,29 @@
             android:summary="@string/help_intro"/>
     </PreferenceCategory>
 
+    <PreferenceCategory android:title="@string/help_camera_ruler_heading">
+        <Preference
+            android:selectable="false"
+            android:persistent="false"
+            android:title=""
+            android:summary="@string/help_camera_ruler"/>
+    </PreferenceCategory>
+
     <PreferenceCategory android:title="@string/help_category_options">
         <Preference android:title="@string/help_units"
             android:summary="@string/pref_units_summary"
             android:selectable="false"/>
         <Preference android:title="@string/help_angles"
             android:summary="@string/pref_angles_summary"
+            android:selectable="false"/>
+        <Preference android:title="@string/help_uom"
+            android:summary="@string/pref_uom_summary"
+            android:selectable="false"/>
+        <Preference android:title="@string/help_ref_types"
+            android:summary="@string/pref_ref_types_summary"
+            android:selectable="false"/>
+        <Preference android:title="@string/help_ref_editor"
+            android:summary="@string/pref_ref_editor_summary"
             android:selectable="false"/>
     </PreferenceCategory>
 

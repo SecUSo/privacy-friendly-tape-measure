@@ -165,5 +165,13 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="ok">OK</string>
+    <string name="help_camera_ruler_heading">Camera Ruler</string>
+    <string name="help_camera_ruler">fdsg</string>
+    <string name="help_uom">Units of Measurement</string>
+    <string name="help_ref_types">Reference Type Selection</string>
+    <string name="help_ref_editor">Edit user defined references</string>
+    <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
+    <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
+    <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
 
 </resources>

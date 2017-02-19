@@ -52,10 +52,10 @@
             android:title="@string/pref_edit_user_def_refs"
             />
 
-        <SwitchPreference
-            android:key="pref_autodetect"
-            android:title="@string/pref_autodetect"
-            android:defaultValue="false"/>
+        <!--<SwitchPreference-->
+            <!--android:key="pref_autodetect"-->
+            <!--android:title="@string/pref_autodetect"-->
+            <!--android:defaultValue="false"/>-->
 
     </PreferenceCategory>
 

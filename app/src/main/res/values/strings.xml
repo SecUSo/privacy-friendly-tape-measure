@@ -57,11 +57,14 @@
     <string name="help_permissions_heading">Permissions</string>
     <string name="help_permissions_description">Privacy Friendly Ruler does not use any permissions.</string>
     <string name="help_category_options">Settings</string>
-    <string name="help_units">Units of Measurement</string>
+    <string name="help_units">Left and Right Ruler</string>
     <string name="pref_units_summary">You can display a cm ruler, an inch ruler or no ruler on the left and on the right side of the screen. Both rulers can be set separately in the option menu.</string>
     <string name="help_angles">Angle Measure</string>
     <string name="pref_angles_summary">You can display an angle measure in degrees or radian on the left side of the screen.</string>
     <string name="help_intro">The Privacy Friendly Ruler App turns Your Phone into a ruler for quick on the fly measurements.</string>
+    <string name="help_camera_ruler_heading">Camera Ruler</string>
+    <string name="help_camera_ruler">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane. Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
+
 
     <!--###ABOUT###-->
     <string name="about">About</string>
@@ -121,18 +124,23 @@
     <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
 
     <!-- ### TUTORIAL SCREEN ### -->
-    <string name="slide1_heading">Placeholder Heading 1</string>
-    <string name="slide1_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ac eros at dui dignissim faucibus. Nunc cursus nisl vel vestibulum laoreet. Nunc iaculis felis enim, sit amet vulputate augue viverra a. Sed ultrices sem non elementum aliquet. Praesent tincidunt tempus blandit.</string>
+    <string name="slide1_heading">Welcome</string>
+    <string name="slide1_text">With Privacy Friendly Camera Ruler you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
 
-    <string name="slide2_heading">Placeholder Heading 2</string>
-    <string name="slide2_text">Morbi dolor ex, sollicitudin sed vehicula eu, luctus quis massa. Phasellus libero ante, molestie at pellentesque ac, cursus a neque. Vestibulum nec placerat sem. Aenean interdum ligula a placerat euismod. Pellentesque lacinia facilisis turpis sit amet laoreet. Vivamus congue ligula a vulputate auctor. </string>
+    <string name="slide2_heading">How to measure</string>
+    <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
 
-    <string name="slide3_heading">Placeholder Heading 3</string>
-    <string name="slide3_text">Etiam pulvinar hendrerit velit et sagittis. Integer maximus risus eget tincidunt consectetur. Nunc interdum, enim quis posuere ornare, neque magna dictum justo, sed maximus enim orci eu lacus. Maecenas blandit eleifend neque, non suscipit diam porttitor venenatis. Nam vel dui nec dolor dignissim vestibulum.</string>
+    <string name="slide3_heading">How to measure</string>
+    <string name="slide3_text">Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
 
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="okay">Okay</string>
     <string name="view_help">View Help</string>
-
+    <string name="help_uom">Units of Measurement</string>
+    <string name="help_ref_types">Reference Type Selection</string>
+    <string name="help_ref_editor">Edit user defined references</string>
+    <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
+    <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
+    <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
 </resources>
