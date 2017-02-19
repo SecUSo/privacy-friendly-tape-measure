@@ -95,7 +95,7 @@ public class EditDialog extends DialogFragment {
             @Override
             public void onClick(View v) {
                 String name = nameInput.getText().toString();
-                float size = Float.parseFloat(sizeInput.getText().toString());
+                float size = sizeInput.getText().toString().isEmpty()?-1f:Float.parseFloat(sizeInput.getText().toString());
                 String shape = "";
 
                 if (btnLine.isChecked()) {
