@@ -111,25 +111,31 @@
             android:layout_height="match_parent">
 
             <Button
-                android:text="Cancel"
+                android:text="@string/cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_cancel_button"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:textColor="@color/colorPrimary" />
 
             <Button
-                android:text="Delete"
+                android:text="@string/delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_delete_button"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:textColor="@color/colorPrimary" />
 
             <Button
-                android:text="OK"
+                android:text="@string/okay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/edit_confirm_button"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="?selectableItemBackgroundBorderless"
+                android:textColor="@color/colorPrimary" />
 
         </LinearLayout>
 

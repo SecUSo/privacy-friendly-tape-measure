@@ -111,6 +111,8 @@
     <string name="edit_circle">Circle</string>
     <string name="edit_tetragon">Tetragon</string>
     <string name="edit_size">Size:</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
 
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Disclaimer</string>

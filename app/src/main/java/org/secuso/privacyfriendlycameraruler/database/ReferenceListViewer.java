@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import org.secuso.privacyfriendlycameraruler.R;
-import org.secuso.privacyfriendlycameraruler.tutorial.DisclaimerDialog;
 
 import java.util.ArrayList;
 

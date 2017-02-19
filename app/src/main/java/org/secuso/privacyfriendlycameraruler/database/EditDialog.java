@@ -1,6 +1,5 @@
 package org.secuso.privacyfriendlycameraruler.database;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import org.secuso.privacyfriendlycameraruler.R;
@@ -20,7 +18,6 @@ import org.secuso.privacyfriendlycameraruler.R;
  */
 
 public class EditDialog extends DialogFragment {
-    Activity activity;
     UserDefinedReferences reference;
     private EditText nameInput;
     private EditText sizeInput;
@@ -29,19 +26,12 @@ public class EditDialog extends DialogFragment {
     private RadioButton btnTetragon;
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.activity = activity;
-    }
-
-    @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         View rootView = inflater.inflate(R.layout.edit_dialog, null);
         builder.setView(rootView);
 
-//        builder.setIcon(R.mipmap.icon_drawer);
         builder.setTitle(getActivity().getString(R.string.edit_dialog_title));
 
         final View rootViewFinal = rootView;
@@ -53,9 +43,8 @@ public class EditDialog extends DialogFragment {
         btnCircle = (RadioButton) rootView.findViewById(R.id.rdbtn_circle);
         btnTetragon = (RadioButton) rootView.findViewById(R.id.rdbtn_tetragon);
         nameInput = (EditText) rootView.findViewById(R.id.name_input);
-//        final RadioGroup shapeRBtnGroup = (RadioGroup) activity.findViewById(R.id.shape_rdbtn_group);
         sizeInput = (EditText) rootView.findViewById(R.id.size_input);
-        final PFASQLiteHelper dbHelper = new PFASQLiteHelper(activity.getBaseContext());
+        final PFASQLiteHelper dbHelper = new PFASQLiteHelper(getActivity().getBaseContext());
 
         if (reference.getUDR_ACTIVE()) {
             nameInput.setText(reference.getUDR_NAME());
@@ -86,8 +75,9 @@ public class EditDialog extends DialogFragment {
                 reference.setUDR_SIZE(0);
                 reference.setUDR_SHAPE("");
                 dbHelper.updateUserDefRef(reference);
-                Toast.makeText(activity.getBaseContext(), getString(R.string.toast_delete_done), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getBaseContext(), getString(R.string.toast_delete_done), Toast.LENGTH_LONG).show();
                 dismiss();
+                getActivity().recreate();
             }
         });
 
@@ -107,15 +97,16 @@ public class EditDialog extends DialogFragment {
                 }
 
                 if (name.isEmpty() || size <= 0 || shape.isEmpty()) {
-                    Toast.makeText(activity.getBaseContext(), getString(R.string.toast_input_failure), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getBaseContext(), getString(R.string.toast_input_failure), Toast.LENGTH_LONG).show();
                 } else {
                     reference.setUDR_ACTIVE(true);
                     reference.setUDR_NAME(name);
                     reference.setUDR_SHAPE(shape);
                     reference.setUDR_SIZE(size);
                     dbHelper.updateUserDefRef(reference);
-                    Toast.makeText(activity.getBaseContext(), getString(R.string.toast_edit_done), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getBaseContext(), getString(R.string.toast_edit_done), Toast.LENGTH_LONG).show();
                     dismiss();
+                    getActivity().recreate();
                 }
             }
         });

@@ -92,7 +92,7 @@ public class CameraActivity extends BaseActivity {
 
         refs = ReferenceManager.getAllActiveRefPredefObjects(getBaseContext());
         PFASQLiteHelper dbHelper = new PFASQLiteHelper(getBaseContext());
-        udrefs = (ArrayList<UserDefinedReferences>) dbHelper.getAllUDefRef();
+        udrefs = dbHelper.getAllUDefRef();
         for (int i = udrefs.size() - 1; i >= 0; i--) {
             if (!udrefs.get(i).getUDR_ACTIVE()) {
                 udrefs.remove(i);
@@ -202,7 +202,7 @@ public class CameraActivity extends BaseActivity {
 
         //add active predefined objects
         for (int i = 0; i < refs.size(); i++) {
-            menu.add(0, i, Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
+            menu.add(0, i+udrefs.size(), Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
 
@@ -214,6 +214,12 @@ public class CameraActivity extends BaseActivity {
             referenceObjectShape = refs.get(0).type.shape;
             referenceObjectSize = refs.get(0).size;
         }
+        if (referenceObjectShape.equals("tetragon")) {
+            drawView.reference = new Tetragon(new Point(400, 400), new Point(800, 400), new Point(800, 800), new Point(400, 800));
+        } else if (referenceObjectShape.equals("line")) {
+            drawView.reference = new Line(new Point(400, 400), new Point(800, 800));
+        }
+        drawView.invalidate();
 
         return true;
     }
@@ -228,7 +234,7 @@ public class CameraActivity extends BaseActivity {
             referenceObjectShape = refObj.getUDR_SHAPE();
             referenceObjectSize = refObj.getUDR_SIZE();
         } else {
-            ReferenceObject refObj = refs.get(itemId);
+            ReferenceObject refObj = refs.get(itemId-udrefs.size());
             referenceObjectShape = refObj.type.shape;
             referenceObjectSize = refObj.size;
         }

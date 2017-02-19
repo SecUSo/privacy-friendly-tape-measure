@@ -1,6 +1,5 @@
 package org.secuso.privacyfriendlycameraruler.tutorial;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,15 +16,7 @@ import org.secuso.privacyfriendlycameraruler.R;
 import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 
 public class DisclaimerDialog extends DialogFragment {
-
-    Activity activity;
     private PrefManager prefManager;
-
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
-        this.activity = activity;
-    }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -49,7 +40,7 @@ public class DisclaimerDialog extends DialogFragment {
             public void onClick(View view) {
                 CheckBox readCheckBox = (CheckBox) rootViewFinal.findViewById(R.id.readCheckBox);
                 if (!readCheckBox.isChecked()) {
-                    Toast.makeText(activity.getBaseContext(), getString(R.string.disclaimer_check_toast), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getBaseContext(), getString(R.string.disclaimer_check_toast), Toast.LENGTH_LONG).show();
                 } else {
                     prefManager.setFirstTimeLaunch(false);
                     startActivity(new Intent(getActivity().getBaseContext(), CameraActivity.class));
@@ -64,7 +55,7 @@ public class DisclaimerDialog extends DialogFragment {
             public void onClick(View view) {
                 CheckBox readCheckBox = (CheckBox) rootViewFinal.findViewById(R.id.readCheckBox);
                 if (!readCheckBox.isChecked()) {
-                    Toast.makeText(activity.getBaseContext(), getString(R.string.disclaimer_check_toast), Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity().getBaseContext(), getString(R.string.disclaimer_check_toast), Toast.LENGTH_LONG).show();
                 } else {
                     prefManager.setFirstTimeLaunch(false);
                     startActivity(new Intent(getActivity().getBaseContext(), HelpActivity.class));
