@@ -28,25 +28,6 @@
             android:weightSum="1"
             tools:context=".cameraruler.CameraActivity">
 
-            <ImageButton
-                android:id="@+id/from_camera_button"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="35dp"
-                android:background="@drawable/button_fullwidth"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_menu_camera" />
-
-            <ImageButton
-                android:id="@+id/from_gallery_button"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="35dp"
-                android:background="@drawable/button_fullwidth"
-                android:scaleType="fitCenter"
-                android:src="@drawable/ic_menu_gallery" />
 
             <ImageView
                 android:id="@+id/pictureView"
@@ -68,6 +49,49 @@
             android:weightSum="1"
             tools:context=".cameraruler.CameraActivity">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="193dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+
+                <ImageButton
+                    android:id="@+id/from_camera_button"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="15dp"
+                    android:radius="6dp"
+                    android:background="@drawable/button_normal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_menu_camera" />
+
+                <ImageButton
+                    android:id="@+id/from_gallery_button"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="15dp"
+                    android:radius="6dp"
+                    android:background="@drawable/button_normal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_menu_gallery" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/camera_gallery_choice_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description_camera_gallery"
+                android:layout_marginTop="110dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
         </RelativeLayout>
 
         <com.getbase.floatingactionbutton.FloatingActionsMenu

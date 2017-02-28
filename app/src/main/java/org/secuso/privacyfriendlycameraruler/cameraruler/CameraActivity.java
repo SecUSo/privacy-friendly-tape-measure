@@ -54,6 +54,7 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton newLineButton;
     private FloatingActionButton confirmButton;
     private TextView output;
+    private TextView tutorialText;
     private Menu refsMenu;
 
     private ArrayList<ReferenceObject> refs;
@@ -107,6 +108,7 @@ public class CameraActivity extends BaseActivity {
         pictureView = (ImageView) findViewById(R.id.pictureView);
         confirmButton = (FloatingActionButton) findViewById(R.id.confirm_reference);
         output = (TextView) findViewById(R.id.output_tf);
+        tutorialText = (TextView) findViewById(R.id.camera_gallery_choice_text);
 
         newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
         newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
@@ -277,6 +279,7 @@ public class CameraActivity extends BaseActivity {
         cameraButton.setClickable(false);
         galleryButton.setVisibility(GONE);
         galleryButton.setClickable(false);
+        tutorialText.setVisibility(GONE);
         pictureView.setImageURI(uri);
         pictureView.setVisibility(VISIBLE);
         drawView.setVisibility(VISIBLE);
@@ -313,6 +316,7 @@ public class CameraActivity extends BaseActivity {
             cameraButton.setClickable(true);
             galleryButton.setVisibility(VISIBLE);
             galleryButton.setClickable(true);
+            tutorialText.setVisibility(VISIBLE);
             drawView.setVisibility(GONE);
             drawView.setClickable(false);
             pictureView.setVisibility(GONE);
