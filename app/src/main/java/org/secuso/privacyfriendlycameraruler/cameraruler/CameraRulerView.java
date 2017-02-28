@@ -39,7 +39,11 @@ import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_UP;
 
 /**
- * Created by roberts on 26.12.16.
+ * View overlaid over the activity_camera layout to enable drawing shapes on top of it.
+ * Handles drawing of shaped for the reference objects, measurement objects, touchpoints for
+ * the active object and display of obtained length/area.
+ *
+ * Created by rkolosovs on 26.12.16.
  */
 
 public class CameraRulerView extends View {

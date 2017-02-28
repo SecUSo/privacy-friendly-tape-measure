@@ -21,7 +21,11 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 /**
- * Created by roberts on 23.01.17.
+ * Class representing polygons with various number of sides. Consists of an array of points.
+ * Contains a helper method for sorting three numbers and a method for checking if the represented
+ * shape self-intersects.
+ *
+ * Created by rkolosovs on 23.01.17.
  */
 
 public abstract class Polygon extends Shape {

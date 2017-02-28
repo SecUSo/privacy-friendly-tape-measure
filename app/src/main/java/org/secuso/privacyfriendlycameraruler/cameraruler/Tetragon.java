@@ -21,7 +21,9 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 /**
- * Created by roberts on 23.01.17.
+ * A class representing a four sided polygon. Implements the area computation method.
+ *
+ * Created by rkolosovs on 23.01.17.
  */
 
 public class Tetragon extends Polygon {

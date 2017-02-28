@@ -21,7 +21,10 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 /**
- * Created by roberts on 23.01.17.
+ * A class representing a triangular polygon. Implements the area computation function and
+ * own (trivial) version of the self-intersection function.
+ *
+ * Created by rkolosovs on 23.01.17.
  */
 
 public class Triangle extends Polygon {

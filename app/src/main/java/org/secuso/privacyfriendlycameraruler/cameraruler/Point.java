@@ -21,7 +21,10 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 /**
- * Created by roberts on 23.01.17.
+ * Class representing a point in a cartesian coordinate system. Consists of a x and a y coordinate.
+ * Contains a method for computing the distance from it to another point.
+ *
+ * Created by rkolosovs on 23.01.17.
  */
 
 public class Point {

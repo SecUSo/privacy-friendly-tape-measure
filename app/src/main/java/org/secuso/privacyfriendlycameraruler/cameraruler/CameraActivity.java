@@ -53,8 +53,10 @@ import static android.view.View.VISIBLE;
 
 /**
  * Main activity for the Camera Ruler functionality.
+ * Controls switching between different phases of camera ruler functionality, visibility of UI
+ * for those phases, UI functionality and interaction with external camera and gallery apps.
  * <p>
- * Created by roberts on 12.12.16.
+ * Created by rkolosovs on 12.12.16.
  */
 
 public class CameraActivity extends BaseActivity {

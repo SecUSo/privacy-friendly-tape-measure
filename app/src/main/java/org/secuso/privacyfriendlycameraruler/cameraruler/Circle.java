@@ -23,7 +23,10 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.TOUCHPOINT_RADIUS;
 
 /**
- * Created by roberts on 23.01.17.
+ * A class representing a circular shape. Consists of a center point, a radius length and
+ * a point for the thouchpoint for radius adjustment to be drawn on.
+ *
+ * Created by rkolosovs on 23.01.17.
  */
 
 public class Circle extends Shape {
