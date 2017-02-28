@@ -20,6 +20,8 @@
     <string name="action_reset_calibration">Reset Calibration</string>
 
     <!-- ###CAMERA### -->
+    <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phones memory.</string>
+    <string name="reference_self_intersecting">The reference object must not self-intersect.</string>
     <string name="camera_ruler">Camera Ruler</string>
     <string name="camera_crash">Camera App crashed.</string>
     <string name="gallery_crash">Gallery App crashed.</string>
@@ -27,7 +29,7 @@
     <string name="new_triangle">New Triangle</string>
     <string name="new_circle">New Circle</string>
     <string name="new_line">New Line</string>
-    <string name="confrim_reference">Confirm Reference</string>
+    <string name="confirm_reference">Confirm Reference</string>
     <string name="length">Length:</string>
     <string name="area">Area:</string>
     <string name="self_intersection_warning">Can\'t compute area of self-intersecting polygon.</string>
@@ -57,11 +59,14 @@
     <string name="help_permissions_heading">Permissions</string>
     <string name="help_permissions_description">Privacy Friendly Ruler does not use any permissions.</string>
     <string name="help_category_options">Settings</string>
-    <string name="help_units">Units of Measurement</string>
+    <string name="help_units">Left and Right Ruler</string>
     <string name="pref_units_summary">You can display a cm ruler, an inch ruler or no ruler on the left and on the right side of the screen. Both rulers can be set separately in the option menu.</string>
     <string name="help_angles">Angle Measure</string>
     <string name="pref_angles_summary">You can display an angle measure in degrees or radian on the left side of the screen.</string>
     <string name="help_intro">The Privacy Friendly Ruler App turns Your Phone into a ruler for quick on the fly measurements.</string>
+    <string name="help_camera_ruler_heading">Camera Ruler</string>
+    <string name="help_camera_ruler">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane. Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
+
 
     <!--###ABOUT###-->
     <string name="about">About</string>
@@ -79,68 +84,14 @@
     <string name="title_activity_settings">Settings</string><string name="pref_ruler">Ruler Settings</string>
     <string name="pref_leftruler">Left Ruler</string>
     <string name="pref_leftruler_verbose">What should be displayed on left ruler?</string>
-    <string-array name="pref_leftruler_entries">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_leftruler_evs">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
     <string name="pref_leftruler_default">cm</string>
     <string name="pref_rightruler">Right Ruler</string>
     <string name="pref_rightruler_verbose">What should be displayed on right ruler?</string>
-    <string-array name="pref_rightruler_entries">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_rightruler_evs">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
-    </string-array>
     <string name="pref_rightruler_default">inch</string>
     <string name="pref_anglemeasure">Angle Measure</string>
     <string name="pref_anglemeasure_verbose">Turn on scale for angle measuring?</string>
-    <string-array name="pref_anglemeasure_entries">
-        <item>degree</item>
-        <item>radian</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_anglemeasure_evs">
-        <item>degree</item>
-        <item>radian</item>
-        <item>off</item>
-    </string-array>
     <string name="pref_anglemeasure_default">off</string>
 
-    <!-- ### WELCOME DIALOG ### -->
-    <string name="welcome">Welcome</string>
-    <string name="field_select_description_headline">Welcome to Privacy Friendly Ruler</string>
-    <string name="field_select_description">This app provides rulers and angle measures on Your screen.</string>
-    <string name="difficulty_description_headline">Settings</string>
-    <string name="difficulty_description">You can change the units of measurement in the settings. In the action menu You can calibrate the ruler (optional).</string>
-    <string name="disclaimer">This App is not a professionally calibrated measuring device. This App can be manually calibrated which may minimize the error. However, depending on the device there still could be rounding errors.</string>
-    <string name="disclaimer_check">I have read the disclaimer about potential rounding issues.</string>
-    <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
-
-    <!-- ### TUTORIAL SCREEN ### -->
-    <string name="slide1_heading">Welcome!</string>
-    <string name="slide1_text">This App serves as a guideline to see the basic design of Privacy Friendly Apps. Here introduce your app in one or two sentences.</string>
-
-    <string name="slide2_heading">Key Elements</string>
-    <string name="slide2_text">Introduce key elements of your app. Do not introduce too many details.</string>
-
-    <string name="slide3_heading">Github and Guide</string>
-    <string name="slide3_text">The sourcecode of this app is available at GitHub. For further explanations have a look at the Privacy Friendly App Guide.</string>
-
-    <string name="next">Next</string>
-    <string name="skip">Skip</string>
-    <string name="okay">Okay</string>
-    <string name="view_help">View Help</string>
     <string name="camera_ruler_settings">Camera Ruler Settings</string>
     <string name="pref_units_of_measurement">Units of measurement</string>
     <string name="pref_uom_verbose">What units of measurement to use in the screen ruler?</string>
@@ -150,11 +101,14 @@
     <string name="pref_type_selection_verbose">What reference object types to use?</string>
     <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
     <string name="pref_edit_user_def_refs">Edit user defined references</string>
+
+    <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_editor">Reference Editor</string>
     <string name="title_activity_ref_viewer">User Defined References</string>
-    <string name="list_item">User Defined Reference Object</string>
+    <string name="list_item">Empty Slot</string>
     <string name="edit_dialog_title">Edit Reference Object</string>
     <string name="toast_input_failure">Invalid input.</string>
+    <string name="toast_edit_done">User defined reference sucessfully set.</string>
     <string name="toast_delete_done">User set reference deleted.</string>
     <string name="edit_name">Name:</string>
     <string name="edit_shape">Shape:</string>
@@ -164,16 +118,31 @@
     <string name="edit_size">Size:</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
-    <string name="ok">OK</string>
-    <string name="help_camera_ruler_heading">Camera Ruler</string>
-    <string name="help_camera_ruler">fdsg</string>
+
+    <!-- ### DISCLAIMER DIALOG ### -->
+    <string name="disclaimer_dialog_title">Disclaimer</string>
+    <string name="disclaimer">This App is not a professionally calibrated measuring device. This App can be manually calibrated which may minimize the error. However, depending on the device there still could be rounding errors.</string>
+    <string name="disclaimer_check">I have read the disclaimer about potential rounding issues.</string>
+    <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
+
+    <!-- ### TUTORIAL SCREEN ### -->
+    <string name="slide1_heading">Welcome</string>
+    <string name="slide1_text">With Privacy Friendly Camera Ruler you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
+
+    <string name="slide2_heading">How to measure</string>
+    <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
+
+    <string name="slide3_heading">How to measure</string>
+    <string name="slide3_text">Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
+
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="okay">Okay</string>
+    <string name="view_help">View Help</string>
     <string name="help_uom">Units of Measurement</string>
     <string name="help_ref_types">Reference Type Selection</string>
     <string name="help_ref_editor">Edit user defined references</string>
     <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
     <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
     <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
-    <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phones memory.</string>
-    <string name="reference_self_intersecting">The reference object mustn\'t self-intersect.</string>
-
 </resources>

@@ -139,7 +139,7 @@
             android:id="@+id/confirm_reference"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            fab:fab_title="@string/confrim_reference"
+            fab:fab_title="@string/confirm_reference"
             fab:fab_icon="@drawable/ic_checkmark"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
