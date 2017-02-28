@@ -62,7 +62,14 @@ public class Line extends Shape {
     public boolean contains(Point p) {
         float x0 = ends[0].x;
         float x1 = ends[1].x;
-        boolean xInRange = (p.x > Math.min(x0, x1)+0.01) && (p.x < Math.max(x0, x1)-0.01);
+        boolean xInRange;
+        if (x0 == x1) {
+            float y0 = ends[0].y;
+            float y1 = ends[1].y;
+            xInRange = (x0 == p.x && p.y >= Math.min(y0, y1) && p.y <= Math.max(y0, y1));
+        } else {
+            xInRange = (p.x > Math.min(x0, x1) + 0.01) && (p.x < Math.max(x0, x1) - 0.01);
+        }
         return xInRange;
     }
 
