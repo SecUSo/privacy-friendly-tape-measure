@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void startLastMode() {
         String lastMode = prefManager.getLastMode();
-        System.out.println(lastMode);
         Intent intent = new Intent();
 
         if (lastMode.equals("ruler")) {
