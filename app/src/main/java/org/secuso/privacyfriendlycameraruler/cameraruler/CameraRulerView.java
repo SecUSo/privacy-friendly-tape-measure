@@ -169,7 +169,11 @@ public class CameraRulerView extends View {
                 points[i * 4 + 2] = corners[(i + 1) % length].x;
                 points[i * 4 + 3] = corners[(i + 1) % length].y;
             }
-            canvas.drawLines(points, referencePaint);
+            if (((Polygon) reference).isSelfIntersecting()) {
+                canvas.drawLines(points, warningPaint);
+            } else {
+                canvas.drawLines(points, referencePaint);
+            }
         }
 
         if (ctxStatus == CameraActivity.Status.REFERENCE) {

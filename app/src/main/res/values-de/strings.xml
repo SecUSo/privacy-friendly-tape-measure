@@ -174,5 +174,6 @@
     <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
     <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
     <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phones memory.</string>
+    <string name="reference_self_intersecting">The reference object mustn\'t self-intersect.</string>
 
 </resources>

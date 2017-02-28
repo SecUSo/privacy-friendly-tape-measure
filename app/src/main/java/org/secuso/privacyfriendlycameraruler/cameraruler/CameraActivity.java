@@ -154,7 +154,12 @@ public class CameraActivity extends BaseActivity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setReference();
+                if (drawView.reference instanceof Polygon
+                        && ((Polygon) drawView.reference).isSelfIntersecting()) {
+                    Toast.makeText(getBaseContext(), getString(R.string.reference_self_intersecting), Toast.LENGTH_LONG).show();
+                } else {
+                    setReference();
+                }
             }
         });
 
