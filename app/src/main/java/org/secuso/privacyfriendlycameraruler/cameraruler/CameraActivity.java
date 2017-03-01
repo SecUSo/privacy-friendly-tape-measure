@@ -78,8 +78,8 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton newLineButton;
     private FloatingActionButton confirmButton;
     private TextView output;
-    private TextView tutorialText;
     private Menu refsMenu;
+    private RelativeLayout modeChoiceLayout;
 
     private ArrayList<ReferenceObject> refs;
     private ArrayList<UserDefinedReferences> udrefs;
@@ -132,7 +132,7 @@ public class CameraActivity extends BaseActivity {
         pictureView = (ImageView) findViewById(R.id.pictureView);
         confirmButton = (FloatingActionButton) findViewById(R.id.confirm_reference);
         output = (TextView) findViewById(R.id.output_tf);
-        tutorialText = (TextView) findViewById(R.id.camera_gallery_choice_text);
+        modeChoiceLayout = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
 
         newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
         newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
@@ -143,8 +143,7 @@ public class CameraActivity extends BaseActivity {
         drawView = new CameraRulerView(getBaseContext(), output);
         drawView.ctxStatus = status;
         drawView.setVisibility(GONE);
-        RelativeLayout cl = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
-        cl.addView(drawView);
+        modeChoiceLayout.addView(drawView);
 
         matrix.postRotate(90);
         pictureView.setImageMatrix(matrix);
@@ -326,7 +325,7 @@ public class CameraActivity extends BaseActivity {
         cameraButton.setClickable(false);
         galleryButton.setVisibility(GONE);
         galleryButton.setClickable(false);
-        tutorialText.setVisibility(GONE);
+        modeChoiceLayout.setVisibility(GONE);
         pictureView.setImageURI(uri);
         pictureView.setVisibility(VISIBLE);
         drawView.setVisibility(VISIBLE);
@@ -375,7 +374,7 @@ public class CameraActivity extends BaseActivity {
             cameraButton.setClickable(true);
             galleryButton.setVisibility(VISIBLE);
             galleryButton.setClickable(true);
-            tutorialText.setVisibility(VISIBLE);
+            modeChoiceLayout.setVisibility(VISIBLE);
             drawView.setVisibility(GONE);
             drawView.setClickable(false);
             pictureView.setVisibility(GONE);

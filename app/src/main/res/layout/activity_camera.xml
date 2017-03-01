@@ -57,27 +57,55 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true">
 
-                <ImageButton
-                    android:id="@+id/from_camera_button"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginEnd="15dp"
-                    android:radius="6dp"
-                    android:background="@drawable/button_normal"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_menu_camera" />
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="15dp">
 
-                <ImageButton
-                    android:id="@+id/from_gallery_button"
-                    android:layout_width="130dp"
-                    android:layout_height="130dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="15dp"
-                    android:radius="6dp"
-                    android:background="@drawable/button_normal"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_menu_gallery" />
+                    <ImageButton
+                        android:id="@+id/from_camera_button"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:radius="6dp"
+                        android:background="@drawable/button_normal"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_menu_camera" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:text="@string/from_camera" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp">
+
+                    <ImageButton
+                        android:id="@+id/from_gallery_button"
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center_horizontal"
+                        android:radius="6dp"
+                        android:background="@drawable/button_normal"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_menu_gallery" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:text="@string/from_gallery" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -92,6 +120,7 @@
                 android:textAlignment="center"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true" />
+
         </RelativeLayout>
 
         <com.getbase.floatingactionbutton.FloatingActionsMenu

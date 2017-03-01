@@ -21,6 +21,8 @@
 
     <!-- ###CAMERA### -->
     <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phones memory.</string>
+    <string name="from_camera">Picture from Camera</string>
+    <string name="from_gallery">Picture from Gallery</string>
     <string name="reference_self_intersecting">The reference object must not self-intersect.</string>
     <string name="camera_ruler">Camera Ruler</string>
     <string name="camera_crash">Camera App crashed.</string>
