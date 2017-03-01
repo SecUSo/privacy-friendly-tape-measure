@@ -23,6 +23,7 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 /**
  * A class representing a four sided polygon. Implements the area computation method.
  *
+ * @author Roberts Kolosovs
  * Created by rkolosovs on 23.01.17.
  */
 

@@ -23,6 +23,7 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 /**
  * Abstract superclass for all shapes to be drawn onto the canvas in the CameraRulerView.
  *
+ * @author Roberts Kolosovs
  * Created by rkolosovs on 23.01.17.
  */
 

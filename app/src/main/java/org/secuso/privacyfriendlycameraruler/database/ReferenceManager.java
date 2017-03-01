@@ -31,9 +31,10 @@ import java.util.Set;
 
 /**
  * Class for providing the list of predefined references.
- * Add more references here.
+ * Add more references here. Be sure to group your references thematically via a fitting ObjectType.
  *
- * Created by roberts on 14.02.17.
+ * @author Roberts Kolosovs
+ * Created by rkolosovs on 14.02.17.
  */
 
 public class ReferenceManager {

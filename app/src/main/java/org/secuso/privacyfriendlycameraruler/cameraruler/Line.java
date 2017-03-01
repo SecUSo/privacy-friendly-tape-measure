@@ -26,6 +26,7 @@ import static java.lang.Float.NaN;
  * A class representing a linear shape. Consists of two end points. Contains methods for computing
  * its own gradient, intersection point with other line and if a point lies on this line.
  *
+ * @author Roberts Kolosovs
  * Created by rkolosovs on 23.01.17.
  */
 

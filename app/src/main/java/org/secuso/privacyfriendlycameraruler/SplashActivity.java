@@ -27,6 +27,8 @@ import android.support.v7.app.AppCompatActivity;
 import org.secuso.privacyfriendlycameraruler.tutorial.TutorialActivity;
 
 /**
+ * Displays the splash screen on app startup.
+ *
  * Created by yonjuni on 22.10.16.
  */
 

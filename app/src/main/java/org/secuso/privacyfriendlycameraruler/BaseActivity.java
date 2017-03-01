@@ -43,6 +43,9 @@ import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
 import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
 
 /**
+ * Base class for all main activities of the app with the navigation drawer and toolbar.
+ * Uses drawer_layout and toolbar layouts.
+ *
  * Created by Chris on 04.07.2016.
  */
 public abstract class BaseActivity extends AppCompatActivity implements OnNavigationItemSelectedListener {

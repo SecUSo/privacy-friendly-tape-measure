@@ -43,6 +43,7 @@ import static android.view.MotionEvent.ACTION_UP;
  * Handles drawing of shaped for the reference objects, measurement objects, touchpoints for
  * the active object and display of obtained length/area.
  *
+ * @author Roberts Kolosovs
  * Created by rkolosovs on 26.12.16.
  */
 

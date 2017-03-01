@@ -30,6 +30,13 @@ import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
 import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
 import org.secuso.privacyfriendlycameraruler.tutorial.DisclaimerDialog;
 
+/**
+ * Main activity of the app. Has no content but acts as a relay station between both co-main
+ * activities (RulerActivity and CameraActivity) of the app. Launches the disclaimer dialog fragment
+ * on first app start.
+ *
+ * @author Roberts Kolosovs
+ */
 public class MainActivity extends AppCompatActivity {
 
     private PrefManager prefManager;

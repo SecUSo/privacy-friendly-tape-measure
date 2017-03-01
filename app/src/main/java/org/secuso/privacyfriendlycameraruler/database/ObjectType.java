@@ -21,7 +21,12 @@
 package org.secuso.privacyfriendlycameraruler.database;
 
 /**
- * Created by roberts on 14.02.17.
+ * Class representing the type of a predefined reference object. All objects of the same type have
+ * the same basic shape (line, circle, tetragon, etc.) and are also thematically similar. ObjectType
+ * can be used to handle an group of similar predefined reference objects in a similar way.
+ *
+ * @author Roberts Kolosovs
+ * Created by rkolosovs on 14.02.17.
  */
 
 public class ObjectType {

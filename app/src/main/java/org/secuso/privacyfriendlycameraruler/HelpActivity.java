@@ -25,6 +25,8 @@ import android.preference.PreferenceFragment;
 import android.view.View;
 
 /**
+ * Activity for displaying the help texts in activity_help layout.
+ *
  * Created by yonjuni on 17.06.16.
  */
 public class HelpActivity extends BaseActivity {
@@ -34,7 +36,6 @@ public class HelpActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_help);
-        //getFragmentManager().beginTransaction().replace(android.R.id.content, new HelpFragment()).commit();
 
         overridePendingTransition(0, 0);
     }

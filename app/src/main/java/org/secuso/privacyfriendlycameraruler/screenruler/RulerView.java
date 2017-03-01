@@ -31,7 +31,10 @@ import android.view.View;
 import org.secuso.privacyfriendlycameraruler.R;
 
 /**
- * Created by roberts on 02.06.16.
+ * View for drawing the markings of a screen ruler.
+ *
+ * @author Roberts Kolosovs
+ * Created by rkolosovs on 02.06.16.
  */
 public class RulerView extends View {
 

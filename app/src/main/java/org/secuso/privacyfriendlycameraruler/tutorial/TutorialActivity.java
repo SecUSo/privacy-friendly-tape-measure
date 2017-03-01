@@ -45,6 +45,7 @@ import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
+ * Displays the tutorial in the activity_tutorial layout.
  *
  * @author Karola Marky
  * @version 20161214

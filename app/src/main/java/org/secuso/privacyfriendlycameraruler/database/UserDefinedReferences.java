@@ -26,8 +26,7 @@ package org.secuso.privacyfriendlycameraruler.database;
  * @author Roberts Kolosovs
  * @version 20161223
  *
- * This class holds the user defined reference objects.
- *
+ * This class represents a user defined reference object from the database.
  */
 
 public class UserDefinedReferences {

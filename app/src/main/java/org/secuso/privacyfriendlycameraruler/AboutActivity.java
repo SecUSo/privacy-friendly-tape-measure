@@ -27,6 +27,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 /**
+ * Activity displaying the about page of the app via the activity_about layout.
+ *
+ * @author Roberts Kolosovs
  * Created by yonjuni on 15.06.16.
  */
 public class AboutActivity extends AppCompatActivity {
@@ -48,10 +51,5 @@ public class AboutActivity extends AppCompatActivity {
 
         overridePendingTransition(0, 0);
     }
-
-    //@Override
-    //protected int getNavigationDrawerID() {
-    //    return R.id.nav_about;
-    //}
 }
 

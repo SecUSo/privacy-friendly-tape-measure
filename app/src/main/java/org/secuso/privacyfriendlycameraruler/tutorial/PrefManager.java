@@ -26,6 +26,10 @@ import android.content.res.Resources;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
+ * Handles the interaction with Shared Preferences.
+ *
+ * @author Karola Marky
+ * @author Roberts Kolosovs
  */
 public class PrefManager {
     private SharedPreferences pref;

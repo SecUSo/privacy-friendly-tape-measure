@@ -33,7 +33,11 @@ import org.secuso.privacyfriendlycameraruler.R;
 import java.util.ArrayList;
 
 /**
- * Created by roberts on 18.02.17.
+ * Activity for displaying user defined reference objects. Uses the activity_reference_list and
+ * fetches the user defined references from the database.
+ *
+ * @author Roberts Kolosovs
+ * Created by rkolosovs on 18.02.17.
  */
 
 public class ReferenceListViewer extends AppCompatActivity {

@@ -56,6 +56,7 @@ import static android.view.View.VISIBLE;
  * Controls switching between different phases of camera ruler functionality, visibility of UI
  * for those phases, UI functionality and interaction with external camera and gallery apps.
  * <p>
+ * @author Roberts Kolosovs
  * Created by rkolosovs on 12.12.16.
  */
 

@@ -35,6 +35,12 @@ import org.secuso.privacyfriendlycameraruler.HelpActivity;
 import org.secuso.privacyfriendlycameraruler.R;
 import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 
+/**
+ * Dialog fragment displaying the disclaimer in disclaimer_dialog layout. Requires a checkbox to be
+ * checked before it can be dismissed.
+ *
+ * @author Roberts Kolosovs
+ */
 public class DisclaimerDialog extends DialogFragment {
     private PrefManager prefManager;
 

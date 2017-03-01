@@ -26,6 +26,7 @@ import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.
  * A class representing a circular shape. Consists of a center point, a radius length and
  * a point for the thouchpoint for radius adjustment to be drawn on.
  *
+ * @author Roberts Kolosovs
  * Created by rkolosovs on 23.01.17.
  */
 

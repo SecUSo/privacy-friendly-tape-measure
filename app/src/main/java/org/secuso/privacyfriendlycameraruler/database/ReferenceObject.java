@@ -21,6 +21,11 @@
 package org.secuso.privacyfriendlycameraruler.database;
 
 /**
+ * Class representing a predefined reference object. What is meant by size depends on the shape
+ * (contained in the object type). Size of a line is its length. A circles size is its diameter.
+ * A polygons size is its area.
+ *
+ * @author Roberts Kolosovs
  * Created by roberts on 14.02.17.
  */
 

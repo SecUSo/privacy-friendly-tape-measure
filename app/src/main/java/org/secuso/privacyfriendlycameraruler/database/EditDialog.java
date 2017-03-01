@@ -34,7 +34,11 @@ import android.widget.Toast;
 import org.secuso.privacyfriendlycameraruler.R;
 
 /**
- * Created by roberts on 18.02.17.
+ * Dialog fragment for editing a user defined reference object. Uses the edit_dialog layout and
+ * gives functionality to the buttons defined there.
+ *
+ * @author Roberts Kolosovs
+ * Created by rkolosovs on 18.02.17.
  */
 
 public class EditDialog extends DialogFragment {

@@ -37,8 +37,11 @@ import android.widget.Toast;
 import org.secuso.privacyfriendlycameraruler.R;
 
 /**
+ * Activity for manual calibration of the screen ruler. Uses the activity_calibration layout.
+ *
+ * @author Roberts Kolosovs
  * Created by yonjuni on 25.08.15.
- * Shamelessly "borrowed" by roberts on 21.05.16.
+ * Shamelessly "borrowed" by rkolsovs on 21.05.16.
  */
 public class CalibrationActivity extends AppCompatActivity {
 

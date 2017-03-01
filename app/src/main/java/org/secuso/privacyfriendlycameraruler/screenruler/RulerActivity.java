@@ -35,7 +35,11 @@ import org.secuso.privacyfriendlycameraruler.BaseActivity;
 import org.secuso.privacyfriendlycameraruler.R;
 
 /**
- * Created by roberts on 02.06.16.
+ * Main activity for the screen ruler functionality. Uses the activity_ruler layout. Manages the
+ * ruler view and the calibration activity.
+ *
+ * @author Roberts Kolosovs
+ * Created by rkolosovs on 02.06.16.
  */
 public class RulerActivity extends BaseActivity {
 
