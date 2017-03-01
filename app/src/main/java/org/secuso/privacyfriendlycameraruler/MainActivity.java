@@ -64,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Switches to the main mode of function (screen ruler, camera ruler) the user last used.
+     */
     private void startLastMode() {
         String lastMode = prefManager.getLastMode();
         Intent intent = new Intent();

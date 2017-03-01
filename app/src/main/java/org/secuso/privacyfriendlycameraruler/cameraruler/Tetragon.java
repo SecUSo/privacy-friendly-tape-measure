@@ -38,6 +38,7 @@ public class Tetragon extends Polygon {
     }
 
     public float getArea() {
+        // partition the tetragon into two triangles
         double a1 = corners[0].dist(corners[1]);
         double b1 = corners[0].dist(corners[3]);
         double c = corners[3].dist(corners[1]);
@@ -54,6 +55,7 @@ public class Tetragon extends Polygon {
         b2 = lengths2[1];
         double c2 = lengths2[2];
 
+        // compute the area of both triangles via Heron's formula and add them together
         return (float) (0.25 * (Math.sqrt((a1+(b1+c1))*(c1-(a1-b1))*(c1+(a1-b1))*(a1+(b1-c1))) +
                 Math.sqrt((a2+(b2+c2))*(c2-(a2-b2))*(c2+(a2-b2))*(a2+(b2-c2)))));
     }

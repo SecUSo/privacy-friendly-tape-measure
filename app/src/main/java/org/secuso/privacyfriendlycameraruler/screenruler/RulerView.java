@@ -101,6 +101,12 @@ public class RulerView extends View {
 
     }
 
+    /**
+     * Draws markings for an angle measure in degrees on a given canvas.
+     *
+     * @param canvas to draw the ruler markings on.
+     * @param paint to draw the ruler markings with.
+     */
     private void drawAngleMeasureDeg(Canvas canvas, Paint paint){
         float radius = (float)widthPx/2;
         float half = (float)(heightPx/2);
@@ -135,6 +141,12 @@ public class RulerView extends View {
         }
     }
 
+    /**
+     * Draws markings for an angle measure in radian on a given canvas.
+     *
+     * @param canvas to draw the ruler markings on.
+     * @param paint to draw the ruler markings with.
+     */
     private void drawAngleMeasureRad(Canvas canvas, Paint paint){
         float radius = (float)widthPx/2;
         float half = (float)(heightPx/2);
@@ -175,6 +187,12 @@ public class RulerView extends View {
         }
     }
 
+    /**
+     * Draws markings for an centimeter ruler on the left side of the screen on a given canvas.
+     *
+     * @param canvas to draw the ruler markings on.
+     * @param paint to draw the ruler markings with.
+     */
     private void drawLeftCm(Canvas canvas, Paint paint){
         for (int i = 0; i < heightmm; i++){
             if (i%10 == 0) {
@@ -192,6 +210,12 @@ public class RulerView extends View {
         }
     }
 
+    /**
+     * Draws markings for an inch ruler on the left side of the screen on a given canvas.
+     *
+     * @param canvas to draw the ruler markings on.
+     * @param paint to draw the ruler markings with.
+     */
     private void drawLeftIn(Canvas canvas, Paint paint){
         for (int i = 0; i < (heightFracInch); i++){
             if (i%32 == 0) {
@@ -218,6 +242,12 @@ public class RulerView extends View {
         }
     }
 
+    /**
+     * Draws markings for an centimeter ruler on the right side of the screen on a given canvas.
+     *
+     * @param canvas to draw the ruler markings on.
+     * @param paint to draw the ruler markings with.
+     */
     private void drawRightCm(Canvas canvas, Paint paint){
         Path path = new Path();
 
@@ -243,6 +273,12 @@ public class RulerView extends View {
         }
     }
 
+    /**
+     * Draws markings for an inch ruler on the right side of the screen on a given canvas.
+     *
+     * @param canvas to draw the ruler markings on.
+     * @param paint to draw the ruler markings with.
+     */
     private void drawRightIn(Canvas canvas, Paint paint){
         Path path = new Path();
 

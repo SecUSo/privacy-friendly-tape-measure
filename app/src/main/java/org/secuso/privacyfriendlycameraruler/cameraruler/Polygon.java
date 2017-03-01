@@ -34,8 +34,8 @@ public abstract class Polygon extends Shape {
     public Point[] corners;
 
     /**
-     * Computes the area of the polygon.
-     * @return The polygon's area.
+     * Computes the area of the polygon. Only works properly if the shape doesn't self-intersect.
+     * @return The area of the polygon in pixel squared.
      */
     public abstract float getArea();
 

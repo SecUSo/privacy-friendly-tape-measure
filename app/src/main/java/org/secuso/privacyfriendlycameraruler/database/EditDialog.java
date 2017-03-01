@@ -85,6 +85,10 @@ public class EditDialog extends DialogFragment {
         }
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Closes the dialog without any changes to the database.
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 dismiss();
@@ -92,6 +96,11 @@ public class EditDialog extends DialogFragment {
         });
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Sets all values of the user defined reference object to zero values and updates the
+             * corresponding database entry.
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 reference.setUDR_ACTIVE(false);
@@ -106,6 +115,11 @@ public class EditDialog extends DialogFragment {
         });
 
         okayButton.setOnClickListener(new View.OnClickListener() {
+            /**
+             * Checks if the input of all fields is valid, enters the new or updated reference
+             * object into the database and sets it active.
+             * @param v
+             */
             @Override
             public void onClick(View v) {
                 String name = nameInput.getText().toString();

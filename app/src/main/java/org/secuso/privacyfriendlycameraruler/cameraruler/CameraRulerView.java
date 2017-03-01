@@ -269,10 +269,23 @@ public class CameraRulerView extends View {
         }
     }
 
+    /**
+     * Draws a circle representing a touchpoint of a shape.
+     *
+     * @param canvas to draw the touchpoint on.
+     * @param point the center of the touchpoint.
+     * @param p paint to fill the touchpoint with. Should be semitransparent.
+     */
     private void drawTouchPoint(Canvas canvas, Point point, Paint p) {
         canvas.drawCircle(point.x, point.y, TOUCHPOINT_RADIUS, p);
     }
 
+    /**
+     * Determines if a touch event was in an active touchpoint and sets active touchpoint to the
+     * proper value according to the shape the touchpoint belongs to.
+     * @param event
+     * @return
+     */
     private boolean clickInTouchpoint(MotionEvent event) {
         int pc = event.getPointerCount() - 1;
         Point click = new Point(event.getX(pc), event.getY(pc));
@@ -341,6 +354,9 @@ public class CameraRulerView extends View {
         return result;
     }
 
+    /**
+     * Sets the measure to a new tetragon.
+     */
     protected void newTetragon() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
@@ -353,6 +369,9 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    /**
+     * Sets the measure to a new triangle.
+     */
     protected void newTriangle() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
@@ -364,6 +383,9 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    /**
+     * Sets the measure to a new circle.
+     */
     protected void newCircle() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
@@ -372,6 +394,9 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    /**
+     * Sets the measure to a new line.
+     */
     protected void newLine() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
@@ -382,6 +407,9 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    /**
+     * Sets the reference to a new tetragon.
+     */
     protected void newReferenceTetragon() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
@@ -394,6 +422,9 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    /**
+     * Sets the reference to a new circle.
+     */
     protected void newReferenceCircle() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
@@ -402,6 +433,9 @@ public class CameraRulerView extends View {
         this.invalidate();
     }
 
+    /**
+     * Sets the reference to a new line.
+     */
     protected void newReferenceLine() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;

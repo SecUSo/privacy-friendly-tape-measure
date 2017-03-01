@@ -30,6 +30,7 @@ import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -55,7 +56,7 @@ import static android.view.View.VISIBLE;
  * Main activity for the Camera Ruler functionality.
  * Controls switching between different phases of camera ruler functionality, visibility of UI
  * for those phases, UI functionality and interaction with external camera and gallery apps.
- * <p>
+ *
  * @author Roberts Kolosovs
  * Created by rkolosovs on 12.12.16.
  */
@@ -283,6 +284,13 @@ public class CameraActivity extends BaseActivity {
         return false;
     }
 
+    /**
+     * Receive response from external camera and gallery apps.
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE || requestCode == PICK_IMAGE_REQUEST) {
@@ -291,8 +299,10 @@ public class CameraActivity extends BaseActivity {
             } else {
                 if (resultCode != RESULT_CANCELED) {
                     if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+                        Log.e("Camera App crashed.", "Returned result code: "+resultCode);
                         Toast.makeText(this, R.string.camera_crash, Toast.LENGTH_LONG).show();
                     } else {
+                        Log.e("Gallery App crashed.", "Returned result code: "+resultCode);
                         Toast.makeText(this, R.string.gallery_crash, Toast.LENGTH_LONG).show();
                     }
                 }
@@ -300,6 +310,15 @@ public class CameraActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Starts the first page of the actual camera ruler functionality, the reference selection
+     * and confirmation. Hides the explanatory text and the buttons of the source selection phase.
+     * Shows the picture view and fills it with the picture fetched from the external app.
+     * Shows the view for drawing shapes on top of the picture view, the button for confirming
+     * the reference object and the menu for selecting the reference object.
+     *
+     * @param uri
+     */
     public void startImageFragment(Uri uri) {
         status = Status.REFERENCE;
         drawView.ctxStatus = status;
@@ -317,6 +336,13 @@ public class CameraActivity extends BaseActivity {
         showMenu();
     }
 
+    /**
+     * Starts the second phase of teh main camera ruler functionality, the measurement. Computes the
+     * real world unit to pixel ration from the size of the reference shape and the active reference
+     * object. Hides the reference confirmation button and reference object selection menu. Shows
+     * the action button group for measurement shape selection. Sets the current measure to a line.
+     * Forces the draw view to redraw.
+     */
     public void setReference() {
         if (drawView.reference instanceof Circle) {
             drawView.scale = referenceObjectSize / (((Circle) drawView.reference).radius * 2);
@@ -331,10 +357,15 @@ public class CameraActivity extends BaseActivity {
         confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
         output.setVisibility(VISIBLE);
+        drawView.newLine();
         drawView.invalidate();
         hideMenu();
     }
 
+    /**
+     * Goes backwards through the phases of camera ruler functionality hiding and showing
+     * appropriate UI elements.
+     */
     @Override
     public void onBackPressed() {
         if (status == Status.REFERENCE) {
@@ -366,12 +397,18 @@ public class CameraActivity extends BaseActivity {
         }
     }
 
+    /**
+     * Sets every item in the menu of available reference objects to be visible.
+     */
     private void showMenu() {
         for (int i = 0; i < refsMenu.size(); i++) {
             refsMenu.getItem(i).setVisible(true);
         }
     }
 
+    /**
+     * Sets every item in the menu of available reference objects to be invisible.
+     */
     private void hideMenu() {
         for (int i = 0; i < refsMenu.size(); i++) {
             refsMenu.getItem(i).setVisible(false);
