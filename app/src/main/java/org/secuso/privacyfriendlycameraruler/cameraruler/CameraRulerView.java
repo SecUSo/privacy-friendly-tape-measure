@@ -28,10 +28,9 @@ import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import org.secuso.privacyfriendlycameraruler.R;
-import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
 
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_DOWN;
@@ -51,7 +50,7 @@ public class CameraRulerView extends View {
 
     public final static float TOUCHPOINT_RADIUS = 120;
 
-    private TextView output;
+    private Toolbar toolbar;
     CameraActivity.Status ctxStatus;
     private Paint paint = new Paint();
     private Paint referencePaint = new Paint();
@@ -64,10 +63,10 @@ public class CameraRulerView extends View {
     float scale = 1;
     private int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
-    public CameraRulerView(Context context, TextView outputView) {
+    public CameraRulerView(Context context, Toolbar toolbar) {
         super(context);
 
-        output = outputView;
+        this.toolbar = toolbar;
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         unitOfMeasurement = pref.getString("pref_units_of_measurement", "mm");
 
@@ -228,7 +227,7 @@ public class CameraRulerView extends View {
                 if (unitOfMeasurement.equals("in")) {
                     length = (float) (length / 25.4);
                 }
-                output.setText(getResources().getString(R.string.length) + length + unitOfMeasurement);
+                toolbar.setSubtitle(getResources().getString(R.string.length) +" "+ length + unitOfMeasurement);
             } else if (measure instanceof Polygon) {
                 Point[] corners = ((Polygon) measure).corners;
                 int length = corners.length;
@@ -242,14 +241,14 @@ public class CameraRulerView extends View {
 
                 if (((Polygon) measure).isSelfIntersecting()) {
                     canvas.drawLines(points, warningPaint);
-                    output.setText(R.string.self_intersection_warning);
+                    toolbar.setSubtitle(R.string.self_intersection_warning);
                 } else {
                     canvas.drawLines(points, paint);
                     float area = ((Polygon) measure).getArea() * scale * scale;
                     if (unitOfMeasurement.equals("in")) {
                         area = (float) (area / Math.pow(25.4, 2));
                     }
-                    output.setText(getResources().getString(R.string.area) + area + unitOfMeasurement + "²");
+                    toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unitOfMeasurement + "²");
                 }
 
                 for (int i = 0; i < length; i++) {
@@ -264,7 +263,7 @@ public class CameraRulerView extends View {
                 if (unitOfMeasurement.equals("in")) {
                     area = (float) (area / Math.pow(25.4, 2));
                 }
-                output.setText(getResources().getString(R.string.area) + area + unitOfMeasurement + "²");
+                toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unitOfMeasurement + "²");
             }
         }
     }

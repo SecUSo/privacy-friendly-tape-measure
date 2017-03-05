@@ -2,6 +2,7 @@
     <string name="app_name">Camera Ruler</string>
     <string name="app_name_long">Privacy Friendly Camera Ruler</string>
 
+
     <!-- ###DRAWER###-->
     <string name="action_ruler">Screen Ruler</string>
     <string name="action_camera">Camera Ruler</string>
@@ -14,19 +15,23 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+
     <!-- ###RULER### -->
     <string name="screen_ruler">Screen Ruler</string>
     <string name="action_calibration">Calibrate</string>
     <string name="action_reset_calibration">Reset Calibration</string>
 
+
     <!-- ###CAMERA### -->
-    <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phones memory.</string>
+    <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phone\'s memory.</string>
     <string name="from_camera">Picture from Camera</string>
     <string name="from_gallery">Picture from Gallery</string>
     <string name="reference_self_intersecting">The reference object must not self-intersect.</string>
     <string name="camera_ruler">Camera Ruler</string>
     <string name="camera_crash">Camera App crashed.</string>
     <string name="gallery_crash">Gallery App crashed.</string>
+    <string name="reference_phase_title">Place Reference Object</string>
+    <string name="reference_phase_subtitle">Active Reference Object:</string>
     <string name="new_tetragon">New Tetragon</string>
     <string name="new_triangle">New Triangle</string>
     <string name="new_circle">New Circle</string>
@@ -35,6 +40,67 @@
     <string name="length">Length:</string>
     <string name="area">Area:</string>
     <string name="self_intersection_warning">Can\'t compute area of self-intersecting polygon.</string>
+
+
+    <!-- ###PREDEFINED REFERENCE OBJECTS### -->
+    <!-- ###US COINS### -->
+    <string name="us_penny_coin">Penny</string>
+    <string name="us_nickel_coin">Nickel</string>
+    <string name="us_dime_coin">Dime</string>
+    <string name="us_quarter_coin">Quarter Dollar</string>
+    <string name="us_dollar_coin">1$ Coin</string>
+    <string name="fifty_usd_cent_coin">50¢ Coin</string>
+    <!-- ###EURO COINS### -->
+    <string name="one_euro_cent_coin">1 Euro-Cent Coin</string>
+    <string name="two_euro_cent_coin">2 Euro-Cent Coin</string>
+    <string name="five_euro_cent_coin">5 Euro-Cent Coin</string>
+    <string name="ten_euro_cent_coin">10 Euro-Cent Coin</string>
+    <string name="twenty_euro_cent_coin">20 Euro-Cent Coin</string>
+    <string name="fifty_euro_cent_coin">50 Euro-Cent Coin</string>
+    <string name="one_euro_coin">1€ Coin</string>
+    <string name="two_euro_coin">2€ Coin</string>
+    <!-- ###BRITISH POUND COINS### -->
+    <string name="gb_penny_coin">British Penny Coin</string>
+    <string name="two_pence_coin">2p Coin</string>
+    <string name="five_pence_coin">5p Coin</string>
+    <string name="ten_pence_coin">10p Coin</string>
+    <string name="twenty_pence_coin">20p Coin</string>
+    <string name="fifty_pence_coin">50p Coin</string>
+    <string name="one_pound_coin">1£ Coin</string>
+    <string name="two_pound_coin">2£ Coin</string>
+    <!-- ###US DOLLAR COINS### -->
+    <string name="us_dollar_note">US Dollar Banknote</string>
+    <!-- ###EURO NOTES### -->
+    <string name="five_euro_note">5€ Note</string>
+    <string name="ten_euro_note">10€ Note</string>
+    <string name="twenty_euro_note">20€ Note</string>
+    <string name="fifty_euro_note">50€ Note</string>
+    <string name="hundred_euro_note">100€ Note</string>
+    <string name="two_hundred_euro_note">200€ Note</string>
+    <string name="five_hundred_euro_note">500€ Note</string>
+    <!-- ###BRITISH POUND NOTES### -->
+    <string name="five_pound_note">5£ Note</string>
+    <string name="ten_pound_note">10£ Note</string>
+    <string name="twenty_pound_note">20£ Note</string>
+    <string name="fifty_pound_note">50£ Note</string>
+    <!-- ###US PAPER### -->
+    <string name="letter_paper">Letter Paper</string>
+    <string name="legal_paper">Legal Paper</string>
+    <string name="tabloid_paper">Tabloid Paper</string>
+    <string name="ledger_paper">Ledger Paper</string>
+    <string name="junior_legal_paper">Junior Legal Paper</string>
+    <string name="memo_paper">Memo Paper</string>
+    <string name="government_letter_paper">Government Letter Paper</string>
+    <string name="government_legal_paper">Government Legal Paper</string>
+    <!-- ###ISO 216 PAPER (A-SERIES)### -->
+    <string name="a0_paper">A0 Paper</string>
+    <string name="a1_paper">A1 Paper</string>
+    <string name="a2_paper">A2 Paper</string>
+    <string name="a3_paper">A3 Paper</string>
+    <string name="a4_paper">A4 Paper</string>
+    <string name="a5_paper">A5 Paper</string>
+    <string name="a6_paper">A6 Paper</string>
+
 
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Measure</string>
@@ -48,6 +114,7 @@
     <string name="calibrate">Calibrate</string>
     <string name="noInput">Please input the length of the line.</string>
     <string name="calibrationDone">Calibration finished.</string>
+
 
     <!--###HELP###-->
     <string name="help">Help</string>
@@ -82,6 +149,7 @@
     <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
 
+
     <!-- ###SETTINGS### -->
     <string name="title_activity_settings">Settings</string><string name="pref_ruler">Ruler Settings</string>
     <string name="pref_leftruler">Left Ruler</string>
@@ -94,6 +162,7 @@
     <string name="pref_anglemeasure_verbose">Turn on scale for angle measuring?</string>
     <string name="pref_anglemeasure_default">off</string>
 
+
     <string name="camera_ruler_settings">Camera Ruler Settings</string>
     <string name="pref_units_of_measurement">Units of measurement</string>
     <string name="pref_uom_verbose">What units of measurement to use in the screen ruler?</string>
@@ -103,6 +172,7 @@
     <string name="pref_type_selection_verbose">What reference object types to use?</string>
     <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
     <string name="pref_edit_user_def_refs">Edit user defined references</string>
+
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_editor">Reference Editor</string>
@@ -121,11 +191,13 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
 
+
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Disclaimer</string>
     <string name="disclaimer">This App is not a professionally calibrated measuring device. This App can be manually calibrated which may minimize the error. However, depending on the device there still could be rounding errors.</string>
     <string name="disclaimer_check">I have read the disclaimer about potential rounding issues.</string>
     <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
+
 
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Welcome</string>
@@ -147,4 +219,5 @@
     <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
     <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
     <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
+    <string name="measurement_phase_title">Measure</string>
 </resources>

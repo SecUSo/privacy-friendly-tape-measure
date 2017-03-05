@@ -31,12 +31,12 @@ package org.secuso.privacyfriendlycameraruler.database;
 
 public class ReferenceObject {
 
-    public String name;
+    public int nameId;
     public ObjectType type;
     public float size;
 
-    public ReferenceObject(String name, ObjectType type, float size) {
-        this.name = name;
+    public ReferenceObject(int name, ObjectType type, float size) {
+        this.nameId = name;
         this.type = type;
         this.size = size;
     }

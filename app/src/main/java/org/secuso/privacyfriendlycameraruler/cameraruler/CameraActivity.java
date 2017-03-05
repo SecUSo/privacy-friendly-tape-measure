@@ -29,6 +29,7 @@ import android.provider.MediaStore;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
@@ -37,7 +38,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
@@ -77,14 +77,18 @@ public class CameraActivity extends BaseActivity {
     private FloatingActionButton newCircleButton;
     private FloatingActionButton newLineButton;
     private FloatingActionButton confirmButton;
-    private TextView output;
     private Menu refsMenu;
     private RelativeLayout modeChoiceLayout;
+    private Toolbar toolbar;
+    private View discriptorText;
+    private View cameraLabel;
+    private View galleryLabel;
 
     private ArrayList<ReferenceObject> refs;
     private ArrayList<UserDefinedReferences> udrefs;
     DisplayMetrics displayMetrics = new DisplayMetrics();
     private String referenceObjectShape = "circle";
+    private String referenceObjectName = "";
     private float referenceObjectSize = 1;
 
     // These matrices will be used to move and zoom image
@@ -131,8 +135,11 @@ public class CameraActivity extends BaseActivity {
         galleryButton = (ImageButton) findViewById(R.id.from_gallery_button);
         pictureView = (ImageView) findViewById(R.id.pictureView);
         confirmButton = (FloatingActionButton) findViewById(R.id.confirm_reference);
-        output = (TextView) findViewById(R.id.output_tf);
         modeChoiceLayout = (RelativeLayout) findViewById(R.id.camera_ruler_layout);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        discriptorText = findViewById(R.id.camera_gallery_choice_text);
+        cameraLabel = findViewById(R.id.camera_button_label);
+        galleryLabel = findViewById(R.id.gallery_button_label);
 
         newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
         newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
@@ -140,7 +147,7 @@ public class CameraActivity extends BaseActivity {
         newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
         newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
 
-        drawView = new CameraRulerView(getBaseContext(), output);
+        drawView = new CameraRulerView(getBaseContext(), toolbar);
         drawView.ctxStatus = status;
         drawView.setVisibility(GONE);
         modeChoiceLayout.addView(drawView);
@@ -234,7 +241,7 @@ public class CameraActivity extends BaseActivity {
 
         //add active predefined objects
         for (int i = 0; i < refs.size(); i++) {
-            menu.add(0, i+udrefs.size(), Menu.NONE, refs.get(i).name);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
+            menu.add(0, i+udrefs.size(), Menu.NONE, refs.get(i).nameId);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
 
@@ -242,9 +249,11 @@ public class CameraActivity extends BaseActivity {
         if (!udrefs.isEmpty()) {
             referenceObjectShape = udrefs.get(0).getUDR_SHAPE();
             referenceObjectSize = udrefs.get(0).getUDR_SIZE();
+            referenceObjectName = udrefs.get(0).getUDR_NAME();
         } else if (!refs.isEmpty()) {
             referenceObjectShape = refs.get(0).type.shape;
             referenceObjectSize = refs.get(0).size;
+            referenceObjectName = getString(refs.get(0).nameId);
         }
         if (referenceObjectShape.equals("tetragon")) {
             drawView.reference = new Tetragon(new Point(400, 400), new Point(800, 400), new Point(800, 800), new Point(400, 800));
@@ -265,11 +274,15 @@ public class CameraActivity extends BaseActivity {
             UserDefinedReferences refObj = udrefs.get(itemId);
             referenceObjectShape = refObj.getUDR_SHAPE();
             referenceObjectSize = refObj.getUDR_SIZE();
+            referenceObjectName = refObj.getUDR_NAME();
         } else {
             ReferenceObject refObj = refs.get(itemId-udrefs.size());
             referenceObjectShape = refObj.type.shape;
             referenceObjectSize = refObj.size;
+            referenceObjectName = getString(refObj.nameId);
         }
+
+        toolbar.setSubtitle(referenceObjectName);
 
         if (referenceObjectShape.equals("circle") && !(drawView.reference instanceof Circle)) {
             drawView.newReferenceCircle();
@@ -325,13 +338,17 @@ public class CameraActivity extends BaseActivity {
         cameraButton.setClickable(false);
         galleryButton.setVisibility(GONE);
         galleryButton.setClickable(false);
-        modeChoiceLayout.setVisibility(GONE);
+        discriptorText.setVisibility(GONE);
+        cameraLabel.setVisibility(GONE);
+        galleryLabel.setVisibility(GONE);
         pictureView.setImageURI(uri);
         pictureView.setVisibility(VISIBLE);
         drawView.setVisibility(VISIBLE);
         drawView.setClickable(true);
         drawView.bringToFront();
         confirmButton.setVisibility(VISIBLE);
+        toolbar.setTitle(R.string.reference_phase_title);
+        toolbar.setSubtitle(referenceObjectName);
         showMenu();
     }
 
@@ -355,8 +372,10 @@ public class CameraActivity extends BaseActivity {
         drawView.ctxStatus = status;
         confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
-        output.setVisibility(VISIBLE);
+//        output.setVisibility(VISIBLE);
         drawView.newLine();
+        toolbar.setTitle(R.string.measurement_phase_title);
+        toolbar.setSubtitle(referenceObjectName);
         drawView.invalidate();
         hideMenu();
     }
@@ -374,22 +393,28 @@ public class CameraActivity extends BaseActivity {
             cameraButton.setClickable(true);
             galleryButton.setVisibility(VISIBLE);
             galleryButton.setClickable(true);
-            modeChoiceLayout.setVisibility(VISIBLE);
+            discriptorText.setVisibility(VISIBLE);
+            cameraLabel.setVisibility(VISIBLE);
+            galleryLabel.setVisibility(VISIBLE);
             drawView.setVisibility(GONE);
             drawView.setClickable(false);
             pictureView.setVisibility(GONE);
             pictureView.setImageURI(Uri.EMPTY);
             confirmButton.setVisibility(GONE);
+            toolbar.setTitle(R.string.camera_ruler);
+            toolbar.setSubtitle("");
             hideMenu();
         } else if (status == Status.MEASUREMENT) {
             status = Status.REFERENCE;
             drawView.ctxStatus = status;
             newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
-            output.setVisibility(GONE);
+//            output.setVisibility(GONE);
             drawView.measure = null;
             drawView.invalidate();
             confirmButton.setVisibility(VISIBLE);
+            toolbar.setTitle(R.string.reference_phase_title);
+            toolbar.setSubtitle(referenceObjectName);
             showMenu();
         } else {
             super.onBackPressed();

@@ -74,6 +74,7 @@
                         android:src="@drawable/ic_menu_camera" />
 
                     <TextView
+                        android:id="@+id/camera_button_label"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -99,6 +100,7 @@
                         android:src="@drawable/ic_menu_gallery" />
 
                     <TextView
+                        android:id="@+id/gallery_button_label"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
@@ -172,20 +174,6 @@
             fab:fab_icon="@drawable/ic_checkmark"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:visibility="gone"/>
-
-        <TextView
-            android:id="@+id/output_tf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:text=""
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:layout_margin="10dp"
-            android:background="@color/halftransparentgrey"
-            android:textColor="@color/darkblue"
-            android:padding="4dp"
             android:visibility="gone"/>
 
     </android.support.design.widget.CoordinatorLayout>
