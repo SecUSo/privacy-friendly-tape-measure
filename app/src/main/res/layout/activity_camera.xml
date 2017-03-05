@@ -71,7 +71,8 @@
                         android:radius="6dp"
                         android:background="@drawable/button_normal"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_menu_camera" />
+                        android:padding="15dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp" />
 
                     <TextView
                         android:id="@+id/camera_button_label"
@@ -79,6 +80,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textAlignment="center"
+                        android:paddingTop="5dp"
                         android:text="@string/from_camera" />
 
                 </LinearLayout>
@@ -97,7 +99,8 @@
                         android:radius="6dp"
                         android:background="@drawable/button_normal"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_menu_gallery" />
+                        android:padding="15dp"
+                        android:src="@drawable/ic_photo_black_24dp" />
 
                     <TextView
                         android:id="@+id/gallery_button_label"
@@ -105,6 +108,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="center_horizontal"
                         android:textAlignment="center"
+                        android:paddingTop="5dp"
                         android:text="@string/from_gallery" />
 
                 </LinearLayout>
@@ -120,6 +124,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:textAlignment="center"
+                android:textSize="9pt"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true" />
 
