@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="pref_uom_entries" />
-    <string-array name="pref_uom_evs" />
-    <string-array name="pref_type_selection_entries" />
-    <string-array name="pref_type_selection_evs" />
+    <string-array name="pref_leftruler_entries">
+        <item>cm</item>
+        <item>inch</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_leftruler_evs">
+        <item>cm</item>
+        <item>inch</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_rightruler_entries">
+        <item>cm</item>
+        <item>inch</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_rightruler_evs">
+        <item>cm</item>
+        <item>inch</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_anglemeasure_entries">
+        <item>degree</item>
+        <item>radian</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_anglemeasure_evs">
+        <item>degree</item>
+        <item>radian</item>
+        <item>off</item>
+    </string-array>
+    <string-array name="pref_uom_entries"><item>SI units</item><item>imperial</item></string-array>
+    <string-array name="pref_uom_evs"><item>mm</item><item>in</item></string-array>
+    <string-array name="pref_type_selection_entries">
+        <item>US-dollar Coins</item>
+        <item>US-dollar Notes</item>
+        <item>Euro Coins</item>
+        <item>Euro Notes</item>
+        <item>British Pound Coins</item>
+        <item>British Pound Notes</item>
+        <item>ISO 216 Paper (A series)</item>
+        <item>US Paper</item>
+    </string-array>
+    <string-array name="pref_type_selection_evs">
+        <item>us-coins</item>
+        <item>us-notes</item>
+        <item>eu-coins</item>
+        <item>eu-notes</item>
+        <item>gb-coins</item>
+        <item>gb-notes</item>
+        <item>iso216-paper</item>
+        <item>us-paper</item>
+    </string-array>
 </resources>
