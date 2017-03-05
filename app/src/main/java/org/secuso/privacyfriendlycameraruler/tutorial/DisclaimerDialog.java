@@ -53,7 +53,7 @@ public class DisclaimerDialog extends DialogFragment {
         View rootView = inflater.inflate(R.layout.disclaimer_dialog, null);
         builder.setView(rootView);
 
-        builder.setIcon(R.mipmap.icon_drawer);
+        builder.setIcon(R.mipmap.launchericon_tapemeasure);
         builder.setTitle(getActivity().getString(R.string.disclaimer_dialog_title));
 
         final View rootViewFinal = rootView;
