@@ -177,9 +177,6 @@ public class CameraRulerView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawLine(0, this.getHeight()/2, this.getWidth(), this.getHeight()/2, warningPaint);
-        canvas.drawLine(this.getWidth()/2, 0, this.getWidth()/2, this.getHeight(), warningPaint);
-
         if (reference instanceof Circle) {
             Circle refCircle = (Circle) reference;
             canvas.drawCircle(refCircle.center.x, refCircle.center.y, refCircle.radius, referencePaint);
