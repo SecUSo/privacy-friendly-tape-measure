@@ -1,29 +1,35 @@
 /**
  * Privacy Friendly Camera Ruler is licensed under the GPLv3. Copyright (C) 2016 Roberts Kolosovs
-
- This program is free software: you can redistribute it and/or modify it under the terms of the GNU
- General Public License as published by the Free Software Foundation, either version 3 of the
- License, or (at your option) any later version.
-
- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- See the GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License along with this program.
- If not, see http://www.gnu.org/licenses/.
-
- The icons used in the nagivation drawer are licensed under the CC BY 2.5.
- In addition to them the app uses icons from Google Design Material Icons licensed under Apache
- License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
- header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
+ * <p>
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see http://www.gnu.org/licenses/.
+ * <p>
+ * The icons used in the nagivation drawer are licensed under the CC BY 2.5.
+ * In addition to them the app uses icons from Google Design Material Icons licensed under Apache
+ * License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
+ * header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
  */
 
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.provider.MediaStore;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -39,6 +45,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.provider.MediaStore;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
 import org.secuso.privacyfriendlycameraruler.R;
@@ -47,6 +54,11 @@ import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
 import org.secuso.privacyfriendlycameraruler.database.ReferenceObject;
 import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import static android.view.View.GONE;
@@ -58,7 +70,7 @@ import static android.view.View.VISIBLE;
  * for those phases, UI functionality and interaction with external camera and gallery apps.
  *
  * @author Roberts Kolosovs
- * Created by rkolosovs on 12.12.16.
+ *         Created by rkolosovs on 12.12.16.
  */
 
 public class CameraActivity extends BaseActivity {
@@ -67,6 +79,8 @@ public class CameraActivity extends BaseActivity {
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
+//    private static final int CAMERA_REQUEST = 1888;
+
     private ImageButton cameraButton;
     private ImageButton galleryButton;
     private ImageView pictureView;
@@ -83,6 +97,8 @@ public class CameraActivity extends BaseActivity {
     private View discriptorText;
     private View cameraLabel;
     private View galleryLabel;
+    private Bitmap photo;
+//    private File tempFile = new File(Environment.getExternalStorageDirectory(), "pfa_ruler_tmp_img.jpg");
 
     private ArrayList<ReferenceObject> refs;
     private ArrayList<UserDefinedReferences> udrefs;
@@ -152,22 +168,25 @@ public class CameraActivity extends BaseActivity {
         drawView.setVisibility(GONE);
         modeChoiceLayout.addView(drawView);
 
-        matrix.postRotate(90);
-        pictureView.setImageMatrix(matrix);
-        matrix.postScale(2.5f, 2.5f);
-        pictureView.setImageMatrix(matrix);
-        matrix.postTranslate(displayMetrics.widthPixels,
-                pictureView.getDrawable().getCurrent().getIntrinsicWidth());
+//        matrix.postRotate(90);
+//        pictureView.setImageMatrix(matrix);
+//        matrix.postScale(2.5f, 2.5f);
+//        pictureView.setImageMatrix(matrix);
+//        matrix.postTranslate(displayMetrics.widthPixels/2,
+//                displayMetrics.heightPixels/2);
+//        matrix.postTranslate(displayMetrics.widthPixels/2, toolbar.getHeight() + modeChoiceLayout.getHeight()/2);
         pictureView.setImageMatrix(matrix);
 
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, false);
-                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-                }
+//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
+//                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
+//                    startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+//                }
+//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -177,7 +196,8 @@ public class CameraActivity extends BaseActivity {
                 Intent galleryIntent = new Intent();
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(galleryIntent, "Select Picture"), PICK_IMAGE_REQUEST);
+                galleryIntent.addCategory(Intent.CATEGORY_OPENABLE);
+                startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST);
             }
         });
 
@@ -241,7 +261,7 @@ public class CameraActivity extends BaseActivity {
 
         //add active predefined objects
         for (int i = 0; i < refs.size(); i++) {
-            menu.add(0, i+udrefs.size(), Menu.NONE, refs.get(i).nameId);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
+            menu.add(0, i + udrefs.size(), Menu.NONE, refs.get(i).nameId);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
             menu.getItem(i).setVisible(false);
         }
 
@@ -276,7 +296,7 @@ public class CameraActivity extends BaseActivity {
             referenceObjectSize = refObj.getUDR_SIZE();
             referenceObjectName = refObj.getUDR_NAME();
         } else {
-            ReferenceObject refObj = refs.get(itemId-udrefs.size());
+            ReferenceObject refObj = refs.get(itemId - udrefs.size());
             referenceObjectShape = refObj.type.shape;
             referenceObjectSize = refObj.size;
             referenceObjectName = getString(refObj.nameId);
@@ -305,21 +325,68 @@ public class CameraActivity extends BaseActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE || requestCode == PICK_IMAGE_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                startImageFragment(data.getData());
-            } else {
-                if (resultCode != RESULT_CANCELED) {
-                    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-                        Log.e("Camera App crashed.", "Returned result code: "+resultCode);
-                        Toast.makeText(this, R.string.camera_crash, Toast.LENGTH_LONG).show();
-                    } else {
-                        Log.e("Gallery App crashed.", "Returned result code: "+resultCode);
-                        Toast.makeText(this, R.string.gallery_crash, Toast.LENGTH_LONG).show();
-                    }
+        InputStream stream = null;
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            try {
+                if (photo != null) {photo.recycle();}
+                stream = getContentResolver().openInputStream(data.getData());
+                photo = BitmapFactory.decodeStream(stream);
+
+                startImageFragment(photo);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } finally {
+                    if (stream != null) {
+                        try {
+                            stream.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                 }
             }
         }
+//        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+//            Bitmap photo = (Bitmap) data.getExtras().get("data");
+//            Bitmap photo = BitmapFactory.decodeFile(pictureUri.getPath());
+//                Bitmap photo = BitmapFactory.decodeFile(u.getPath());
+//
+//                matrix = new Matrix();
+//                matrix.postRotate(90);
+//                float scaling = Math.max(displayMetrics.widthPixels / photo.getHeight(),
+//                        (modeChoiceLayout.getHeight() - toolbar.getHeight()) / photo.getWidth());
+//                matrix.postScale(scaling, scaling);
+//                matrix.postTranslate((displayMetrics.widthPixels + photo.getHeight() * scaling) / 2,
+//                        (modeChoiceLayout.getHeight() - toolbar.getHeight() - photo.getWidth() * scaling) / 2);
+//            matrix.postTranslate((displayMetrics.widthPixels+photo.getHeight())/2,
+//                    (modeChoiceLayout.getHeight()-toolbar.getHeight()-photo.getWidth())/2);
+//                pictureView.setImageMatrix(matrix);
+//                startImageFragment(photo);
+//        } else if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE || requestCode == PICK_IMAGE_REQUEST) {
+//            if (resultCode == RESULT_OK) {
+//                Bitmap photo = BitmapFactory.decodeFile(tempFile.getPath());
+//
+//                matrix = new Matrix();
+//                matrix.postRotate(90);
+//                float scaling = Math.max(displayMetrics.widthPixels / photo.getHeight(),
+//                        (modeChoiceLayout.getHeight() - toolbar.getHeight()) / photo.getWidth());
+//                matrix.postScale(scaling, scaling);
+//                matrix.postTranslate((displayMetrics.widthPixels + photo.getHeight() * scaling) / 2,
+//                        (modeChoiceLayout.getHeight() - toolbar.getHeight() - photo.getWidth() * scaling) / 2);
+//                pictureView.setImageMatrix(matrix);
+//                startImageFragment(photo);
+//                startImageFragment(data.getData());
+//            } else {
+//                if (resultCode != RESULT_CANCELED) {
+//                    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+//                        Log.e("Camera App crashed.", "Returned result code: " + resultCode);
+//                        Toast.makeText(this, R.string.camera_crash, Toast.LENGTH_LONG).show();
+//                    } else {
+//                        Log.e("Gallery App crashed.", "Returned result code: " + resultCode);
+//                        Toast.makeText(this, R.string.gallery_crash, Toast.LENGTH_LONG).show();
+//                    }
+//                }
+//            }
+//        }
     }
 
     /**
@@ -329,9 +396,9 @@ public class CameraActivity extends BaseActivity {
      * Shows the view for drawing shapes on top of the picture view, the button for confirming
      * the reference object and the menu for selecting the reference object.
      *
-     * @param uri
+     * @param image
      */
-    public void startImageFragment(Uri uri) {
+    public void startImageFragment(Bitmap image) {
         status = Status.REFERENCE;
         drawView.ctxStatus = status;
         cameraButton.setVisibility(GONE);
@@ -341,7 +408,7 @@ public class CameraActivity extends BaseActivity {
         discriptorText.setVisibility(GONE);
         cameraLabel.setVisibility(GONE);
         galleryLabel.setVisibility(GONE);
-        pictureView.setImageURI(uri);
+        pictureView.setImageBitmap(image);
         pictureView.setVisibility(VISIBLE);
         drawView.setVisibility(VISIBLE);
         drawView.setClickable(true);
