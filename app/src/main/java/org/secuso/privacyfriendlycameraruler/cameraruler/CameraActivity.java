@@ -108,7 +108,7 @@ public class CameraActivity extends BaseActivity {
     private float referenceObjectSize = 1;
 
     // These matrices will be used to move and zoom image
-    Matrix matrix = new Matrix();
+//    Matrix transformationMatrix = new Matrix();
 
     //variables for image transformation
 //    Matrix savedMatrix = new Matrix();
@@ -168,14 +168,7 @@ public class CameraActivity extends BaseActivity {
         drawView.setVisibility(GONE);
         modeChoiceLayout.addView(drawView);
 
-//        matrix.postRotate(90);
-//        pictureView.setImageMatrix(matrix);
-//        matrix.postScale(2.5f, 2.5f);
-//        pictureView.setImageMatrix(matrix);
-//        matrix.postTranslate(displayMetrics.widthPixels/2,
-//                displayMetrics.heightPixels/2);
-//        matrix.postTranslate(displayMetrics.widthPixels/2, toolbar.getHeight() + modeChoiceLayout.getHeight()/2);
-        pictureView.setImageMatrix(matrix);
+        pictureView.setImageMatrix(new Matrix());
 
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -328,20 +321,24 @@ public class CameraActivity extends BaseActivity {
         InputStream stream = null;
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
             try {
-                if (photo != null) {photo.recycle();}
+                if (photo != null) {
+                    photo.recycle();
+                }
                 stream = getContentResolver().openInputStream(data.getData());
                 photo = BitmapFactory.decodeStream(stream);
+
+                computeTransformation(photo.getWidth(), photo.getHeight());
 
                 startImageFragment(photo);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } finally {
-                    if (stream != null) {
-                        try {
-                            stream.close();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
+                if (stream != null) {
+                    try {
+                        stream.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -387,6 +384,38 @@ public class CameraActivity extends BaseActivity {
 //                }
 //            }
 //        }
+    }
+
+    /**
+     * Computes how a picture should be transformed to best fit the space available in the app.
+     * Sets the transformation matrix of pictureView accordingly.
+     * @param picWidth original width of the image
+     * @param picHeight original height of the image
+     */
+    private void computeTransformation(float picWidth, float picHeight) {
+        float height = picHeight;
+        float width = picWidth;
+
+        Matrix matrix = new Matrix();
+        if (height < width) {
+            matrix.postRotate(90, 0f, 0f);
+            height = width;
+            width = photo.getHeight();
+            matrix.postTranslate(width, 0f);
+        }
+        float scaleW = displayMetrics.widthPixels/width;
+        float scaleH = modeChoiceLayout.getHeight()/height;
+        float scale = Math.max(scaleW, scaleH);
+        height *= scale;
+        width *= scale;
+        matrix.postScale(scale, scale);
+
+        if (scaleW < scaleH) { //width overscaled
+            matrix.postTranslate(-(width-displayMetrics.widthPixels)/2, 0f);
+        } else if (scaleH < scaleW) { //height overscaled
+            matrix.postTranslate(0f, -(height-modeChoiceLayout.getHeight())/2);
+        }
+        pictureView.setImageMatrix(matrix);
     }
 
     /**
