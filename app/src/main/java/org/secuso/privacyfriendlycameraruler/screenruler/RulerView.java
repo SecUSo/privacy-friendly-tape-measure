@@ -94,12 +94,6 @@ public class RulerView extends View {
         } else if (prefRightruler.equals("inch")) {
             drawRightIn(canvas, paint);
         }
-//        String prefAnglemeasure = sharedPreferences.getString("pref_anglemeasure", "off");
-//        if (prefAnglemeasure.equals("degree")){
-//            drawAngleMeasureDeg(canvas, paint);
-//        } else if (prefAnglemeasure.equals("radian")) {
-//            drawAngleMeasureRad(canvas, paint);
-//        }
     }
 
     /**
