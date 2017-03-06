@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="pref_leftruler_entries">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
+        <item>Ruler (cm)</item>
+        <item>Ruler (inch)</item>
+        <item>Angle Measure (degree)</item>
+        <item>Angle Measure (radian)</item>
+        <item>Nothing</item>
     </string-array>
     <string-array name="pref_leftruler_evs">
         <item>cm</item>
         <item>inch</item>
+        <item>degree</item>
+        <item>radian</item>
         <item>off</item>
     </string-array>
     <string-array name="pref_rightruler_entries">
-        <item>cm</item>
-        <item>inch</item>
-        <item>off</item>
+        <item>Ruler (cm)</item>
+        <item>Ruler (inch)</item>
+        <item>Nothing</item>
     </string-array>
     <string-array name="pref_rightruler_evs">
         <item>cm</item>
         <item>inch</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_anglemeasure_entries">
-        <item>degree</item>
-        <item>radian</item>
-        <item>off</item>
-    </string-array>
-    <string-array name="pref_anglemeasure_evs">
-        <item>degree</item>
-        <item>radian</item>
         <item>off</item>
     </string-array>
     <string-array name="pref_uom_entries"><item>SI units</item><item>imperial</item></string-array>
