@@ -85,7 +85,6 @@ public class CameraActivity extends BaseActivity {
 
     private Status status = Status.MODE_CHOICE;
 
-    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
     private static final int ACTIVITY_REQUEST_CODE = 101;
 
@@ -197,8 +196,10 @@ public class CameraActivity extends BaseActivity {
             public void onClick(View view) {
                 if (SDK_INT >= Build.VERSION_CODES.M) {
                     // check if we have the permission we need -> if not request it and turn on the light afterwards
-                    if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+                    if (ContextCompat.checkSelfPermission(thisActivity,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(thisActivity,
+                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
                         return;
                     }
                 }
@@ -347,7 +348,6 @@ public class CameraActivity extends BaseActivity {
                     computeTransformation(photo.getWidth(), photo.getHeight());
 
                     pictureView.setImageBitmap(photo);
-//                    startImageFragment();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } finally {
@@ -433,7 +433,6 @@ public class CameraActivity extends BaseActivity {
         discriptorText.setVisibility(GONE);
         cameraLabel.setVisibility(GONE);
         galleryLabel.setVisibility(GONE);
-//        pictureView.setImageBitmap(image);
         pictureView.setVisibility(VISIBLE);
         drawView.setVisibility(VISIBLE);
         drawView.setClickable(true);
@@ -464,7 +463,6 @@ public class CameraActivity extends BaseActivity {
         drawView.ctxStatus = status;
         confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
-//        output.setVisibility(VISIBLE);
         drawView.newLine();
         toolbar.setTitle(R.string.measurement_phase_title);
         toolbar.setSubtitle(referenceObjectName);

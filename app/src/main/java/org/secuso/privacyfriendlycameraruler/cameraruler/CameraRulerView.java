@@ -228,10 +228,33 @@ public class CameraRulerView extends View {
                 drawTouchPoint(canvas, ends[0], touchPointPaint);
                 drawTouchPoint(canvas, ends[1], touchPointPaint);
                 float length = ((Line) measure).getLength() * scale;
+                String unit = unitOfMeasurement;
                 if (unitOfMeasurement.equals("in")) {
                     length = (float) (length / 25.4);
+                    if (length >= 18) {
+                        length /= 36;
+                        unit = "yd";
+                    } else if (length >= 6) {
+                        length /= 12;
+                        unit = "ft";
+                    } else if (length <= 0.01){
+                        length *= 1000;
+                        unit = "th";
+                    }
+                } else {
+                    if (length >= 50000000) {
+                        length /= 100000000;
+                        unit = "km";
+                    } else if (length >= 500) {
+                        length /= 1000;
+                        unit = "m";
+                    } else if (length >= 5) {
+                        length /= 10;
+                        unit = "cm";
+                    }
                 }
-                toolbar.setSubtitle(getResources().getString(R.string.length) +" "+ length + unitOfMeasurement);
+                length = Math.round(length*100f)/100f;
+                toolbar.setSubtitle(getResources().getString(R.string.length) +" "+ length + unit);
             } else if (measure instanceof Polygon) {
                 Point[] corners = ((Polygon) measure).corners;
                 int length = corners.length;
@@ -249,10 +272,30 @@ public class CameraRulerView extends View {
                 } else {
                     canvas.drawLines(points, paint);
                     float area = ((Polygon) measure).getArea() * scale * scale;
+                    String unit = unitOfMeasurement;
                     if (unitOfMeasurement.equals("in")) {
                         area = (float) (area / Math.pow(25.4, 2));
+                        if (area >= 648) {
+                            area /= 1296;
+                            unit = "yd";
+                        } else if (area >= 72) {
+                            area /= 144;
+                            unit = "ft";
+                        } else if (area <= 0.000002){
+                            area *= 1000000;
+                            unit = "th";
+                        }
+                    } else {
+                        if (area >= 500000) {
+                            area /= 1000000;
+                            unit = "m";
+                        } else if (area >= 50) {
+                            area /= 100;
+                            unit = "cm";
+                        }
                     }
-                    toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unitOfMeasurement + "²");
+                    area = Math.round(area*100f)/100f;
+                    toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unit + "²");
                 }
 
                 for (int i = 0; i < length; i++) {
@@ -264,10 +307,30 @@ public class CameraRulerView extends View {
                 drawTouchPoint(canvas, circle.center, touchPointPaint);
                 drawTouchPoint(canvas, circle.radiusTouchPoint, touchPointPaint);
                 float area = circle.getArea() * scale * scale;
+                String unit = unitOfMeasurement;
                 if (unitOfMeasurement.equals("in")) {
                     area = (float) (area / Math.pow(25.4, 2));
+                    if (area >= 648) {
+                        area /= 1296;
+                        unit = "yd";
+                    } else if (area >= 72) {
+                        area /= 144;
+                        unit = "ft";
+                    } else if (area <= 0.000002){
+                        area *= 1000000;
+                        unit = "th";
+                    }
+                } else {
+                    if (area >= 500000) {
+                        area /= 1000000;
+                        unit = "m";
+                    } else if (area >= 50) {
+                        area /= 100;
+                        unit = "cm";
+                    }
                 }
-                toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unitOfMeasurement + "²");
+                area = Math.round(area*100f)/100f;
+                toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unit + "²");
             }
         }
     }
