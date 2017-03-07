@@ -20,8 +20,10 @@
 
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -35,6 +37,8 @@ import android.provider.MediaStore;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -45,6 +49,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.os.Build;
 import android.provider.MediaStore;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
@@ -63,6 +68,7 @@ import java.util.ArrayList;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static android.os.Build.VERSION.SDK_INT;
 
 /**
  * Main activity for the Camera Ruler functionality.
@@ -81,6 +87,7 @@ public class CameraActivity extends BaseActivity {
     private static final int PICK_IMAGE_REQUEST = 1;
 //    private static final int CAMERA_REQUEST = 1888;
 
+    private Activity thisActivity = this;
     private ImageButton cameraButton;
     private ImageButton galleryButton;
     private ImageView pictureView;
@@ -186,6 +193,13 @@ public class CameraActivity extends BaseActivity {
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(SDK_INT >= Build.VERSION_CODES.M) {
+                    // check if we have the permission we need -> if not request it and turn on the light afterwards
+                    if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},0);
+                        return;
+                    }
+                }
                 Intent galleryIntent = new Intent();
                 galleryIntent.setType("image/*");
                 galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
