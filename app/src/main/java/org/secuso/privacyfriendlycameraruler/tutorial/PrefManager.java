@@ -43,7 +43,6 @@ public class PrefManager {
 
     private static final String IS_FIRST_TIME_LAUNCH = "IsFirstTimeLaunch";
     private static final String LAST_MODE = "lastMode";
-    private static final String UNITS_OF_MEASUREMENT = "pref_units_of_measurement";
 
     public PrefManager(Context context) {
         pref = context.getSharedPreferences(PREF_NAME, PRIVATE_MODE);

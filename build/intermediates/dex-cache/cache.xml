@@ -43,7 +43,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="5cd586a89ab020570175de1675c002590ac3216c">
+        sha1="8f1cab7e69d25eff2a44c4323662198dab4d60ea">
         <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_2bf7499ac11c994d44235c3d539d05e35f37f474/classes.dex" />
     </item>
     <item
@@ -124,7 +124,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="000335232615a727d8de5f45a80753ce01046410">
+        sha1="1a85a92849ce8e435d9096659bed9722fa7d7e11">
         <dex dex="/home/roberts/StudioProjects/privacy-friendly-camera-ruler/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_dc8c92e0fb871bd56026a7510afad24e9bae4412/classes.dex" />
     </item>
     <item

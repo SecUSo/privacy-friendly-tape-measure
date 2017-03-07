@@ -22,6 +22,7 @@ package org.secuso.privacyfriendlycameraruler.tutorial;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -42,6 +43,13 @@ import org.secuso.privacyfriendlycameraruler.R;
 import org.secuso.privacyfriendlycameraruler.MainActivity;
 import org.secuso.privacyfriendlycameraruler.database.PFASQLiteHelper;
 import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+
+import static java.util.Locale.*;
 
 /**
  * Class structure taken from tutorial at http://www.androidhive.info/2016/05/android-build-intro-slider-app/
@@ -83,8 +91,15 @@ public class TutorialActivity extends AppCompatActivity {
                     fillDatabase();
                 }
             };
+            Runnable smartPrefSetup = new Runnable() {
+                @Override
+                public void run() {
+                    smartPreferenceInitialize();
+                }
+            };
             new Thread(initPrefs).run();
             new Thread(fillDB).run();
+            new Thread(smartPrefSetup).run();
         }
 
         // Making notification bar transparent
@@ -253,5 +268,67 @@ public class TutorialActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             dbHelper.addUserDefinedRef(new UserDefinedReferences());
         }
+    }
+
+    /**
+     * Sets the screen rulers, the camera ruler unit of measurement and the active reference objects
+     * according to the phone's language.
+     */
+    private void smartPreferenceInitialize() {
+        SharedPreferences pref = getBaseContext().getSharedPreferences("androidhive-welcome", 0);
+        SharedPreferences.Editor editor = pref.edit();
+
+        Locale loc = Locale.getDefault();
+        ArrayList<Locale> eurozoneLocales = new ArrayList<>();
+        eurozoneLocales.add(new Locale("de"));
+        eurozoneLocales.add(new Locale("fr"));
+        eurozoneLocales.add(new Locale("nl"));
+        eurozoneLocales.add(new Locale("et"));
+        eurozoneLocales.add(new Locale("fi"));
+        eurozoneLocales.add(new Locale("el"));
+        eurozoneLocales.add(new Locale("it"));
+        eurozoneLocales.add(new Locale("lv"));
+        eurozoneLocales.add(new Locale("lt"));
+        eurozoneLocales.add(new Locale("pt"));
+        eurozoneLocales.add(new Locale("sk"));
+        eurozoneLocales.add(new Locale("sl"));
+        eurozoneLocales.add(new Locale("es"));
+        eurozoneLocales.add(new Locale("lb"));
+        eurozoneLocales.add(new Locale("mt"));
+        eurozoneLocales.add(new Locale("ga"));
+        eurozoneLocales.add(new Locale("tr"));
+
+        Set<String> activePrefs = new HashSet<>();
+
+        if (loc == US) { //set units and rulers to imperial and activate US paper
+            editor.putString("pref_units_of_measurement", "in");
+            editor.putString("pref_leftruler", "inch");
+            editor.putString("pref_rightruler", "inch");
+            activePrefs.add("us-paper");
+        } else { //set units and rulers to SI and activate ISO 216 paper
+            editor.putString("pref_units_of_measurement", "mm");
+            editor.putString("pref_leftruler", "cm");
+            editor.putString("pref_rightruler", "cm");
+            activePrefs.add("iso216-paper");
+        }
+
+        if (loc == US) { //set US currency
+            activePrefs.add("us-coins");
+            activePrefs.add("us-notes");
+        } else if (loc == UK) { //set UK currency
+            activePrefs.add("gb-coins");
+            activePrefs.add("gb-notes");
+        } else if (eurozoneLocales.contains(loc)) { //set EU currency
+            activePrefs.add("eu-coins");
+            activePrefs.add("eu-notes");
+        } else { //set EU and USD currency
+            activePrefs.add("us-coins");
+            activePrefs.add("us-notes");
+            activePrefs.add("eu-coins");
+            activePrefs.add("eu-notes");
+        }
+
+        editor.putStringSet("pref_type_selection", activePrefs);
+        editor.commit();
     }
 }
