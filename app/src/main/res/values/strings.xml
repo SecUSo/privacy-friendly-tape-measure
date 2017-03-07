@@ -219,5 +219,4 @@
     <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
     <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
     <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
-    <string name="measurement_phase_title">Measure</string>
 </resources>

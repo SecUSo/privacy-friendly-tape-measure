@@ -22,8 +22,9 @@
 
         <ImageView
             android:layout_width="@dimen/img_width_height"
-            android:layout_height="@dimen/img_width_height"
-            android:background="@mipmap/tapemeasure"
+            android:layout_height="@dimen/tutorial_img_width_height"
+            android:scaleType="fitCenter"
+            android:background="@drawable/tutorial2"
             />
 
         <TextView
