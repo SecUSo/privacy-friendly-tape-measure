@@ -49,13 +49,26 @@
             android:weightSum="1"
             tools:context=".cameraruler.CameraActivity">
 
+            <TextView
+                android:id="@+id/camera_gallery_choice_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description_camera_gallery"
+                android:layout_marginTop="110dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textAlignment="center"
+                android:textSize="9pt"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true" />
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:layout_marginTop="193dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
+                android:layout_below="@+id/camera_gallery_choice_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -114,19 +127,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/camera_gallery_choice_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/description_camera_gallery"
-                android:layout_marginTop="110dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:textAlignment="center"
-                android:textSize="9pt"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 
