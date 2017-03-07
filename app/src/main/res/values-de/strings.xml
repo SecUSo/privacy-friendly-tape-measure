@@ -32,6 +32,7 @@
     <string name="gallery_crash">Gallery App crashed.</string>
     <string name="reference_phase_title">Place Reference Object</string>
     <string name="reference_phase_subtitle">Active Reference Object:</string>
+    <string name="measurement_phase_title">Measure</string>
     <string name="new_tetragon">New Tetragon</string>
     <string name="new_triangle">New Triangle</string>
     <string name="new_circle">New Circle</string>
@@ -219,7 +220,4 @@
     <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
     <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
     <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
-    <string name="measurement_phase_title">Measure</string>
-    <string name="slide4_heading">Other Measurement Options</string>
-    <string name="slide4_text">Choose different measurement options via the floating button in the bottom right. You can measure length of lines and areas of circles, triangles and tetragons.</string>
 </resources>

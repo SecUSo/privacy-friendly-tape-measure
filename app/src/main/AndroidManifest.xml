@@ -8,10 +8,12 @@
         android:normalScreens="true"
         android:resizeable="true"
         android:smallScreens="true"
-        android:xlargeScreens="true"/>
+        android:xlargeScreens="true" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -28,35 +30,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".tutorial.TutorialActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+        <activity
+            android:name=".tutorial.TutorialActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity"
             android:label="@string/screen_ruler"
+            android:launchMode="singleTop"
             android:parentActivityName="org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTop">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity"
             android:label="@string/camera_ruler"
+            android:launchMode="singleTop"
             android:parentActivityName="org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:launchMode="singleTop">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".screenruler.CalibrationActivity"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".screenruler.RulerActivity">
-        </activity>
+            android:parentActivityName=".screenruler.RulerActivity"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name="org.secuso.privacyfriendlycameraruler.AboutActivity"
             android:label="@string/about"
@@ -86,14 +84,24 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.secuso.privacyfriendlycameraruler.MainActivity" />
         </activity>
-        <activity android:name=".database.ReferenceListViewer"
-            android:screenOrientation="portrait"
+        <activity
+            android:name=".database.ReferenceListViewer"
             android:label="@string/title_activity_ref_viewer"
-            android:parentActivityName="org.secuso.privacyfriendlycameraruler.SettingsActivity">
+            android:parentActivityName="org.secuso.privacyfriendlycameraruler.SettingsActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.secuso.privacyfriendlycameraruler.SettingsActivity" />
         </activity>
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

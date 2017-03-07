@@ -22,23 +22,26 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.provider.MediaStore;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -50,16 +53,15 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 import android.os.Build;
-import android.provider.MediaStore;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
+import org.secuso.privacyfriendlycameraruler.BuildConfig;
 import org.secuso.privacyfriendlycameraruler.R;
 import org.secuso.privacyfriendlycameraruler.database.PFASQLiteHelper;
 import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
 import org.secuso.privacyfriendlycameraruler.database.ReferenceObject;
 import org.secuso.privacyfriendlycameraruler.database.UserDefinedReferences;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -85,7 +87,7 @@ public class CameraActivity extends BaseActivity {
 
     private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int PICK_IMAGE_REQUEST = 1;
-//    private static final int CAMERA_REQUEST = 1888;
+    private static final int ACTIVITY_REQUEST_CODE = 101;
 
     private Activity thisActivity = this;
     private ImageButton cameraButton;
@@ -105,7 +107,8 @@ public class CameraActivity extends BaseActivity {
     private View cameraLabel;
     private View galleryLabel;
     private Bitmap photo;
-//    private File tempFile = new File(Environment.getExternalStorageDirectory(), "pfa_ruler_tmp_img.jpg");
+    private Uri mPhotoUri;
+    String mCurrentPhotoPath;
 
     private ArrayList<ReferenceObject> refs;
     private ArrayList<UserDefinedReferences> udrefs;
@@ -180,23 +183,22 @@ public class CameraActivity extends BaseActivity {
         cameraButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, pictureUri);
-//                if (cameraIntent.resolveActivity(getPackageManager()) != null) {
-//                    startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-//                }
-//                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                startActivityForResult(cameraIntent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+                mPhotoUri = FileProvider.getUriForFile(CameraActivity.this, BuildConfig.APPLICATION_ID + ".provider", createImageFile());
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent.setClipData(ClipData.newRawUri("A photo", mPhotoUri));
+                intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoUri);
+                startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
             }
         });
 
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(SDK_INT >= Build.VERSION_CODES.M) {
+                if (SDK_INT >= Build.VERSION_CODES.M) {
                     // check if we have the permission we need -> if not request it and turn on the light afterwards
                     if (ContextCompat.checkSelfPermission(thisActivity, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},0);
+                        ActivityCompat.requestPermissions(thisActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
                         return;
                     }
                 }
@@ -333,79 +335,61 @@ public class CameraActivity extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         InputStream stream = null;
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            try {
-                if (photo != null) {
-                    photo.recycle();
-                }
-                stream = getContentResolver().openInputStream(data.getData());
-                photo = BitmapFactory.decodeStream(stream);
-
-                computeTransformation(photo.getWidth(), photo.getHeight());
-
-                startImageFragment(photo);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } finally {
-                if (stream != null) {
-                    try {
-                        stream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == PICK_IMAGE_REQUEST) {
+                try {
+                    if (photo != null) {
+                        photo.recycle();
                     }
+                    stream = getContentResolver().openInputStream(data.getData());
+                    photo = BitmapFactory.decodeStream(stream);
+
+                    computeTransformation(photo.getWidth(), photo.getHeight());
+
+                    pictureView.setImageBitmap(photo);
+//                    startImageFragment();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (stream != null) {
+                        try {
+                            stream.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            } else if (requestCode == ACTIVITY_REQUEST_CODE) {
+                pictureView.setImageBitmap(null);
+
+                // Image saved to a generated MediaStore.Images.Media.EXTERNAL_CONTENT_URI
+                pictureView.setImageURI(mPhotoUri);
+                Drawable d = pictureView.getDrawable();
+                Log.d("woot", "Dimensions: " + d.getIntrinsicHeight() + "x" + d.getIntrinsicWidth());
+                computeTransformation(d.getIntrinsicWidth(), d.getIntrinsicHeight());
+            }
+            startImageFragment();
+        } else {
+            if (resultCode != RESULT_CANCELED) {
+                if (requestCode == ACTIVITY_REQUEST_CODE) {
+                    Log.e("Camera App crashed.", "Returned result code: " + resultCode);
+                    Toast.makeText(this, R.string.camera_crash, Toast.LENGTH_LONG).show();
+                } else {
+                    Log.e("Gallery App crashed.", "Returned result code: " + resultCode);
+                    Toast.makeText(this, R.string.gallery_crash, Toast.LENGTH_LONG).show();
                 }
             }
         }
-//        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-//            Bitmap photo = (Bitmap) data.getExtras().get("data");
-//            Bitmap photo = BitmapFactory.decodeFile(pictureUri.getPath());
-//                Bitmap photo = BitmapFactory.decodeFile(u.getPath());
-//
-//                matrix = new Matrix();
-//                matrix.postRotate(90);
-//                float scaling = Math.max(displayMetrics.widthPixels / photo.getHeight(),
-//                        (modeChoiceLayout.getHeight() - toolbar.getHeight()) / photo.getWidth());
-//                matrix.postScale(scaling, scaling);
-//                matrix.postTranslate((displayMetrics.widthPixels + photo.getHeight() * scaling) / 2,
-//                        (modeChoiceLayout.getHeight() - toolbar.getHeight() - photo.getWidth() * scaling) / 2);
-//            matrix.postTranslate((displayMetrics.widthPixels+photo.getHeight())/2,
-//                    (modeChoiceLayout.getHeight()-toolbar.getHeight()-photo.getWidth())/2);
-//                pictureView.setImageMatrix(matrix);
-//                startImageFragment(photo);
-//        } else if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE || requestCode == PICK_IMAGE_REQUEST) {
-//            if (resultCode == RESULT_OK) {
-//                Bitmap photo = BitmapFactory.decodeFile(tempFile.getPath());
-//
-//                matrix = new Matrix();
-//                matrix.postRotate(90);
-//                float scaling = Math.max(displayMetrics.widthPixels / photo.getHeight(),
-//                        (modeChoiceLayout.getHeight() - toolbar.getHeight()) / photo.getWidth());
-//                matrix.postScale(scaling, scaling);
-//                matrix.postTranslate((displayMetrics.widthPixels + photo.getHeight() * scaling) / 2,
-//                        (modeChoiceLayout.getHeight() - toolbar.getHeight() - photo.getWidth() * scaling) / 2);
-//                pictureView.setImageMatrix(matrix);
-//                startImageFragment(photo);
-//                startImageFragment(data.getData());
-//            } else {
-//                if (resultCode != RESULT_CANCELED) {
-//                    if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
-//                        Log.e("Camera App crashed.", "Returned result code: " + resultCode);
-//                        Toast.makeText(this, R.string.camera_crash, Toast.LENGTH_LONG).show();
-//                    } else {
-//                        Log.e("Gallery App crashed.", "Returned result code: " + resultCode);
-//                        Toast.makeText(this, R.string.gallery_crash, Toast.LENGTH_LONG).show();
-//                    }
-//                }
-//            }
-//        }
     }
 
     /**
      * Computes how a picture should be transformed to best fit the space available in the app.
      * Sets the transformation matrix of pictureView accordingly.
-     * @param picWidth original width of the image
+     *
+     * @param picWidth  original width of the image
      * @param picHeight original height of the image
      */
+
     private void computeTransformation(float picWidth, float picHeight) {
         float height = picHeight;
         float width = picWidth;
@@ -414,20 +398,20 @@ public class CameraActivity extends BaseActivity {
         if (height < width) {
             matrix.postRotate(90, 0f, 0f);
             height = width;
-            width = photo.getHeight();
+            width = picHeight;
             matrix.postTranslate(width, 0f);
         }
-        float scaleW = displayMetrics.widthPixels/width;
-        float scaleH = modeChoiceLayout.getHeight()/height;
+        float scaleW = displayMetrics.widthPixels / width;
+        float scaleH = modeChoiceLayout.getHeight() / height;
         float scale = Math.max(scaleW, scaleH);
         height *= scale;
         width *= scale;
         matrix.postScale(scale, scale);
 
         if (scaleW < scaleH) { //width overscaled
-            matrix.postTranslate(-(width-displayMetrics.widthPixels)/2, 0f);
+            matrix.postTranslate(-(width - displayMetrics.widthPixels) / 2, 0f);
         } else if (scaleH < scaleW) { //height overscaled
-            matrix.postTranslate(0f, -(height-modeChoiceLayout.getHeight())/2);
+            matrix.postTranslate(0f, -(height - modeChoiceLayout.getHeight()) / 2);
         }
         pictureView.setImageMatrix(matrix);
     }
@@ -438,10 +422,8 @@ public class CameraActivity extends BaseActivity {
      * Shows the picture view and fills it with the picture fetched from the external app.
      * Shows the view for drawing shapes on top of the picture view, the button for confirming
      * the reference object and the menu for selecting the reference object.
-     *
-     * @param image
      */
-    public void startImageFragment(Bitmap image) {
+    public void startImageFragment() {
         status = Status.REFERENCE;
         drawView.ctxStatus = status;
         cameraButton.setVisibility(GONE);
@@ -451,7 +433,7 @@ public class CameraActivity extends BaseActivity {
         discriptorText.setVisibility(GONE);
         cameraLabel.setVisibility(GONE);
         galleryLabel.setVisibility(GONE);
-        pictureView.setImageBitmap(image);
+//        pictureView.setImageBitmap(image);
         pictureView.setVisibility(VISIBLE);
         drawView.setVisibility(VISIBLE);
         drawView.setClickable(true);
@@ -547,6 +529,30 @@ public class CameraActivity extends BaseActivity {
         for (int i = 0; i < refsMenu.size(); i++) {
             refsMenu.getItem(i).setVisible(false);
         }
+    }
+
+    private File createImageFile() {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = new File(getFilesDir(), "images/");
+        if (!storageDir.exists()) {
+            storageDir.mkdirs();
+        }
+        File image = null;
+        try {
+            image = File.createTempFile(
+                    imageFileName,  /* prefix */
+                    ".jpg",         /* suffix */
+                    storageDir      /* directory */
+            );
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:" + image.getAbsolutePath();
+        return image;
     }
 
     @Override

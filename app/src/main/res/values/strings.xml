@@ -32,6 +32,7 @@
     <string name="gallery_crash">Gallery App crashed.</string>
     <string name="reference_phase_title">Place Reference Object</string>
     <string name="reference_phase_subtitle">Active Reference Object:</string>
+    <string name="measurement_phase_title">Measure</string>
     <string name="new_tetragon">New Tetragon</string>
     <string name="new_triangle">New Triangle</string>
     <string name="new_circle">New Circle</string>
