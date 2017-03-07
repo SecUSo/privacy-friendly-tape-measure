@@ -18,14 +18,6 @@
             android:entries="@array/pref_rightruler_entries"
             android:entryValues="@array/pref_rightruler_evs"
             android:defaultValue="@string/pref_rightruler_default" />
-
-        <!--<ListPreference android:id="@+id/pref_anglemeasure"-->
-            <!--android:key="pref_anglemeasure"-->
-            <!--android:title="@string/pref_anglemeasure"-->
-            <!--android:dialogTitle="@string/pref_anglemeasure_verbose"-->
-            <!--android:entries="@array/pref_anglemeasure_entries"-->
-            <!--android:entryValues="@array/pref_anglemeasure_evs"-->
-            <!--android:defaultValue="@string/pref_anglemeasure_default" />-->
     </PreferenceCategory>
 
     <PreferenceCategory

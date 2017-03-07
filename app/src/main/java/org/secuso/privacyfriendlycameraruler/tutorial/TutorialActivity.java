@@ -71,8 +71,20 @@ public class TutorialActivity extends AppCompatActivity {
             launchHomeScreen();
             finish();
         } else {
-            prefManager.addHiddenPrefs();
-            fillDatabase();
+            Runnable initPrefs = new Runnable() {
+                @Override
+                public void run() {
+                    prefManager.addHiddenPrefs();
+                }
+            };
+            Runnable fillDB = new Runnable() {
+                @Override
+                public void run() {
+                    fillDatabase();
+                }
+            };
+            new Thread(initPrefs).run();
+            new Thread(fillDB).run();
         }
 
         // Making notification bar transparent
