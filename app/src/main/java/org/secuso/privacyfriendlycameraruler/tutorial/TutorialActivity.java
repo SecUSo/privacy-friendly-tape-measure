@@ -26,10 +26,12 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -275,10 +277,13 @@ public class TutorialActivity extends AppCompatActivity {
      * according to the phone's language.
      */
     private void smartPreferenceInitialize() {
-        SharedPreferences pref = getBaseContext().getSharedPreferences("androidhive-welcome", 0);
+        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
+
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         SharedPreferences.Editor editor = pref.edit();
 
         Locale loc = Locale.getDefault();
+
         ArrayList<Locale> eurozoneLocales = new ArrayList<>();
         eurozoneLocales.add(new Locale("de"));
         eurozoneLocales.add(new Locale("fr"));
@@ -300,7 +305,7 @@ public class TutorialActivity extends AppCompatActivity {
 
         Set<String> activePrefs = new HashSet<>();
 
-        if (loc == US) { //set units and rulers to imperial and activate US paper
+        if (loc.equals(US)) { //set units and rulers to imperial and activate US paper
             editor.putString("pref_units_of_measurement", "in");
             editor.putString("pref_leftruler", "inch");
             editor.putString("pref_rightruler", "inch");
@@ -312,10 +317,10 @@ public class TutorialActivity extends AppCompatActivity {
             activePrefs.add("iso216-paper");
         }
 
-        if (loc == US) { //set US currency
+        if (loc.equals(US)) { //set US currency
             activePrefs.add("us-coins");
             activePrefs.add("us-notes");
-        } else if (loc == UK) { //set UK currency
+        } else if (loc.equals(UK)) { //set UK currency
             activePrefs.add("gb-coins");
             activePrefs.add("gb-notes");
         } else if (eurozoneLocales.contains(loc)) { //set EU currency
