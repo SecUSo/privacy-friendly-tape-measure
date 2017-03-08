@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:id="@+id/action_calibration"
         android:orderInCategory="100"
@@ -11,4 +12,32 @@
         android:orderInCategory="100"
         android:title="@string/action_reset_calibration"
         app:showAsAction="never" />
+
+    <item android:id="@+id/action_setleftruler"
+        android:title="@string/pref_leftruler">
+        <menu>
+            <item android:id="@+id/set_left_cm"
+                android:title="@string/ruler_cm"/>
+            <item android:id="@+id/set_left_inch"
+                android:title="@string/ruler_inch"/>
+            <item android:id="@+id/set_left_degree"
+                android:title="@string/ruler_degree"/>
+            <item android:id="@+id/set_left_radian"
+                android:title="@string/ruler_radian"/>
+            <item android:id="@+id/set_left_off"
+                android:title="@string/ruler_off"/>
+        </menu>
+    </item>
+
+    <item android:id="@+id/action_setrightruler"
+        android:title="@string/pref_rightruler">
+        <menu>
+            <item android:id="@+id/set_right_cm"
+                android:title="@string/ruler_cm"/>
+            <item android:id="@+id/set_right_inch"
+                android:title="@string/ruler_inch"/>
+            <item android:id="@+id/set_right_off"
+                android:title="@string/ruler_off"/>
+        </menu>
+    </item>
 </menu>

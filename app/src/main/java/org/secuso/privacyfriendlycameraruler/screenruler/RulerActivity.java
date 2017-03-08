@@ -44,6 +44,7 @@ import org.secuso.privacyfriendlycameraruler.R;
 public class RulerActivity extends BaseActivity {
 
     private SharedPreferences mSharedPreferences;
+    private RulerView rulerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class RulerActivity extends BaseActivity {
         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
         float dpmm = mSharedPreferences.getFloat("dpmm", (float) (displayMetrics.ydpi/25.4));
 
-        RulerView rulerView = new RulerView(getBaseContext(), dpmm,
+        rulerView = new RulerView(getBaseContext(), dpmm,
                 dpmm*25.4/32, PreferenceManager.getDefaultSharedPreferences(getBaseContext()));
         rulerLayout.addView(rulerView);
 
@@ -73,33 +74,86 @@ public class RulerActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ruler_action_menu, menu);
+//        getMenuInflater().inflate(R.menu.ruler_settings_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
+        Intent intent = new Intent();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+        SharedPreferences.Editor editor = pref.edit();
 
-        if (id == R.id.action_calibration) {
-            Intent intent = new Intent();
-            intent.setClass(getBaseContext(), CalibrationActivity.class);
-            startActivityForResult(intent, 0);
-            return true;
-        }
-        if (id == R.id.action_resetcalibration) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            float dpmm = (float) (displayMetrics.ydpi / 25.4);
-            mSharedPreferences.edit().putFloat("dpmm", dpmm).commit();
-            Context context = getApplicationContext();
-            CharSequence calibrationResetText = getResources().getString(R.string.action_reset_calibration);
-            int duration = Toast.LENGTH_SHORT;
-            Toast calibrationResetToast = Toast.makeText(context, calibrationResetText, duration);
-            calibrationResetToast.show();
-            Intent intent = new Intent();
-            intent.setClass(getBaseContext(), RulerActivity.class);
-            startActivityForResult(intent, 0);
-            return true;
+        switch (id) {
+            case R.id.action_calibration:
+                intent.setClass(getBaseContext(), CalibrationActivity.class);
+                startActivityForResult(intent, 0);
+                return true;
+
+            case R.id.action_resetcalibration:
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                float dpmm = (float) (displayMetrics.ydpi / 25.4);
+                mSharedPreferences.edit().putFloat("dpmm", dpmm).commit();
+                Context context = getApplicationContext();
+                CharSequence calibrationResetText = getResources().getString(R.string.action_reset_calibration);
+                int duration = Toast.LENGTH_SHORT;
+                Toast calibrationResetToast = Toast.makeText(context, calibrationResetText, duration);
+                calibrationResetToast.show();
+                intent.setClass(getBaseContext(), RulerActivity.class);
+                startActivityForResult(intent, 0);
+                return true;
+
+            case R.id.set_left_cm:
+                editor.putString("pref_leftruler", "cm");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_left_inch:
+                editor.putString("pref_leftruler", "inch");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_left_degree:
+                editor.putString("pref_leftruler", "degree");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_left_radian:
+                editor.putString("pref_leftruler", "radian");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_left_off:
+                editor.putString("pref_leftruler", "off");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_right_cm:
+                editor.putString("pref_rightruler", "cm");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_right_inch:
+                editor.putString("pref_rightruler", "inch");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            case R.id.set_right_off:
+                editor.putString("pref_rightruler", "off");
+                editor.commit();
+                rulerView.invalidate();
+                return true;
+
+            default: break;
         }
         return super.onOptionsItemSelected(item);
     }

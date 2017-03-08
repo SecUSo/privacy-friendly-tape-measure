@@ -151,6 +151,7 @@
 
 
     <!-- ###SETTINGS### -->
+    <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Settings</string><string name="pref_ruler">Ruler Settings</string>
     <string name="pref_leftruler">Left Ruler</string>
     <string name="pref_leftruler_verbose">What should be displayed on left ruler?</string>
@@ -161,8 +162,12 @@
     <string name="pref_anglemeasure">Angle Measure</string>
     <string name="pref_anglemeasure_verbose">Turn on scale for angle measuring?</string>
     <string name="pref_anglemeasure_default">off</string>
-
-
+    <string name="ruler_cm">Ruler (cm)</string>
+    <string name="ruler_inch">Ruler (inch)</string>
+    <string name="ruler_degree">Angle Measure (degree)</string>
+    <string name="ruler_radian">Angle Measure (radian)</string>
+    <string name="ruler_off">Nothing</string>
+    <!-- ###CAMERA RULER### -->
     <string name="camera_ruler_settings">Camera Ruler Settings</string>
     <string name="pref_units_of_measurement">Units of measurement</string>
     <string name="pref_uom_verbose">What units of measurement to use in the screen ruler?</string>

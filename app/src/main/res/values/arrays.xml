@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="pref_leftruler_entries">
-        <item>Ruler (cm)</item>
-        <item>Ruler (inch)</item>
-        <item>Angle Measure (degree)</item>
-        <item>Angle Measure (radian)</item>
-        <item>Nothing</item>
+        <item>@string/ruler_cm</item>
+        <item>@string/ruler_inch</item>
+        <item>@string/ruler_degree</item>
+        <item>@string/ruler_radian</item>
+        <item>@string/ruler_off</item>
     </string-array>
     <string-array name="pref_leftruler_evs">
         <item>cm</item>
@@ -15,9 +15,9 @@
         <item>off</item>
     </string-array>
     <string-array name="pref_rightruler_entries">
-        <item>Ruler (cm)</item>
-        <item>Ruler (inch)</item>
-        <item>Nothing</item>
+        <item>@string/ruler_cm</item>
+        <item>@string/ruler_inch</item>
+        <item>@string/ruler_off</item>
     </string-array>
     <string-array name="pref_rightruler_evs">
         <item>cm</item>
