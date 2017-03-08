@@ -31,6 +31,7 @@ import static java.lang.Float.NaN;
  */
 
 public class Line extends Shape {
+    private Point[] oldEnds = null;
     public Point[] ends = {new Point(0, 0), new Point(0, 0)};
 
     public Line(Point start, Point end) {
@@ -112,5 +113,23 @@ public class Line extends Shape {
         } else {
             return (ends[1].y - ends[0].y)/(ends[1].x - ends[0].x);
         }
+    }
+
+    @Override
+    public void move(float x, float y) {
+        if (oldEnds == null) {
+            oldEnds = new Point[2];
+            oldEnds[0] = new Point(ends[0]);
+            oldEnds[1] = new Point(ends[1]);
+        }
+        ends[0].x = oldEnds[0].x+x;
+        ends[0].y = oldEnds[0].y+y;
+        ends[1].x = oldEnds[1].x+x;
+        ends[1].y = oldEnds[1].y+y;
+    }
+
+    @Override
+    public void endMove() {
+        oldEnds = null;
     }
 }

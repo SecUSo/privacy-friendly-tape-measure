@@ -31,6 +31,9 @@ import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.
  */
 
 public class Circle extends Shape {
+    private Point oldCenter = null;
+    private Point oldRadiusTouch = null;
+
     public Point center = new Point(0, 0);
 
     public float radius = 0;
@@ -49,5 +52,23 @@ public class Circle extends Shape {
      */
     public float getArea() {
         return (float) (Math.PI * Math.pow(radius, 2));
+    }
+
+    @Override
+    public void move(float x, float y) {
+        if (oldCenter == null) {
+            oldCenter = new Point(center);
+            oldRadiusTouch = new Point(radiusTouchPoint);
+        }
+        center.x = oldCenter.x+x;
+        center.y = oldCenter.y+y;
+        radiusTouchPoint.x = oldRadiusTouch.x+x;
+        radiusTouchPoint.y = oldRadiusTouch.y+y;
+    }
+
+    @Override
+    public void endMove() {
+        oldCenter = null;
+        oldRadiusTouch = null;
     }
 }

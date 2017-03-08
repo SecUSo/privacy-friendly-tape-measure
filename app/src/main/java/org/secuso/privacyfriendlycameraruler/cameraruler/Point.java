@@ -38,6 +38,11 @@ public class Point {
         this.y = y;
     }
 
+    public Point(Point p) {
+        this.x = p.x;
+        this.y = p.y;
+    }
+
     /**
      * Computes the distance from this point to another point.
      * @param other Point to compute the distance to.

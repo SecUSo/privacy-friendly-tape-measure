@@ -43,4 +43,8 @@ public abstract class Shape {
     public void deactivate() {
         active = false;
     }
+
+    public abstract void move(float x, float y);
+
+    public abstract void endMove();
 }

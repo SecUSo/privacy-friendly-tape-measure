@@ -1,21 +1,21 @@
 /**
  * Privacy Friendly Camera Ruler is licensed under the GPLv3. Copyright (C) 2016 Roberts Kolosovs
-
- This program is free software: you can redistribute it and/or modify it under the terms of the GNU
- General Public License as published by the Free Software Foundation, either version 3 of the
- License, or (at your option) any later version.
-
- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- See the GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License along with this program.
- If not, see http://www.gnu.org/licenses/.
-
- The icons used in the nagivation drawer are licensed under the CC BY 2.5.
- In addition to them the app uses icons from Google Design Material Icons licensed under Apache
- License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
- header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
+ * <p>
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see http://www.gnu.org/licenses/.
+ * <p>
+ * The icons used in the nagivation drawer are licensed under the CC BY 2.5.
+ * In addition to them the app uses icons from Google Design Material Icons licensed under Apache
+ * License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
+ * header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
  */
 
 package org.secuso.privacyfriendlycameraruler.cameraruler;
@@ -26,6 +26,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +51,7 @@ public class CameraRulerView extends View {
 
     public final static float TOUCHPOINT_RADIUS = 120;
 
+    private CameraActivity parent;
     private Toolbar toolbar;
     CameraActivity.Status ctxStatus;
     private Paint paint = new Paint();
@@ -63,11 +65,12 @@ public class CameraRulerView extends View {
     float scale = 1;
     float touchOffsetX;
     float touchOffsetY;
-    private int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
+    protected int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
-    public CameraRulerView(Context context, Toolbar toolbar) {
+    public CameraRulerView(Context context, Toolbar toolbar, CameraActivity parent) {
         super(context);
 
+        this.parent = parent;
         this.toolbar = toolbar;
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         unitOfMeasurement = pref.getString("pref_units_of_measurement", "mm");
@@ -103,8 +106,12 @@ public class CameraRulerView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        parent.onTouchEvent(event);
+        return true;
+    }
+
+    protected void executeTouch(MotionEvent event) {
         if (event.getAction() == ACTION_DOWN) {
-            clickInTouchpoint(event);
         } else if (event.getAction() == ACTION_UP || event.getAction() == ACTION_CANCEL) {
             activeTouchpoint = -1;
             touchOffsetX = 0;
@@ -118,15 +125,15 @@ public class CameraRulerView extends View {
                             Point center = circle.center;
                             float oldCenterX = center.x;
                             float oldCenterY = center.y;
-                            center.x = event.getX()-touchOffsetX;
-                            center.y = event.getY()-touchOffsetY;
+                            center.x = event.getX() - touchOffsetX;
+                            center.y = event.getY() - touchOffsetY;
                             circle.radiusTouchPoint.x = circle.radiusTouchPoint.x + (center.x - oldCenterX);
                             circle.radiusTouchPoint.y = circle.radiusTouchPoint.y + (center.y - oldCenterY);
                             break;
                         case 1:
                             Point radiusTouchpoint = circle.radiusTouchPoint;
-                            radiusTouchpoint.x = event.getX()-touchOffsetX;
-                            radiusTouchpoint.y = event.getY()-touchOffsetY;
+                            radiusTouchpoint.x = event.getX() - touchOffsetX;
+                            radiusTouchpoint.y = event.getY() - touchOffsetY;
                             circle.radius = radiusTouchpoint.dist(circle.center) - TOUCHPOINT_RADIUS;
                             break;
                         default:
@@ -134,21 +141,21 @@ public class CameraRulerView extends View {
                     }
                 } else if (reference instanceof Line) {
                     Point end = ((Line) reference).ends[activeTouchpoint];
-                    end.x = event.getX()-touchOffsetX;
-                    end.y = event.getY()-touchOffsetY;
+                    end.x = event.getX() - touchOffsetX;
+                    end.y = event.getY() - touchOffsetY;
                 } else {
                     Point corner = ((Polygon) reference).corners[activeTouchpoint];
-                    corner.x = event.getX()-touchOffsetX;
-                    corner.y = event.getY()-touchOffsetY;
+                    corner.x = event.getX() - touchOffsetX;
+                    corner.y = event.getY() - touchOffsetY;
                 }
             } else if (measure instanceof Line) {
                 Point end = ((Line) measure).ends[activeTouchpoint];
-                end.x = event.getX()-touchOffsetX;
-                end.y = event.getY()-touchOffsetY;
+                end.x = event.getX() - touchOffsetX;
+                end.y = event.getY() - touchOffsetY;
             } else if (measure instanceof Polygon) {
                 Point corner = ((Polygon) measure).corners[activeTouchpoint];
-                corner.x = event.getX()-touchOffsetX;
-                corner.y = event.getY()-touchOffsetY;
+                corner.x = event.getX() - touchOffsetX;
+                corner.y = event.getY() - touchOffsetY;
             } else if (measure instanceof Circle) {
                 Circle circle = (Circle) measure;
                 switch (activeTouchpoint) {
@@ -156,15 +163,15 @@ public class CameraRulerView extends View {
                         Point center = circle.center;
                         float oldCenterX = center.x;
                         float oldCenterY = center.y;
-                        center.x = event.getX()-touchOffsetX;
-                        center.y = event.getY()-touchOffsetY;
+                        center.x = event.getX() - touchOffsetX;
+                        center.y = event.getY() - touchOffsetY;
                         circle.radiusTouchPoint.x = circle.radiusTouchPoint.x + (center.x - oldCenterX);
                         circle.radiusTouchPoint.y = circle.radiusTouchPoint.y + (center.y - oldCenterY);
                         break;
                     case 1:
                         Point radiusTouchpoint = circle.radiusTouchPoint;
-                        radiusTouchpoint.x = event.getX()-touchOffsetX;
-                        radiusTouchpoint.y = event.getY()-touchOffsetY;
+                        radiusTouchpoint.x = event.getX() - touchOffsetX;
+                        radiusTouchpoint.y = event.getY() - touchOffsetY;
                         circle.radius = radiusTouchpoint.dist(circle.center) - TOUCHPOINT_RADIUS;
                         break;
                     default:
@@ -173,8 +180,6 @@ public class CameraRulerView extends View {
             }
             this.invalidate();
         }
-
-        return true;
     }
 
     @Override
@@ -237,7 +242,7 @@ public class CameraRulerView extends View {
                     } else if (length >= 6) {
                         length /= 12;
                         unit = "ft";
-                    } else if (length <= 0.01){
+                    } else if (length <= 0.01) {
                         length *= 1000;
                         unit = "th";
                     }
@@ -253,8 +258,8 @@ public class CameraRulerView extends View {
                         unit = "cm";
                     }
                 }
-                length = Math.round(length*100f)/100f;
-                toolbar.setSubtitle(getResources().getString(R.string.length) +" "+ length + unit);
+                length = Math.round(length * 100f) / 100f;
+                toolbar.setSubtitle(getResources().getString(R.string.length) + " " + length + unit);
             } else if (measure instanceof Polygon) {
                 Point[] corners = ((Polygon) measure).corners;
                 int length = corners.length;
@@ -281,7 +286,7 @@ public class CameraRulerView extends View {
                         } else if (area >= 72) {
                             area /= 144;
                             unit = "ft";
-                        } else if (area <= 0.000002){
+                        } else if (area <= 0.000002) {
                             area *= 1000000;
                             unit = "th";
                         }
@@ -294,8 +299,8 @@ public class CameraRulerView extends View {
                             unit = "cm";
                         }
                     }
-                    area = Math.round(area*100f)/100f;
-                    toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unit + "²");
+                    area = Math.round(area * 100f) / 100f;
+                    toolbar.setSubtitle(getResources().getString(R.string.area) + " " + area + unit + "²");
                 }
 
                 for (int i = 0; i < length; i++) {
@@ -316,7 +321,7 @@ public class CameraRulerView extends View {
                     } else if (area >= 72) {
                         area /= 144;
                         unit = "ft";
-                    } else if (area <= 0.000002){
+                    } else if (area <= 0.000002) {
                         area *= 1000000;
                         unit = "th";
                     }
@@ -329,8 +334,8 @@ public class CameraRulerView extends View {
                         unit = "cm";
                     }
                 }
-                area = Math.round(area*100f)/100f;
-                toolbar.setSubtitle(getResources().getString(R.string.area) +" "+ area + unit + "²");
+                area = Math.round(area * 100f) / 100f;
+                toolbar.setSubtitle(getResources().getString(R.string.area) + " " + area + unit + "²");
             }
         }
     }
@@ -347,96 +352,105 @@ public class CameraRulerView extends View {
     }
 
     /**
-     * Determines if a touch event was in an active touchpoint and sets active touchpoint to the
-     * proper value according to the shape the touchpoint belongs to.
+     * Determines if a touch event was in an active touchpoint and returns the currently active
+     * touchpoint's number according to the shape the touchpoint belongs to.
      * @param event
-     * @return
+     * @return active touchpoint or -1 if click not in touchpoint
      */
-    private boolean clickInTouchpoint(MotionEvent event) {
+    protected int clickInTouchpoint(MotionEvent event) {
         int pc = event.getPointerCount() - 1;
         Point click = new Point(event.getX(pc), event.getY(pc));
-        boolean result = false;
+        int result = -1;
 
         if (ctxStatus == CameraActivity.Status.REFERENCE) {
             if (reference instanceof Circle) {
                 Circle circle = (Circle) reference;
                 if (click.dist(circle.center) <= TOUCHPOINT_RADIUS) {
-                    activeTouchpoint = 0;
-                    touchOffsetX = event.getX()-circle.center.x;
-                    touchOffsetY = event.getY()-circle.center.y;
-                    result = true;
+                    if (activeTouchpoint < 0) {
+                        touchOffsetX = event.getX() - circle.center.x;
+                        touchOffsetY = event.getY() - circle.center.y;
+                    }
+                    result = 0;
                 } else if (click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
-                    activeTouchpoint = 1;
-                    touchOffsetX = event.getX()-circle.radiusTouchPoint.x;
-                    touchOffsetY = event.getY()-circle.radiusTouchPoint.y;
-                    result = true;
+                    if (activeTouchpoint < 0) {
+                        touchOffsetX = event.getX() - circle.radiusTouchPoint.x;
+                        touchOffsetY = event.getY() - circle.radiusTouchPoint.y;
+                    }
+                    result = 1;
                 }
             } else if (reference instanceof Line) {
                 Point[] ends = ((Line) reference).ends;
                 if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS) {
-                    activeTouchpoint = 0;
-                    touchOffsetX = event.getX()-ends[0].x;
-                    touchOffsetY = event.getY()-ends[0].y;
-                    result = true;
+                    if (activeTouchpoint < 0) {
+                        touchOffsetX = event.getX() - ends[0].x;
+                        touchOffsetY = event.getY() - ends[0].y;
+                    }
+                    result = 0;
                 } else if (click.dist(ends[1]) <= TOUCHPOINT_RADIUS) {
-                    activeTouchpoint = 1;
-                    touchOffsetX = event.getX()-ends[1].x;
-                    touchOffsetY = event.getY()-ends[1].y;
-                    result = true;
+                    if (activeTouchpoint < 0) {
+                        touchOffsetX = event.getX() - ends[1].x;
+                        touchOffsetY = event.getY() - ends[1].y;
+                    }
+                    result = 1;
                 }
             } else {
                 Point[] corners = ((Polygon) reference).corners;
                 for (int i = 0; i < corners.length; i++) {
                     if (click.dist(corners[i]) <= TOUCHPOINT_RADIUS) {
-                        activeTouchpoint = i;
-                        touchOffsetX = event.getX()-corners[i].x;
-                        touchOffsetY = event.getY()-corners[i].y;
-                        result = true;
+                        if (activeTouchpoint < 0) {
+                            touchOffsetX = event.getX() - corners[i].x;
+                            touchOffsetY = event.getY() - corners[i].y;
+                        }
+                        result = i;
                     }
                 }
             }
         } else if (measure == null) {
-            return false;
+            return -1;
         } else if (measure instanceof Line) {
             Point[] ends = ((Line) measure).ends;
             if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS) {
-                activeTouchpoint = 0;
-                touchOffsetX = event.getX()-ends[0].x;
-                touchOffsetY = event.getY()-ends[0].y;
-                result = true;
+                if (activeTouchpoint < 0) {
+                    touchOffsetX = event.getX() - ends[0].x;
+                    touchOffsetY = event.getY() - ends[0].y;
+                }
+                result = 0;
             } else if (click.dist(ends[1]) <= TOUCHPOINT_RADIUS) {
-                activeTouchpoint = 1;
-                touchOffsetX = event.getX()-ends[1].x;
-                touchOffsetY = event.getY()-ends[1].y;
-                result = true;
+                if (activeTouchpoint < 0) {
+                    touchOffsetX = event.getX() - ends[1].x;
+                    touchOffsetY = event.getY() - ends[1].y;
+                }
+                result = 1;
             }
         } else if (measure instanceof Polygon) {
             Point[] corners = ((Polygon) measure).corners;
             for (int i = 0; i < corners.length; i++) {
                 if (click.dist(corners[i]) <= TOUCHPOINT_RADIUS) {
-                    activeTouchpoint = i;
-                    touchOffsetX = event.getX()-corners[i].x;
-                    touchOffsetY = event.getY()-corners[i].y;
-                    result = true;
+                    if (activeTouchpoint < 0) {
+                        touchOffsetX = event.getX() - corners[i].x;
+                        touchOffsetY = event.getY() - corners[i].y;
+                    }
+                    result = i;
                 }
             }
         } else if (measure instanceof Circle) {
             Circle circle = (Circle) measure;
             if (click.dist(circle.center) <= TOUCHPOINT_RADIUS) {
-                activeTouchpoint = 0;
-                touchOffsetX = event.getX()-circle.center.x;
-                touchOffsetY = event.getY()-circle.center.y;
-                result = true;
+                if (activeTouchpoint < 0) {
+                    touchOffsetX = event.getX() - circle.center.x;
+                    touchOffsetY = event.getY() - circle.center.y;
+                }
+                result = 0;
             } else if (click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
-                activeTouchpoint = 1;
-                touchOffsetX = event.getX()-circle.radiusTouchPoint.x;
-                touchOffsetY = event.getY()-circle.radiusTouchPoint.y;
-                result = true;
+                if (activeTouchpoint < 0) {
+                    touchOffsetX = event.getX() - circle.radiusTouchPoint.x;
+                    touchOffsetY = event.getY() - circle.radiusTouchPoint.y;
+                }
+                result = 1;
             }
         } else {
-            result = false;
+            result = -1;
         }
-
         return result;
     }
 

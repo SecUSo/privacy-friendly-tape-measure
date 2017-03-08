@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -117,19 +119,18 @@ public class CameraActivity extends BaseActivity {
     private float referenceObjectSize = 1;
 
     // These matrices will be used to move and zoom image
-//    Matrix transformationMatrix = new Matrix();
+    Matrix tmpMatrix = new Matrix();
+    Matrix savedMatrix = new Matrix();
 
-    //variables for image transformation
-//    Matrix savedMatrix = new Matrix();
-//    Uri uri;
+    //    Uri uri;
 //    private static final String TAG = "Touch";
 //    // We can be in one of these 3 states
-//    static final int NONE = 0;
-//    static final int DRAG = 1;
-//    static final int ZOOM = 2;
-//    int mode = NONE;
-//    // Remember some things for zooming
-//    PointF start = new PointF();
+    static final int NONE = 0;
+    static final int DRAG = 1;
+    static final int ZOOM = 2;
+    int mode = NONE;
+    //    // Remember some things for zooming
+    PointF start = new PointF();
 //    PointF mid = new PointF();
 //    float oldDist = 1f;
 
@@ -172,7 +173,7 @@ public class CameraActivity extends BaseActivity {
         newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
         newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
 
-        drawView = new CameraRulerView(getBaseContext(), toolbar);
+        drawView = new CameraRulerView(getBaseContext(), toolbar, this);
         drawView.ctxStatus = status;
         drawView.setVisibility(GONE);
         modeChoiceLayout.addView(drawView);
@@ -256,6 +257,53 @@ public class CameraActivity extends BaseActivity {
         });
 
         overridePendingTransition(0, 0);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int touchPoint = drawView.clickInTouchpoint(event);
+        if (mode == NONE && touchPoint >= 0) { //click in touchpoint while no other gesture active
+            drawView.activeTouchpoint = touchPoint;
+            drawView.executeTouch(event);
+        } else if (drawView.activeTouchpoint >= 0) { //further movements of grabbed touchpoint
+            drawView.executeTouch(event);
+        } else { //not in touchpoint or gesture already active
+            switch (event.getAction() & MotionEvent.ACTION_MASK) {
+                case MotionEvent.ACTION_DOWN:
+                    start.set(event.getX(), event.getY());
+                    mode = DRAG;
+                    break;
+                case MotionEvent.ACTION_UP:
+                case MotionEvent.ACTION_POINTER_UP:
+                    mode = NONE;
+                    if (drawView.reference != null) {
+                        drawView.reference.endMove();
+                    }
+                    if (drawView.measure != null) {
+                        drawView.measure.endMove();
+                    }
+                    savedMatrix.set(tmpMatrix);
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if (mode == DRAG) {
+                        tmpMatrix.set(savedMatrix);
+                        tmpMatrix.postTranslate(event.getX() - start.x,
+                                event.getY() - start.y);
+                        if (drawView.reference != null) {
+                            drawView.reference.move(event.getX() - start.x,
+                                    event.getY() - start.y);
+                        }
+                        if (drawView.measure != null) {
+                            drawView.measure.move(event.getX() - start.x,
+                                    event.getY() - start.y);
+                        }
+                    }
+                    break;
+            }
+            drawView.invalidate();
+            pictureView.setImageMatrix(tmpMatrix);
+        }
+        return true;
     }
 
     @Override
@@ -442,6 +490,7 @@ public class CameraActivity extends BaseActivity {
         } else if (scaleH < scaleW) { //height overscaled
             matrix.postTranslate(0f, -(height - modeChoiceLayout.getHeight()) / 2);
         }
+        savedMatrix = matrix;
         pictureView.setImageMatrix(matrix);
     }
 
