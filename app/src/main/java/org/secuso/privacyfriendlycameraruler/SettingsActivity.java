@@ -192,6 +192,8 @@ public class SettingsActivity extends BaseActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_general);
+            bindPreferenceSummaryToValue(findPreference("pref_leftruler"));
+            bindPreferenceSummaryToValue(findPreference("pref_rightruler"));
             //setHasOptionsMenu(true);
 
             Preference editUDefRefPref = findPreference("pref_edit_user_def_refs");
