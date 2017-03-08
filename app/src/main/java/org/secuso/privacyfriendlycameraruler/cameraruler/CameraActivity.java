@@ -45,6 +45,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
+import android.util.FloatMath;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -122,17 +123,15 @@ public class CameraActivity extends BaseActivity {
     Matrix tmpMatrix = new Matrix();
     Matrix savedMatrix = new Matrix();
 
-    //    Uri uri;
-//    private static final String TAG = "Touch";
-//    // We can be in one of these 3 states
+    // We can be in one of these 3 states
     static final int NONE = 0;
     static final int DRAG = 1;
     static final int ZOOM = 2;
     int mode = NONE;
-    //    // Remember some things for zooming
+    // Remember some things for zooming
     PointF start = new PointF();
-//    PointF mid = new PointF();
-//    float oldDist = 1f;
+    PointF mid = new PointF();
+    float oldDist = 1f;
 
     enum Status {
         MODE_CHOICE,
@@ -273,15 +272,22 @@ public class CameraActivity extends BaseActivity {
                     start.set(event.getX(), event.getY());
                     mode = DRAG;
                     break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    oldDist = spacing(event);
+                    if (oldDist > 10f) {
+                        midPoint(mid, event);
+                        mode = ZOOM;
+                    }
+                    break;
                 case MotionEvent.ACTION_UP:
                 case MotionEvent.ACTION_POINTER_UP:
-                    mode = NONE;
                     if (drawView.reference != null) {
                         drawView.reference.endMove();
                     }
                     if (drawView.measure != null) {
                         drawView.measure.endMove();
                     }
+                    mode = NONE;
                     savedMatrix.set(tmpMatrix);
                     break;
                 case MotionEvent.ACTION_MOVE:
@@ -297,6 +303,19 @@ public class CameraActivity extends BaseActivity {
                             drawView.measure.move(event.getX() - start.x,
                                     event.getY() - start.y);
                         }
+                    } else if (mode == ZOOM) {
+                        float newDist = spacing(event);
+                        if (newDist > 10f) {
+                            tmpMatrix.set(savedMatrix);
+                            float scale = newDist / oldDist;
+                            tmpMatrix.postScale(scale, scale, mid.x, mid.y);
+                            if (drawView.reference != null) {
+                                drawView.reference.zoom(scale, mid.x, mid.y);
+                            }
+                            if (drawView.measure != null) {
+                                drawView.measure.zoom(scale, mid.x, mid.y);
+                            }
+                        }
                     }
                     break;
             }
@@ -304,6 +323,18 @@ public class CameraActivity extends BaseActivity {
             pictureView.setImageMatrix(tmpMatrix);
         }
         return true;
+    }
+
+    private float spacing(MotionEvent event) {
+        float x = event.getX(0) - event.getX(1);
+        float y = event.getY(0) - event.getY(1);
+        return (float) Math.sqrt((x * x + y * y));
+    }
+
+    private void midPoint(PointF point, MotionEvent event) {
+        float x = event.getX(0) + event.getX(1);
+        float y = event.getY(0) + event.getY(1);
+        point.set(x / 2, y / 2);
     }
 
     @Override

@@ -20,6 +20,9 @@
 
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
+import android.graphics.Matrix;
+import android.util.Log;
+
 import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.TOUCHPOINT_RADIUS;
 
 /**
@@ -70,5 +73,23 @@ public class Circle extends Shape {
     public void endMove() {
         oldCenter = null;
         oldRadiusTouch = null;
+    }
+
+    @Override
+    public void zoom(float scale, float x, float y) {
+        if (oldCenter == null) {
+            oldCenter = new Point(center);
+            oldRadiusTouch = new Point(radiusTouchPoint);
+        }
+        float[] points = {oldCenter.x, oldCenter.y, oldRadiusTouch.x, oldRadiusTouch.y};
+        Matrix m = new Matrix();
+        m.setScale(scale, scale, x, y);
+        m.mapPoints(points);
+        center.x = points[0];
+        center.y = points[1];
+        radiusTouchPoint.x = points[2];
+        radiusTouchPoint.y = points[3];
+        radius = center.dist(radiusTouchPoint)-TOUCHPOINT_RADIUS;
+
     }
 }

@@ -1,24 +1,26 @@
 /**
  * Privacy Friendly Camera Ruler is licensed under the GPLv3. Copyright (C) 2016 Roberts Kolosovs
-
- This program is free software: you can redistribute it and/or modify it under the terms of the GNU
- General Public License as published by the Free Software Foundation, either version 3 of the
- License, or (at your option) any later version.
-
- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- See the GNU General Public License for more details.
-
- You should have received a copy of the GNU General Public License along with this program.
- If not, see http://www.gnu.org/licenses/.
-
- The icons used in the nagivation drawer are licensed under the CC BY 2.5.
- In addition to them the app uses icons from Google Design Material Icons licensed under Apache
- License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
- header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
+ * <p>
+ * This program is free software: you can redistribute it and/or modify it under the terms of the GNU
+ * General Public License as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * <p>
+ * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ * <p>
+ * You should have received a copy of the GNU General Public License along with this program.
+ * If not, see http://www.gnu.org/licenses/.
+ * <p>
+ * The icons used in the nagivation drawer are licensed under the CC BY 2.5.
+ * In addition to them the app uses icons from Google Design Material Icons licensed under Apache
+ * License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
+ * header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
  */
 
 package org.secuso.privacyfriendlycameraruler.cameraruler;
+
+import android.graphics.Matrix;
 
 import static java.lang.Float.NaN;
 
@@ -53,24 +55,27 @@ public class Line extends Shape {
         float m1 = this.gradient(); //compute line gradients
         float m2 = other.gradient();
 
-        if (Float.isNaN(m1)){ //handle lines with infinite gradient
+        if (Float.isNaN(m1)) { //handle lines with infinite gradient
             if (Float.isNaN(m2)) { //parallel lines with infinite gradient
-                if (this.ends[0].x == other.ends[0].x) {return this.ends[0];}
-                else {return null;}
+                if (this.ends[0].x == other.ends[0].x) {
+                    return this.ends[0];
+                } else {
+                    return null;
+                }
             } else { //this line has infinite gradient but other not
                 float b2 = other.ends[0].y - other.ends[0].x * m2;
-                return new Point(this.ends[0].x, this.ends[0].x*m2+b2);
+                return new Point(this.ends[0].x, this.ends[0].x * m2 + b2);
             }
         } else if (Float.isNaN(m2)) { //other has infinite gradient but this not
             float b1 = this.ends[0].y - this.ends[0].x * m1;
-            return new Point(other.ends[0].x, other.ends[0].x*m1+b1);
+            return new Point(other.ends[0].x, other.ends[0].x * m1 + b1);
         }
 
         float b1 = this.ends[0].y - this.ends[0].x * m1; //compute line zero values
         float b2 = other.ends[0].y - other.ends[0].x * m2;
 
         if (Math.abs(m1) != Math.abs(m2)) { //find intersection point
-            float intersectX = (b2 - b1)/(m1 - m2);
+            float intersectX = (b2 - b1) / (m1 - m2);
             float intersectY = intersectX * m1 + b1;
             return new Point(intersectX, intersectY);
         } else { //handle parallel lines
@@ -109,9 +114,9 @@ public class Line extends Shape {
         if (ends[1].x == ends[0].x) {
             return NaN;
         } else if (ends[1].x < ends[0].x) {
-            return (ends[0].y - ends[1].y)/(ends[0].x - ends[1].x);
+            return (ends[0].y - ends[1].y) / (ends[0].x - ends[1].x);
         } else {
-            return (ends[1].y - ends[0].y)/(ends[1].x - ends[0].x);
+            return (ends[1].y - ends[0].y) / (ends[1].x - ends[0].x);
         }
     }
 
@@ -122,14 +127,31 @@ public class Line extends Shape {
             oldEnds[0] = new Point(ends[0]);
             oldEnds[1] = new Point(ends[1]);
         }
-        ends[0].x = oldEnds[0].x+x;
-        ends[0].y = oldEnds[0].y+y;
-        ends[1].x = oldEnds[1].x+x;
-        ends[1].y = oldEnds[1].y+y;
+        ends[0].x = oldEnds[0].x + x;
+        ends[0].y = oldEnds[0].y + y;
+        ends[1].x = oldEnds[1].x + x;
+        ends[1].y = oldEnds[1].y + y;
     }
 
     @Override
     public void endMove() {
         oldEnds = null;
+    }
+
+    @Override
+    public void zoom(float scale, float x, float y) {
+        if (oldEnds == null) {
+            oldEnds = new Point[2];
+            oldEnds[0] = new Point(ends[0]);
+            oldEnds[1] = new Point(ends[1]);
+        }
+        float[] points = {oldEnds[0].x, oldEnds[0].y, oldEnds[1].x, oldEnds[1].y};
+        Matrix m = new Matrix();
+        m.setScale(scale, scale, x, y);
+        m.mapPoints(points);
+        ends[0].x = points[0];
+        ends[0].y = points[1];
+        ends[1].x = points[2];
+        ends[1].y = points[3];
     }
 }

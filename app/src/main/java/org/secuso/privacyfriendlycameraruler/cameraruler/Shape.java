@@ -47,4 +47,6 @@ public abstract class Shape {
     public abstract void move(float x, float y);
 
     public abstract void endMove();
+
+    public abstract void zoom(float scale, float x, float y);
 }

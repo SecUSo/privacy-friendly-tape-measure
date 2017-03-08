@@ -23,6 +23,7 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;

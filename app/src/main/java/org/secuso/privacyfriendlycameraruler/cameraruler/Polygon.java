@@ -20,6 +20,8 @@
 
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
+import android.graphics.Matrix;
+
 /**
  * Class representing polygons with various number of sides. Consists of an array of points.
  * Contains a helper method for sorting three numbers and a method for checking if the represented
@@ -119,5 +121,27 @@ public abstract class Polygon extends Shape {
     @Override
     public void endMove() {
         oldCorners = null;
+    }
+
+    @Override
+    public void zoom(float scale, float x, float y) {
+        if (oldCorners == null) {
+            oldCorners = new Point[corners.length];
+            for (int i = 0; i < corners.length; i++) {
+                oldCorners[i] = new Point(corners[i]);
+            }
+        }
+        float[] points = new float[2*oldCorners.length];
+        for (int i = 0; i<oldCorners.length; i++){
+            points[i*2] = oldCorners[i].x;
+            points[i*2+1] = oldCorners[i].y;
+        }
+        Matrix m = new Matrix();
+        m.setScale(scale, scale, x, y);
+        m.mapPoints(points);
+        for (int i = 0; i<corners.length; i++){
+            corners[i].x = points[i*2];
+            corners[i].y = points[i*2+1];
+        }
     }
 }
