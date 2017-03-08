@@ -345,7 +345,17 @@ public class CameraActivity extends BaseActivity {
                     stream = getContentResolver().openInputStream(data.getData());
                     photo = BitmapFactory.decodeStream(stream);
 
-                    computeTransformation(photo.getWidth(), photo.getHeight());
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            pictureView.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    computeTransformation(photo.getWidth(), photo.getHeight());
+                                }
+                            });
+                        }
+                    }).start();
 
                     pictureView.setImageBitmap(photo);
                 } catch (FileNotFoundException e) {
@@ -364,11 +374,30 @@ public class CameraActivity extends BaseActivity {
 
                 // Image saved to a generated MediaStore.Images.Media.EXTERNAL_CONTENT_URI
                 pictureView.setImageURI(mPhotoUri);
-                Drawable d = pictureView.getDrawable();
-                Log.d("woot", "Dimensions: " + d.getIntrinsicHeight() + "x" + d.getIntrinsicWidth());
-                computeTransformation(d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                final Drawable d = pictureView.getDrawable();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        pictureView.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                computeTransformation(d.getIntrinsicWidth(), d.getIntrinsicHeight());
+                            }
+                        });
+                    }
+                }).start();
             }
-            startImageFragment();
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    pictureView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            startImageFragment();
+                        }
+                    });
+                }
+            }).start();
         } else {
             if (resultCode != RESULT_CANCELED) {
                 if (requestCode == ACTIVITY_REQUEST_CODE) {
