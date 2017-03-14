@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Tape Measure</string>
-    <string name="app_name_long">Privacy Friendly Tape Measure</string>
+    <string name="app_name">Camera Ruler</string>
+    <string name="app_name_long">Privacy Friendly Camera Ruler</string>
 
 
     <!-- ###DRAWER###-->
@@ -131,11 +131,11 @@
     <string name="pref_units_summary">You can display a cm ruler, an inch ruler or no ruler on the left and on the right side of the screen. Both rulers can be set separately in the option menu.</string>
     <string name="help_angles">Angle Measure</string>
     <string name="pref_angles_summary">You can display an angle measure in degrees or radian on the left side of the screen.</string>
-    <string name="help_intro">The Privacy Friendly Tape Measure turns Your Phone into a ruler for quick on the fly measurements.</string>
+    <string name="help_intro">The Privacy Friendly Ruler App turns Your Phone into a ruler for quick on the fly measurements.</string>
     <string name="help_camera_ruler_heading">Camera Ruler</string>
     <string name="help_camera_ruler">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane. Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
     <string name="help_permission">Permissions</string>
-    <string name="help_permission_answer">Privacy Friendly Tape Measure does not require any permission for taking and measuring a picture from the camera. Taking a picture from the gallery requires the Read External Storage permission as most pictures are not stored in the internal memory.</string>
+    <string name="help_permission_answer">Privacy Friendly Camera Ruler does not require any permission for taking and measuring a picture from the camera. Taking a picture from the gallery requires the Read External Storage permission as most pictures are not stored in the internal memory.</string>
 
     <!--###ABOUT###-->
     <string name="about">About</string>
@@ -206,7 +206,7 @@
 
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Welcome</string>
-    <string name="slide1_text">With Privacy Friendly Tape Measure you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
+    <string name="slide1_text">With Privacy Friendly Camera Ruler you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
 
     <string name="slide2_heading">How to measure</string>
     <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
