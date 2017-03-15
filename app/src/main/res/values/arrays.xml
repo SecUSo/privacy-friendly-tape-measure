@@ -33,6 +33,8 @@
         <item>Euro Notes</item>
         <item>British Pound Coins</item>
         <item>British Pound Notes</item>
+        <item>Swedish Krona Coins</item>
+        <item>Swedish Krona Notes</item>
         <item>ISO 216 Paper (A series)</item>
         <item>US Paper</item>
     </string-array>
@@ -43,6 +45,8 @@
         <item>eu-notes</item>
         <item>gb-coins</item>
         <item>gb-notes</item>
+        <item>sek-coins</item>
+        <item>sek-notes</item>
         <item>iso216-paper</item>
         <item>us-paper</item>
     </string-array>

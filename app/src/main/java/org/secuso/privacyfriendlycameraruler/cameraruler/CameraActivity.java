@@ -349,13 +349,13 @@ public class CameraActivity extends BaseActivity {
 
         //add active user defined objects
         for (int i = 0; i < udrefs.size(); i++) {
-            menu.add(0, i, Menu.NONE, udrefs.get(i).getUDR_NAME());//.setIcon(R.drawable.your-add-icon) to add icon to menu item
+            menu.add(0, i, Menu.NONE, udrefs.get(i).getUDR_NAME());
             menu.getItem(i).setVisible(false);
         }
 
         //add active predefined objects
         for (int i = 0; i < refs.size(); i++) {
-            menu.add(0, i + udrefs.size(), Menu.NONE, refs.get(i).nameId);//.setIcon(R.drawable.your-add-icon) to add icon to menu item
+            menu.add(0, i + udrefs.size(), Menu.NONE, refs.get(i).nameId);
             menu.getItem(i).setVisible(false);
         }
 

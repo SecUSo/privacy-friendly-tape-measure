@@ -52,6 +52,8 @@ public class ReferenceManager {
         ObjectType usNotes = new ObjectType("us-notes", "tetragon");
         ObjectType euNotes = new ObjectType("eu-notes", "tetragon");
         ObjectType gbNotes = new ObjectType("gb-notes", "tetragon");
+        ObjectType sekCoin = new ObjectType("sek-coins", "circle");
+        ObjectType sekNotes = new ObjectType("sek-notes", "tetragon");
         ObjectType usPaper = new ObjectType("us-paper", "tetragon");
         ObjectType iso216Paper = new ObjectType("iso216-paper", "tetragon");
 
@@ -62,6 +64,8 @@ public class ReferenceManager {
         objectTypes.add(usNotes);
         objectTypes.add(euNotes);
         objectTypes.add(gbNotes);
+        objectTypes.add(sekCoin);
+        objectTypes.add(sekNotes);
         objectTypes.add(usPaper);
         objectTypes.add(iso216Paper);
 
@@ -111,6 +115,20 @@ public class ReferenceManager {
         predefinedReferenceObjects.add(new ReferenceObject(R.string.ten_pound_note, gbNotes, 142f*75f));
         predefinedReferenceObjects.add(new ReferenceObject(R.string.twenty_pound_note, gbNotes, 149f*80f));
         predefinedReferenceObjects.add(new ReferenceObject(R.string.fifty_pound_note, gbNotes, 156f*85f));
+
+        //Swedish Krona Coins:
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.one_krona_coin, sekCoin, 19.5f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.two_krona_coin, sekCoin, 22.5f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_krona_coin, sekCoin, 23.75f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.ten_krona_coin, sekCoin, 20.5f));
+
+        //Swedish Krona Notes:
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.twenty_krona_note, sekNotes, 120f*66f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.fifty_krona_note, sekNotes, 126f*66f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.hundred_krona_note, sekNotes, 133f*66f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.two_hundred_krona_note, sekNotes, 140f*66f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_hundred_krona_note, sekNotes, 147f*66f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.thousand_krona_note, sekNotes, 154f*66f));
 
         //US-Paper:
         predefinedReferenceObjects.add(new ReferenceObject(R.string.letter_paper, usPaper, 216f*279f));

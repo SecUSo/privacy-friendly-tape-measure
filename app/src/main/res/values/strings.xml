@@ -84,6 +84,18 @@
     <string name="ten_pound_note">10£ Note</string>
     <string name="twenty_pound_note">20£ Note</string>
     <string name="fifty_pound_note">50£ Note</string>
+    <!-- ###SWEDISH KRONA COINS### -->
+    <string name="one_krona_coin">1 Swedish Krona Coin</string>
+    <string name="two_krona_coin">2 Swedish Krona Coin</string>
+    <string name="five_krona_coin">5 Swedish Krona Coin</string>
+    <string name="ten_krona_coin">10 Swedish Krona Coin</string>
+    <!-- ###SWEDISH KRONA NOTES### -->
+    <string name="twenty_krona_note">20 Swedish Krona Note</string>
+    <string name="fifty_krona_note">50 Swedish Krona Note</string>
+    <string name="hundred_krona_note">100 Swedish Krona Note</string>
+    <string name="two_hundred_krona_note">200 Swedish Krona Note</string>
+    <string name="five_hundred_krona_note">500 Swedish Krona Note</string>
+    <string name="thousand_krona_note">1000 Swedish Krona Note</string>
     <!-- ###US PAPER### -->
     <string name="letter_paper">Letter Paper</string>
     <string name="legal_paper">Legal Paper</string>
