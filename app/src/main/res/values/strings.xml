@@ -105,7 +105,7 @@
 
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Measure</string>
-    <string name="measureLine">Please measure the length of the line below as precisely as possible.</string>
+    <string name="measureLine">Please measure the length of the line on the left as precisely as possible.</string>
     <string name="headingEnter">2. Enter Measured Length</string>
     <string name="calibrationMM">mm</string>
     <string name="calibrationInch">inch</string>

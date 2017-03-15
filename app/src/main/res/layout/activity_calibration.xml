@@ -10,127 +10,120 @@
     tools:context=".screenruler.CalibrationActivity"
     android:gravity="center_vertical">
 
-    <TextView
-        android:id="@+id/discriptionMeasureHeading"
-        style="@style/Base.DialogWindowTitle.AppCompat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/measureLineHeading"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/discriptionMeasure"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/discriptionMeasureHeading"
-        android:layout_centerHorizontal="true"
-        android:text="@string/measureLine"
-        android:textAlignment="center"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" />
+        <View
+            android:id="@+id/line"
+            android:background="@color/darkblue"
+            android:layout_width="5dp"
+            android:layout_marginBottom="60dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_height="500px" />
 
-    <Space
-        android:id="@+id/space1"
-        android:layout_width="10dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/discriptionMeasure" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingEnd="5dp"
+            android:paddingStart="15dp">
 
-    <Space
-        android:id="@+id/space3"
-        android:layout_width="10dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/line" />
+            <TextView
+                android:id="@+id/discriptionMeasureHeading"
+                style="@style/Base.DialogWindowTitle.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="@string/measureLineHeading"
+                android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/headingEnter"
-        style="@style/Base.DialogWindowTitle.AppCompat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/headingEnter"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/space3" />
+            <TextView
+                android:id="@+id/discriptionMeasure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/measureLine"
+                android:textAlignment="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp" />
 
-    <Space
-        android:id="@+id/space2"
-        android:layout_width="10dp"
-        android:layout_height="20dp"
-        android:layout_below="@+id/headingEnter" />
-
-    <EditText
-        android:id="@+id/input"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:minWidth="50dp"
-        android:layout_below="@+id/space2"
-        android:layout_alignStart="@+id/confirmButton"
-        android:minHeight="10dp"
-        android:maxLength="6" />
-
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/space2"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/radioGroup"
-        android:layout_toEndOf="@+id/input">
-
-        <RadioButton
-            android:id="@+id/mmRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:text="@string/calibrationMM"
-            android:checked="true" />
-        <RadioButton
-            android:id="@+id/inchRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:text="@string/calibrationInch" />
-    </RadioGroup>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/calibrateConfirmButton"
-        android:id="@+id/confirmButton"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/button_normal"
-        android:textColor="@color/white"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_below="@+id/radioGroup"
-        android:layout_centerHorizontal="true"
-        android:layout_alignStart="@+id/discriptionMeasureHeading" />
+            <TextView
+                android:id="@+id/headingEnter"
+                style="@style/Base.DialogWindowTitle.AppCompat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/headingEnter"
+                android:layout_marginTop="3dp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
 
 
-    <View
-        android:layout_marginBottom="20dp"
-        android:layout_width="300px"
-        android:layout_height="5dp"
-        android:id="@+id/line"
-        android:layout_below="@+id/space1"
-        android:layout_centerHorizontal="true"
-        android:background="@color/darkblue" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal">
 
-    <TextView
-        android:id="@+id/calibrationWarning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/confirmButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/calibrationWarning"
-        android:textAlignment="center"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" />
+                    <EditText
+                        android:id="@+id/input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:layout_gravity="center_vertical"
+                        android:minWidth="50dp"
+                        android:minHeight="10dp"
+                        android:maxLength="6"/>
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:id="@+id/radioGroup">
+
+                        <RadioButton
+                            android:id="@+id/mmRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/calibrationMM"
+                            android:checked="true" />
+
+                        <RadioButton
+                            android:id="@+id/inchRadioButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/calibrationInch" />
+                    </RadioGroup>
+                </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/calibrateConfirmButton"
+                android:id="@+id/confirmButton"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_normal"
+                android:textColor="@color/white"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+
+            <TextView
+                android:id="@+id/calibrationWarning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/calibrationWarning"
+                android:textAlignment="center"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
 </RelativeLayout>

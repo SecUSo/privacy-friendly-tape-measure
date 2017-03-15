@@ -28,6 +28,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,10 +46,13 @@ import org.secuso.privacyfriendlycameraruler.R;
  */
 public class CalibrationActivity extends AppCompatActivity {
 
+//    private View line;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calibration);
 
+        final View line = findViewById(R.id.line);
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setTitle(R.string.calibrate);
@@ -78,7 +82,8 @@ public class CalibrationActivity extends AppCompatActivity {
                     }
                     length = Math.min(40, Math.max(3, length));
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                    float dpmm = 300 / length;
+                    Log.d("Line Height", line.getHeight()+"");
+                    float dpmm = line.getMeasuredHeight() / length;
                     prefs.edit().putFloat("dpmm", dpmm).commit();
                     calibrationDoneToast.show();
                     Intent intent = new Intent();
