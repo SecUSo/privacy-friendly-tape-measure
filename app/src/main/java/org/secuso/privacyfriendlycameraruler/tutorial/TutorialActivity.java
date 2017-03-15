@@ -322,6 +322,9 @@ public class TutorialActivity extends AppCompatActivity {
         } else if (loc.equals(UK)) { //set UK currency
             activePrefs.add("gb-coins");
             activePrefs.add("gb-notes");
+        } else if (loc.equals(new Locale("sv"))) { //set SEK currency
+            activePrefs.add("sek-coins");
+            activePrefs.add("sek-notes");
         } else if (eurozoneLocales.contains(loc)) { //set EU currency
             activePrefs.add("eu-coins");
             activePrefs.add("eu-notes");
