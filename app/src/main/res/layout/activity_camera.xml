@@ -23,9 +23,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
             android:background="#FFFFFF"
-            android:fitsSystemWindows="true"
             android:orientation="vertical"
-            android:weightSum="1"
             tools:context=".cameraruler.CameraActivity">
 
 
@@ -44,9 +42,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="?attr/actionBarSize"
-            android:fitsSystemWindows="true"
-            android:orientation="vertical"
-            android:weightSum="1"
             tools:context=".cameraruler.CameraActivity">
 
             <TextView

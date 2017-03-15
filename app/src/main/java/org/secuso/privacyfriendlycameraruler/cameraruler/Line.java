@@ -138,16 +138,33 @@ public class Line extends Shape {
         oldEnds = null;
     }
 
+//    @Override
+//    public void zoom(float scale, float x, float y) {
+//        if (oldEnds == null) {
+//            oldEnds = new Point[2];
+//            oldEnds[0] = new Point(ends[0]);
+//            oldEnds[1] = new Point(ends[1]);
+//        }
+//        float[] points = {oldEnds[0].x, oldEnds[0].y, oldEnds[1].x, oldEnds[1].y};
+//        Matrix m = new Matrix();
+//        m.setScale(scale, scale, x, y);
+//        m.mapPoints(points);
+//        ends[0].x = points[0];
+//        ends[0].y = points[1];
+//        ends[1].x = points[2];
+//        ends[1].y = points[3];
+//    }
+
     @Override
-    public void zoom(float scale, float x, float y) {
+    public void zoom(Matrix m) {
         if (oldEnds == null) {
             oldEnds = new Point[2];
             oldEnds[0] = new Point(ends[0]);
             oldEnds[1] = new Point(ends[1]);
         }
         float[] points = {oldEnds[0].x, oldEnds[0].y, oldEnds[1].x, oldEnds[1].y};
-        Matrix m = new Matrix();
-        m.setScale(scale, scale, x, y);
+//        Matrix m = new Matrix();
+//        m.setScale(scale, scale, x, y);
         m.mapPoints(points);
         ends[0].x = points[0];
         ends[0].y = points[1];

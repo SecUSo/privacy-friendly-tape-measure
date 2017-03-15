@@ -122,6 +122,7 @@ public class CameraActivity extends BaseActivity {
     // These matrices will be used to move and zoom image
     Matrix tmpMatrix = new Matrix();
     Matrix savedMatrix = new Matrix();
+    Matrix zoomMatrix = new Matrix();
 
     // We can be in one of these 3 states
     static final int NONE = 0;
@@ -309,11 +310,15 @@ public class CameraActivity extends BaseActivity {
                             tmpMatrix.set(savedMatrix);
                             float scale = newDist / oldDist;
                             tmpMatrix.postScale(scale, scale, mid.x, mid.y);
+                            zoomMatrix.setScale(scale, scale, mid.x, mid.y);
+//                            zoomMatrix.postTranslate(0, (1-scale)*toolbar.getHeight());
                             if (drawView.reference != null) {
-                                drawView.reference.zoom(scale, mid.x, mid.y);
+//                                drawView.reference.zoom(scale, mid.x, mid.y);
+                                drawView.reference.zoom(zoomMatrix);
                             }
                             if (drawView.measure != null) {
-                                drawView.measure.zoom(scale, mid.x, mid.y);
+//                                drawView.measure.zoom(scale, mid.x, mid.y);
+                                drawView.measure.zoom(zoomMatrix);
                             }
                         }
                     }
