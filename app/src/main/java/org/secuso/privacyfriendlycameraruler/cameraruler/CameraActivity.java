@@ -315,6 +315,7 @@ public class CameraActivity extends BaseActivity {
                             if (drawView.reference != null) {
 //                                drawView.reference.zoom(scale, mid.x, mid.y);
                                 drawView.reference.zoom(zoomMatrix);
+                                setScale();
                             }
                             if (drawView.measure != null) {
 //                                drawView.measure.zoom(scale, mid.x, mid.y);
@@ -565,13 +566,7 @@ public class CameraActivity extends BaseActivity {
      * Forces the draw view to redraw.
      */
     public void setReference() {
-        if (drawView.reference instanceof Circle) {
-            drawView.scale = referenceObjectSize / (((Circle) drawView.reference).radius * 2);
-        } else if (drawView.reference instanceof Line) {
-            drawView.scale = referenceObjectSize / ((Line) drawView.reference).getLength();
-        } else {
-            drawView.scale = (float) Math.sqrt(referenceObjectSize / ((Polygon) drawView.reference).getArea());
-        }
+        setScale();
 
         status = Status.MEASUREMENT;
         drawView.ctxStatus = status;
@@ -582,6 +577,16 @@ public class CameraActivity extends BaseActivity {
         toolbar.setSubtitle(referenceObjectName);
         drawView.invalidate();
         hideMenu();
+    }
+
+    private void setScale() {
+        if (drawView.reference instanceof Circle) {
+            drawView.scale = referenceObjectSize / (((Circle) drawView.reference).radius * 2);
+        } else if (drawView.reference instanceof Line) {
+            drawView.scale = referenceObjectSize / ((Line) drawView.reference).getLength();
+        } else {
+            drawView.scale = (float) Math.sqrt(referenceObjectSize / ((Polygon) drawView.reference).getArea());
+        }
     }
 
     /**
