@@ -214,6 +214,21 @@
     <string name="pref_type_selection_verbose">What reference object types to use?</string>
     <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
     <string name="pref_edit_user_def_refs">Edit user defined references</string>
+    <!-- ###OBJECT TYPES### -->
+    <string name="category_us_coins">US-dollar Coins</string>
+    <string name="category_us_notes">US-dollar Notes</string>
+    <string name="category_eu_coins">Euro Coins</string>
+    <string name="category_eu_notes">Euro Notes</string>
+    <string name="category_pound_coins">British Pound Coins</string>
+    <string name="category_pound_notes">British Pound Notes</string>
+    <string name="category_sek_coins">Swedish Krona Coins</string>
+    <string name="category_sek_notes">Swedish Krona Notes</string>
+    <string name="category_rub_coins">Russian Ruble Coins</string>
+    <string name="category_rub_notes">Russian Ruble Notes</string>
+    <string name="category_yen_coins">Japanese Yen Coins</string>
+    <string name="category_yen_notes">Japanese Yen Notes</string>
+    <string name="category_iso216_paper">ISO 216 Paper (A series)</string>
+    <string name="category_us_paper">US Paper</string>
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->

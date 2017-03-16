@@ -27,20 +27,20 @@
     <string-array name="pref_uom_entries"><item>SI units</item><item>imperial</item></string-array>
     <string-array name="pref_uom_evs"><item>mm</item><item>in</item></string-array>
     <string-array name="pref_type_selection_entries">
-        <item>US-dollar Coins</item>
-        <item>US-dollar Notes</item>
-        <item>Euro Coins</item>
-        <item>Euro Notes</item>
-        <item>British Pound Coins</item>
-        <item>British Pound Notes</item>
-        <item>Swedish Krona Coins</item>
-        <item>Swedish Krona Notes</item>
-        <item>Russian Ruble Coins</item>
-        <item>Russian Ruble Notes</item>
-        <item>Japanese Yen Coins</item>
-        <item>Japanese Yen Notes</item>
-        <item>ISO 216 Paper (A series)</item>
-        <item>US Paper</item>
+        <item>@string/category_us_coins</item>
+        <item>@string/category_us_notes</item>
+        <item>@string/category_eu_coins</item>
+        <item>@string/category_eu_notes</item>
+        <item>@string/category_pound_coins</item>
+        <item>@string/category_pound_notes</item>
+        <item>@string/category_sek_coins</item>
+        <item>@string/category_sek_notes</item>
+        <item>@string/category_rub_coins</item>
+        <item>@string/category_rub_notes</item>
+        <item>@string/category_yen_coins</item>
+        <item>@string/category_yen_notes</item>
+        <item>@string/category_iso216_paper</item>
+        <item>@string/category_us_paper</item>
     </string-array>
     <string-array name="pref_type_selection_evs">
         <item>us-coins</item>
