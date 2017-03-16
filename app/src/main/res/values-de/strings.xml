@@ -1,14 +1,14 @@
 <resources>
-    <string name="app_name">Tape Measure</string>
-    <string name="app_name_long">Privacy Friendly Tape Measure</string>
+    <string name="app_name">Maßband</string>
+    <string name="app_name_long">Privacy Friendly Maßband</string>
 
 
     <!-- ###DRAWER###-->
-    <string name="action_ruler">Screen Ruler</string>
-    <string name="action_camera">Camera Ruler</string>
-    <string name="action_help">Help</string>
-    <string name="action_about">About</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_ruler">Bildschirmlineal</string>
+    <string name="action_camera">Kameralineal</string>
+    <string name="action_help">Hilfe</string>
+    <string name="action_about">Über</string>
+    <string name="action_settings">Einstellungen</string>
     <string name="action_main">Main</string>
     <string name="action_game">Game</string>
 
@@ -17,236 +17,236 @@
 
 
     <!-- ###RULER### -->
-    <string name="screen_ruler">Screen Ruler</string>
-    <string name="action_calibration">Calibrate</string>
-    <string name="action_reset_calibration">Reset Calibration</string>
+    <string name="screen_ruler">Bildschirmlineal</string>
+    <string name="action_calibration">Kalibrieren</string>
+    <string name="action_reset_calibration">Kalibrierung Zurücksetzen</string>
 
 
     <!-- ###CAMERA### -->
-    <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phone\'s memory.</string>
-    <string name="from_camera">Picture from Camera</string>
-    <string name="from_gallery">Picture from Gallery</string>
-    <string name="reference_self_intersecting">The reference object must not self-intersect.</string>
-    <string name="camera_ruler">Camera Ruler</string>
-    <string name="camera_crash">Camera App crashed.</string>
-    <string name="gallery_crash">Gallery App crashed.</string>
-    <string name="reference_phase_title">Place Reference Object</string>
-    <string name="reference_phase_subtitle">Active Reference Object:</string>
-    <string name="measurement_phase_title">Measure</string>
-    <string name="new_tetragon">New Tetragon</string>
-    <string name="new_triangle">New Triangle</string>
-    <string name="new_circle">New Circle</string>
-    <string name="new_line">New Line</string>
-    <string name="confirm_reference">Confirm Reference</string>
-    <string name="length">Length:</string>
-    <string name="area">Area:</string>
-    <string name="self_intersection_warning">Can\'t compute area of self-intersecting polygon.</string>
+    <string name="description_camera_gallery">Holen Sie sich ein Bild zum vermessen. Sie können ein Bild mit der Kamera aufnehmen oder ein Bild aus dem Speicher benutzen.</string>
+    <string name="from_camera">Bild aus der Kamera</string>
+    <string name="from_gallery">Bild aus der Gallerie</string>
+    <string name="reference_self_intersecting">Das Referenzobjekt darf sich selbst nicht schneiden.</string>
+    <string name="camera_ruler">Kameralineal</string>
+    <string name="camera_crash">Kamera App abgestürzt.</string>
+    <string name="gallery_crash">Gallerie App abgestürzt.</string>
+    <string name="reference_phase_title">Referenzobjekt plazieren</string>
+    <string name="reference_phase_subtitle">Aktives Referenzobjekt:</string>
+    <string name="measurement_phase_title">Messen</string>
+    <string name="new_tetragon">Neuer Viereck</string>
+    <string name="new_triangle">Neuer Dreieck</string>
+    <string name="new_circle">Neuer Kreis</string>
+    <string name="new_line">Neue Linie</string>
+    <string name="confirm_reference">Referenzobjekt bestätigen</string>
+    <string name="length">Länge:</string>
+    <string name="area">Fläche:</string>
+    <string name="self_intersection_warning">Fläche eines sich selbst schneidenen Vielecks kann nicht berechnet werden.</string>
 
 
     <!-- ###PREDEFINED REFERENCE OBJECTS### -->
     <!-- ###US COINS### -->
-    <string name="us_penny_coin">Penny</string>
-    <string name="us_nickel_coin">Nickel</string>
-    <string name="us_dime_coin">Dime</string>
-    <string name="us_quarter_coin">Quarter Dollar</string>
-    <string name="us_dollar_coin">1$ Coin</string>
-    <string name="fifty_usd_cent_coin">50¢ Coin</string>
+    <string name="us_penny_coin">US Penny Münze</string>
+    <string name="us_nickel_coin">5 USD-Cent Münze (Nickel)</string>
+    <string name="us_dime_coin">10 USD-Cent Münze (Dime)</string>
+    <string name="us_quarter_coin">Viertel Dollar Münze</string>
+    <string name="us_dollar_coin">1$ Münze</string>
+    <string name="fifty_usd_cent_coin">50¢ Münze</string>
     <!-- ###EURO COINS### -->
-    <string name="one_euro_cent_coin">1 Euro-Cent Coin</string>
-    <string name="two_euro_cent_coin">2 Euro-Cent Coin</string>
-    <string name="five_euro_cent_coin">5 Euro-Cent Coin</string>
-    <string name="ten_euro_cent_coin">10 Euro-Cent Coin</string>
-    <string name="twenty_euro_cent_coin">20 Euro-Cent Coin</string>
-    <string name="fifty_euro_cent_coin">50 Euro-Cent Coin</string>
-    <string name="one_euro_coin">1€ Coin</string>
-    <string name="two_euro_coin">2€ Coin</string>
+    <string name="one_euro_cent_coin">1 Euro-Cent Münze</string>
+    <string name="two_euro_cent_coin">2 Euro-Cent Münze</string>
+    <string name="five_euro_cent_coin">5 Euro-Cent Münze</string>
+    <string name="ten_euro_cent_coin">10 Euro-Cent Münze</string>
+    <string name="twenty_euro_cent_coin">20 Euro-Cent Münze</string>
+    <string name="fifty_euro_cent_coin">50 Euro-Cent Münze</string>
+    <string name="one_euro_coin">1€ Münze</string>
+    <string name="two_euro_coin">2€ Munze</string>
     <!-- ###BRITISH POUND COINS### -->
-    <string name="gb_penny_coin">British Penny Coin</string>
-    <string name="two_pence_coin">2p Coin</string>
-    <string name="five_pence_coin">5p Coin</string>
-    <string name="ten_pence_coin">10p Coin</string>
-    <string name="twenty_pence_coin">20p Coin</string>
-    <string name="fifty_pence_coin">50p Coin</string>
-    <string name="one_pound_coin">1£ Coin</string>
-    <string name="two_pound_coin">2£ Coin</string>
+    <string name="gb_penny_coin">Britische Penny Münze</string>
+    <string name="two_pence_coin">2p Munze</string>
+    <string name="five_pence_coin">5p Münze</string>
+    <string name="ten_pence_coin">10p Münze</string>
+    <string name="twenty_pence_coin">20p Münze</string>
+    <string name="fifty_pence_coin">50p Münze</string>
+    <string name="one_pound_coin">1£ Münze</string>
+    <string name="two_pound_coin">2£ Munze</string>
     <!-- ###US DOLLAR COINS### -->
     <string name="us_dollar_note">US Dollar Banknote</string>
     <!-- ###EURO NOTES### -->
-    <string name="five_euro_note">5€ Note</string>
-    <string name="ten_euro_note">10€ Note</string>
-    <string name="twenty_euro_note">20€ Note</string>
-    <string name="fifty_euro_note">50€ Note</string>
-    <string name="hundred_euro_note">100€ Note</string>
-    <string name="two_hundred_euro_note">200€ Note</string>
-    <string name="five_hundred_euro_note">500€ Note</string>
+    <string name="five_euro_note">5€ Banknote</string>
+    <string name="ten_euro_note">10€ Banknote</string>
+    <string name="twenty_euro_note">20€ Banknote</string>
+    <string name="fifty_euro_note">50€ Banknote</string>
+    <string name="hundred_euro_note">100€ Banknote</string>
+    <string name="two_hundred_euro_note">200€ Banknote</string>
+    <string name="five_hundred_euro_note">500€ Banknote</string>
     <!-- ###BRITISH POUND NOTES### -->
-    <string name="five_pound_note">5£ Note</string>
-    <string name="ten_pound_note">10£ Note</string>
-    <string name="twenty_pound_note">20£ Note</string>
-    <string name="fifty_pound_note">50£ Note</string>
+    <string name="five_pound_note">5£ Banknote</string>
+    <string name="ten_pound_note">10£ Banknote</string>
+    <string name="twenty_pound_note">20£ Banknote</string>
+    <string name="fifty_pound_note">50£ Banknote</string>
     <!-- ###SWEDISH KRONA COINS### -->
-    <string name="one_krona_coin">1 Swedish Krona Coin</string>
-    <string name="two_krona_coin">2 Swedish Krona Coin</string>
-    <string name="five_krona_coin">5 Swedish Krona Coin</string>
-    <string name="ten_krona_coin">10 Swedish Krona Coin</string>
+    <string name="one_krona_coin">1 Swedische Krona Münze</string>
+    <string name="two_krona_coin">2 Swedische Krona Münze</string>
+    <string name="five_krona_coin">5 Swedische Krona Münze</string>
+    <string name="ten_krona_coin">10 Swedish Krona Münze</string>
     <!-- ###SWEDISH KRONA NOTES### -->
-    <string name="twenty_krona_note">20 Swedish Krona Note</string>
-    <string name="fifty_krona_note">50 Swedish Krona Note</string>
-    <string name="hundred_krona_note">100 Swedish Krona Note</string>
-    <string name="two_hundred_krona_note">200 Swedish Krona Note</string>
-    <string name="five_hundred_krona_note">500 Swedish Krona Note</string>
-    <string name="thousand_krona_note">1000 Swedish Krona Note</string>
+    <string name="twenty_krona_note">20 Swedische Krona Banknote</string>
+    <string name="fifty_krona_note">50 Swedische Krona Banknote</string>
+    <string name="hundred_krona_note">100 Swedische Krona Banknote</string>
+    <string name="two_hundred_krona_note">200 Swedische Krona Banknote</string>
+    <string name="five_hundred_krona_note">500 Swedische Krona Banknote</string>
+    <string name="thousand_krona_note">1000 Swedische Krona Banknote</string>
     <!-- ###RUSSIAN RUBLE COINS### -->
-    <string name="ten_kopeyka_coin">10 Kopeyka Coin</string>
-    <string name="fifty_kopeyka_coin">50 Kopeyka Coin</string>
-    <string name="one_ruble_coin">1 Ruble Coin</string>
-    <string name="two_ruble_coin">2 Ruble Coin</string>
-    <string name="five_ruble_coin">5 Ruble Coin</string>
-    <string name="ten_ruble_coin">10 Ruble Coin</string>
+    <string name="ten_kopeyka_coin">10 Kopeyka Münze</string>
+    <string name="fifty_kopeyka_coin">50 Kopeyka Münze</string>
+    <string name="one_ruble_coin">1 Rubel Münze</string>
+    <string name="two_ruble_coin">2 Rubel Münze</string>
+    <string name="five_ruble_coin">5 Rubel Münze</string>
+    <string name="ten_ruble_coin">10 Rubel Münze</string>
     <!-- ###RUSSIAN RUBLE NOTES### -->
-    <string name="fifty_ruble_note">50 Ruble Note</string>
-    <string name="hundred_ruble_note">100 Ruble Note</string>
-    <string name="five_hundred_ruble_note">500 Ruble Note</string>
-    <string name="thousand_ruble_note">1000 Ruble Note</string>
-    <string name="five_thousand_ruble_note">5000 Ruble Note</string>
+    <string name="fifty_ruble_note">50 Rubel Banknote</string>
+    <string name="hundred_ruble_note">100 Rubel Banknote</string>
+    <string name="five_hundred_ruble_note">500 Rubel Banknote</string>
+    <string name="thousand_ruble_note">1000 Rubel Banknote</string>
+    <string name="five_thousand_ruble_note">5000 Rubel Banknote</string>
     <!-- ###JAPANESE YEN COINS### -->
-    <string name="one_yen_coin">1¥ Coin</string>
-    <string name="five_yen_coin">5¥ Coin</string>
-    <string name="ten_yen_coin">10¥ Coin</string>
-    <string name="fifty_yen_coin">50¥ Coin</string>
-    <string name="hundred_yen_coin">100¥ Coin</string>
-    <string name="five_hundred_yen_coin">500¥ Coin</string>
+    <string name="one_yen_coin">1¥ Münze</string>
+    <string name="five_yen_coin">5¥ Münze</string>
+    <string name="ten_yen_coin">10¥ Münze</string>
+    <string name="fifty_yen_coin">50¥ Münze</string>
+    <string name="hundred_yen_coin">100¥ Münze</string>
+    <string name="five_hundred_yen_coin">500¥ Münze</string>
     <!-- ###JAPANESE YEN NOTES### -->
-    <string name="thousand_yen_note">1000¥ Note</string>
-    <string name="two_thousand_yen_note">2000¥ Note</string>
-    <string name="five_thousand_yen_note">5000¥ Note</string>
-    <string name="ten_thousand_yen_note">10 000¥ Note</string>
+    <string name="thousand_yen_note">1000¥ Banknote</string>
+    <string name="two_thousand_yen_note">2000¥ Banknote</string>
+    <string name="five_thousand_yen_note">5000¥ Banknote</string>
+    <string name="ten_thousand_yen_note">10 000¥ Banknote</string>
     <!-- ###US PAPER### -->
-    <string name="letter_paper">Letter Paper</string>
-    <string name="legal_paper">Legal Paper</string>
-    <string name="tabloid_paper">Tabloid Paper</string>
-    <string name="ledger_paper">Ledger Paper</string>
-    <string name="junior_legal_paper">Junior Legal Paper</string>
-    <string name="memo_paper">Memo Paper</string>
-    <string name="government_letter_paper">Government Letter Paper</string>
-    <string name="government_legal_paper">Government Legal Paper</string>
+    <string name="letter_paper">Letter Papier</string>
+    <string name="legal_paper">Legal Papier</string>
+    <string name="tabloid_paper">Tabloid Papier</string>
+    <string name="ledger_paper">Ledger Papier</string>
+    <string name="junior_legal_paper">Junior Legal Papier</string>
+    <string name="memo_paper">Memo Papier</string>
+    <string name="government_letter_paper">Government Letter Papier</string>
+    <string name="government_legal_paper">Government Legal Papier</string>
     <!-- ###ISO 216 PAPER (A-SERIES)### -->
-    <string name="a0_paper">A0 Paper</string>
-    <string name="a1_paper">A1 Paper</string>
-    <string name="a2_paper">A2 Paper</string>
-    <string name="a3_paper">A3 Paper</string>
-    <string name="a4_paper">A4 Paper</string>
-    <string name="a5_paper">A5 Paper</string>
-    <string name="a6_paper">A6 Paper</string>
+    <string name="a0_paper">A0 Papier</string>
+    <string name="a1_paper">A1 Papier</string>
+    <string name="a2_paper">A2 Papier</string>
+    <string name="a3_paper">A3 Papier</string>
+    <string name="a4_paper">A4 Papier</string>
+    <string name="a5_paper">A5 Papier</string>
+    <string name="a6_paper">A6 Papier</string>
 
 
     <!-- ###CALIBRATION### -->
-    <string name="measureLineHeading">1. Measure</string>
-    <string name="measureLine">Please measure the length of the line on the left as precisely as possible.</string>
-    <string name="headingEnter">2. Enter Measured Length</string>
+    <string name="measureLineHeading">1. Messen</string>
+    <string name="measureLine">Bitte messen Sie die Länge der Linie links so genau wie möglich.</string>
+    <string name="headingEnter">2. Geben Sie die gemessene Länge ein</string>
     <string name="calibrationMM">mm</string>
-    <string name="calibrationInch">inch</string>
-    <string name="calibrateConfirmButton">Calibrate</string>
+    <string name="calibrationInch">Zoll</string>
+    <string name="calibrateConfirmButton">Kalibirieren</string>
     <string name="calibrationWarning">Manual calibration does not eliminate inaccuracies due to rounding.
         Do not use this app as a professionally calibrated measuring device.</string>
-    <string name="calibrate">Calibrate</string>
-    <string name="noInput">Please input the length of the line.</string>
-    <string name="calibrationDone">Calibration finished.</string>
+    <string name="calibrate">Kalibrieren</string>
+    <string name="noInput">Geben Sie bitte die Länge der Linie ein.</string>
+    <string name="calibrationDone">Kalibrierung erfolgt.</string>
 
 
     <!--###HELP###-->
-    <string name="help">Help</string>
-    <string name="help_overview_heading">Overview</string>
-    <string name="help_calibration">Manual Calibration</string>
+    <string name="help">Hilfe</string>
+    <string name="help_overview_heading">Übersicht</string>
+    <string name="help_calibration">Manualle Kalibrierung</string>
     <string name="help_disclaimer">Disclaimer</string>
-    <string name="help_category_calibration">Calibration</string>
-    <string name="pref_calibration_summary">You can manually calibrate the ruler via the "calibrate" option in the action menu.</string>
+    <string name="help_category_calibration">Kalibrierung</string>
+    <string name="pref_calibration_summary">Mit der \"Kalibrieren\" Option im Menü können Sie das Lineal manuell kalibrieren.</string>
     <string name="pref_disclaimer_summary">This app is not a professionally calibrated measuring device. Technische Universität Darmstadt is not liable for any damage caused by use of this app.</string>
-    <string name="help_privacy_heading">Privacy Info</string>
-    <string name="help_category_options">Settings</string>
-    <string name="help_units">Left and Right Ruler</string>
-    <string name="pref_units_summary">You can display a cm ruler, an inch ruler or no ruler on the left and on the right side of the screen. Both rulers can be set separately in the option menu.</string>
-    <string name="help_angles">Angle Measure</string>
-    <string name="pref_angles_summary">You can display an angle measure in degrees or radian on the left side of the screen.</string>
+    <string name="help_privacy_heading">Hinweise zur Privatsphäre</string>
+    <string name="help_category_options">Einstellungen</string>
+    <string name="help_units">Linker und Rechter Lineal</string>
+    <string name="pref_units_summary">Sie können jeweils ein Lineal in cm oder Zoll (oder garnichts) auf der linken und rechten Bildschirmseite anzeigen lassen. Beide Lineale können separat in den Einstellungen gesetzt werden.</string>
+    <string name="help_angles">Winkelmesser</string>
+    <string name="pref_angles_summary">Sie können einen Winkelmesser in Grad oder Radiant auf der linken Bildschirmseite anzeigen lassen.</string>
     <string name="help_intro">The Privacy Friendly Tape Measure turns Your Phone into a ruler for quick on the fly measurements.</string>
-    <string name="help_camera_ruler_heading">Camera Ruler</string>
+    <string name="help_camera_ruler_heading">Kameralineal</string>
     <string name="help_camera_ruler">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane. Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
-    <string name="help_permission">Permissions</string>
+    <string name="help_permission">Berechtigungen</string>
     <string name="help_permission_answer">Privacy Friendly Tape Measure does not require any permission for taking and measuring a picture from the camera. Taking a picture from the gallery requires the Read External Storage permission as most pictures are not stored in the internal memory.</string>
 
     <!--###ABOUT###-->
-    <string name="about">About</string>
+    <string name="about">Über</string>
     <string name="version_number">Version 1.0</string>
-    <string name="about_author">Authors: </string>
+    <string name="about_author">"Autoren: "</string>
     <string name="about_author_names" translatable="false">Roberts Kolosovs</string>
-    <string name="about_author_contributors">and contributors.</string>
-    <string name="about_affiliation">In affiliation with</string>
+    <string name="about_author_contributors">und Mitwirkende.</string>
+    <string name="about_affiliation">In Zusammenarbeit mit</string>
     <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by Technische Universität Darmstadt. Sourcecode licensed under GPLv3. Images copyright TU Darmstadt and Google Inc.</string>
-    <string name="more_info">More information can be found on:</string>
+    <string name="more_info">Mehr Information unter:</string>
     <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
 
 
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
-    <string name="title_activity_settings">Settings</string><string name="pref_ruler">Ruler Settings</string>
-    <string name="pref_leftruler">Left Ruler</string>
-    <string name="pref_leftruler_verbose">What should be displayed on left ruler?</string>
+    <string name="title_activity_settings">Einstellungen</string><string name="pref_ruler">Linealeinstellungen</string>
+    <string name="pref_leftruler">Linkes Lineal</string>
+    <string name="pref_leftruler_verbose">Was soll auf dem linkel Lineal angezeigt werden?</string>
     <string name="pref_leftruler_default">cm</string>
-    <string name="pref_rightruler">Right Ruler</string>
-    <string name="pref_rightruler_verbose">What should be displayed on right ruler?</string>
-    <string name="pref_rightruler_default">inch</string>
-    <string name="pref_anglemeasure">Angle Measure</string>
-    <string name="pref_anglemeasure_verbose">Turn on scale for angle measuring?</string>
-    <string name="pref_anglemeasure_default">off</string>
-    <string name="ruler_cm">Ruler (cm)</string>
-    <string name="ruler_inch">Ruler (inch)</string>
-    <string name="ruler_degree">Angle Measure (degree)</string>
-    <string name="ruler_radian">Angle Measure (radian)</string>
-    <string name="ruler_off">Nothing</string>
+    <string name="pref_rightruler">Rechtes Lineal.</string>
+    <string name="pref_rightruler_verbose">Was soll auf dem rechten Lineal angezeigt werden?</string>
+    <string name="pref_rightruler_default">Zoll</string>
+    <string name="pref_anglemeasure">Winkelmaß</string>
+    <string name="pref_anglemeasure_verbose">Den Winkelmesser einschalten?</string>
+    <string name="pref_anglemeasure_default">Aus</string>
+    <string name="ruler_cm">Lineal (cm)</string>
+    <string name="ruler_inch">Lineal (Zoll)</string>
+    <string name="ruler_degree">Winkelmaß (Grad)</string>
+    <string name="ruler_radian">Winkelmaß (Radiant)</string>
+    <string name="ruler_off">Nichts</string>
     <!-- ###CAMERA RULER### -->
-    <string name="camera_ruler_settings">Camera Ruler Settings</string>
-    <string name="pref_units_of_measurement">Units of measurement</string>
-    <string name="pref_uom_verbose">What units of measurement to use in the screen ruler?</string>
+    <string name="camera_ruler_settings">Kameralineal Einstellungen</string>
+    <string name="pref_units_of_measurement">Maßeinheiten</string>
+    <string name="pref_uom_verbose">Welche Maßeinheiten sollen im Bildschirmlineal benutzt werden.</string>
     <string name="pref_uom_default">mm</string>
-    <string name="pref_autodetect">Autodetect circular references</string>
-    <string name="pref_type_selection">Reference Type Selection</string>
-    <string name="pref_type_selection_verbose">What reference object types to use?</string>
-    <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
-    <string name="pref_edit_user_def_refs">Edit user defined references</string>
+    <string name="pref_autodetect">Kreisförmige Referanzobjekte automatisch erkennen</string>
+    <string name="pref_type_selection">Referenzobjektauswahl</string>
+    <string name="pref_type_selection_verbose">Welche Referenzobjekttypen sollen benutzt werden?</string>
+    <string name="pref_type_selection_summary">Blenden Sie die Referenzobjekttypen aus, die Sie nicht benutzen wollen.</string>
+    <string name="pref_edit_user_def_refs">Nutzerdefinierte Referenzobjekte anpassen</string>
     <!-- ###OBJECT TYPES### -->
-    <string name="category_us_coins">US-dollar Coins</string>
-    <string name="category_us_notes">US-dollar Notes</string>
-    <string name="category_eu_coins">Euro Coins</string>
-    <string name="category_eu_notes">Euro Notes</string>
-    <string name="category_pound_coins">British Pound Coins</string>
-    <string name="category_pound_notes">British Pound Notes</string>
-    <string name="category_sek_coins">Swedish Krona Coins</string>
-    <string name="category_sek_notes">Swedish Krona Notes</string>
-    <string name="category_rub_coins">Russian Ruble Coins</string>
-    <string name="category_rub_notes">Russian Ruble Notes</string>
-    <string name="category_yen_coins">Japanese Yen Coins</string>
-    <string name="category_yen_notes">Japanese Yen Notes</string>
-    <string name="category_iso216_paper">ISO 216 Paper (A series)</string>
-    <string name="category_us_paper">US Paper</string>
+    <string name="category_us_coins">US-Dollar Münzen</string>
+    <string name="category_us_notes">US-Dollar Banknoten</string>
+    <string name="category_eu_coins">Euro Münzen</string>
+    <string name="category_eu_notes">Euro Banknoten</string>
+    <string name="category_pound_coins">Britische Pfund Münzen</string>
+    <string name="category_pound_notes">Britische Pfund Banknoten</string>
+    <string name="category_sek_coins">Swedische Krona Münzen</string>
+    <string name="category_sek_notes">Swedische Krona Banknoten</string>
+    <string name="category_rub_coins">Russische Rubel Münzen</string>
+    <string name="category_rub_notes">Russische Rubel Banknoten</string>
+    <string name="category_yen_coins">Japanische Yen Münzen</string>
+    <string name="category_yen_notes">Japanische Yen Banknoten</string>
+    <string name="category_iso216_paper">ISO 216 Papier (A-Serie)</string>
+    <string name="category_us_paper">US Papier</string>
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Reference Editor</string>
-    <string name="title_activity_ref_viewer">User Defined References</string>
-    <string name="list_item">Empty Slot</string>
-    <string name="edit_dialog_title">Edit Reference Object</string>
-    <string name="toast_input_failure">Invalid input.</string>
-    <string name="toast_edit_done">User defined reference sucessfully set.</string>
-    <string name="toast_delete_done">User set reference deleted.</string>
+    <string name="title_activity_ref_editor">Eigene Referenzobjekte</string>
+    <string name="title_activity_ref_viewer">Nutzerdefinierte Referenzobjekte</string>
+    <string name="list_item">Leerer Platz</string>
+    <string name="edit_dialog_title">Referenzobjekt Editieren</string>
+    <string name="toast_input_failure">Ungültige Eingabe.</string>
+    <string name="toast_edit_done">Nutzerdefineirte Referenz erfolgreich gesetzt.</string>
+    <string name="toast_delete_done">Nutzerdefinierte Referenz gelöscht.</string>
     <string name="edit_name">Name:</string>
-    <string name="edit_shape">Shape:</string>
-    <string name="edit_line">Line</string>
-    <string name="edit_circle">Circle</string>
-    <string name="edit_tetragon">Tetragon</string>
-    <string name="edit_size">Size:</string>
-    <string name="cancel">Cancel</string>
-    <string name="delete">Delete</string>
+    <string name="edit_shape">Form:</string>
+    <string name="edit_line">Linie</string>
+    <string name="edit_circle">Kreis</string>
+    <string name="edit_tetragon">Vierack</string>
+    <string name="edit_size">Größe:</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="delete">Löchen</string>
 
 
     <!-- ### DISCLAIMER DIALOG ### -->
@@ -257,23 +257,23 @@
 
 
     <!-- ### TUTORIAL SCREEN ### -->
-    <string name="slide1_heading">Welcome</string>
+    <string name="slide1_heading">Wilkommen</string>
     <string name="slide1_text">With Privacy Friendly Tape Measure you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
 
-    <string name="slide2_heading">How to measure</string>
+    <string name="slide2_heading">Wie misst man</string>
     <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
 
-    <string name="slide3_heading">How to measure</string>
+    <string name="slide3_heading">Wie misst man</string>
     <string name="slide3_text">Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
 
-    <string name="next">Next</string>
-    <string name="skip">Skip</string>
+    <string name="next">Weiter</string>
+    <string name="skip">Überspringen</string>
     <string name="okay">Okay</string>
-    <string name="view_help">View Help</string>
-    <string name="help_uom">Units of Measurement</string>
-    <string name="help_ref_types">Reference Type Selection</string>
-    <string name="help_ref_editor">Edit user defined references</string>
-    <string name="pref_uom_summary">You can set the units of measurements to be used in the screen ruler.</string>
-    <string name="pref_ref_types_summary">You can disable certain types of predefined reference objects. They won\'t show up in the menu during reference object choice.</string>
-    <string name="pref_ref_editor_summary">Here you can define and manage user defined reference objects (up to 10).</string>
+    <string name="view_help">Hilfe Anzeigen</string>
+    <string name="help_uom">Maßeinheiten</string>
+    <string name="help_ref_types">Referenztypwahl</string>
+    <string name="help_ref_editor">Nutzerdefinierte Referenzobjekte anpassen</string>
+    <string name="pref_uom_summary">Sie können einstellen, welche Maßeinheit im Bildschirmlineal benutzt wird.</string>
+    <string name="pref_ref_types_summary">Sie können bestimmte Kategoreien von vordefinierten Referenzobjekten ausblenden lassen. Diese werden dann nicht im Menü bei der Referenzobjektwahl angezeigt.</string>
+    <string name="pref_ref_editor_summary">Hier können Sie (bis zu 10) nutzerdefinierte Referenzobjekte anlegen und verwalten.</string>
 </resources>
