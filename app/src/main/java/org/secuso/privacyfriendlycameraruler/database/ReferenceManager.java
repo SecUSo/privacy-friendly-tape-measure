@@ -54,6 +54,10 @@ public class ReferenceManager {
         ObjectType gbNotes = new ObjectType("gb-notes", "tetragon");
         ObjectType sekCoin = new ObjectType("sek-coins", "circle");
         ObjectType sekNotes = new ObjectType("sek-notes", "tetragon");
+        ObjectType rubCoin = new ObjectType("rub-coins", "circle");
+        ObjectType rubNotes = new ObjectType("rub-notes", "tetragon");
+        ObjectType jpyCoin = new ObjectType("jpy-coins", "circle");
+        ObjectType jpyNotes = new ObjectType("jpy-notes", "tetragon");
         ObjectType usPaper = new ObjectType("us-paper", "tetragon");
         ObjectType iso216Paper = new ObjectType("iso216-paper", "tetragon");
 
@@ -66,6 +70,10 @@ public class ReferenceManager {
         objectTypes.add(gbNotes);
         objectTypes.add(sekCoin);
         objectTypes.add(sekNotes);
+        objectTypes.add(rubCoin);
+        objectTypes.add(rubNotes);
+        objectTypes.add(jpyCoin);
+        objectTypes.add(jpyNotes);
         objectTypes.add(usPaper);
         objectTypes.add(iso216Paper);
 
@@ -129,6 +137,35 @@ public class ReferenceManager {
         predefinedReferenceObjects.add(new ReferenceObject(R.string.two_hundred_krona_note, sekNotes, 140f*66f));
         predefinedReferenceObjects.add(new ReferenceObject(R.string.five_hundred_krona_note, sekNotes, 147f*66f));
         predefinedReferenceObjects.add(new ReferenceObject(R.string.thousand_krona_note, sekNotes, 154f*66f));
+
+        //Russian Ruble Coins:
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.ten_kopeyka_coin, rubCoin, 17.5f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.fifty_kopeyka_coin, rubCoin, 19.5f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.one_ruble_coin, rubCoin, 20.5f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.two_ruble_coin, rubCoin, 23f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_ruble_coin, rubCoin, 25f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.ten_ruble_coin, rubCoin, 22f));
+
+        //Russian Ruble Notes:
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.fifty_ruble_note, rubNotes, 150f*65f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.hundred_ruble_note, rubNotes, 150f*65f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_hundred_ruble_note, rubNotes, 150f*65f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.thousand_ruble_note, rubNotes, 157f*69f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_thousand_ruble_note, rubNotes, 157f*69f));
+
+        //Japanese Yen Coins:
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.one_yen_coin, jpyCoin, 20f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_yen_coin, jpyCoin, 22f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.ten_yen_coin, jpyCoin, 23.5f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.fifty_yen_coin, jpyCoin, 21f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.hundred_yen_coin, jpyCoin, 22.6f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_hundred_yen_coin, jpyCoin, 26.5f));
+
+        //Japanese Yen Notes:
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.thousand_yen_note, jpyNotes, 150f*76f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.two_thousand_yen_note, jpyNotes, 154f*76f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.five_thousand_yen_note, jpyNotes, 156f*76f));
+        predefinedReferenceObjects.add(new ReferenceObject(R.string.ten_thousand_yen_note, jpyNotes, 160f*76f));
 
         //US-Paper:
         predefinedReferenceObjects.add(new ReferenceObject(R.string.letter_paper, usPaper, 216f*279f));

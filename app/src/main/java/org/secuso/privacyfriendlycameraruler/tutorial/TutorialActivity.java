@@ -325,12 +325,12 @@ public class TutorialActivity extends AppCompatActivity {
         } else if (loc.equals(new Locale("sv"))) { //set SEK currency
             activePrefs.add("sek-coins");
             activePrefs.add("sek-notes");
-//        } else if (loc.equals(new Locale("ru"))) { //set RUB currency
-//            activePrefs.add("rub-coins");
-//            activePrefs.add("rub-notes");
-//        } else if (loc.equals(new Locale("ja"))) { //set JPY currency
-//            activePrefs.add("jpy-coins");
-//            activePrefs.add("jpy-notes");
+        } else if (loc.equals(new Locale("ru"))) { //set RUB currency
+            activePrefs.add("rub-coins");
+            activePrefs.add("rub-notes");
+        } else if (loc.equals(new Locale("ja"))) { //set JPY currency
+            activePrefs.add("jpy-coins");
+            activePrefs.add("jpy-notes");
         } else if (eurozoneLocales.contains(loc)) { //set EU currency
             activePrefs.add("eu-coins");
             activePrefs.add("eu-notes");
