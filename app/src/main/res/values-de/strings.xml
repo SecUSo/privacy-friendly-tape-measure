@@ -29,7 +29,7 @@
     <string name="reference_self_intersecting">Das Referenzobjekt darf sich selbst nicht schneiden.</string>
     <string name="camera_ruler">Kameralineal</string>
     <string name="camera_crash">Kamera App abgestürzt.</string>
-    <string name="gallery_crash">Gallerie App abgestürzt.</string>
+    <string name="gallery_crash">Galerie App abgestürzt.</string>
     <string name="reference_phase_title">Referenzobjekt plazieren</string>
     <string name="reference_phase_subtitle">Aktives Referenzobjekt:</string>
     <string name="measurement_phase_title">Messen</string>
@@ -48,9 +48,9 @@
     <string name="us_penny_coin">US Penny Münze</string>
     <string name="us_nickel_coin">5 USD-Cent Münze (Nickel)</string>
     <string name="us_dime_coin">10 USD-Cent Münze (Dime)</string>
-    <string name="us_quarter_coin">Viertel Dollar Münze</string>
+    <string name="us_quarter_coin">25 USD-Cent Münze (Quarter)</string>
     <string name="us_dollar_coin">1$ Münze</string>
-    <string name="fifty_usd_cent_coin">50¢ Münze</string>
+    <string name="fifty_usd_cent_coin">50 USD-Cent Münze</string>
     <!-- ###EURO COINS### -->
     <string name="one_euro_cent_coin">1 Euro-Cent Münze</string>
     <string name="two_euro_cent_coin">2 Euro-Cent Münze</string>
@@ -62,11 +62,11 @@
     <string name="two_euro_coin">2€ Munze</string>
     <!-- ###BRITISH POUND COINS### -->
     <string name="gb_penny_coin">Britische Penny Münze</string>
-    <string name="two_pence_coin">2p Munze</string>
-    <string name="five_pence_coin">5p Münze</string>
-    <string name="ten_pence_coin">10p Münze</string>
-    <string name="twenty_pence_coin">20p Münze</string>
-    <string name="fifty_pence_coin">50p Münze</string>
+    <string name="two_pence_coin">2 Pence Münze</string>
+    <string name="five_pence_coin">5 Pence Münze</string>
+    <string name="ten_pence_coin">10 Pence Münze</string>
+    <string name="twenty_pence_coin">20 Pence Münze</string>
+    <string name="fifty_pence_coin">50 Pence Münze</string>
     <string name="one_pound_coin">1£ Münze</string>
     <string name="two_pound_coin">2£ Munze</string>
     <!-- ###US DOLLAR COINS### -->
@@ -85,20 +85,20 @@
     <string name="twenty_pound_note">20£ Banknote</string>
     <string name="fifty_pound_note">50£ Banknote</string>
     <!-- ###SWEDISH KRONA COINS### -->
-    <string name="one_krona_coin">1 Swedische Krona Münze</string>
-    <string name="two_krona_coin">2 Swedische Krona Münze</string>
-    <string name="five_krona_coin">5 Swedische Krona Münze</string>
-    <string name="ten_krona_coin">10 Swedish Krona Münze</string>
+    <string name="one_krona_coin">1 Schwedische Krone Münze</string>
+    <string name="two_krona_coin">2 Schwedische Krone Münze</string>
+    <string name="five_krona_coin">5 Schwedische Krone Münze</string>
+    <string name="ten_krona_coin">10 Schwedish Krone Münze</string>
     <!-- ###SWEDISH KRONA NOTES### -->
-    <string name="twenty_krona_note">20 Swedische Krona Banknote</string>
-    <string name="fifty_krona_note">50 Swedische Krona Banknote</string>
-    <string name="hundred_krona_note">100 Swedische Krona Banknote</string>
-    <string name="two_hundred_krona_note">200 Swedische Krona Banknote</string>
-    <string name="five_hundred_krona_note">500 Swedische Krona Banknote</string>
-    <string name="thousand_krona_note">1000 Swedische Krona Banknote</string>
+    <string name="twenty_krona_note">20 Schwedische Krone Banknote</string>
+    <string name="fifty_krona_note">50 Schwedische Krone Banknote</string>
+    <string name="hundred_krona_note">100 Schwedische Krone Banknote</string>
+    <string name="two_hundred_krona_note">200 Schwedische Krone Banknote</string>
+    <string name="five_hundred_krona_note">500 Schwedische Krone Banknote</string>
+    <string name="thousand_krona_note">1000 Schwedische Krone Banknote</string>
     <!-- ###RUSSIAN RUBLE COINS### -->
-    <string name="ten_kopeyka_coin">10 Kopeyka Münze</string>
-    <string name="fifty_kopeyka_coin">50 Kopeyka Münze</string>
+    <string name="ten_kopeyka_coin">10 Kopeke Münze</string>
+    <string name="fifty_kopeyka_coin">50 Kopeke Münze</string>
     <string name="one_ruble_coin">1 Rubel Münze</string>
     <string name="two_ruble_coin">2 Rubel Münze</string>
     <string name="five_ruble_coin">5 Rubel Münze</string>
@@ -147,8 +147,7 @@
     <string name="calibrationMM">mm</string>
     <string name="calibrationInch">Zoll</string>
     <string name="calibrateConfirmButton">Kalibirieren</string>
-    <string name="calibrationWarning">Manual calibration does not eliminate inaccuracies due to rounding.
-        Do not use this app as a professionally calibrated measuring device.</string>
+    <string name="calibrationWarning">Manuelle Kalibrierung eliminiert die rundungsbedingten Ungenauigkeiten nicht. Benutzen Sie Diese App nicht wie ein professionell geeichtes Messgerät.</string>
     <string name="calibrate">Kalibrieren</string>
     <string name="noInput">Geben Sie bitte die Länge der Linie ein.</string>
     <string name="calibrationDone">Kalibrierung erfolgt.</string>
@@ -161,18 +160,18 @@
     <string name="help_disclaimer">Disclaimer</string>
     <string name="help_category_calibration">Kalibrierung</string>
     <string name="pref_calibration_summary">Mit der \"Kalibrieren\" Option im Menü können Sie das Lineal manuell kalibrieren.</string>
-    <string name="pref_disclaimer_summary">This app is not a professionally calibrated measuring device. Technische Universität Darmstadt is not liable for any damage caused by use of this app.</string>
+    <string name="pref_disclaimer_summary">Diese App ist kein professionell geeichtes Messgerät. Technische Universität Darmstadt haftet nicht für Schäden, die durch Nutzung dieser App verursacht wurden.</string>
     <string name="help_privacy_heading">Hinweise zur Privatsphäre</string>
     <string name="help_category_options">Einstellungen</string>
     <string name="help_units">Linker und Rechter Lineal</string>
-    <string name="pref_units_summary">Sie können jeweils ein Lineal in cm oder Zoll (oder garnichts) auf der linken und rechten Bildschirmseite anzeigen lassen. Beide Lineale können separat in den Einstellungen gesetzt werden.</string>
+    <string name="pref_units_summary">Sie können jeweils ein Lineal in cm oder Zoll (oder nichts) auf der linken und rechten Bildschirmseite anzeigen lassen. Beide Lineale können separat in den Einstellungen gesetzt werden.</string>
     <string name="help_angles">Winkelmesser</string>
-    <string name="pref_angles_summary">Sie können einen Winkelmesser in Grad oder Radiant auf der linken Bildschirmseite anzeigen lassen.</string>
-    <string name="help_intro">The Privacy Friendly Tape Measure turns Your Phone into a ruler for quick on the fly measurements.</string>
+    <string name="pref_angles_summary">Statt dem Lineal können Sie einen Winkelmesser in Grad oder Radiant auf der linken Bildschirmseite anzeigen lassen.</string>
+    <string name="help_intro">Privacy Friendly Maßband macht Ihr Smartphone zu einem Lineal um Messungen vorzunehmen, wenn Sie gerade kein Messgerät zur Hand haben.</string>
     <string name="help_camera_ruler_heading">Kameralineal</string>
-    <string name="help_camera_ruler">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane. Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
+    <string name="help_camera_ruler">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird. Wählen Sie das passende Referenzobjekt aus dem Menü oben rechts, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf unten rechts. Nun können Sie die zu vermessende Figur mit dem Menü unten rechts auswählen. Sie können die Länge von Linien und Fläche von Kreisen, Dreiecken und Vierecken vermessen.</string>
     <string name="help_permission">Berechtigungen</string>
-    <string name="help_permission_answer">Privacy Friendly Tape Measure does not require any permission for taking and measuring a picture from the camera. Taking a picture from the gallery requires the Read External Storage permission as most pictures are not stored in the internal memory.</string>
+    <string name="help_permission_answer">Privacy Friendly Maßband benötigt keine Berechtigungen um Bilder direkt von der Kamera zu vermessen. Um Bilder aus der Galerie zu vermessen benötigt die App die Read External Storage Berechtigung, da die meisten Bilder nicht im internen Smartphonespeicher liegen.</string>
 
     <!--###ABOUT###-->
     <string name="about">Über</string>
@@ -181,7 +180,7 @@
     <string name="about_author_names" translatable="false">Roberts Kolosovs</string>
     <string name="about_author_contributors">und Mitwirkende.</string>
     <string name="about_affiliation">In Zusammenarbeit mit</string>
-    <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by Technische Universität Darmstadt. Sourcecode licensed under GPLv3. Images copyright TU Darmstadt and Google Inc.</string>
+    <string name="privacy_friendly">Diese App gehört zur Gruppe der Privacy Friendly Apps entwickelt von der Technischen Universität Darmstadt. Quelltext lizenziert unter GPLv3. Bilder copyright TU Darmstadt und Google Inc.</string>
     <string name="more_info">Mehr Information unter:</string>
     <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
@@ -189,16 +188,14 @@
 
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
-    <string name="title_activity_settings">Einstellungen</string><string name="pref_ruler">Linealeinstellungen</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="pref_ruler">Linealeinstellungen</string>
     <string name="pref_leftruler">Linkes Lineal</string>
     <string name="pref_leftruler_verbose">Was soll auf dem linkel Lineal angezeigt werden?</string>
     <string name="pref_leftruler_default">cm</string>
     <string name="pref_rightruler">Rechtes Lineal.</string>
     <string name="pref_rightruler_verbose">Was soll auf dem rechten Lineal angezeigt werden?</string>
-    <string name="pref_rightruler_default">Zoll</string>
-    <string name="pref_anglemeasure">Winkelmaß</string>
-    <string name="pref_anglemeasure_verbose">Den Winkelmesser einschalten?</string>
-    <string name="pref_anglemeasure_default">Aus</string>
+    <string name="pref_rightruler_default">inch</string>
     <string name="ruler_cm">Lineal (cm)</string>
     <string name="ruler_inch">Lineal (Zoll)</string>
     <string name="ruler_degree">Winkelmaß (Grad)</string>
@@ -208,7 +205,8 @@
     <string name="camera_ruler_settings">Kameralineal Einstellungen</string>
     <string name="pref_units_of_measurement">Maßeinheiten</string>
     <string name="pref_uom_verbose">Welche Maßeinheiten sollen im Bildschirmlineal benutzt werden.</string>
-    <string name="pref_uom_default">mm</string>
+    <string name="units_si">SI-Einheiten</string>
+    <string name="units_imperial">angloamerikanische Einheiten</string>
     <string name="pref_autodetect">Kreisförmige Referanzobjekte automatisch erkennen</string>
     <string name="pref_type_selection">Referenzobjektauswahl</string>
     <string name="pref_type_selection_verbose">Welche Referenzobjekttypen sollen benutzt werden?</string>
@@ -243,7 +241,7 @@
     <string name="edit_shape">Form:</string>
     <string name="edit_line">Linie</string>
     <string name="edit_circle">Kreis</string>
-    <string name="edit_tetragon">Vierack</string>
+    <string name="edit_tetragon">Viereck</string>
     <string name="edit_size">Größe:</string>
     <string name="cancel">Abbrechen</string>
     <string name="delete">Löchen</string>
@@ -251,20 +249,20 @@
 
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Disclaimer</string>
-    <string name="disclaimer">This App is not a professionally calibrated measuring device. This App can be manually calibrated which may minimize the error. However, depending on the device there still could be rounding errors.</string>
-    <string name="disclaimer_check">I have read the disclaimer about potential rounding issues.</string>
-    <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
+    <string name="disclaimer">Diese App ist kein professionell geeichtes Messgerät. Die App kann zwar kalibriert werden, dies minimiert den Fehler, allerdings kann es abhängig vom Gerät trotzdem zu Rundungsfehlern kommen.</string>
+    <string name="disclaimer_check">Ich habe den Disclaimer über potentielle Rundungsfehler gelesen.</string>
+    <string name="disclaimer_check_toast">Bitte bestätigen Sie, dass Sie den Disclaimer gelesen haben.</string>
 
 
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Wilkommen</string>
-    <string name="slide1_text">With Privacy Friendly Tape Measure you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
+    <string name="slide1_text">Mit Privacy Friendly Maßband können Sie Objekte ausmessen, die größer als ihr Smartphone sind. Dazu müssen Sie ein Foto aufnehmen, auf dem das Objekt zusammen mit einem Gegenstand bekannter Größe (Referenzobjekt), wie z.B. einer Münze, zu sehen ist.</string>
 
-    <string name="slide2_heading">Wie misst man</string>
-    <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
+    <string name="slide2_heading">Wie man misst</string>
+    <string name="slide2_text">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird.</string>
 
-    <string name="slide3_heading">Wie misst man</string>
-    <string name="slide3_text">Choose the desired reference object from the menu on the tor right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
+    <string name="slide3_heading">Wie man misst</string>
+    <string name="slide3_text">Wählen Sie das passende Referenzobjekt aus dem Menü in der oberen rechten Ecke, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit den Knopf in der unteren rechten Ecke. Nun können Sie die zu messende Figur im Menü in der unteren rechten Ecke wählen. Sie können die Länge von Linien und Flächen von Dreiecken, Vierecken und Kreisen messen.</string>
 
     <string name="next">Weiter</string>
     <string name="skip">Überspringen</string>

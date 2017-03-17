@@ -24,8 +24,14 @@
         <item>inch</item>
         <item>off</item>
     </string-array>
-    <string-array name="pref_uom_entries"><item>SI units</item><item>imperial</item></string-array>
-    <string-array name="pref_uom_evs"><item>mm</item><item>in</item></string-array>
+    <string-array name="pref_uom_entries">
+        <item>@string/units_si</item>
+        <item>@string/units_imperial</item>
+    </string-array>
+    <string-array name="pref_uom_evs">
+        <item>mm</item>
+        <item>in</item>
+    </string-array>
     <string-array name="pref_type_selection_entries">
         <item>@string/category_us_coins</item>
         <item>@string/category_us_notes</item>
