@@ -201,7 +201,7 @@
     <string name="units_si">SI mērvienības</string>
     <string name="units_imperial">amerikāņu mērvienības</string>
     <string name="pref_autodetect">Automātiski atpazīt apaļas references</string>
-    <string name="pref_type_selection">References izvēle</string>
+    <string name="pref_type_selection">Referenču izvēle</string>
     <string name="pref_type_selection_verbose">Kādu tipu references izmantot?</string>
     <string name="pref_type_selection_summary">Izvēlēties, kuru tipu references Jūs negribat izmantot.</string>
     <string name="pref_edit_user_def_refs">Pārvaldīt paša definētas references</string>

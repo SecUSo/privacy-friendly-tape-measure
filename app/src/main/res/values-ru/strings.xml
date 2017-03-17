@@ -172,54 +172,54 @@
     <string name="help_permission_answer">Privacy Friendly Рулетка ненуждаетса в разрешенях чтобы снять фотографию камерой и измереть её. Чтобы измереть фотографию из галерий етому приложенью нужно разрешене Read External Storage, так как большенство фотографий не находятса в встроеной памяти телефона.</string>
 
     <!--###ABOUT###-->
-    <string name="about">Informācija</string>
-    <string name="version_number">Versija 1.0</string>
-    <string name="about_author">"Autori: "</string>
-    <string name="about_author_contributors">un līdzstrādnieki.</string>
-    <string name="about_affiliation">Sadarbībā ar</string>
-    <string name="privacy_friendly">Šī lietotne ir no Technische Universität Darmstadt izstrādātā Privacy Friendly Apps lietotņu kataloga. Bilžu autortiesības pieder TU Darmstadt un Google Inc.</string>
-    <string name="more_info">Papildus informācija (angļu valodā):</string>
+    <string name="about">Информация</string>
+    <string name="version_number">Версия 1.0</string>
+    <string name="about_author">"Авторы: "</string>
+    <string name="about_author_contributors">и сотрудники.</string>
+    <string name="about_affiliation">В сотрудничестве с</string>
+    <string name="privacy_friendly">Это программа принадлежит к группе Privacy Friendly Apps, разработанных Technische Universität Darmstadt. Исходный код лицензирован под GPLv3. Право на использование изображений принадлежит TU Darmstadt и Google Inc.</string>
+    <string name="more_info">Дополнительная информация (на английском языке):</string>
 
 
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
-    <string name="title_activity_settings">Iestatījumi</string>
-    <string name="pref_ruler">Lineāla iestatījumi</string>
-    <string name="pref_leftruler">Kreisais lineāls</string>
-    <string name="pref_leftruler_verbose">Kādu lineālu uzrādīt kreisajā pusē?</string>
-    <string name="pref_rightruler">Labais lineāls</string>
-    <string name="pref_rightruler_verbose">Kādu lineālu uzrādīt labajā pusē?</string>
-    <string name="ruler_cm">Lineāls (cm)</string>
-    <string name="ruler_inch">Lineāls (collas)</string>
-    <string name="ruler_degree">Leņķmēris (grādi)</string>
-    <string name="ruler_radian">Leņķmēris (radiānos)</string>
-    <string name="ruler_off">Neko</string>
+    <string name="title_activity_settings">Настроики</string>
+    <string name="pref_ruler">Настроики линейки</string>
+    <string name="pref_leftruler">Левая линейка</string>
+    <string name="pref_leftruler_verbose">Что паказать на левой стороне экрана?</string>
+    <string name="pref_rightruler">Правая линейка</string>
+    <string name="pref_rightruler_verbose">Что паказать на правой стороне экрана?</string>
+    <string name="ruler_cm">Линейка (см)</string>
+    <string name="ruler_inch">Линейка (дюйм)</string>
+    <string name="ruler_degree">Угломер (градус)</string>
+    <string name="ruler_radian">Угломер (радиан)</string>
+    <string name="ruler_off">Нечего</string>
     <!-- ###CAMERA RULER### -->
-    <string name="camera_ruler_settings">Kameras lineāla iestatījumi</string>
-    <string name="pref_units_of_measurement">Mērvienības</string>
-    <string name="pref_uom_verbose">Kādas mērvienības lietot kameras lineālā?</string>
-    <string name="units_si">SI mērvienības</string>
-    <string name="units_imperial">amerikāņu mērvienības</string>
-    <string name="pref_autodetect">Automātiski atpazīt apaļas references</string>
-    <string name="pref_type_selection">References izvēle</string>
-    <string name="pref_type_selection_verbose">Kādu tipu references izmantot?</string>
-    <string name="pref_type_selection_summary">Izvēlēties, kuru tipu references Jūs negribat izmantot.</string>
-    <string name="pref_edit_user_def_refs">Pārvaldīt paša definētas references</string>
+    <string name="camera_ruler_settings">Настроики камера-линейки</string>
+    <string name="pref_units_of_measurement">Единицы измерения</string>
+    <string name="pref_uom_verbose">Какие еденицы измерентя использовать в камера-линейке?</string>
+    <string name="units_si">Еденицы СИ</string>
+    <string name="units_imperial">Еденицы США</string>
+    <string name="pref_autodetect">Автоматически опознать круглые эталоны</string>
+    <string name="pref_type_selection">Выбор типов эталона</string>
+    <string name="pref_type_selection_verbose">Эталоны каких типов изпользовать?</string>
+    <string name="pref_type_selection_summary">Выберете, эталоны каких типов Вы не хотите изпользовать.</string>
+    <string name="pref_edit_user_def_refs">Установить свои эталоны</string>
     <!-- ###OBJECT TYPES### -->
-    <string name="category_us_coins">ASV dolāru monētas</string>
-    <string name="category_us_notes">ASV Dolāru banknoten</string>
-    <string name="category_eu_coins">Eiro monētas</string>
-    <string name="category_eu_notes">Eiro banknoten</string>
-    <string name="category_pound_coins">Lielbritānijas mārciņu monētas</string>
-    <string name="category_pound_notes">Lielbritānijas mārciņu banknoten</string>
-    <string name="category_sek_coins">Zviedrijas kronu monētas</string>
-    <string name="category_sek_notes">Zviedrijas kronu banknoten</string>
-    <string name="category_rub_coins">Krievijas rubļu monētas</string>
-    <string name="category_rub_notes">Krievijas rubļu banknoten</string>
-    <string name="category_yen_coins">Japānas jenu monētas</string>
-    <string name="category_yen_notes">Japānas jenu banknoten</string>
-    <string name="category_iso216_paper">ISO 216 papīrs (A sērija)</string>
-    <string name="category_us_paper">ASV papīrs</string>
+    <string name="category_us_coins">Монеты долларов США</string>
+    <string name="category_us_notes">Банкноты долларов США</string>
+    <string name="category_eu_coins">Монеты евро</string>
+    <string name="category_eu_notes">Банкноты евро</string>
+    <string name="category_pound_coins">Монеты британских фунтов</string>
+    <string name="category_pound_notes">Банкноты британских фунтов</string>
+    <string name="category_sek_coins">Монеты шведских крон</string>
+    <string name="category_sek_notes">Банкноты шведских крон</string>
+    <string name="category_rub_coins">Монеты российских рублей</string>
+    <string name="category_rub_notes">Банкноты российских рублей</string>
+    <string name="category_yen_coins">Монеты японских иен</string>
+    <string name="category_yen_notes">Банкноты японских иен</string>
+    <string name="category_iso216_paper">Бумага ISO 216 (серия форматов A)</string>
+    <string name="category_us_paper">Бумага форматов США</string>
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
