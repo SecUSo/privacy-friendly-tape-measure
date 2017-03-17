@@ -9,8 +9,6 @@
     <string name="action_help">Hilfe</string>
     <string name="action_about">Über</string>
     <string name="action_settings">Einstellungen</string>
-    <string name="action_main">Main</string>
-    <string name="action_game">Game</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -59,7 +57,7 @@
     <string name="twenty_euro_cent_coin">20 Euro-Cent Münze</string>
     <string name="fifty_euro_cent_coin">50 Euro-Cent Münze</string>
     <string name="one_euro_coin">1€ Münze</string>
-    <string name="two_euro_coin">2€ Munze</string>
+    <string name="two_euro_coin">2€ Münze</string>
     <!-- ###BRITISH POUND COINS### -->
     <string name="gb_penny_coin">Britische Penny Münze</string>
     <string name="two_pence_coin">2 Pence Münze</string>
@@ -68,7 +66,7 @@
     <string name="twenty_pence_coin">20 Pence Münze</string>
     <string name="fifty_pence_coin">50 Pence Münze</string>
     <string name="one_pound_coin">1£ Münze</string>
-    <string name="two_pound_coin">2£ Munze</string>
+    <string name="two_pound_coin">2£ Münze</string>
     <!-- ###US DOLLAR COINS### -->
     <string name="us_dollar_note">US Dollar Banknote</string>
     <!-- ###EURO NOTES### -->
@@ -177,13 +175,10 @@
     <string name="about">Über</string>
     <string name="version_number">Version 1.0</string>
     <string name="about_author">"Autoren: "</string>
-    <string name="about_author_names" translatable="false">Roberts Kolosovs</string>
     <string name="about_author_contributors">und Mitwirkende.</string>
     <string name="about_affiliation">In Zusammenarbeit mit</string>
     <string name="privacy_friendly">Diese App gehört zur Gruppe der Privacy Friendly Apps entwickelt von der Technischen Universität Darmstadt. Quelltext lizenziert unter GPLv3. Bilder copyright TU Darmstadt und Google Inc.</string>
     <string name="more_info">Mehr Information unter:</string>
-    <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
-    <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
 
 
     <!-- ###SETTINGS### -->
@@ -192,10 +187,8 @@
     <string name="pref_ruler">Linealeinstellungen</string>
     <string name="pref_leftruler">Linkes Lineal</string>
     <string name="pref_leftruler_verbose">Was soll auf dem linkel Lineal angezeigt werden?</string>
-    <string name="pref_leftruler_default">cm</string>
     <string name="pref_rightruler">Rechtes Lineal.</string>
     <string name="pref_rightruler_verbose">Was soll auf dem rechten Lineal angezeigt werden?</string>
-    <string name="pref_rightruler_default">inch</string>
     <string name="ruler_cm">Lineal (cm)</string>
     <string name="ruler_inch">Lineal (Zoll)</string>
     <string name="ruler_degree">Winkelmaß (Grad)</string>
@@ -204,7 +197,7 @@
     <!-- ###CAMERA RULER### -->
     <string name="camera_ruler_settings">Kameralineal Einstellungen</string>
     <string name="pref_units_of_measurement">Maßeinheiten</string>
-    <string name="pref_uom_verbose">Welche Maßeinheiten sollen im Bildschirmlineal benutzt werden.</string>
+    <string name="pref_uom_verbose">Welche Maßeinheiten sollen im Bildschirmlineal benutzt werden?</string>
     <string name="units_si">SI-Einheiten</string>
     <string name="units_imperial">angloamerikanische Einheiten</string>
     <string name="pref_autodetect">Kreisförmige Referanzobjekte automatisch erkennen</string>
@@ -232,10 +225,10 @@
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_editor">Eigene Referenzobjekte</string>
     <string name="title_activity_ref_viewer">Nutzerdefinierte Referenzobjekte</string>
-    <string name="list_item">Leerer Platz</string>
+    <string name="list_item">Freier Platz</string>
     <string name="edit_dialog_title">Referenzobjekt Editieren</string>
     <string name="toast_input_failure">Ungültige Eingabe.</string>
-    <string name="toast_edit_done">Nutzerdefineirte Referenz erfolgreich gesetzt.</string>
+    <string name="toast_edit_done">Nutzerdefinierte Referenz erfolgreich gesetzt.</string>
     <string name="toast_delete_done">Nutzerdefinierte Referenz gelöscht.</string>
     <string name="edit_name">Name:</string>
     <string name="edit_shape">Form:</string>
@@ -271,7 +264,7 @@
     <string name="help_uom">Maßeinheiten</string>
     <string name="help_ref_types">Referenztypwahl</string>
     <string name="help_ref_editor">Nutzerdefinierte Referenzobjekte anpassen</string>
-    <string name="pref_uom_summary">Sie können einstellen, welche Maßeinheit im Bildschirmlineal benutzt wird.</string>
-    <string name="pref_ref_types_summary">Sie können bestimmte Kategoreien von vordefinierten Referenzobjekten ausblenden lassen. Diese werden dann nicht im Menü bei der Referenzobjektwahl angezeigt.</string>
+    <string name="pref_uom_summary">Sie können einstellen, welche Maßeinheit im Kameralineal benutzt wird.</string>
+    <string name="pref_ref_types_summary">Sie können bestimmte Kategorien von vordefinierten Referenzobjekten ausblenden lassen. Diese werden dann nicht im Menü bei der Referenzobjektwahl angezeigt.</string>
     <string name="pref_ref_editor_summary">Hier können Sie (bis zu 10) nutzerdefinierte Referenzobjekte anlegen und verwalten.</string>
 </resources>
