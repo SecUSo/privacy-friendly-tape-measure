@@ -223,7 +223,7 @@
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Pašdefinētas references</string>
+    <string name="title_activity_ref_editor">Pašdefinēto referenču pārvaldītājs</string>
     <string name="title_activity_ref_viewer">Pašdefinētas references</string>
     <string name="list_item">Brīva vieta</string>
     <string name="edit_dialog_title">Mainīt referenci</string>
@@ -249,7 +249,7 @@
 
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Sveicināti</string>
-    <string name="slide1_text">Mit Privacy Friendly Maßband können Sie Objekte ausmessen, die größer als ihr Smartphone sind. Dazu müssen Sie ein Foto aufnehmen, auf dem das Objekt zusammen mit einem Gegenstand bekannter Größe (Referenzobjekt), wie z.B. einer Münze, zu sehen ist.</string>
+    <string name="slide1_text">Ar Privacy Friendly Mērlente Jūs varat izmērīt priekšmetus, kas ir lielāki par jūsu telefonu. Lai to izdarītu, Jums jāuzņem fotogrāfija, kurā mēramais priekšmets ir redzams kopā ar kādu citu priekšmetu ar zināmu izmēru (reference), piemēram ar monētu.</string>
 
     <string name="slide2_heading">Kā mērīt</string>
     <string name="slide2_text">Jūs varat uzņemt fotogrāfiju ar telefona kameru vai izvēlēties attēlu no galerijas. Nodrošiniet, ka visi svarīgie objekti ir vienā plaknē un ka fotogrāfija tika uzņemta perpendikulāri tai plaknē.</string>

@@ -223,7 +223,7 @@
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Eigene Referenzobjekte</string>
+    <string name="title_activity_ref_editor">Referenzobjekteditor</string>
     <string name="title_activity_ref_viewer">Nutzerdefinierte Referenzobjekte</string>
     <string name="list_item">Freier Platz</string>
     <string name="edit_dialog_title">Referenzobjekt Editieren</string>
