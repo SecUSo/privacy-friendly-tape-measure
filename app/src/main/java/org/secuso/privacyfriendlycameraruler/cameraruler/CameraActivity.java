@@ -310,14 +310,11 @@ public class CameraActivity extends BaseActivity {
                             float scale = newDist / oldDist;
                             tmpMatrix.postScale(scale, scale, mid.x, mid.y);
                             zoomMatrix.setScale(scale, scale, mid.x, mid.y);
-//                            zoomMatrix.postTranslate(0, (1-scale)*toolbar.getHeight());
                             if (drawView.reference != null) {
-//                                drawView.reference.zoom(scale, mid.x, mid.y);
                                 drawView.reference.zoom(zoomMatrix);
                                 setScale();
                             }
                             if (drawView.measure != null) {
-//                                drawView.measure.zoom(scale, mid.x, mid.y);
                                 drawView.measure.zoom(zoomMatrix);
                             }
                         }

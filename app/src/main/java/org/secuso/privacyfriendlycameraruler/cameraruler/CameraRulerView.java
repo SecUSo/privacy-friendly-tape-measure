@@ -32,8 +32,6 @@ import android.support.v7.widget.Toolbar;
 
 import org.secuso.privacyfriendlycameraruler.R;
 
-import java.lang.reflect.Array;
-
 import static android.view.MotionEvent.ACTION_CANCEL;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_UP;
@@ -338,102 +336,61 @@ public class CameraRulerView extends View {
      * touchpoint's number according to the shape the touchpoint belongs to.
      *
      * @param event touch event to be position checked
-     * @return active touchpoint or -1 if click not in touchpoint
+     * @return active touchpoint index or -1 if click not in touchpoint
      */
     protected int clickInTouchpoint(MotionEvent event) {
         int pc = event.getPointerCount() - 1;
         Point click = new Point(event.getX(pc), event.getY(pc));
         int result = -1;
 
-        if (ctxStatus == CameraActivity.Status.REFERENCE) {
-            if (reference instanceof Circle) {
-                Circle circle = (Circle) reference;
-                if (click.dist(circle.center) <= TOUCHPOINT_RADIUS) {
-                    if (activeTouchpoint < 0) {
-                        touchOffsetX = event.getX() - circle.center.x;
-                        touchOffsetY = event.getY() - circle.center.y;
-                    }
-                    result = 0;
-                } else if (click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
-                    if (activeTouchpoint < 0) {
-                        touchOffsetX = event.getX() - circle.radiusTouchPoint.x;
-                        touchOffsetY = event.getY() - circle.radiusTouchPoint.y;
-                    }
-                    result = 1;
-                }
-            } else if (reference instanceof Line) {
-                Point[] ends = ((Line) reference).ends;
-                if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS) {
-                    if (activeTouchpoint < 0) {
-                        touchOffsetX = event.getX() - ends[0].x;
-                        touchOffsetY = event.getY() - ends[0].y;
-                    }
-                    result = 0;
-                } else if (click.dist(ends[1]) <= TOUCHPOINT_RADIUS) {
-                    if (activeTouchpoint < 0) {
-                        touchOffsetX = event.getX() - ends[1].x;
-                        touchOffsetY = event.getY() - ends[1].y;
-                    }
-                    result = 1;
-                }
-            } else {
-                Point[] corners = ((Polygon) reference).corners;
-                for (int i = 0; i < corners.length; i++) {
-                    if (click.dist(corners[i]) <= TOUCHPOINT_RADIUS) {
-                        if (activeTouchpoint < 0) {
-                            touchOffsetX = event.getX() - corners[i].x;
-                            touchOffsetY = event.getY() - corners[i].y;
-                        }
-                        result = i;
-                    }
-                }
-            }
-        } else if (measure == null) {
-            return -1;
-        } else if (measure instanceof Line) {
-            Point[] ends = ((Line) measure).ends;
+        if (measure != null) {result = getTouchedPoint(measure, click);}
+        else if (reference.active) {result = getTouchedPoint(reference, click);}
+        return result;
+    }
+
+    /**
+     * Compute which point of a shape was touched and what was the touch offset to the touchpoint's
+     * center. Sets the offset as side effect.
+     * @param shape to be checked for touch
+     * @param click point where the touch occured
+     * @return Number of the touchpoint or -1 if none was matching.
+     */
+    private int getTouchedPoint(Shape shape, Point click) {
+        int result = -1;
+        Point tp = new Point(0, 0);
+        if (shape instanceof Line) {
+            Point[] ends = ((Line) shape).ends;
             if (click.dist(ends[0]) <= TOUCHPOINT_RADIUS) {
-                if (activeTouchpoint < 0) {
-                    touchOffsetX = event.getX() - ends[0].x;
-                    touchOffsetY = event.getY() - ends[0].y;
-                }
+                tp = ends[0];
                 result = 0;
             } else if (click.dist(ends[1]) <= TOUCHPOINT_RADIUS) {
-                if (activeTouchpoint < 0) {
-                    touchOffsetX = event.getX() - ends[1].x;
-                    touchOffsetY = event.getY() - ends[1].y;
-                }
+                tp = ends[1];
                 result = 1;
             }
-        } else if (measure instanceof Polygon) {
-            Point[] corners = ((Polygon) measure).corners;
+        } else if (shape instanceof Polygon) {
+            Point[] corners = ((Polygon) shape).corners;
             for (int i = 0; i < corners.length; i++) {
                 if (click.dist(corners[i]) <= TOUCHPOINT_RADIUS) {
-                    if (activeTouchpoint < 0) {
-                        touchOffsetX = event.getX() - corners[i].x;
-                        touchOffsetY = event.getY() - corners[i].y;
-                    }
+                    tp = corners[i];
                     result = i;
                 }
             }
-        } else if (measure instanceof Circle) {
-            Circle circle = (Circle) measure;
+        } else if (shape instanceof Circle) {
+            Circle circle = (Circle) shape;
             if (click.dist(circle.center) <= TOUCHPOINT_RADIUS) {
-                if (activeTouchpoint < 0) {
-                    touchOffsetX = event.getX() - circle.center.x;
-                    touchOffsetY = event.getY() - circle.center.y;
-                }
+                tp = circle.center;
                 result = 0;
             } else if (click.dist(circle.radiusTouchPoint) <= TOUCHPOINT_RADIUS) {
-                if (activeTouchpoint < 0) {
-                    touchOffsetX = event.getX() - circle.radiusTouchPoint.x;
-                    touchOffsetY = event.getY() - circle.radiusTouchPoint.y;
-                }
+                    tp = circle.radiusTouchPoint;
                 result = 1;
             }
-        } else {
-            result = -1;
         }
+
+        if (result >=0 && activeTouchpoint <0 ) {
+            touchOffsetX = click.x - tp.x;
+            touchOffsetY = click.y - tp.y;
+        }
+
         return result;
     }
 
