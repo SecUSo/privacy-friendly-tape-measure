@@ -169,7 +169,7 @@
     <string name="help_camera_ruler_heading">Kameras lineāls</string>
     <string name="help_camera_ruler">Jūs varat uzņemt fotogrāfiju ar telefona kameru vai izvēlēties attēlu no galerijas. Nodrošiniet, ka visi svarīgie objekti ir vienā plaknē un ka fotogrāfija tika uzņemta perpendikulāri tai plaknē. Izvēleties vajadzīgo referenci izvēlnē augšējā labajā stūrī, novietojiet zaļo figūru uz references attēlā un apstipriniet ar pogu apakšējā labajā stūrī. Tagad Jūs varat izvēlēties figūru, kuru Jūs gribat izmērīt no izvēlnes apakšējā labajā stūrī. Jūs varat mērīt līniju garumu un trīstūru, četrstūru und apļu platību.</string>
     <string name="help_permission">Atļaujas</string>
-    <string name="help_permission_answer">Privacy Friendly Mērlente neizmanto nekādas atļaujas lai veiktu mērijumus fotogrāfijās tieši no telefona kameras. Lai mērītu attēlus no galerijas, lietotnei ir vajadzīga Read External Storage atļauja, jo lalākā daļa fotogrāfiju nav saglabāta telefona iebūvētajā atmiņā.</string>
+    <string name="help_permission_answer">Privacy Friendly Mērlente neizmanto nekādas atļaujas lai veiktu mērijumus fotogrāfijās tieši no telefona kameras. Lai mērītu attēlus no galerijas, lietotnei ir vajadzīga Read External Storage atļauja, jo lielākā daļa fotogrāfiju nav saglabāta telefona iebūvētajā atmiņā.</string>
 
     <!--###ABOUT###-->
     <string name="about">Informācija</string>
@@ -249,10 +249,10 @@
 
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Sveicināti</string>
-    <string name="slide1_text">Ar Privacy Friendly Mērlente Jūs varat izmērīt priekšmetus, kas ir lielāki par jūsu telefonu. Lai to izdarītu, Jums jāuzņem fotogrāfija, kurā mēramais priekšmets ir redzams kopā ar kādu citu priekšmetu ar zināmu izmēru (reference), piemēram ar monētu.</string>
+    <string name="slide1_text">Ar Privacy Friendly Mērlenti Jūs varat izmērīt priekšmetus, kas ir lielāki par jūsu telefonu. Lai to izdarītu, Jums jāuzņem fotogrāfija, kurā mēramais priekšmets ir redzams kopā ar kādu citu priekšmetu ar zināmu izmēru (reference), piemēram ar monētu.</string>
 
     <string name="slide2_heading">Kā mērīt</string>
-    <string name="slide2_text">Jūs varat uzņemt fotogrāfiju ar telefona kameru vai izvēlēties attēlu no galerijas. Nodrošiniet, ka visi svarīgie objekti ir vienā plaknē un ka fotogrāfija tika uzņemta perpendikulāri tai plaknē.</string>
+    <string name="slide2_text">Jūs varat uzņemt fotogrāfiju ar telefona kameru vai izvēlēties attēlu no galerijas. Nodrošiniet, ka visi svarīgie objekti ir vienā plaknē un ka fotogrāfija tika uzņemta perpendikulāri tai plaknei.</string>
 
     <string name="slide3_heading">Kā mērīt</string>
     <string name="slide3_text">Izvēleties vajadzīgo referenci izvēlnē augšējā labajā stūrī, novietojiet zaļo figūru uz references attēlā un apstipriniet ar pogu apakšējā labajā stūrī. Tagad Jūs varat izvēlēties figūru, kuru Jūs gribat izmērīt no izvēlnes apakšējā labajā stūrī. Jūs varat mērīt līniju garumu un trīstūru, četrstūru und apļu platību.</string>
