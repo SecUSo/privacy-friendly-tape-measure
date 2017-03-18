@@ -21,14 +21,19 @@
 package org.secuso.privacyfriendlycameraruler.database;
 
 import android.app.Dialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.secuso.privacyfriendlycameraruler.R;
@@ -48,6 +53,10 @@ public class EditDialog extends DialogFragment {
     private RadioButton btnLine;
     private RadioButton btnCircle;
     private RadioButton btnTetragon;
+    private RadioGroup shapeGroup;
+    private TextView unitsText;
+    private TextView sizeDiscr;
+    String uom;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -68,21 +77,64 @@ public class EditDialog extends DialogFragment {
         btnTetragon = (RadioButton) rootView.findViewById(R.id.rdbtn_tetragon);
         nameInput = (EditText) rootView.findViewById(R.id.name_input);
         sizeInput = (EditText) rootView.findViewById(R.id.size_input);
+        unitsText = (TextView) rootView.findViewById(R.id.units);
+        sizeDiscr = (TextView) rootView.findViewById(R.id.size_discription);
+        shapeGroup = (RadioGroup) rootView.findViewById(R.id.shape_rdbtn_group);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
         final PFASQLiteHelper dbHelper = new PFASQLiteHelper(getActivity().getBaseContext());
+
+        uom = prefs.getString("pref_units_of_measurement", "mm");
+        if (uom.equals("in")) {
+            unitsText.setText(R.string.calibrationInch);
+        }
 
         if (reference.getUDR_ACTIVE()) {
             nameInput.setText(reference.getUDR_NAME());
-            sizeInput.setText("" + reference.getUDR_SIZE());
+            float s = reference.getUDR_SIZE();
+            if (uom.equals("in")) {
+                s /= 25.4;
+            }
             String shape = reference.getUDR_SHAPE();
-            RadioButton btn;
             if (shape.equals("line")) {
                 btnLine.setChecked(true);
             } else if (shape.equals("circle")) {
                 btnCircle.setChecked(true);
+                sizeDiscr.setText(R.string.diameter);
             } else if (shape.equals("tetragon")) {
                 btnTetragon.setChecked(true);
+                sizeDiscr.setText(R.string.area);
+                unitsText.setText(unitsText.getText()+"²");
+                if (uom.equals("in")) {
+                    s /= 25.4;
+                }
             }
+            sizeInput.setText("" + s);
         }
+
+        shapeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (btnLine.isChecked()) {
+                    sizeDiscr.setText(R.string.edit_size);
+                    if (uom.equals("mm")) {
+                        unitsText.setText(R.string.calibrationMM);
+                    } else {
+                        unitsText.setText(R.string.calibrationInch);
+                    }
+                } else if (btnCircle.isChecked()) {
+                    sizeDiscr.setText(R.string.diameter);
+                    if (uom.equals("mm")) {
+                        unitsText.setText(R.string.calibrationMM);
+                    } else {
+                        unitsText.setText(R.string.calibrationInch);
+                    }
+                } else if (btnTetragon.isChecked()) {
+                    sizeDiscr.setText(R.string.area);
+                    unitsText.setText(unitsText.getText()+"²");
+                }
+            }
+        });
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
             /**
@@ -140,6 +192,13 @@ public class EditDialog extends DialogFragment {
                     reference.setUDR_ACTIVE(true);
                     reference.setUDR_NAME(name);
                     reference.setUDR_SHAPE(shape);
+                    if (uom.equals("in")) {
+                        size *= 25.4;
+                        if (shape.equals("tetragon")){
+                            size *= 25.4;
+                        }
+                    }
+                    Log.d("SIZE", size+"");
                     reference.setUDR_SIZE(size);
                     dbHelper.updateUserDefRef(reference);
                     Toast.makeText(getActivity().getBaseContext(), getString(R.string.toast_edit_done), Toast.LENGTH_LONG).show();

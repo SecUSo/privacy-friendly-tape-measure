@@ -244,6 +244,7 @@
     <string name="edit_circle">Circle</string>
     <string name="edit_tetragon">Tetragon</string>
     <string name="edit_size">Size:</string>
+    <string name="diameter">Diameter:</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
 

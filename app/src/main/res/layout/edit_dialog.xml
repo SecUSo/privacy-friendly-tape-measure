@@ -92,17 +92,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/size_discription"
-                android:layout_weight="1"
                 android:gravity="center" />
 
             <EditText
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:inputType="numberDecimal"
                 android:ems="10"
                 android:id="@+id/size_input"
-                android:layout_weight="1"
                 android:gravity="center" />
+
+            <TextView
+                android:text="@string/calibrationMM"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/units"/>
         </LinearLayout>
 
         <LinearLayout
