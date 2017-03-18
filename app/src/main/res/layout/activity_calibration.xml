@@ -32,7 +32,6 @@
             android:paddingStart="15dp">
 
             <TextView
-                android:id="@+id/discriptionMeasureHeading"
                 style="@style/Base.DialogWindowTitle.AppCompat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -41,7 +40,6 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/discriptionMeasure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -51,7 +49,6 @@
                 android:layout_marginRight="50dp" />
 
             <TextView
-                android:id="@+id/headingEnter"
                 style="@style/Base.DialogWindowTitle.AppCompat"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,11 +77,9 @@
                     <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/radioGroup">
+                        android:orientation="vertical">
 
                         <RadioButton
-                            android:id="@+id/mmRadioButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
@@ -113,7 +108,6 @@
                 android:paddingRight="20dp"/>
 
             <TextView
-                android:id="@+id/calibrationWarning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

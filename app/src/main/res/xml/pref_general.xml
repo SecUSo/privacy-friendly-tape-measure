@@ -3,7 +3,7 @@
 
     <PreferenceCategory
         android:title="@string/pref_ruler">
-        <ListPreference android:id="@+id/pref_leftruler"
+        <ListPreference
             android:key="pref_leftruler"
             android:title="@string/pref_leftruler"
             android:dialogTitle="@string/pref_leftruler_verbose"
@@ -11,7 +11,7 @@
             android:entryValues="@array/pref_leftruler_evs"
             android:defaultValue="@string/pref_leftruler_default" />
 
-        <ListPreference android:id="@+id/pref_rightruler"
+        <ListPreference
             android:key="pref_rightruler"
             android:title="@string/pref_rightruler"
             android:dialogTitle="@string/pref_rightruler_verbose"
@@ -22,7 +22,7 @@
 
     <PreferenceCategory
         android:title="@string/camera_ruler_settings">
-        <ListPreference android:id="@+id/pref_units_of_measurement"
+        <ListPreference
             android:key="pref_units_of_measurement"
             android:title="@string/pref_units_of_measurement"
             android:dialogTitle="@string/pref_uom_verbose"
@@ -30,7 +30,7 @@
             android:entryValues="@array/pref_uom_evs"
             android:defaultValue="@string/pref_uom_default" />
 
-        <MultiSelectListPreference android:id="@+id/pref_type_selection"
+        <MultiSelectListPreference
             android:key="pref_type_selection"
             android:title="@string/pref_type_selection"
             android:dialogTitle="@string/pref_type_selection_verbose"
@@ -39,7 +39,7 @@
             android:entryValues="@array/pref_type_selection_evs"
             android:defaultValue="@array/pref_type_selection_evs"/>
 
-        <Preference android:id="@+id/pref_edit_user_def_refs"
+        <Preference
             android:key="pref_edit_user_def_refs"
             android:title="@string/pref_edit_user_def_refs"
             />

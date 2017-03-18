@@ -13,8 +13,7 @@
         android:title="@string/action_reset_calibration"
         app:showAsAction="never" />
 
-    <item android:id="@+id/action_setleftruler"
-        android:title="@string/pref_leftruler">
+    <item android:title="@string/pref_leftruler">
         <menu>
             <item android:id="@+id/set_left_cm"
                 android:title="@string/ruler_cm"/>
@@ -29,8 +28,7 @@
         </menu>
     </item>
 
-    <item android:id="@+id/action_setrightruler"
-        android:title="@string/pref_rightruler">
+    <item android:title="@string/pref_rightruler">
         <menu>
             <item android:id="@+id/set_right_cm"
                 android:title="@string/ruler_cm"/>

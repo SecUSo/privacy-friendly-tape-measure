@@ -29,7 +29,6 @@
     <string name="camera_crash">Kameras lielotne negaidīti izslēdzās.</string>
     <string name="gallery_crash">Galerijas lietotne negaidīti izslēdzās.</string>
     <string name="reference_phase_title">Novietojiet referenci</string>
-    <string name="reference_phase_subtitle">Izvēlētā reference:</string>
     <string name="measurement_phase_title">Mērīt</string>
     <string name="new_tetragon">Jauns četrstūris</string>
     <string name="new_triangle">Jauns trīstūris</string>
@@ -202,7 +201,6 @@
     <string name="pref_uom_verbose">Kādas mērvienības lietot kameras lineālā?</string>
     <string name="units_si">SI mērvienības</string>
     <string name="units_imperial">amerikāņu mērvienības</string>
-    <string name="pref_autodetect">Automātiski atpazīt apaļas references</string>
     <string name="pref_type_selection">Referenču izvēle</string>
     <string name="pref_type_selection_verbose">Kādu tipu references izmantot?</string>
     <string name="pref_type_selection_summary">Izvēlēties, kuru tipu references Jūs negribat izmantot.</string>
@@ -225,7 +223,6 @@
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Pašdefinēto referenču pārvaldītājs</string>
     <string name="title_activity_ref_viewer">Pašdefinētas references</string>
     <string name="list_item">Brīva vieta</string>
     <string name="edit_dialog_title">Mainīt referenci</string>

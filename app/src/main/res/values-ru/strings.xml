@@ -29,7 +29,6 @@
     <string name="camera_crash">Приложенья камера рухнуло.</string>
     <string name="gallery_crash">Приложенья галерея рухнуло.</string>
     <string name="reference_phase_title">Поместите эталон</string>
-    <string name="reference_phase_subtitle">Эталон:</string>
     <string name="measurement_phase_title">Измерить</string>
     <string name="new_tetragon">Новый четырёхугольник</string>
     <string name="new_triangle">Новый треугольник</string>
@@ -202,7 +201,6 @@
     <string name="pref_uom_verbose">Какие единицы измерения использовать в камера - линейке?</string>
     <string name="units_si">Единицы СИ</string>
     <string name="units_imperial">Единицы США</string>
-    <string name="pref_autodetect">Автоматически опознать круглые эталоны</string>
     <string name="pref_type_selection">Выбор типов эталона</string>
     <string name="pref_type_selection_verbose">Эталоны каких типов использовать?</string>
     <string name="pref_type_selection_summary">Выберете, эталоны каких типов Вы не хотите использовать.</string>
@@ -225,7 +223,6 @@
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Установка своих эталонов</string>
     <string name="title_activity_ref_viewer">Свои эталоны</string>
     <string name="list_item">Свободное место</string>
     <string name="edit_dialog_title">Поменять эталон</string>

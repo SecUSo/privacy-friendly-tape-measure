@@ -27,7 +27,6 @@
             android:layout_weight="0.36">
 
             <ImageView
-                android:id="@+id/barcodeLogo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
@@ -36,7 +35,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/appName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -44,7 +42,6 @@
             android:text="@string/app_name_long" />
 
         <TextView
-            android:id="@+id/textFieldVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -52,7 +49,6 @@
             android:text="@string/version_number" />
 
         <TextView
-            android:id="@+id/textFieldAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -73,7 +69,6 @@
                 android:text="@string/about_author_names" />
 
             <TextView
-                android:id="@+id/textFieldContributors"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
@@ -84,7 +79,6 @@
 
 
         <TextView
-            android:id="@+id/textFieldAffiliation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
@@ -93,7 +87,6 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/imageView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"

@@ -23,13 +23,12 @@
     <!-- ###CAMERA### -->
     <string name="description_camera_gallery">Holen Sie sich ein Bild zum vermessen. Sie können ein Bild mit der Kamera aufnehmen oder ein Bild aus dem Speicher benutzen.</string>
     <string name="from_camera">Bild aus der Kamera</string>
-    <string name="from_gallery">Bild aus der Gallerie</string>
+    <string name="from_gallery">Bild aus der Galerie</string>
     <string name="reference_self_intersecting">Das Referenzobjekt darf sich selbst nicht schneiden.</string>
     <string name="camera_ruler">Kameralineal</string>
     <string name="camera_crash">Kamera App abgestürzt.</string>
     <string name="gallery_crash">Galerie App abgestürzt.</string>
     <string name="reference_phase_title">Referenzobjekt plazieren</string>
-    <string name="reference_phase_subtitle">Aktives Referenzobjekt:</string>
     <string name="measurement_phase_title">Messen</string>
     <string name="new_tetragon">Neuer Viereck</string>
     <string name="new_triangle">Neuer Dreieck</string>
@@ -202,7 +201,6 @@
     <string name="pref_uom_verbose">Welche Maßeinheiten sollen im Bildschirmlineal benutzt werden?</string>
     <string name="units_si">SI-Einheiten</string>
     <string name="units_imperial">angloamerikanische Einheiten</string>
-    <string name="pref_autodetect">Kreisförmige Referanzobjekte automatisch erkennen</string>
     <string name="pref_type_selection">Referenzobjektauswahl</string>
     <string name="pref_type_selection_verbose">Welche Referenzobjekttypen sollen benutzt werden?</string>
     <string name="pref_type_selection_summary">Blenden Sie die Referenzobjekttypen aus, die Sie nicht benutzen wollen.</string>
@@ -225,7 +223,6 @@
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Referenzobjekteditor</string>
     <string name="title_activity_ref_viewer">Nutzerdefinierte Referenzobjekte</string>
     <string name="list_item">Freier Platz</string>
     <string name="edit_dialog_title">Referenzobjekt Editieren</string>
