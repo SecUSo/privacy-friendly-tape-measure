@@ -16,12 +16,12 @@
 
     <!-- ###RULER### -->
     <string name="screen_ruler">Линейка на экране</string>
-    <string name="action_calibration">Калибрировать</string>
-    <string name="action_reset_calibration">Сбросить калибрование</string>
+    <string name="action_calibration">Калибровать</string>
+    <string name="action_reset_calibration">Сбросить калибровку</string>
 
 
     <!-- ###CAMERA### -->
-    <string name="description_camera_gallery">Выберете фотографию, чтобы измерить. Вы можете снять фотографию камерой телефона или выбрать фотографию из памяти.</string>
+    <string name="description_camera_gallery">Выберите фотографию, чтобы измерить. Вы можете сделать фотографию камерой телефона или выбрать фотографию с карты памяти.</string>
     <string name="from_camera">Фото из камеры</string>
     <string name="from_gallery">Фото из галереи</string>
     <string name="reference_self_intersecting">Эталон не должен пересекать сам себя.</string>
@@ -35,9 +35,9 @@
     <string name="new_circle">Новый круг</string>
     <string name="new_line">Новая линия</string>
     <string name="confirm_reference">Одобрить эталон</string>
-    <string name="length">Длинна:</string>
+    <string name="length">Длина:</string>
     <string name="area">Площадь:</string>
-    <string name="self_intersection_warning">Невозможно высчитать площадь самопересекающиесяво многоугольника.</string>
+    <string name="self_intersection_warning">Невозможно высчитать площадь самопересекающегося многоугольника.</string>
 
 
     <!-- ###PREDEFINED REFERENCE OBJECTS### -->
@@ -139,12 +139,12 @@
 
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Отмерить</string>
-    <string name="measureLine">Отмерьте длину линии так точно как возможно.</string>
+    <string name="measureLine">Отмерьте длину линии по возможность точнее.</string>
     <string name="headingEnter">2. Ввести длину линии</string>
     <string name="calibrationMM">мм</string>
     <string name="calibrationInch">дюймы</string>
     <string name="calibrateConfirmButton">Калибрировать</string>
-    <string name="calibrationWarning">Ручное калибрование не устраняет неточности вызванные округлением.</string>
+    <string name="calibrationWarning">Ручное калибрование не устраняет неточности, вызванные округлением.</string>
     <string name="calibrate">Калибрировать</string>
     <string name="noInput">Введите длину линии.</string>
     <string name="calibrationDone">Калибрование завершено.</string>
@@ -156,21 +156,21 @@
     <string name="help_calibration">Ручное калибрование</string>
     <string name="help_disclaimer">Предупреждение</string>
     <string name="help_category_calibration">Калибрование</string>
-    <string name="pref_calibration_summary">Выбрав пункт \"Калибрировать\" в меню Вы можете в ручную калибрировать линейку на экране.</string>
-    <string name="pref_disclaimer_summary">Эта аппликация не является профессионально настроенным измерительным устройством. Эту аппликацию можно калибрировать в ручную, что уменьшит ошибку. Несмотря на это зависимо от устройства возможна ошибка округленья.</string>
+    <string name="pref_calibration_summary">Выбрав пункт \"Калибрировать\" в меню, Вы можете в ручную калибрировать линейку на экране.</string>
+    <string name="pref_disclaimer_summary">Эта аппликация не является профессионально настроенным измерительным устройством. Эту аппликацию можно калибрировать вручную, что уменьшит ошибку. Несмотря на это, в зависимости от устройства, возможна ошибка округления</string>
     <string name="help_privacy_heading">Частная информация</string>
     <string name="help_category_options">Настройки</string>
     <string name="help_units">Правая и левая линейка</string>
-    <string name="pref_units_summary">Вы можете включить сантиметровую или дюймовую линейку на левой и правой стороне экрана. Обе линейки могут быть установлены независимо друг от друга.</string>
+    <string name="pref_units_summary">Вы можете включить сантиметровую или дюймовую линейки на левой и правой стороне экрана. Обе линейки могут быть установлены независимо друг от друга.</string>
     <string name="help_angles">Угломер</string>
-    <string name="pref_angles_summary">За места левой линейки Вы можете включить угломер на левой стороне экрана в мере градусов или радианов.</string>
-    <string name="help_intro">Приложение Privacy Friendly Рулетка превращает Ваш телефон в линейку в случае, если Вам нужно что-то измерить но под рукой нет измерительного устройства.</string>
+    <string name="pref_angles_summary">Вместо левой линейки Вы можете включить угломер на левой стороне экрана в в градусах или радианах.</string>
+    <string name="help_intro">Приложение Privacy Friendly Рулетка превращает Ваш телефон в линейку в случае, если Вам нужно что-то измерить, но под рукой нет измерительного устройства.</string>
     <string name="help_camera_ruler_heading">Камера-линейка</string>
-    <string name="help_camera_ruler1">Вы можете снять фотографию камерой или выбрать фотографию из галереи. Снимите фотографию так, чтобы все важные объекты были в одной плоскости и телефон был параллельно к этой плоскости.</string>
-    <string name="help_camera_ruler2">Выберите подходящий эталон из меню в верхнем правом углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в нижнем правом углу.</string>
-    <string name="help_camera_ruler3">Теперь Вы можете выбрать фигуру, которою измерить, из меню в нижнем правом углу. Вы можете мерить длину линий и площадь треугольников, четырёхугольников и кругов.</string>
+    <string name="help_camera_ruler1">Вы можете снять фотографию камерой или выбрать фотографию из галереи. Сделайте фотографию так, чтобы все важные объекты были в одной плоскости и телефон был параллельно к этой плоскости.</string>
+    <string name="help_camera_ruler2">Выберите подходящий эталон из меню в правом верхнем углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в правом нижнем углу.</string>
+    <string name="help_camera_ruler3">Теперь Вы можете выбрать фигуру, которою измерить, из меню в правом нижнем углу. Вы можете мерить длину линий, а также площадь треугольников, четырёхугольников и кругов.</string>
     <string name="help_permission">Разрешения</string>
-    <string name="help_permission_answer">Privacy Friendly Рулетка не нуждается в разрешеньях чтобы снять фотографию камерой и измерить её. Чтобы измерить фотографию из галереи этому приложенью нужно разрешение Read External Storage, так как большинство фотографий не находятся в встроенной памяти телефона.</string>
+    <string name="help_permission_answer">Privacy Friendly Рулетка не нуждается в разрешеньях чтобы снять фотографию камерой и измерить её. Чтобы измерить фотографию из галереи этому приложенью нужно разрешение Read External Storage, так как большинство фотографий не находятся во встроенной памяти телефона.</string>
 
     <!--###ABOUT###-->
     <string name="about">Информация</string>
@@ -194,11 +194,11 @@
     <string name="ruler_inch">Линейка (дюйм)</string>
     <string name="ruler_degree">Угломер (градус)</string>
     <string name="ruler_radian">Угломер (радиан)</string>
-    <string name="ruler_off">Нечего</string>
+    <string name="ruler_off">Ничего</string>
     <!-- ###CAMERA RULER### -->
     <string name="camera_ruler_settings">Настройки камера - линейки</string>
     <string name="pref_units_of_measurement">Единицы измерения</string>
-    <string name="pref_uom_verbose">Какие единицы измерения использовать в камера - линейке?</string>
+    <string name="pref_uom_verbose">Какие единицы измерения использовать в камере - линейке?</string>
     <string name="units_si">Единицы СИ</string>
     <string name="units_imperial">Единицы США</string>
     <string name="pref_type_selection">Выбор типов эталона</string>
@@ -227,7 +227,7 @@
     <string name="list_item">Свободное место</string>
     <string name="edit_dialog_title">Поменять эталон</string>
     <string name="toast_input_failure">Нелегальные даные.</string>
-    <string name="toast_edit_done">Эталон устроен.</string>
+    <string name="toast_edit_done">Эталон настроен.</string>
     <string name="toast_delete_done">Эталон удалён.</string>
     <string name="edit_name">Название:</string>
     <string name="edit_shape">Форма:</string>
@@ -243,19 +243,19 @@
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Предупреждение</string>
     <string name="disclaimer">Эта аппликация не является профессионально настроенным измерительным устройством. Эту аппликацию можно калибрировать в ручную, что уменьшит ошибку. Несмотря на это зависимо от устройства возможна ошибка округленья.</string>
-    <string name="disclaimer_check">Я прочитал дисклеймер о потенциальных ошибок округленья.</string>
+    <string name="disclaimer_check">Я прочитал дисклеймер о потенциальных ошибках округления.</string>
     <string name="disclaimer_check_toast">Отметьте, пожалуйста, что Вы прочитали дисклеймер.</string>
 
 
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Добро пожаловать</string>
-    <string name="slide1_text">С помощью Privacy Friendly Рулетка Вы можете измерить объекты, которые больше Вашего телефона. Для этого Вам нужно сфотографировать измеряемые объект вместе с другим объектом знакомого размера (эталон), например монетой.</string>
+    <string name="slide1_text">С помощью Privacy Friendly Рулетка Вы можете измерить объекты, которые больше Вашего телефона. Для этого Вам нужно сфотографировать измеряемые объект вместе с другим объектом знакомого размера (эталоном), например, монетой.</string>
 
     <string name="slide2_heading">Как измерять</string>
     <string name="slide2_text">Вы можете снять фотографию камерой или выбрать фотографию из галереи. Снимите фотографию так, чтобы все важные объекты были в одной плоскости и телефон был параллельно к этой плоскости.</string>
 
     <string name="slide3_heading">Как измерять</string>
-    <string name="slide3_text">Выберите подходящий эталон из меню в верхнем правом углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в нижнем правом углу. Теперь Вы можете выбрать фигуру, которою измерить, из меню в нижнем правом углу. Вы можете мерить длину линий и площадь треугольников, четырёхугольников и кругов.</string>
+    <string name="slide3_text">Выберите подходящий эталон из меню  правом верхнем углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в правом нижнем углу. Теперь Вы можете выбрать фигуру, которую измерить, из меню в правом нижнем углу. Вы можете мерить длину линий и площадь треугольников, четырёхугольников и кругов.</string>
 
     <string name="next">Дальше</string>
     <string name="skip">Пропустить</string>
@@ -265,6 +265,6 @@
     <string name="help_ref_types">Выбор типов эталонов</string>
     <string name="help_ref_editor">Менеджмент своих эталонов</string>
     <string name="pref_uom_summary">Вы можете выбрать, какие единицы измерения камера-линейка будет использовать.</string>
-    <string name="pref_ref_types_summary">Вы можете скрыть эталоны определённых типов. Эти эталоны не будут показываться в меню выбора эталонов.</string>
+    <string name="pref_ref_types_summary">Вы можете скрыть эталоны определённых типов. Эти эталоны не будут показыватся в меню выбора эталонов.</string>
     <string name="pref_ref_editor_summary">Здесь Вы можете установить собственные эталоны (максимум 10).</string>
 </resources>
