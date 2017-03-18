@@ -31,6 +31,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -283,24 +284,24 @@ public class TutorialActivity extends AppCompatActivity {
 
         Locale loc = Locale.getDefault();
 
-        ArrayList<Locale> eurozoneLocales = new ArrayList<>();
-        eurozoneLocales.add(new Locale("de"));
-        eurozoneLocales.add(new Locale("fr"));
-        eurozoneLocales.add(new Locale("nl"));
-        eurozoneLocales.add(new Locale("et"));
-        eurozoneLocales.add(new Locale("fi"));
-        eurozoneLocales.add(new Locale("el"));
-        eurozoneLocales.add(new Locale("it"));
-        eurozoneLocales.add(new Locale("lv"));
-        eurozoneLocales.add(new Locale("lt"));
-        eurozoneLocales.add(new Locale("pt"));
-        eurozoneLocales.add(new Locale("sk"));
-        eurozoneLocales.add(new Locale("sl"));
-        eurozoneLocales.add(new Locale("es"));
-        eurozoneLocales.add(new Locale("lb"));
-        eurozoneLocales.add(new Locale("mt"));
-        eurozoneLocales.add(new Locale("ga"));
-        eurozoneLocales.add(new Locale("tr"));
+        ArrayList<String> eurozoneLocales = new ArrayList<>();
+        eurozoneLocales.add("de_DE");
+        eurozoneLocales.add("fr_DE");
+        eurozoneLocales.add("nl_NL");
+        eurozoneLocales.add("et_ET");
+        eurozoneLocales.add("fi_FI");
+        eurozoneLocales.add("el_EL");
+        eurozoneLocales.add("it_IT");
+        eurozoneLocales.add("lv_LV");
+        eurozoneLocales.add("lt_LT");
+        eurozoneLocales.add("pt_PT");
+        eurozoneLocales.add("sk_SK");
+        eurozoneLocales.add("sl_SL");
+        eurozoneLocales.add("es_ES");
+        eurozoneLocales.add("lb_LB");
+        eurozoneLocales.add("mt_MT");
+        eurozoneLocales.add("ga_GA");
+        eurozoneLocales.add("tr_TR");
 
         Set<String> activePrefs = new HashSet<>();
 
@@ -322,16 +323,16 @@ public class TutorialActivity extends AppCompatActivity {
         } else if (loc.equals(UK)) { //set UK currency
             activePrefs.add("gb-coins");
             activePrefs.add("gb-notes");
-        } else if (loc.equals(new Locale("sv"))) { //set SEK currency
+        } else if (loc.toString().equals("sv_SV")) { //set SEK currency
             activePrefs.add("sek-coins");
             activePrefs.add("sek-notes");
-        } else if (loc.equals(new Locale("ru"))) { //set RUB currency
+        } else if (loc.toString().equals("ru_RU")) { //set RUB currency
             activePrefs.add("rub-coins");
             activePrefs.add("rub-notes");
-        } else if (loc.equals(new Locale("ja"))) { //set JPY currency
+        } else if (loc.toString().equals("ja_JA")) { //set JPY currency
             activePrefs.add("jpy-coins");
             activePrefs.add("jpy-notes");
-        } else if (eurozoneLocales.contains(loc)) { //set EU currency
+        } else if (eurozoneLocales.contains(loc.toString())) { //set EU currency
             activePrefs.add("eu-coins");
             activePrefs.add("eu-notes");
         } else { //set EU and USD currency
