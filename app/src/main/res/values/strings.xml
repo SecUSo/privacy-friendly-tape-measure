@@ -29,7 +29,6 @@
     <string name="camera_crash">Camera App crashed.</string>
     <string name="gallery_crash">Gallery App crashed.</string>
     <string name="reference_phase_title">Place Reference Object</string>
-    <string name="reference_phase_subtitle">Active Reference Object:</string>
     <string name="measurement_phase_title">Measure</string>
     <string name="new_tetragon">New Tetragon</string>
     <string name="new_triangle">New Triangle</string>
@@ -208,7 +207,6 @@
     <string name="units_si">SI units</string>
     <string name="units_imperial">imperial</string>
     <string name="pref_uom_default" translatable="false">mm</string>
-    <string name="pref_autodetect">Autodetect circular references</string>
     <string name="pref_type_selection">Reference Type Selection</string>
     <string name="pref_type_selection_verbose">What reference object types to use?</string>
     <string name="pref_type_selection_summary">Disable reference object categoreis you don\'t want to use.</string>
@@ -231,12 +229,11 @@
 
 
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
-    <string name="title_activity_ref_editor">Reference Editor</string>
     <string name="title_activity_ref_viewer">User Defined References</string>
     <string name="list_item">Free Slot</string>
     <string name="edit_dialog_title">Edit Reference Object</string>
     <string name="toast_input_failure">Invalid input.</string>
-    <string name="toast_edit_done">User defined reference sucessfully set.</string>
+    <string name="toast_edit_done">User defined reference successfully set.</string>
     <string name="toast_delete_done">User set reference deleted.</string>
     <string name="edit_name">Name:</string>
     <string name="edit_shape">Shape:</string>
