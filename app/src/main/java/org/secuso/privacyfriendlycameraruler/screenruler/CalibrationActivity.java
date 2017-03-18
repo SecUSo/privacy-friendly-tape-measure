@@ -46,19 +46,18 @@ import org.secuso.privacyfriendlycameraruler.R;
  */
 public class CalibrationActivity extends AppCompatActivity {
 
-//    private View line;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calibration);
 
         final View line = findViewById(R.id.line);
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setTitle(R.string.calibrate);
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#024265")));
-
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle(R.string.calibrate);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#024265")));
+        }
         Button confirmButton = (Button) findViewById(R.id.confirmButton);
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +83,7 @@ public class CalibrationActivity extends AppCompatActivity {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                     Log.d("Line Height", line.getHeight()+"");
                     float dpmm = line.getMeasuredHeight() / length;
-                    prefs.edit().putFloat("dpmm", dpmm).commit();
+                    prefs.edit().putFloat("dpmm", dpmm).apply();
                     calibrationDoneToast.show();
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), RulerActivity.class);

@@ -27,7 +27,6 @@ import org.secuso.privacyfriendlycameraruler.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 
@@ -40,9 +39,10 @@ import java.util.Set;
  */
 
 public class ReferenceManager {
-    private static ArrayList<ObjectType> objectTypes = new ArrayList<ObjectType>();
+    @SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
+    private static ArrayList<ObjectType> objectTypes = new ArrayList<>();
 
-    private static ArrayList<ReferenceObject> predefinedReferenceObjects = new ArrayList<ReferenceObject>();
+    private static ArrayList<ReferenceObject> predefinedReferenceObjects = new ArrayList<>();
 
     static {
         //make object types. add new categories here.
@@ -188,24 +188,6 @@ public class ReferenceManager {
     }
 
     /**
-     * Provider for list of object types.
-     *
-     * @return List of all available ObjectTypes.
-     */
-    public static ArrayList<ObjectType> getObjectTypes() {
-        return objectTypes;
-    }
-
-    /**
-     * Provider for list of reference objects.
-     *
-     * @return List of all available ReferenceObjects.
-     */
-    public static ArrayList<ReferenceObject> getPredefinedReferenceObjects() {
-        return predefinedReferenceObjects;
-    }
-
-    /**
      * Provider for list of reference objects not disabled in the settings.
      *
      * @return List of all ReferenceObjects not disabled in the settings.
@@ -213,10 +195,9 @@ public class ReferenceManager {
     public static ArrayList<ReferenceObject> getAllActiveRefPredefObjects(Context context) {
         SharedPreferences sPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         Set<String> active = sPrefs.getStringSet("pref_type_selection", new HashSet<String>());
-        ArrayList<ReferenceObject> result = new ArrayList<ReferenceObject>();
+        ArrayList<ReferenceObject> result = new ArrayList<>();
 
-        for (Iterator<ReferenceObject> it = predefinedReferenceObjects.iterator(); it.hasNext();) {
-            ReferenceObject ro = it.next();
+        for (ReferenceObject ro : predefinedReferenceObjects) {
             if (active.contains(ro.type.name)) {
                 result.add(ro);
             }

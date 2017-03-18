@@ -42,16 +42,13 @@ import java.util.ArrayList;
 
 public class ReferenceListViewer extends AppCompatActivity {
 
-    private ListView mListView;
-    private PFASQLiteHelper dbHelper;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reference_list);
 
-        mListView = (ListView) findViewById(R.id.reference_viewer_list);
-        dbHelper = new PFASQLiteHelper(getBaseContext());
+        ListView mListView = (ListView) findViewById(R.id.reference_viewer_list);
+        PFASQLiteHelper dbHelper = new PFASQLiteHelper(getBaseContext());
         final ArrayList<UserDefinedReferences> uDefRefs = dbHelper.getAllUDefRef();
         String[] listItems = new String[uDefRefs.size()];
         for(int i = 0; i < uDefRefs.size(); i++){

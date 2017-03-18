@@ -31,7 +31,7 @@ import android.graphics.Matrix;
  * Created by rkolosovs on 23.01.17.
  */
 
-public abstract class Polygon extends Shape {
+abstract class Polygon extends Shape {
     private Point[] oldCorners = null;
 
     public Point[] corners;
@@ -49,7 +49,7 @@ public abstract class Polygon extends Shape {
      * @param c yet another double
      * @return Array sorted in descending order.
      */
-    protected double[] sort3(double a, double b, double c) {
+    double[] sort3(double a, double b, double c) {
         double[] res = new double[3];
         if (a < b) {
             if (a < c) {
@@ -122,28 +122,6 @@ public abstract class Polygon extends Shape {
     public void endMove() {
         oldCorners = null;
     }
-
-//    @Override
-//    public void zoom(float scale, float x, float y) {
-//        if (oldCorners == null) {
-//            oldCorners = new Point[corners.length];
-//            for (int i = 0; i < corners.length; i++) {
-//                oldCorners[i] = new Point(corners[i]);
-//            }
-//        }
-//        float[] points = new float[2*oldCorners.length];
-//        for (int i = 0; i<oldCorners.length; i++){
-//            points[i*2] = oldCorners[i].x;
-//            points[i*2+1] = oldCorners[i].y;
-//        }
-//        Matrix m = new Matrix();
-//        m.setScale(scale, scale, x, y);
-//        m.mapPoints(points);
-//        for (int i = 0; i<corners.length; i++){
-//            corners[i].x = points[i*2];
-//            corners[i].y = points[i*2+1];
-//        }
-//    }
 
     @Override
     public void zoom(Matrix m) {

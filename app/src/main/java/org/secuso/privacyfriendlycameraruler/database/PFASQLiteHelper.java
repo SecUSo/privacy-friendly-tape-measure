@@ -20,15 +20,14 @@
 
 package org.secuso.privacyfriendlycameraruler.database;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Karola Marky
@@ -44,7 +43,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    public static final String DATABASE_NAME = "PF_CAMERA_RULER_DB";
+    private static final String DATABASE_NAME = "PF_CAMERA_RULER_DB";
 
     //Name of table in the database
     private static final String TABLE_USERDEFINED = "USER_DEFINED_REFS";
@@ -102,43 +101,12 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
     }
 
     /**
-     * This method gets a single userDefinedReference entry based on its ID
-     *
-     * @param id of the userDefinedReference that is requested, could be get by the get-method
-     * @return the userDefinedReference that is requested.
-     */
-    public UserDefinedReferences getUserDefRef(int id) {
-        SQLiteDatabase database = this.getWritableDatabase();
-
-        Log.d("DATABASE", Integer.toString(id));
-
-        Cursor cursor = database.query(TABLE_USERDEFINED, new String[]{UDR_ID,
-                        UDR_NAME, UDR_SHAPE, UDR_SIZE, UDR_ACTIVE}, UDR_ID + "=?",
-                new String[]{String.valueOf(id)}, null, null, null, null);
-
-        UserDefinedReferences userDefRef = new UserDefinedReferences();
-
-        if (cursor != null && cursor.moveToFirst()) {
-            userDefRef.setUDR_ID(Integer.parseInt(cursor.getString(0)));
-            userDefRef.setUDR_NAME(cursor.getString(1));
-            userDefRef.setUDR_SHAPE(cursor.getString(2));
-            userDefRef.setUDR_SIZE(Float.parseFloat(cursor.getString(3)));
-            userDefRef.setUDR_ACTIVE(Integer.parseInt(cursor.getString(4)) == 1);
-
-            Log.d("DATABASE", "Read " + cursor.getString(1) + " from DB");
-
-            cursor.close();
-        }
-        return userDefRef;
-    }
-
-    /**
      * Updates a database entry.
      *
-     * @param userDefRef
+     * @param userDefRef reference with new values
      * @return actually makes the update
      */
-    public int updateUserDefRef(UserDefinedReferences userDefRef) {
+    int updateUserDefRef(UserDefinedReferences userDefRef) {
         SQLiteDatabase database = this.getWritableDatabase();
 
         //To adjust this class for your own data, please add your values here.
@@ -159,14 +127,14 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
      * @return A list of all available userDefinedReferences in the Database
      */
     public ArrayList<UserDefinedReferences> getAllUDefRef() {
-        ArrayList<UserDefinedReferences> uDefRefList = new ArrayList<UserDefinedReferences>();
+        ArrayList<UserDefinedReferences> uDefRefList = new ArrayList<>();
 
         String selectQuery = "SELECT  * FROM " + TABLE_USERDEFINED;
 
         SQLiteDatabase database = this.getWritableDatabase();
-        Cursor cursor = database.rawQuery(selectQuery, null);
+        @SuppressLint("Recycle") Cursor cursor = database.rawQuery(selectQuery, null);
 
-        UserDefinedReferences uDefRef = null;
+        UserDefinedReferences uDefRef;
 
         if (cursor.moveToFirst()) {
             do {

@@ -20,10 +20,12 @@
 
 package org.secuso.privacyfriendlycameraruler.database;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -53,21 +55,20 @@ public class EditDialog extends DialogFragment {
     private RadioButton btnLine;
     private RadioButton btnCircle;
     private RadioButton btnTetragon;
-    private RadioGroup shapeGroup;
     private TextView unitsText;
     private TextView sizeDiscr;
     String uom;
 
+    @NonNull
+    @SuppressLint("SetTextI18n")
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        View rootView = inflater.inflate(R.layout.edit_dialog, null);
+        @SuppressLint("InflateParams") View rootView = inflater.inflate(R.layout.edit_dialog, null);
         builder.setView(rootView);
 
         builder.setTitle(getActivity().getString(R.string.edit_dialog_title));
-
-        final View rootViewFinal = rootView;
 
         Button okayButton = (Button) rootView.findViewById(R.id.edit_confirm_button);
         Button cancelButton = (Button) rootView.findViewById(R.id.edit_cancel_button);
@@ -79,7 +80,7 @@ public class EditDialog extends DialogFragment {
         sizeInput = (EditText) rootView.findViewById(R.id.size_input);
         unitsText = (TextView) rootView.findViewById(R.id.units);
         sizeDiscr = (TextView) rootView.findViewById(R.id.size_discription);
-        shapeGroup = (RadioGroup) rootView.findViewById(R.id.shape_rdbtn_group);
+        RadioGroup shapeGroup = (RadioGroup) rootView.findViewById(R.id.shape_rdbtn_group);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getActivity().getBaseContext());
         final PFASQLiteHelper dbHelper = new PFASQLiteHelper(getActivity().getBaseContext());
@@ -96,23 +97,28 @@ public class EditDialog extends DialogFragment {
                 s /= 25.4;
             }
             String shape = reference.getUDR_SHAPE();
-            if (shape.equals("line")) {
-                btnLine.setChecked(true);
-            } else if (shape.equals("circle")) {
-                btnCircle.setChecked(true);
-                sizeDiscr.setText(R.string.diameter);
-            } else if (shape.equals("tetragon")) {
-                btnTetragon.setChecked(true);
-                sizeDiscr.setText(R.string.area);
-                unitsText.setText(unitsText.getText()+"²");
-                if (uom.equals("in")) {
-                    s /= 25.4;
-                }
+            switch (shape) {
+                case "line":
+                    btnLine.setChecked(true);
+                    break;
+                case "circle":
+                    btnCircle.setChecked(true);
+                    sizeDiscr.setText(R.string.diameter);
+                    break;
+                case "tetragon":
+                    btnTetragon.setChecked(true);
+                    sizeDiscr.setText(R.string.area);
+                    unitsText.setText(unitsText.getText() + "²");
+                    if (uom.equals("in")) {
+                        s /= 25.4;
+                    }
+                    break;
             }
             sizeInput.setText("" + s);
         }
 
         shapeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (btnLine.isChecked()) {
@@ -139,7 +145,7 @@ public class EditDialog extends DialogFragment {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             /**
              * Closes the dialog without any changes to the database.
-             * @param v
+             * @param v view
              */
             @Override
             public void onClick(View v) {
@@ -151,7 +157,7 @@ public class EditDialog extends DialogFragment {
             /**
              * Sets all values of the user defined reference object to zero values and updates the
              * corresponding database entry.
-             * @param v
+             * @param v view
              */
             @Override
             public void onClick(View v) {
@@ -170,7 +176,7 @@ public class EditDialog extends DialogFragment {
             /**
              * Checks if the input of all fields is valid, enters the new or updated reference
              * object into the database and sets it active.
-             * @param v
+             * @param v clicked view
              */
             @Override
             public void onClick(View v) {

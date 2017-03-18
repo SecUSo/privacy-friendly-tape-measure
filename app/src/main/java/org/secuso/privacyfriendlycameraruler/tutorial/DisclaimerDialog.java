@@ -20,9 +20,11 @@
 
 package org.secuso.privacyfriendlycameraruler.tutorial;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -44,12 +46,14 @@ import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 public class DisclaimerDialog extends DialogFragment {
     private PrefManager prefManager;
 
+    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         prefManager = new PrefManager(getContext());
         LayoutInflater inflater = getActivity().getLayoutInflater();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        @SuppressLint("InflateParams")
         View rootView = inflater.inflate(R.layout.disclaimer_dialog, null);
         builder.setView(rootView);
 

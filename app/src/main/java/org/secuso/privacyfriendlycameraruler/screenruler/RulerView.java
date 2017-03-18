@@ -47,7 +47,12 @@ public class RulerView extends View {
     float lineWidth;
     int textSize ;
     int db;
+    Paint paint;
     SharedPreferences sharedPreferences;
+
+    public RulerView(Context c){
+        super(c);
+    }
 
     public RulerView(Context context, double ydpmm, double ydpi, SharedPreferences prefs) {
         super(context);
@@ -59,6 +64,13 @@ public class RulerView extends View {
         db = ContextCompat.getColor(context, R.color.darkblue);
         textSize = (int)(dpmm *2.5);
         lineWidth = (float)(dpmm*0.15);
+
+        paint = new Paint();
+        paint.setAntiAlias(true);
+        paint.setColor(db);
+        paint.setAlpha(255);
+        paint.setTextSize(textSize);
+        paint.setStrokeWidth(lineWidth);
     }
 
     @Override
@@ -70,22 +82,20 @@ public class RulerView extends View {
         heightmm = heightPx/dpmm;
         heightFracInch = heightPx/dpfi;
 
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(db);
-        paint.setAlpha(255);
-        paint.setTextSize(textSize);
-        paint.setStrokeWidth(lineWidth);
-
         String prefLeftruler = sharedPreferences.getString("pref_leftruler", "cm");
-        if (prefLeftruler.equals("cm")){
-            drawLeftCm(canvas, paint);
-        } else if (prefLeftruler.equals("inch")) {
-            drawLeftIn(canvas, paint);
-        } else if (prefLeftruler.equals("degree")){
-            drawAngleMeasureDeg(canvas, paint);
-        } else if (prefLeftruler.equals("radian")) {
-            drawAngleMeasureRad(canvas, paint);
+        switch (prefLeftruler) {
+            case "cm":
+                drawLeftCm(canvas, paint);
+                break;
+            case "inch":
+                drawLeftIn(canvas, paint);
+                break;
+            case "degree":
+                drawAngleMeasureDeg(canvas, paint);
+                break;
+            case "radian":
+                drawAngleMeasureRad(canvas, paint);
+                break;
         }
 
         String prefRightruler = sharedPreferences.getString("pref_rightruler", "inch");

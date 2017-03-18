@@ -28,17 +28,17 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
  * Created by rkolosovs on 23.01.17.
  */
 
-public class Point {
-    public float x;
+class Point {
+    float x;
 
-    public float y;
+    float y;
 
-    public Point(float x, float y){
+    Point(float x, float y){
         this.x = x;
         this.y = y;
     }
 
-    public Point(Point p) {
+    Point(Point p) {
         this.x = p.x;
         this.y = p.y;
     }
@@ -48,7 +48,7 @@ public class Point {
      * @param other Point to compute the distance to.
      * @return The distance between this and other.
      */
-    public float dist(Point other) {
+    float dist(Point other) {
         return (float) Math.sqrt(
                 Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
     }

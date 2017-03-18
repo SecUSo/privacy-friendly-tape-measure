@@ -74,7 +74,6 @@ public class RulerActivity extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.ruler_action_menu, menu);
-//        getMenuInflater().inflate(R.menu.ruler_settings_menu, menu);
         return true;
     }
 
@@ -95,7 +94,7 @@ public class RulerActivity extends BaseActivity {
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 this.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
                 float dpmm = (float) (displayMetrics.ydpi / 25.4);
-                mSharedPreferences.edit().putFloat("dpmm", dpmm).commit();
+                mSharedPreferences.edit().putFloat("dpmm", dpmm).apply();
                 Context context = getApplicationContext();
                 CharSequence calibrationResetText = getResources().getString(R.string.action_reset_calibration);
                 int duration = Toast.LENGTH_SHORT;
@@ -107,7 +106,7 @@ public class RulerActivity extends BaseActivity {
 
             case R.id.set_left_cm:
                 editor.putString("pref_leftruler", "cm");
-                editor.commit();
+                editor.apply();
                 rulerView.invalidate();
                 return true;
 

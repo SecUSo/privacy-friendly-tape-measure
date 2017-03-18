@@ -21,7 +21,6 @@
 package org.secuso.privacyfriendlycameraruler.cameraruler;
 
 import android.graphics.Matrix;
-import android.util.Log;
 
 import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.TOUCHPOINT_RADIUS;
 
@@ -33,7 +32,7 @@ import static org.secuso.privacyfriendlycameraruler.cameraruler.CameraRulerView.
  * Created by rkolosovs on 23.01.17.
  */
 
-public class Circle extends Shape {
+class Circle extends Shape {
     private Point oldCenter = null;
     private Point oldRadiusTangent = null;
     private Point oldRadiusTouch = null;
@@ -42,9 +41,9 @@ public class Circle extends Shape {
 
     public float radius = 0;
 
-    public Point radiusTouchPoint = new Point(0, 0);
+    Point radiusTouchPoint = new Point(0, 0);
 
-    public Circle(Point center, float radius) {
+    Circle(Point center, float radius) {
         this.center = center;
         this.radius = radius;
         radiusTouchPoint = new Point(center.x + radius + TOUCHPOINT_RADIUS, center.y);
@@ -77,22 +76,6 @@ public class Circle extends Shape {
         oldRadiusTouch = null;
     }
 
-//    @Override
-//    public void zoom(float scale, float x, float y) {
-//        if (oldCenter == null || oldRadiusTangent == null) {
-//            oldCenter = new Point(center);
-//            oldRadiusTangent = new Point(getRadiusTangentPoint());
-//        }
-//        float[] points = {oldCenter.x, oldCenter.y, oldRadiusTangent.x, oldRadiusTangent.y};
-//        Matrix m = new Matrix();
-//        m.setScale(scale, scale, x, y);
-//        m.mapPoints(points);
-//        center.x = points[0];
-//        center.y = points[1];
-//        radius = center.dist(new Point(points[2], points[3]));
-//        adjustRadiusTouchPoint(points[2], points[3]);
-//    }
-
     @Override
     public void zoom(Matrix m) {
         if (oldCenter == null || oldRadiusTangent == null) {
@@ -100,8 +83,6 @@ public class Circle extends Shape {
             oldRadiusTangent = new Point(getRadiusTangentPoint());
         }
         float[] points = {oldCenter.x, oldCenter.y, oldRadiusTangent.x, oldRadiusTangent.y};
-//        Matrix m = new Matrix();
-//        m.setScale(scale, scale, x, y);
         m.mapPoints(points);
         center.x = points[0];
         center.y = points[1];

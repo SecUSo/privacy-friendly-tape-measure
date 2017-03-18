@@ -22,7 +22,6 @@ package org.secuso.privacyfriendlycameraruler;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.view.View;
 
 /**
  * Activity for displaying the help texts in activity_help layout.

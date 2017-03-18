@@ -29,28 +29,11 @@ import android.graphics.Matrix;
  * Created by rkolosovs on 23.01.17.
  */
 
-public abstract class Shape {
-
-    //inactive Shape's properties can't be changed and touch points aren't drawn
-    private boolean active;
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void activate() {
-        active = true;
-    }
-
-    public void deactivate() {
-        active = false;
-    }
+abstract class Shape {
 
     public abstract void move(float x, float y);
 
     public abstract void endMove();
-
-//    public abstract void zoom(float scale, float x, float y);
 
     public abstract void zoom(Matrix m);
 }

@@ -32,11 +32,11 @@ import static java.lang.Float.NaN;
  * Created by rkolosovs on 23.01.17.
  */
 
-public class Line extends Shape {
+class Line extends Shape {
     private Point[] oldEnds = null;
-    public Point[] ends = {new Point(0, 0), new Point(0, 0)};
+    Point[] ends = {new Point(0, 0), new Point(0, 0)};
 
-    public Line(Point start, Point end) {
+    Line(Point start, Point end) {
         ends[0] = start;
         ends[1] = end;
     }
@@ -51,7 +51,7 @@ public class Line extends Shape {
      * @param other The line which intersection with this line is to be tested.
      * @return The intersection point or null.
      */
-    public Point intersects(Line other) {
+    Point intersects(Line other) {
         float m1 = this.gradient(); //compute line gradients
         float m2 = other.gradient();
 
@@ -89,7 +89,7 @@ public class Line extends Shape {
      * @param p A Point on the line.
      * @return true if Point p is on the line segment.
      */
-    public boolean contains(Point p) {
+    boolean contains(Point p) {
         float x0 = ends[0].x;
         float x1 = ends[1].x;
         boolean xInRange;
@@ -138,23 +138,6 @@ public class Line extends Shape {
         oldEnds = null;
     }
 
-//    @Override
-//    public void zoom(float scale, float x, float y) {
-//        if (oldEnds == null) {
-//            oldEnds = new Point[2];
-//            oldEnds[0] = new Point(ends[0]);
-//            oldEnds[1] = new Point(ends[1]);
-//        }
-//        float[] points = {oldEnds[0].x, oldEnds[0].y, oldEnds[1].x, oldEnds[1].y};
-//        Matrix m = new Matrix();
-//        m.setScale(scale, scale, x, y);
-//        m.mapPoints(points);
-//        ends[0].x = points[0];
-//        ends[0].y = points[1];
-//        ends[1].x = points[2];
-//        ends[1].y = points[3];
-//    }
-
     @Override
     public void zoom(Matrix m) {
         if (oldEnds == null) {
@@ -163,8 +146,6 @@ public class Line extends Shape {
             oldEnds[1] = new Point(ends[1]);
         }
         float[] points = {oldEnds[0].x, oldEnds[0].y, oldEnds[1].x, oldEnds[1].y};
-//        Matrix m = new Matrix();
-//        m.setScale(scale, scale, x, y);
         m.mapPoints(points);
         ends[0].x = points[0];
         ends[0].y = points[1];

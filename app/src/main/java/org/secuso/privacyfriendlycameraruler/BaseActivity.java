@@ -21,12 +21,11 @@
 package org.secuso.privacyfriendlycameraruler;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.NavigationView.OnNavigationItemSelectedListener;
 import android.support.v4.app.TaskStackBuilder;
@@ -88,7 +87,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
     abstract protected int getNavigationDrawerID();
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         final int itemId = item.getItemId();
 
         return goToNavigationItem(itemId);
@@ -133,7 +132,7 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
     /**
      * Enables back navigation for activities that are launched from the NavBar. See
      * {@code AndroidManifest.xml} to find out the parent activity names for each activity.
-     * @param intent
+     * @param intent to be put on stack
      */
     private void createBackStack(Intent intent) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {

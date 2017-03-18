@@ -34,7 +34,7 @@ public class ObjectType {
     public String name;
     public String shape;
 
-    public ObjectType(String name, String shape){
+    ObjectType(String name, String shape){
         this.name = name;
         this.shape = shape;
     }

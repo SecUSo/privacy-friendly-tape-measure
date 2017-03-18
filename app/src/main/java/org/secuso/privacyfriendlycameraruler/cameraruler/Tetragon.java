@@ -27,9 +27,9 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
  * Created by rkolosovs on 23.01.17.
  */
 
-public class Tetragon extends Polygon {
+class Tetragon extends Polygon {
 
-    public Tetragon(Point p0, Point p1, Point p2, Point p3) {
+    Tetragon(Point p0, Point p1, Point p2, Point p3) {
         corners = new Point[4];
         corners[0] = p0;
         corners[1] = p1;

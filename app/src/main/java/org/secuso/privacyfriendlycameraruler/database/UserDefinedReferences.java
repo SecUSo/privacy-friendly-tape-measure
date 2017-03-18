@@ -44,23 +44,6 @@ public class UserDefinedReferences {
         this.UDR_ACTIVE=false;
     }
 
-    public UserDefinedReferences(int UDR_ID) {
-        this.UDR_ID=UDR_ID;
-        this.UDR_NAME="";
-        this.UDR_SHAPE="";
-        this.UDR_SIZE=0;
-        this.UDR_ACTIVE=false;
-    }
-
-    public UserDefinedReferences(int UDR_ID, String name, String shape, float size) {
-
-        this.UDR_ID=UDR_ID;
-        this.UDR_NAME=name;
-        this.UDR_SHAPE=shape;
-        this.UDR_SIZE=size;
-        this.UDR_ACTIVE=true;
-    }
-
     /**
      * All variables need getters and setters. because the variables are private.
      */
@@ -69,7 +52,7 @@ public class UserDefinedReferences {
         return UDR_SIZE;
     }
 
-    public void setUDR_SIZE(float UDR_SIZE) {
+    void setUDR_SIZE(float UDR_SIZE) {
         this.UDR_SIZE = UDR_SIZE;
     }
 
@@ -77,7 +60,7 @@ public class UserDefinedReferences {
         return UDR_ACTIVE;
     }
 
-    public void setUDR_ACTIVE(boolean UDR_ACTIVE) {
+    void setUDR_ACTIVE(boolean UDR_ACTIVE) {
         this.UDR_ACTIVE = UDR_ACTIVE;
     }
 
@@ -85,15 +68,15 @@ public class UserDefinedReferences {
         return UDR_SHAPE;
     }
 
-    public void setUDR_SHAPE(String UDR_SHAPE) {
+    void setUDR_SHAPE(String UDR_SHAPE) {
         this.UDR_SHAPE = UDR_SHAPE;
     }
 
-    public int getUDR_ID() {
+    int getUDR_ID() {
         return UDR_ID;
     }
 
-    public void setUDR_ID(int UDR_ID) {
+    void setUDR_ID(int UDR_ID) {
         this.UDR_ID = UDR_ID;
     }
 
@@ -101,7 +84,7 @@ public class UserDefinedReferences {
         return UDR_NAME;
     }
 
-    public void setUDR_NAME(String UDR_NAME) {
+    void setUDR_NAME(String UDR_NAME) {
         this.UDR_NAME = UDR_NAME;
     }
 

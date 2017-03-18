@@ -35,7 +35,7 @@ public class ReferenceObject {
     public ObjectType type;
     public float size;
 
-    public ReferenceObject(int name, ObjectType type, float size) {
+    ReferenceObject(int name, ObjectType type, float size) {
         this.nameId = name;
         this.type = type;
         this.size = size;
