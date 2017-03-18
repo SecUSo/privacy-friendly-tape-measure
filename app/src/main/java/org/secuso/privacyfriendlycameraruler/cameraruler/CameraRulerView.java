@@ -32,8 +32,9 @@ import android.support.v7.widget.Toolbar;
 
 import org.secuso.privacyfriendlycameraruler.R;
 
+import java.lang.reflect.Array;
+
 import static android.view.MotionEvent.ACTION_CANCEL;
-import static android.view.MotionEvent.ACTION_DOWN;
 import static android.view.MotionEvent.ACTION_MOVE;
 import static android.view.MotionEvent.ACTION_UP;
 
@@ -43,7 +44,7 @@ import static android.view.MotionEvent.ACTION_UP;
  * the active object and display of obtained length/area.
  *
  * @author Roberts Kolosovs
- * Created by rkolosovs on 26.12.16.
+ *         Created by rkolosovs on 26.12.16.
  */
 
 public class CameraRulerView extends View {
@@ -64,6 +65,7 @@ public class CameraRulerView extends View {
     float scale = 1;
     float touchOffsetX;
     float touchOffsetY;
+    float[] points = new float[16];
     protected int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
 
     public CameraRulerView(Context c) {
@@ -188,52 +190,11 @@ public class CameraRulerView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        if (reference instanceof Circle) {
-            Circle refCircle = (Circle) reference;
-            canvas.drawCircle(refCircle.center.x, refCircle.center.y, refCircle.radius, referencePaint);
-        } else if (reference instanceof Line) {
-            Point[] ends = ((Line) reference).ends;
-            canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, referencePaint);
-        } else {
-            Point[] corners = ((Polygon) reference).corners;
-            int length = corners.length;
-            float[] points = new float[length * 4];
-            for (int i = 0; i < length; i++) {
-                points[i * 4] = corners[i].x;
-                points[i * 4 + 1] = corners[i].y;
-                points[i * 4 + 2] = corners[(i + 1) % length].x;
-                points[i * 4 + 3] = corners[(i + 1) % length].y;
-            }
-            if (((Polygon) reference).isSelfIntersecting()) {
-                canvas.drawLines(points, warningPaint);
-            } else {
-                canvas.drawLines(points, referencePaint);
-            }
-        }
+        drawShape(canvas, reference, referencePaint, referenceTouchPointPaint);
 
-        if (ctxStatus == CameraActivity.Status.REFERENCE) {
-            if (reference instanceof Circle) {
-                Circle refCircle = (Circle) reference;
-                drawTouchPoint(canvas, refCircle.center, referenceTouchPointPaint);
-                drawTouchPoint(canvas, refCircle.radiusTouchPoint, referenceTouchPointPaint);
-            } else if (reference instanceof Line) {
-                Point[] ends = ((Line) reference).ends;
-                drawTouchPoint(canvas, ends[0], referenceTouchPointPaint);
-                drawTouchPoint(canvas, ends[1], referenceTouchPointPaint);
-            } else {
-                Point[] corners = ((Polygon) reference).corners;
-                int length = corners.length;
-                for (int i = 0; i < length; i++) {
-                    drawTouchPoint(canvas, corners[i], referenceTouchPointPaint);
-                }
-            }
-        } else {
-            if (measure == null) {//draw nothing
-            } else if (measure instanceof Line) {
-                Point[] ends = ((Line) measure).ends;
-                canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
-                drawTouchPoint(canvas, ends[0], touchPointPaint);
-                drawTouchPoint(canvas, ends[1], touchPointPaint);
+        if (measure != null) {
+            drawShape(canvas, measure, paint, touchPointPaint);
+            if (measure instanceof Line) {
                 float length = ((Line) measure).getLength() * scale;
                 String unit = unitOfMeasurement;
                 if (unitOfMeasurement.equals("in")) {
@@ -262,59 +223,15 @@ public class CameraRulerView extends View {
                 }
                 length = Math.round(length * 100f) / 100f;
                 toolbar.setSubtitle(getResources().getString(R.string.length) + " " + length + unit);
-            } else if (measure instanceof Polygon) {
-                Point[] corners = ((Polygon) measure).corners;
-                int length = corners.length;
-                float[] points = new float[length * 4];
-                for (int i = 0; i < length; i++) {
-                    points[i * 4] = corners[i].x;
-                    points[i * 4 + 1] = corners[i].y;
-                    points[i * 4 + 2] = corners[(i + 1) % length].x;
-                    points[i * 4 + 3] = corners[(i + 1) % length].y;
-                }
-
-                if (((Polygon) measure).isSelfIntersecting()) {
-                    canvas.drawLines(points, warningPaint);
-                    toolbar.setSubtitle(R.string.self_intersection_warning);
-                } else {
-                    canvas.drawLines(points, paint);
-                    float area = ((Polygon) measure).getArea() * scale * scale;
-                    String unit = unitOfMeasurement;
-                    if (unitOfMeasurement.equals("in")) {
-                        area = (float) (area / Math.pow(25.4, 2));
-                        if (area >= 648) {
-                            area /= 1296;
-                            unit = "yd";
-                        } else if (area >= 72) {
-                            area /= 144;
-                            unit = "ft";
-                        } else if (area <= 0.000002) {
-                            area *= 1000000;
-                            unit = "th";
-                        }
-                    } else {
-                        if (area >= 500000) {
-                            area /= 1000000;
-                            unit = "m";
-                        } else if (area >= 50) {
-                            area /= 100;
-                            unit = "cm";
-                        }
-                    }
-                    area = Math.round(area * 100f) / 100f;
-                    toolbar.setSubtitle(getResources().getString(R.string.area) + " " + area + unit + "²");
-                }
-
-                for (int i = 0; i < length; i++) {
-                    drawTouchPoint(canvas, corners[i], touchPointPaint);
-                }
-            } else if (measure instanceof Circle) {
-                Circle circle = (Circle) measure;
-                canvas.drawCircle(circle.center.x, circle.center.y, circle.radius, paint);
-                drawTouchPoint(canvas, circle.center, touchPointPaint);
-                drawTouchPoint(canvas, circle.radiusTouchPoint, touchPointPaint);
-                float area = circle.getArea() * scale * scale;
+            } else {
+                float area = 0;
                 String unit = unitOfMeasurement;
+                if (measure instanceof Polygon) {
+                    area = ((Polygon) measure).getArea() * scale * scale;
+
+                } else if (measure instanceof Circle) {
+                    area = ((Circle) measure).getArea() * scale * scale;
+                }
                 if (unitOfMeasurement.equals("in")) {
                     area = (float) (area / Math.pow(25.4, 2));
                     if (area >= 648) {
@@ -337,7 +254,70 @@ public class CameraRulerView extends View {
                     }
                 }
                 area = Math.round(area * 100f) / 100f;
-                toolbar.setSubtitle(getResources().getString(R.string.area) + " " + area + unit + "²");
+                if (measure instanceof Polygon && ((Polygon) measure).isSelfIntersecting()) {
+                    toolbar.setSubtitle(R.string.self_intersection_warning);
+                } else {
+                    toolbar.setSubtitle(getResources().getString(R.string.area) + " " + area + unit + "²");
+                }
+
+            }
+        }
+    }
+
+    /**
+     * Draw a shape on a canvas in a certain pain. If the shape is active, draw touchpoints.
+     * @param canvas to draw on
+     * @param shape to draw
+     * @param paint paint for the shape
+     * @param tpPaint paint for the touchpoints of active shapes
+     */
+    private void drawShape(Canvas canvas, Shape shape, Paint paint, Paint tpPaint) {
+        if (shape instanceof Circle) {
+            Circle refCircle = (Circle) shape;
+            canvas.drawCircle(refCircle.center.x, refCircle.center.y, refCircle.radius, paint);
+        } else if (shape instanceof Line) {
+            Point[] ends = ((Line) shape).ends;
+            canvas.drawLine(ends[0].x, ends[0].y, ends[1].x, ends[1].y, paint);
+        } else {
+            Point[] corners = ((Polygon) shape).corners;
+            int length = corners.length;
+            points = new float[length * 4];
+            for (int i = 0; i < length; i++) {
+                points[i * 4] = corners[i].x;
+                points[i * 4 + 1] = corners[i].y;
+                points[i * 4 + 2] = corners[(i + 1) % length].x;
+                points[i * 4 + 3] = corners[(i + 1) % length].y;
+            }
+            if (((Polygon) shape).isSelfIntersecting()) {
+                canvas.drawLines(points, warningPaint);
+            } else {
+                canvas.drawLines(points, paint);
+            }
+        }
+        if (shape.active) {
+            drawTouchpoints(canvas, shape, tpPaint);
+        }
+    }
+
+    /**
+     * Draw all touchpoints of a shape.
+     * @param canvas to draw on
+     * @param shape to get touchpoints from
+     * @param paint touchpoint paint
+     */
+    private void drawTouchpoints(Canvas canvas, Shape shape, Paint paint) {
+        if (shape instanceof Circle) {
+            Circle refCircle = (Circle) shape;
+            drawTouchPoint(canvas, refCircle.center, paint);
+            drawTouchPoint(canvas, refCircle.radiusTouchPoint, paint);
+        } else if (shape instanceof Line) {
+            Point[] ends = ((Line) shape).ends;
+            drawTouchPoint(canvas, ends[0], paint);
+            drawTouchPoint(canvas, ends[1], paint);
+        } else {
+            Point[] corners = ((Polygon) shape).corners;
+            for (Point corner : corners) {
+                drawTouchPoint(canvas, corner, paint);
             }
         }
     }
@@ -346,8 +326,8 @@ public class CameraRulerView extends View {
      * Draws a circle representing a touchpoint of a shape.
      *
      * @param canvas to draw the touchpoint on.
-     * @param point the center of the touchpoint.
-     * @param p paint to fill the touchpoint with. Should be semitransparent.
+     * @param point  the center of the touchpoint.
+     * @param p      paint to fill the touchpoint with. Should be semitransparent.
      */
     private void drawTouchPoint(Canvas canvas, Point point, Paint p) {
         canvas.drawCircle(point.x, point.y, TOUCHPOINT_RADIUS, p);
@@ -356,7 +336,8 @@ public class CameraRulerView extends View {
     /**
      * Determines if a touch event was in an active touchpoint and returns the currently active
      * touchpoint's number according to the shape the touchpoint belongs to.
-     * @param event
+     *
+     * @param event touch event to be position checked
      * @return active touchpoint or -1 if click not in touchpoint
      */
     protected int clickInTouchpoint(MotionEvent event) {
@@ -458,6 +439,7 @@ public class CameraRulerView extends View {
 
     /**
      * Creates new tetragon positioned nicely in the center of the canvas.
+     *
      * @return New Tetragon object.
      */
     protected Tetragon newTetragon() {
@@ -469,11 +451,11 @@ public class CameraRulerView extends View {
                 new Point(centreX + offsetX, centreY - offsetY),
                 new Point(centreX + offsetX, centreY + offsetY),
                 new Point(centreX - offsetX, centreY + offsetY));
-//        this.invalidate();
     }
 
     /**
      * Creates new triangle positioned nicely in the center of the canvas.
+     *
      * @return New Triangle object.
      */
     protected Triangle newTriangle() {
@@ -484,11 +466,11 @@ public class CameraRulerView extends View {
         return new Triangle(new Point(centreX, centreY - offsetY),
                 new Point(centreX - offsetX, centreY + offsetY),
                 new Point(centreX + offsetX, centreY + offsetY));
-//        this.invalidate();
     }
 
     /**
      * Creates new circle positioned nicely in the center of the canvas.
+     *
      * @return New Circle object.
      */
     protected Circle newCircle() {
@@ -496,11 +478,11 @@ public class CameraRulerView extends View {
         float offsetX = centreX / 4;
         float centreY = this.getHeight() / 2;
         return new Circle(new Point(centreX, centreY), offsetX);
-//        this.invalidate();
     }
 
     /**
      * Creates new line positioned nicely in the center of the canvas.
+     *
      * @return New Line object.
      */
     protected Line newLine() {
@@ -510,46 +492,5 @@ public class CameraRulerView extends View {
         float offsetY = centreY / 4;
         return new Line(new Point(centreX - offsetX, centreY - offsetY),
                 new Point(centreX + offsetX, centreY + offsetY));
-//        this.invalidate();
     }
-
-//    /**
-//     * Sets the reference to a new tetragon.
-//     */
-//    protected void newReferenceTetragon() {
-//        float centreX = this.getWidth() / 2;
-//        float offsetX = centreX / 4;
-//        float centreY = this.getHeight() / 2;
-//        float offsetY = centreY / 4;
-//        reference = new Tetragon(new Point(centreX - offsetX, centreY - offsetY),
-//                new Point(centreX + offsetX, centreY - offsetY),
-//                new Point(centreX + offsetX, centreY + offsetY),
-//                new Point(centreX - offsetX, centreY + offsetY));
-//        this.invalidate();
-//    }
-//
-//    /**
-//     * Sets the reference to a new circle.
-//     */
-//    protected void newReferenceCircle() {
-//        float centreX = this.getWidth() / 2;
-//        float offsetX = centreX / 4;
-//        float centreY = this.getHeight() / 2;
-//        reference = new Circle(new Point(centreX, centreY), offsetX);
-//        this.invalidate();
-//    }
-//
-//    /**
-//     * Sets the reference to a new line.
-//     */
-//    protected void newReferenceLine() {
-//        float centreX = this.getWidth() / 2;
-//        float offsetX = centreX / 4;
-//        float centreY = this.getHeight() / 2;
-//        float offsetY = centreY / 4;
-//        reference = new Line(new Point(centreX - offsetX, centreY - offsetY),
-//                new Point(centreX + offsetX, centreY + offsetY));
-//        this.invalidate();
-//    }
-
 }

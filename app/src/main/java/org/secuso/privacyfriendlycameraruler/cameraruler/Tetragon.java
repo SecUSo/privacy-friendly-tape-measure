@@ -35,6 +35,7 @@ class Tetragon extends Polygon {
         corners[1] = p1;
         corners[2] = p2;
         corners[3] = p3;
+        active = true;
     }
 
     public float getArea() {

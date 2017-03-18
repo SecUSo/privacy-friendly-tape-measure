@@ -39,6 +39,7 @@ class Line extends Shape {
     Line(Point start, Point end) {
         ends[0] = start;
         ends[1] = end;
+        active = true;
     }
 
     public float getLength() {

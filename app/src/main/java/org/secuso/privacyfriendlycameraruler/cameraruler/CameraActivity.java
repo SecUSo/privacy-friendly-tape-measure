@@ -574,6 +574,7 @@ public class CameraActivity extends BaseActivity {
         confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
         drawView.measure = drawView.newLine();
+        drawView.reference.active = false;
         toolbar.setTitle(R.string.measurement_phase_title);
         toolbar.setSubtitle(referenceObjectName);
         drawView.invalidate();
@@ -620,6 +621,7 @@ public class CameraActivity extends BaseActivity {
             newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
             drawView.measure = null;
+            drawView.reference.active = true;
             drawView.invalidate();
             confirmButton.setVisibility(VISIBLE);
             toolbar.setTitle(R.string.reference_phase_title);

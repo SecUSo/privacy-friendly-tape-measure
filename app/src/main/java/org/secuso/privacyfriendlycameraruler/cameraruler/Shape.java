@@ -31,6 +31,8 @@ import android.graphics.Matrix;
 
 abstract class Shape {
 
+    boolean active;
+
     public abstract void move(float x, float y);
 
     public abstract void endMove();

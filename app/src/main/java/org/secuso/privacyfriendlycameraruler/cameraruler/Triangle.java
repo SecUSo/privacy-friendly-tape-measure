@@ -35,6 +35,7 @@ class Triangle extends Polygon {
         corners[0] = p0;
         corners[1] = p1;
         corners[2] = p2;
+        active = true;
     }
 
     public float getArea() {

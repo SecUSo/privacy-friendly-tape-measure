@@ -46,6 +46,7 @@ class Circle extends Shape {
     Circle(Point center, float radius) {
         this.center = center;
         this.radius = radius;
+        active = true;
         radiusTouchPoint = new Point(center.x + radius + TOUCHPOINT_RADIUS, center.y);
     }
 
