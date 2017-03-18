@@ -23,11 +23,9 @@ package org.secuso.privacyfriendlycameraruler.cameraruler;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.support.v7.widget.Toolbar;
@@ -67,6 +65,10 @@ public class CameraRulerView extends View {
     float touchOffsetX;
     float touchOffsetY;
     protected int activeTouchpoint = -1; // -1 when inactive, 0 for circle center, 1 for circle radius
+
+    public CameraRulerView(Context c) {
+        super(c);
+    }
 
     public CameraRulerView(Context context, Toolbar toolbar, CameraActivity parent) {
         super(context);
@@ -112,8 +114,7 @@ public class CameraRulerView extends View {
     }
 
     protected void executeTouch(MotionEvent event) {
-        if (event.getAction() == ACTION_DOWN) {
-        } else if (event.getAction() == ACTION_UP || event.getAction() == ACTION_CANCEL) {
+        if (event.getAction() == ACTION_UP || event.getAction() == ACTION_CANCEL) {
             activeTouchpoint = -1;
             touchOffsetX = 0;
             touchOffsetY = 0;
@@ -456,95 +457,99 @@ public class CameraRulerView extends View {
     }
 
     /**
-     * Sets the measure to a new tetragon.
+     * Creates new tetragon positioned nicely in the center of the canvas.
+     * @return New Tetragon object.
      */
-    protected void newTetragon() {
+    protected Tetragon newTetragon() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
         float centreY = this.getHeight() / 2;
         float offsetY = centreY / 4;
-        measure = new Tetragon(new Point(centreX - offsetX, centreY - offsetY),
+        return new Tetragon(new Point(centreX - offsetX, centreY - offsetY),
                 new Point(centreX + offsetX, centreY - offsetY),
                 new Point(centreX + offsetX, centreY + offsetY),
                 new Point(centreX - offsetX, centreY + offsetY));
-        this.invalidate();
+//        this.invalidate();
     }
 
     /**
-     * Sets the measure to a new triangle.
+     * Creates new triangle positioned nicely in the center of the canvas.
+     * @return New Triangle object.
      */
-    protected void newTriangle() {
+    protected Triangle newTriangle() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
         float centreY = this.getHeight() / 2;
         float offsetY = centreY / 4;
-        measure = new Triangle(new Point(centreX, centreY - offsetY),
+        return new Triangle(new Point(centreX, centreY - offsetY),
                 new Point(centreX - offsetX, centreY + offsetY),
                 new Point(centreX + offsetX, centreY + offsetY));
-        this.invalidate();
+//        this.invalidate();
     }
 
     /**
-     * Sets the measure to a new circle.
+     * Creates new circle positioned nicely in the center of the canvas.
+     * @return New Circle object.
      */
-    protected void newCircle() {
+    protected Circle newCircle() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
         float centreY = this.getHeight() / 2;
-        measure = new Circle(new Point(centreX, centreY), offsetX);
-        this.invalidate();
+        return new Circle(new Point(centreX, centreY), offsetX);
+//        this.invalidate();
     }
 
     /**
-     * Sets the measure to a new line.
+     * Creates new line positioned nicely in the center of the canvas.
+     * @return New Line object.
      */
-    protected void newLine() {
+    protected Line newLine() {
         float centreX = this.getWidth() / 2;
         float offsetX = centreX / 4;
         float centreY = this.getHeight() / 2;
         float offsetY = centreY / 4;
-        measure = new Line(new Point(centreX - offsetX, centreY - offsetY),
+        return new Line(new Point(centreX - offsetX, centreY - offsetY),
                 new Point(centreX + offsetX, centreY + offsetY));
-        this.invalidate();
+//        this.invalidate();
     }
 
-    /**
-     * Sets the reference to a new tetragon.
-     */
-    protected void newReferenceTetragon() {
-        float centreX = this.getWidth() / 2;
-        float offsetX = centreX / 4;
-        float centreY = this.getHeight() / 2;
-        float offsetY = centreY / 4;
-        reference = new Tetragon(new Point(centreX - offsetX, centreY - offsetY),
-                new Point(centreX + offsetX, centreY - offsetY),
-                new Point(centreX + offsetX, centreY + offsetY),
-                new Point(centreX - offsetX, centreY + offsetY));
-        this.invalidate();
-    }
-
-    /**
-     * Sets the reference to a new circle.
-     */
-    protected void newReferenceCircle() {
-        float centreX = this.getWidth() / 2;
-        float offsetX = centreX / 4;
-        float centreY = this.getHeight() / 2;
-        reference = new Circle(new Point(centreX, centreY), offsetX);
-        this.invalidate();
-    }
-
-    /**
-     * Sets the reference to a new line.
-     */
-    protected void newReferenceLine() {
-        float centreX = this.getWidth() / 2;
-        float offsetX = centreX / 4;
-        float centreY = this.getHeight() / 2;
-        float offsetY = centreY / 4;
-        reference = new Line(new Point(centreX - offsetX, centreY - offsetY),
-                new Point(centreX + offsetX, centreY + offsetY));
-        this.invalidate();
-    }
+//    /**
+//     * Sets the reference to a new tetragon.
+//     */
+//    protected void newReferenceTetragon() {
+//        float centreX = this.getWidth() / 2;
+//        float offsetX = centreX / 4;
+//        float centreY = this.getHeight() / 2;
+//        float offsetY = centreY / 4;
+//        reference = new Tetragon(new Point(centreX - offsetX, centreY - offsetY),
+//                new Point(centreX + offsetX, centreY - offsetY),
+//                new Point(centreX + offsetX, centreY + offsetY),
+//                new Point(centreX - offsetX, centreY + offsetY));
+//        this.invalidate();
+//    }
+//
+//    /**
+//     * Sets the reference to a new circle.
+//     */
+//    protected void newReferenceCircle() {
+//        float centreX = this.getWidth() / 2;
+//        float offsetX = centreX / 4;
+//        float centreY = this.getHeight() / 2;
+//        reference = new Circle(new Point(centreX, centreY), offsetX);
+//        this.invalidate();
+//    }
+//
+//    /**
+//     * Sets the reference to a new line.
+//     */
+//    protected void newReferenceLine() {
+//        float centreX = this.getWidth() / 2;
+//        float offsetX = centreX / 4;
+//        float centreY = this.getHeight() / 2;
+//        float offsetY = centreY / 4;
+//        reference = new Line(new Point(centreX - offsetX, centreY - offsetY),
+//                new Point(centreX + offsetX, centreY + offsetY));
+//        this.invalidate();
+//    }
 
 }

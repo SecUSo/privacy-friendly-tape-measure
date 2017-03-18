@@ -45,7 +45,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
-import android.util.FloatMath;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -97,10 +96,6 @@ public class CameraActivity extends BaseActivity {
     private ImageView pictureView;
     private CameraRulerView drawView;
     private FloatingActionsMenu newMeasureButton;
-    private FloatingActionButton newTetragonButton;
-    private FloatingActionButton newTriangleButton;
-    private FloatingActionButton newCircleButton;
-    private FloatingActionButton newLineButton;
     private FloatingActionButton confirmButton;
     private Menu refsMenu;
     private RelativeLayout modeChoiceLayout;
@@ -168,10 +163,10 @@ public class CameraActivity extends BaseActivity {
         galleryLabel = findViewById(R.id.gallery_button_label);
 
         newMeasureButton = (FloatingActionsMenu) findViewById(R.id.new_measure_fam);
-        newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
-        newTriangleButton = (FloatingActionButton) findViewById(R.id.new_triangle_fab);
-        newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
-        newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
+        FloatingActionButton newTetragonButton = (FloatingActionButton) findViewById(R.id.new_tetragon_fab);
+        FloatingActionButton newTriangleButton = (FloatingActionButton) findViewById(R.id.new_triangle_fab);
+        FloatingActionButton newCircleButton = (FloatingActionButton) findViewById(R.id.new_circle_fab);
+        FloatingActionButton newLineButton = (FloatingActionButton) findViewById(R.id.new_line_fab);
 
         drawView = new CameraRulerView(getBaseContext(), toolbar, this);
         drawView.ctxStatus = status;
@@ -228,7 +223,8 @@ public class CameraActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 newMeasureButton.collapseImmediately();
-                drawView.newTetragon();
+                drawView.measure = drawView.newTetragon();
+                drawView.invalidate();
             }
         });
 
@@ -236,7 +232,8 @@ public class CameraActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 newMeasureButton.collapseImmediately();
-                drawView.newTriangle();
+                drawView.measure = drawView.newTriangle();
+                drawView.invalidate();
             }
         });
 
@@ -244,7 +241,8 @@ public class CameraActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 newMeasureButton.collapseImmediately();
-                drawView.newCircle();
+                drawView.measure = drawView.newCircle();
+                drawView.invalidate();
             }
         });
 
@@ -252,7 +250,8 @@ public class CameraActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 newMeasureButton.collapseImmediately();
-                drawView.newLine();
+                drawView.measure = drawView.newLine();
+                drawView.invalidate();
             }
         });
 
@@ -400,11 +399,11 @@ public class CameraActivity extends BaseActivity {
         toolbar.setSubtitle(referenceObjectName);
 
         if (referenceObjectShape.equals("circle") && !(drawView.reference instanceof Circle)) {
-            drawView.newReferenceCircle();
+            drawView.reference = drawView.newCircle();
         } else if (referenceObjectShape.equals("tetragon") && !(drawView.reference instanceof Tetragon)) {
-            drawView.newReferenceTetragon();
+            drawView.reference = drawView.newTetragon();
         } else if (referenceObjectShape.equals("line") && !(drawView.reference instanceof Line)) {
-            drawView.newReferenceLine();
+            drawView.reference = drawView.newLine();
         }
 
         drawView.invalidate();
@@ -414,9 +413,9 @@ public class CameraActivity extends BaseActivity {
     /**
      * Receive response from external camera and gallery apps.
      *
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * @param requestCode code of the request sent to the activity
+     * @param resultCode result code returned by the activity
+     * @param data data returned by the activity
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -511,7 +510,9 @@ public class CameraActivity extends BaseActivity {
         Matrix matrix = new Matrix();
         if (height < width) {
             matrix.postRotate(90, 0f, 0f);
+            //noinspection SuspiciousNameCombination
             height = width;
+            //noinspection SuspiciousNameCombination
             width = picHeight;
             matrix.postTranslate(width, 0f);
         }
@@ -572,7 +573,7 @@ public class CameraActivity extends BaseActivity {
         drawView.ctxStatus = status;
         confirmButton.setVisibility(GONE);
         newMeasureButton.setVisibility(VISIBLE);
-        drawView.newLine();
+        drawView.measure = drawView.newLine();
         toolbar.setTitle(R.string.measurement_phase_title);
         toolbar.setSubtitle(referenceObjectName);
         drawView.invalidate();
@@ -618,7 +619,6 @@ public class CameraActivity extends BaseActivity {
             drawView.ctxStatus = status;
             newMeasureButton.collapseImmediately();
             newMeasureButton.setVisibility(GONE);
-//            output.setVisibility(GONE);
             drawView.measure = null;
             drawView.invalidate();
             confirmButton.setVisibility(VISIBLE);
