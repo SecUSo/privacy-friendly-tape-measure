@@ -13,8 +13,15 @@
         <Preference
             android:selectable="false"
             android:persistent="false"
-            android:title=""
-            android:summary="@string/help_camera_ruler"/>
+            android:summary="@string/help_camera_ruler1"/>
+        <Preference
+            android:selectable="false"
+            android:persistent="false"
+            android:summary="@string/help_camera_ruler2"/>
+        <Preference
+            android:selectable="false"
+            android:persistent="false"
+            android:summary="@string/help_camera_ruler3"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/help_category_options">

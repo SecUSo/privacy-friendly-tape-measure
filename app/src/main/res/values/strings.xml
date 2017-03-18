@@ -167,7 +167,9 @@
     <string name="pref_angles_summary">You can display an angle measure in degrees or radian instead of the ruler on the left side of the screen.</string>
     <string name="help_intro">The Privacy Friendly Tape Measure turns Your Phone into a ruler for quick on the fly measurements.</string>
     <string name="help_camera_ruler_heading">Camera Ruler</string>
-    <string name="help_camera_ruler">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane. Choose the desired reference object from the menu on the top right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
+    <string name="help_camera_ruler1">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
+    <string name="help_camera_ruler2">Choose the desired reference object from the menu on the top right, place the green shape over the reference object in the picture and press the button in the bottom right.</string>
+    <string name="help_camera_ruler3">Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
     <string name="help_permission">Permissions</string>
     <string name="help_permission_answer">Privacy Friendly Tape Measure does not require any permission for taking and measuring a picture from the camera. Taking a picture from the gallery requires the Read External Storage permission as most pictures are not stored in the internal memory.</string>
 

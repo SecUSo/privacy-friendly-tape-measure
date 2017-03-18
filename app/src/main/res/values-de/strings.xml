@@ -167,7 +167,9 @@
     <string name="pref_angles_summary">Statt dem Lineal können Sie einen Winkelmesser in Grad oder Radiant auf der linken Bildschirmseite anzeigen lassen.</string>
     <string name="help_intro">Privacy Friendly Maßband macht Ihr Smartphone zu einem Lineal um Messungen vorzunehmen, wenn Sie gerade kein Messgerät zur Hand haben.</string>
     <string name="help_camera_ruler_heading">Kameralineal</string>
-    <string name="help_camera_ruler">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird. Wählen Sie das passende Referenzobjekt aus dem Menü oben rechts, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf unten rechts. Nun können Sie die zu vermessende Figur mit dem Menü unten rechts auswählen. Sie können die Länge von Linien und Fläche von Kreisen, Dreiecken und Vierecken vermessen.</string>
+    <string name="help_camera_ruler1">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird.</string>
+    <string name="help_camera_ruler2">Wählen Sie das passende Referenzobjekt aus dem Menü oben rechts, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf unten rechts. </string>
+    <string name="help_camera_ruler3">Nun können Sie die zu vermessende Figur mit dem Menü unten rechts auswählen. Sie können die Länge von Linien und Fläche von Kreisen, Dreiecken und Vierecken vermessen.</string>
     <string name="help_permission">Berechtigungen</string>
     <string name="help_permission_answer">Privacy Friendly Maßband benötigt keine Berechtigungen um Bilder direkt von der Kamera zu vermessen. Um Bilder aus der Galerie zu vermessen benötigt die App die Read External Storage Berechtigung, da die meisten Bilder nicht im internen Smartphonespeicher liegen.</string>
 
