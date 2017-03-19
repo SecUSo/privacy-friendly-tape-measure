@@ -7,7 +7,7 @@
         <item>@string/ruler_radian</item>
         <item>@string/ruler_off</item>
     </string-array>
-    <string-array name="pref_leftruler_evs">
+    <string-array name="pref_leftruler_evs" translatable="false">
         <item>cm</item>
         <item>inch</item>
         <item>degree</item>
@@ -19,7 +19,7 @@
         <item>@string/ruler_inch</item>
         <item>@string/ruler_off</item>
     </string-array>
-    <string-array name="pref_rightruler_evs">
+    <string-array name="pref_rightruler_evs" translatable="false">
         <item>cm</item>
         <item>inch</item>
         <item>off</item>
@@ -28,7 +28,7 @@
         <item>@string/units_si</item>
         <item>@string/units_imperial</item>
     </string-array>
-    <string-array name="pref_uom_evs">
+    <string-array name="pref_uom_evs" translatable="false">
         <item>mm</item>
         <item>in</item>
     </string-array>
@@ -48,7 +48,7 @@
         <item>@string/category_iso216_paper</item>
         <item>@string/category_us_paper</item>
     </string-array>
-    <string-array name="pref_type_selection_evs">
+    <string-array name="pref_type_selection_evs" translatable="false">
         <item>us-coins</item>
         <item>us-notes</item>
         <item>eu-coins</item>

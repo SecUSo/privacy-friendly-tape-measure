@@ -194,7 +194,7 @@
     <string name="pref_leftruler_default" translatable="false">cm</string>
     <string name="pref_rightruler">Right Ruler</string>
     <string name="pref_rightruler_verbose">What should be displayed on right ruler?</string>
-    <string name="pref_rightruler_default">inch</string>
+    <string name="pref_rightruler_default" translatable="false">inch</string>
     <string name="ruler_cm">Ruler (cm)</string>
     <string name="ruler_inch">Ruler (inch)</string>
     <string name="ruler_degree">Angle Measure (degree)</string>

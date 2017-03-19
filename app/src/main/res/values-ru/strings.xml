@@ -26,8 +26,8 @@
     <string name="from_gallery">Фото из галереи</string>
     <string name="reference_self_intersecting">Эталон не должен пересекать сам себя.</string>
     <string name="camera_ruler">Камера-линейка</string>
-    <string name="camera_crash">Приложенья камера рухнуло.</string>
-    <string name="gallery_crash">Приложенья галерея рухнуло.</string>
+    <string name="camera_crash">Программа камера оборвалась.</string>
+    <string name="gallery_crash">Программа галерея оборвалась.</string>
     <string name="reference_phase_title">Поместите эталон</string>
     <string name="measurement_phase_title">Измерить</string>
     <string name="new_tetragon">Новый четырёхугольник</string>
