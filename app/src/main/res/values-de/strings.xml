@@ -206,7 +206,7 @@
     <string name="pref_type_selection_verbose">Welche Referenzobjekttypen sollen benutzt werden?</string>
     <string name="pref_type_selection_summary">Blenden Sie die Referenzobjekttypen aus, die Sie nicht benutzen wollen.</string>
     <string name="pref_edit_user_def_refs">Nutzerdefinierte Referenzobjekte anpassen</string>
-    
+
     <!-- ###OBJECT TYPES### -->
     <string name="category_us_coins">US-Dollar Münzen</string>
     <string name="category_us_notes">US-Dollar Banknoten</string>
