@@ -195,6 +195,7 @@
     <string name="ruler_degree">Winkelmaß (Grad)</string>
     <string name="ruler_radian">Winkelmaß (Radiant)</string>
     <string name="ruler_off">Nichts</string>
+
     <!-- ###CAMERA RULER### -->
     <string name="camera_ruler_settings">Kameralineal Einstellungen</string>
     <string name="pref_units_of_measurement">Maßeinheiten</string>
@@ -205,6 +206,7 @@
     <string name="pref_type_selection_verbose">Welche Referenzobjekttypen sollen benutzt werden?</string>
     <string name="pref_type_selection_summary">Blenden Sie die Referenzobjekttypen aus, die Sie nicht benutzen wollen.</string>
     <string name="pref_edit_user_def_refs">Nutzerdefinierte Referenzobjekte anpassen</string>
+    
     <!-- ###OBJECT TYPES### -->
     <string name="category_us_coins">US-Dollar Münzen</string>
     <string name="category_us_notes">US-Dollar Banknoten</string>
@@ -248,13 +250,13 @@
 
 
     <!-- ### TUTORIAL SCREEN ### -->
-    <string name="slide1_heading">Wilkommen</string>
+    <string name="slide1_heading">Willkommen</string>
     <string name="slide1_text">Mit Privacy Friendly Maßband können Sie Objekte ausmessen, die größer als ihr Smartphone sind. Dazu müssen Sie ein Foto aufnehmen, auf dem das Objekt zusammen mit einem Gegenstand bekannter Größe (Referenzobjekt), wie z.B. einer Münze, zu sehen ist.</string>
 
-    <string name="slide2_heading">Wie man misst</string>
+    <string name="slide2_heading">Messen</string>
     <string name="slide2_text">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird.</string>
 
-    <string name="slide3_heading">Wie man misst</string>
+    <string name="slide3_heading">Messen</string>
     <string name="slide3_text">Wählen Sie das passende Referenzobjekt aus dem Menü in der oberen rechten Ecke, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit den Knopf in der unteren rechten Ecke. Nun können Sie die zu messende Figur im Menü in der unteren rechten Ecke wählen. Sie können die Länge von Linien und Flächen von Dreiecken, Vierecken und Kreisen messen.</string>
 
     <string name="next">Weiter</string>
