@@ -1,6 +1,6 @@
 ## Privacy Friendly Tape Measure
 
-Privacy Friendly Tape Measure turns the phone screen into a ruler for quick measurments on the go. It also allows to measure size of things in a 2D scene provided a common reference object like a coin is also present.
+Privacy Friendly Tape Measure turns the phone screen into a ruler for quick measurements on the go. It also allows to measure size of things in a 2D scene provided a common reference object like a coin is also present.
 
 This app is optimized regarding the user's privacy. It doesn't use any tracking mechanisms, neither it displays any advertisement. This app belongs to the group of Privacy Friendly Apps developed by the Technische Universität Darmstadt. 
 
@@ -10,7 +10,7 @@ This application has been developed to provide a privacy friendly measuring appl
 
 ## Download and more Information
 
-Further development requires Android Studio, we recommend to use at least version 2.1.2
+Further development requires Android Studio, we recommend to use at least version 2.3.1
  
 ### API Reference
 
@@ -35,7 +35,7 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-The icons used in the nagivation drawer are licensed under the [CC BY 2.5] (http://creativecommons.org/licenses/by/2.5/). In addition to them the app uses icons from [Google Design Material Icons](https://design.google.com/icons/index.html) licensed under Apache License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the header in the navigation drawer) copyright [Technische Universtität Darmstadt] (www.tu-darmstadt.de) (2016).
+The icons used in the nagivation drawer are licensed under the [CC BY 2.5](http://creativecommons.org/licenses/by/2.5/). In addition to them the app uses icons from [Google Design Material Icons](https://design.google.com/icons/index.html) licensed under Apache License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the header in the navigation drawer) copyright [Technische Universtität Darmstadt](www.tu-darmstadt.de) (2016).
 
 ## Contributors
 
