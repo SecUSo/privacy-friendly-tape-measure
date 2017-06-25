@@ -42,8 +42,10 @@ The icons used in the nagivation drawer are licensed under the [CC BY 2.5](http:
 App-Icon: <br />
 Markus Hau<br />
 
-Github-Users: <br />
-rkolosovs
+Github Users: <br />
+rkolosovs<br />
+yonjuni<br />
+Kamuno
 
 
 
