@@ -62,6 +62,9 @@ import static java.util.Locale.*;
 
 public class TutorialActivity extends AppCompatActivity {
 
+    private static final String TAG = TutorialActivity.class.getSimpleName();
+    public static final String ACTION_SHOW_ANYWAYS = TAG + ".ACTION_SHOW_ANYWAYS";
+
     private ViewPager viewPager;
     private LinearLayout dotsLayout;
     private int[] layouts;
@@ -72,12 +75,13 @@ public class TutorialActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Intent intent = getIntent();
+        String action = intent.getAction();
+
+
         // Checking for first time launch - before calling setContentView()
         prefManager = new PrefManager(this);
-        if (!prefManager.isFirstTimeLaunch()) {
-            launchHomeScreen();
-            finish();
-        } else {
+        if (prefManager.isFirstTimeLaunch()) {
             Runnable initPrefs = new Runnable() {
                 @Override
                 public void run() {
@@ -99,6 +103,9 @@ public class TutorialActivity extends AppCompatActivity {
             new Thread(initPrefs).run();
             new Thread(fillDB).run();
             new Thread(smartPrefSetup).run();
+        } else if(!ACTION_SHOW_ANYWAYS.equals(action)) {
+            launchHomeScreen();
+            finish();
         }
 
         // Making notification bar transparent
@@ -179,7 +186,8 @@ public class TutorialActivity extends AppCompatActivity {
     }
 
     private void launchHomeScreen() {
-        startActivity(new Intent(TutorialActivity.this, MainActivity.class));
+        Intent intent = new Intent(TutorialActivity.this, MainActivity.class);
+        startActivity(intent);
         finish();
     }
 

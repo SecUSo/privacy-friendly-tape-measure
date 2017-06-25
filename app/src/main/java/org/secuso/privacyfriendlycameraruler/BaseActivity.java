@@ -162,10 +162,10 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
                 finish();
                 break;
             case R.id.nav_tutorial:
-                PrefManager prefManager = new PrefManager(this);
                 intent = new Intent(this, TutorialActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.setAction(TutorialActivity.ACTION_SHOW_ANYWAYS);
                 startActivity(intent);
+                finish();
                 break;
             case R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);
