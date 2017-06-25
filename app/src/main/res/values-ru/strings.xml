@@ -9,6 +9,7 @@
     <string name="action_help">Помощь</string>
     <string name="action_about">Информация</string>
     <string name="action_settings">Настройки</string>
+    <string name="action_tutorial">руководство</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

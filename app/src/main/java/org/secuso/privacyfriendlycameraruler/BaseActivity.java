@@ -40,6 +40,7 @@ import android.view.View;
 import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
 import org.secuso.privacyfriendlycameraruler.tutorial.PrefManager;
+import org.secuso.privacyfriendlycameraruler.tutorial.TutorialActivity;
 
 /**
  * Base class for all main activities of the app with the navigation drawer and toolbar.
@@ -159,6 +160,12 @@ public abstract class BaseActivity extends AppCompatActivity implements OnNaviga
                 intent = new Intent(this, CameraActivity.class);
                 startActivity(intent);
                 finish();
+                break;
+            case R.id.nav_tutorial:
+                PrefManager prefManager = new PrefManager(this);
+                intent = new Intent(this, TutorialActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
                 break;
             case R.id.nav_about:
                 intent = new Intent(this, AboutActivity.class);

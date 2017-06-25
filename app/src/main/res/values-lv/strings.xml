@@ -9,6 +9,7 @@
     <string name="action_help">Palīdzība</string>
     <string name="action_about">Informācija</string>
     <string name="action_settings">Uzstatījumi</string>
+    <string name="action_tutorial">Apmācība</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
