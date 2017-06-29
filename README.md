@@ -1,4 +1,4 @@
-## Privacy Friendly Tape Measure
+# Privacy Friendly Tape Measure
 
 Privacy Friendly Tape Measure turns the phone screen into a ruler for quick measurements on the go. It also allows to measure size of things in a 2D scene provided a common reference object like a coin is also present.
 
