@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.1"
     defaultConfig {
         applicationId 'org.secuso.privacyfriendlytapemeasure'
-        minSdkVersion 21
+        minSdkVersion 14        // android-4.0
         targetSdkVersion 25
         versionCode 1
         versionName '1.0'
