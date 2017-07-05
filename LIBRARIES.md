@@ -1,1 +1,0 @@
-No external Libraries used.
