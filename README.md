@@ -1,5 +1,7 @@
 # Privacy Friendly Tape Measure
 
+<a href="https://play.google.com/store/apps/details?id=org.secuso.privacyfriendlytapemeasure"><img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" height="60"></a>
+
 Privacy Friendly Tape Measure turns the phone screen into a ruler for quick measurements on the go. It also allows to measure size of things in a 2D scene provided a common reference object like a coin is also present.
 
 This app is optimized regarding the user's privacy. It doesn't use any tracking mechanisms, neither it displays any advertisement. This app belongs to the group of Privacy Friendly Apps developed by the Technische Universität Darmstadt. 
@@ -8,9 +10,9 @@ This app is optimized regarding the user's privacy. It doesn't use any tracking 
 
 This application has been developed to provide a privacy friendly measuring application for when you need to quickly measure something but do not have a measuring tape handy. Privacy Friendly Apps are group of Android applications which are optimized regarding privacy. Further information can be found on secuso.org/pfa
 
-## Download and more Information
+## Building
 
-Further development requires Android Studio, we recommend to use at least version 2.3.1
+Further development requires Android Studio, we recommend to use at least version 3.0.1
  
 ### API Reference
 
