@@ -261,7 +261,7 @@
     <string name="slide3_text">Wählen Sie das passende Referenzobjekt aus dem Menü in der oberen rechten Ecke, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit den Knopf in der unteren rechten Ecke. Nun können Sie die zu messende Figur im Menü in der unteren rechten Ecke wählen. Sie können die Länge von Linien und Flächen von Dreiecken, Vierecken und Kreisen messen.</string>
 
     <string name="next">Weiter</string>
-    <string name="skip">Überspringen</string>
+    <string name="skip">Skip</string>
     <string name="okay">Okay</string>
     <string name="view_help">Hilfe Anzeigen</string>
     <string name="help_uom">Maßeinheiten</string>
