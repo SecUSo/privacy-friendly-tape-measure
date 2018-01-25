@@ -46,4 +46,8 @@ Thumbs.db
 *.docx
 *.odt
 
+# APKs, release files
+app/release/*
+*.apk
+
 
