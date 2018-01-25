@@ -5,13 +5,13 @@
         android:id="@+id/nav_group_main"
         android:checkableBehavior="all">
         <item
-            android:id="@+id/nav_ruler"
-            android:icon="@drawable/ic_menu_ruler"
-            android:title="@string/action_ruler" />
-        <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/action_camera" />
+        <item
+            android:id="@+id/nav_ruler"
+            android:icon="@drawable/ic_menu_ruler"
+            android:title="@string/action_ruler" />
         <item
             android:id="@+id/nav_tutorial"
             android:icon="@drawable/ic_menu_tutorial"
