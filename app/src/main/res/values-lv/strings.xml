@@ -175,7 +175,7 @@
 
     <!--###ABOUT###-->
     <string name="about">Informācija</string>
-    <string name="version_number">Versija 1.0</string>
+    <string name="version_number">Versija v%s</string>
     <string name="about_author">"Autori: "</string>
     <string name="about_author_contributors">un līdzstrādnieki.</string>
     <string name="about_affiliation">Sadarbībā ar</string>
