@@ -6,6 +6,13 @@ Privacy Friendly Tape Measure turns the phone screen into a ruler for quick meas
 
 This app is optimized regarding the user's privacy. It doesn't use any tracking mechanisms, neither it displays any advertisement. This app belongs to the group of Privacy Friendly Apps developed by the Technische Universität Darmstadt. 
 
+[<img src="https://f-droid.org/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/org.secuso.privacyfriendlytapemeasure/)
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+     alt="Get it on Google Play"
+     height="80">](https://play.google.com/store/apps/details?id=org.secuso.privacyfriendlytapemeasure)
+
 ## Motivation
 
 This application has been developed to provide a privacy friendly measuring application for when you need to quickly measure something but do not have a measuring tape handy. Privacy Friendly Apps are group of Android applications which are optimized regarding privacy. Further information can be found on secuso.org/pfa
@@ -48,7 +55,3 @@ Github Users: <br />
 rkolosovs<br />
 yonjuni<br />
 Kamuno
-
-
-
-
