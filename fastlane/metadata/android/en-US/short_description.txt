@@ -1,0 +1,1 @@
+Privacy Friendly Tape Measure can measure the size of objects in pictures based on objects of known sizes (e.g. coins) in the same picture. Just find a coin or other reference object of a known size, put it next to the item you want measured and take a picture.
