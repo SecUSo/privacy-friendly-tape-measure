@@ -31,8 +31,8 @@
     <string name="gallery_crash">Galerie App abgestürzt.</string>
     <string name="reference_phase_title">Referenzobjekt plazieren</string>
     <string name="measurement_phase_title">Messen</string>
-    <string name="new_tetragon">Neuer Viereck</string>
-    <string name="new_triangle">Neuer Dreieck</string>
+    <string name="new_tetragon">Neues Viereck</string>
+    <string name="new_triangle">Neues Dreieck</string>
     <string name="new_circle">Neuer Kreis</string>
     <string name="new_line">Neue Linie</string>
     <string name="confirm_reference">Referenzobjekt bestätigen</string>
