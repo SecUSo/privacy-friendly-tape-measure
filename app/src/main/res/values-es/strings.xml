@@ -5,7 +5,7 @@
 
     <!-- ###DRAWER###-->
     <string name="action_ruler">Regla en pantalla</string>
-    <string name="action_camera">Regla</string>
+    <string name="action_camera">Regla en cámara</string>
     <string name="action_help">Ayuda</string>
     <string name="action_about">Acerca de</string>
     <string name="action_settings">Ajustes</string>
@@ -18,7 +18,7 @@
     <!-- ###RULER### -->
     <string name="screen_ruler">Regla en pantalla</string>
     <string name="action_calibration">Calibración</string>
-    <string name="action_reset_calibration"Reiniciar calibración</string>
+    <string name="action_reset_calibration">Reiniciar calibración</string>
 
 
     <!-- ###CAMERA### -->
@@ -55,7 +55,7 @@
     <string name="five_euro_cent_coin">Moneda de 5 Euro-Cent</string>
     <string name="ten_euro_cent_coin">Moneda de 10 Euro-Cent</string>
     <string name="twenty_euro_cent_coin">Moneda de 20 Euro-Cent</string>
-    <string name="fifty_euro_cent_coin">Moneda de50 Euro-Cent</string>
+    <string name="fifty_euro_cent_coin">Moneda de 50 Euro-Cent</string>
     <string name="one_euro_coin">Moneda de 1€</string>
     <string name="two_euro_coin">Moneda de 2€</string>
     <!-- ###BRITISH POUND COINS### -->
@@ -89,7 +89,7 @@
     <string name="ten_krona_coin">Moneda de 10 coronas sueca</string>
     <!-- ###SWEDISH KRONA NOTES### -->
     <string name="twenty_krona_note">Billete de 20 coronas sueca</string>
-    <string name="fifty_krona_note"Billete de 50 coronas sueca</string>
+    <string name="fifty_krona_note">Billete de 50 coronas sueca</string>
     <string name="hundred_krona_note">Billete de 100 coronas sueca</string>
     <string name="two_hundred_krona_note">Billete de 200 coronas sueca</string>
     <string name="five_hundred_krona_note">Billete de 500 coronas sueca</string>
@@ -120,14 +120,14 @@
     <string name="five_thousand_yen_note">Billete de 5000¥</string>
     <string name="ten_thousand_yen_note">Billete de 10 000¥</string>
     <!-- ###US PAPER### -->
-    <string name="letter_paper">Papel carta</string>
-    <string name="legal_paper">Papel legal</string>
-    <string name="tabloid_paper">Papel tabloide</string>
-    <string name="ledger_paper">Papel contable</string>
-    <string name="junior_legal_paper">Pepel Legal Junior</string>
-    <string name="memo_paper">Papel Memo</string>
-    <string name="government_letter_paper">Papel Carta Gubernamental</string>
-    <string name="government_legal_paper">Papel Carta Gubernamental</string>
+    <string name="letter_paper">Papel carta ("Letter")</string>
+    <string name="legal_paper">Papel "Legal"</string>
+    <string name="tabloid_paper">Papel "Tabloid"</string>
+    <string name="ledger_paper">Papel "Ledger"</string>
+    <string name="junior_legal_paper">Papel "Legal Junior"</string>
+    <string name="memo_paper">Papel "Memo"</string>
+    <string name="government_letter_paper">Papel "Government Letter"</string>
+    <string name="government_legal_paper">Papel "Government Legal"</string>
     <!-- ###ISO 216 PAPER (A-SERIES)### -->
     <string name="a0_paper">Papel A0</string>
     <string name="a1_paper">Papel A1</string>
@@ -158,7 +158,7 @@
     <string name="help_disclaimer">Descargo</string>
     <string name="help_category_calibration">Calibración</string>
     <string name="pref_calibration_summary">Con la opción del menú \"Calibrar\" puede ajustar la medición manualmente.</string>
-    <string name="pref_disclaimer_summary">Esta aplicación no es un medidor calibrado profesionalmente. La Universidad de Tecnología de Darmstadt no se responsabiliza por los daños ocasionados del uso de esta aplicación.</string>
+    <string name="pref_disclaimer_summary">Esta aplicación no es un medidor calibrado profesionalmente. SECUSO no se responsabiliza por los daños ocasionados del uso de esta aplicación.</string>
     <string name="help_privacy_heading">Aviso sobre la privacidad</string>
     <string name="help_category_options">Ajustes</string>
     <string name="help_units">Regla izquierda y derecha</string>
@@ -179,7 +179,7 @@
     <string name="about_author">"Autor: "</string>
     <string name="about_author_contributors">y contribuidores.</string>
     <string name="about_affiliation">En asociación con</string>
-    <string name="privacy_friendly">Esta aplicación pertenece al grupo Privacy Friendly Apps desarrolladas por la Universidad Técnica de Darmstadt. Código fuente bajo licencia GPLv3. Autores de las imágenes TU Darmstadt y Google Inc.</string>
+    <string name="privacy_friendly">Esta aplicación pertenece al grupo Privacy Friendly Apps desarrolladas por el grupo SECUSO del Instituto de Tecnología de Karlsruhe. Código fuente bajo licencia GPLv3. Autores de las imágenes TU Darmstadt y Google Inc.</string>
     <string name="more_info">Más información puedes encontrar:</string>
 
 
@@ -202,8 +202,8 @@
     <string name="pref_units_of_measurement">Unidades de medida</string>
     <string name="pref_uom_verbose">¿Qué unidades de medida aplicar en la regla de pantalla?</string>
     <string name="units_si">Unidades SI</string>
-    <string name="units_imperial">imperial anglosajona</string>
-    <string name="pref_type_selection">Selección del tipo de referencia</string>
+    <string name="units_imperial">unidades imperiales</string>
+    <string name="pref_type_selection">Selección del objeto de referencia</string>
     <string name="pref_type_selection_verbose">¿Qué tipos de objetos de referencia usar?</string>
     <string name="pref_type_selection_summary">Deshabilita las categorías de objetos de referencia que no quieras usar.</string>
     <string name="pref_edit_user_def_refs">Editar referencias definidas por el usuario</string>
