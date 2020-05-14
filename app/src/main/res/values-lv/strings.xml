@@ -158,7 +158,7 @@
     <string name="help_disclaimer">Brīdinājums</string>
     <string name="help_category_calibration">Kalibrācija</string>
     <string name="pref_calibration_summary">Izvēloties \"Kalibrēt\" opciju izvēlnē Jūs varat manuāli kalibrēt ekrāna lineālu.</string>
-    <string name="pref_disclaimer_summary">Šī lietotne nav profesionāla mērierīce. Technische Universität Darmstadt neatbild par zaudējumiem, kas radīti izmantojot šo lietotni.</string>
+    <string name="pref_disclaimer_summary">Šī lietotne nav profesionāla mērierīce. SECUSO neatbild par zaudējumiem, kas radīti izmantojot šo lietotni.</string>
     <string name="help_privacy_heading">Privātsfēra</string>
     <string name="help_category_options">Iestatījumi</string>
     <string name="help_units">Labais un kreisais lineāls</string>
@@ -179,7 +179,7 @@
     <string name="about_author">"Autori: "</string>
     <string name="about_author_contributors">un līdzstrādnieki.</string>
     <string name="about_affiliation">Sadarbībā ar</string>
-    <string name="privacy_friendly">Šī lietotne ir no Technische Universität Darmstadt izstrādātā Privacy Friendly Apps lietotņu kataloga. Bilžu autortiesības pieder TU Darmstadt un Google Inc.</string>
+    <string name="privacy_friendly">Šī lietotne ir SECUSO izstrādātā Privacy Friendly Apps lietotņu kataloga. Bilžu autortiesības pieder SECUSO un Google Inc.</string>
     <string name="more_info">Papildus informācija (angļu valodā):</string>
 
 
