@@ -158,7 +158,7 @@
     <string name="help_disclaimer">Disclaimer</string>
     <string name="help_category_calibration">Calibration</string>
     <string name="pref_calibration_summary">You can manually calibrate the ruler via the "calibrate" option in the action menu.</string>
-    <string name="pref_disclaimer_summary">This app is not a professionally calibrated measuring device. Technische Universität Darmstadt is not liable for any damage caused by use of this app.</string>
+    <string name="pref_disclaimer_summary">This app is not a professionally calibrated measuring device. SECUSO is not liable for any damage caused by use of this app.</string>
     <string name="help_privacy_heading">Privacy Info</string>
     <string name="help_category_options">Settings</string>
     <string name="help_units">Left and Right Ruler</string>
@@ -180,7 +180,7 @@
     <string name="about_author_names" translatable="false">Roberts Kolosovs</string>
     <string name="about_author_contributors">and contributors.</string>
     <string name="about_affiliation">In affiliation with</string>
-    <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by Technische Universität Darmstadt. Sourcecode licensed under GPLv3. Images copyright TU Darmstadt and Google Inc.</string>
+    <string name="privacy_friendly">This application belongs to the group of Privacy Friendly Apps developed by the research group SECUSO. Sourcecode licensed under GPLv3. Images copyright SECUSO and Google Inc.</string>
     <string name="more_info">More information can be found on:</string>
     <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
