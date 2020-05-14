@@ -10,4 +10,4 @@ Privacy Friendly Maßband benutzt nur eine Berechtigung um den externen Speicher
 2. Keine Werbung
 Viele andere kostenlose Apps im Google Play Store überfluten Sie mit irritierenden Werbebannern, welche zudem die Batterie schneller verbrauchen.
 
-Die App gehört zur Gruppe der Privacy Friendly Apps, die von der Forschungsgruppe SECUSO der Technischen Universität Darmstadt entwickelt werden. Mehr Informationen unter: https://secuso.org/pfa
+Die App gehört zur Gruppe der Privacy Friendly Apps, die von der Forschungsgruppe SECUSO Karlruher Institut für Technologie entwickelt werden. Mehr Informationen unter: https://secuso.org/pfa
