@@ -11,14 +11,14 @@
     <string name="action_settings">Einstellungen</string>
     <string name="action_tutorial">Tutorial</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Navigationsleiste öffnen</string>
+    <string name="navigation_drawer_close">Navigationsleiste schließen</string>
 
 
     <!-- ###RULER### -->
     <string name="screen_ruler">Bildschirmlineal</string>
     <string name="action_calibration">Kalibrieren</string>
-    <string name="action_reset_calibration">Kalibrierung Zurücksetzen</string>
+    <string name="action_reset_calibration">Kalibrierung zurücksetzen</string>
 
 
     <!-- ###CAMERA### -->
@@ -29,7 +29,7 @@
     <string name="camera_ruler">Kameralineal</string>
     <string name="camera_crash">Kamera App abgestürzt.</string>
     <string name="gallery_crash">Galerie App abgestürzt.</string>
-    <string name="reference_phase_title">Referenzobjekt plazieren</string>
+    <string name="reference_phase_title">Referenzobjekt platzieren</string>
     <string name="measurement_phase_title">Messen</string>
     <string name="new_tetragon">Neues Viereck</string>
     <string name="new_triangle">Neues Dreieck</string>
@@ -145,7 +145,7 @@
     <string name="calibrationMM">mm</string>
     <string name="calibrationInch">Zoll</string>
     <string name="calibrateConfirmButton">Kalibirieren</string>
-    <string name="calibrationWarning">Manuelle Kalibrierung eliminiert die rundungsbedingten Ungenauigkeiten nicht. Benutzen Sie Diese App nicht wie ein professionell geeichtes Messgerät.</string>
+    <string name="calibrationWarning">Manuelle Kalibrierung eliminiert die rundungsbedingten Ungenauigkeiten nicht. Benutzen Sie diese App nicht wie ein professionell geeichtes Messgerät.</string>
     <string name="calibrate">Kalibrieren</string>
     <string name="noInput">Geben Sie bitte die Länge der Linie ein.</string>
     <string name="calibrationDone">Kalibrierung erfolgt.</string>
@@ -154,24 +154,24 @@
     <!--###HELP###-->
     <string name="help">Hilfe</string>
     <string name="help_overview_heading">Übersicht</string>
-    <string name="help_calibration">Manualle Kalibrierung</string>
-    <string name="help_disclaimer">Disclaimer</string>
+    <string name="help_calibration">Manuelle Kalibrierung</string>
+    <string name="help_disclaimer">Haftungsausschluss</string>
     <string name="help_category_calibration">Kalibrierung</string>
     <string name="pref_calibration_summary">Mit der \"Kalibrieren\" Option im Menü können Sie das Lineal manuell kalibrieren.</string>
-    <string name="pref_disclaimer_summary">Diese App ist kein professionell geeichtes Messgerät. Technische Universität Darmstadt haftet nicht für Schäden, die durch Nutzung dieser App verursacht wurden.</string>
+    <string name="pref_disclaimer_summary">Diese App ist kein professionell geeichtes Messgerät. SECUSO haftet nicht für Schäden, die durch Nutzung dieser App verursacht wurden.</string>
     <string name="help_privacy_heading">Hinweise zur Privatsphäre</string>
     <string name="help_category_options">Einstellungen</string>
-    <string name="help_units">Linker und Rechter Lineal</string>
+    <string name="help_units">Linkes und rechtes Lineal</string>
     <string name="pref_units_summary">Sie können jeweils ein Lineal in cm oder Zoll (oder nichts) auf der linken und rechten Bildschirmseite anzeigen lassen. Beide Lineale können separat in den Einstellungen gesetzt werden.</string>
     <string name="help_angles">Winkelmesser</string>
     <string name="pref_angles_summary">Statt dem Lineal können Sie einen Winkelmesser in Grad oder Radiant auf der linken Bildschirmseite anzeigen lassen.</string>
     <string name="help_intro">Privacy Friendly Maßband macht Ihr Smartphone zu einem Lineal um Messungen vorzunehmen, wenn Sie gerade kein Messgerät zur Hand haben.</string>
     <string name="help_camera_ruler_heading">Kameralineal</string>
     <string name="help_camera_ruler1">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird.</string>
-    <string name="help_camera_ruler2">Wählen Sie das passende Referenzobjekt aus dem Menü oben rechts, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf unten rechts. </string>
+    <string name="help_camera_ruler2">Wählen Sie das passende Referenzobjekt aus dem Menü oben rechts, platzieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf unten rechts. </string>
     <string name="help_camera_ruler3">Nun können Sie die zu vermessende Figur mit dem Menü unten rechts auswählen. Sie können die Länge von Linien und Fläche von Kreisen, Dreiecken und Vierecken vermessen.</string>
     <string name="help_permission">Berechtigungen</string>
-    <string name="help_permission_answer">Privacy Friendly Maßband benötigt keine Berechtigungen um Bilder direkt von der Kamera zu vermessen. Um Bilder aus der Galerie zu vermessen benötigt die App die Read External Storage Berechtigung, da die meisten Bilder nicht im internen Smartphonespeicher liegen.</string>
+    <string name="help_permission_answer">Privacy Friendly Maßband benötigt keine Berechtigungen, um Bilder direkt von der Kamera zu vermessen. Um Bilder aus der Galerie zu vermessen, benötigt die App die Read External Storage Berechtigung, da die meisten Bilder nicht im internen Smartphonespeicher liegen.</string>
 
     <!--###ABOUT###-->
     <string name="about">Über</string>
@@ -179,7 +179,7 @@
     <string name="about_author">"Autoren: "</string>
     <string name="about_author_contributors">und Mitwirkende.</string>
     <string name="about_affiliation">In Zusammenarbeit mit</string>
-    <string name="privacy_friendly">Diese App gehört zur Gruppe der Privacy Friendly Apps entwickelt von der Technischen Universität Darmstadt. Quelltext lizenziert unter GPLv3. Bilder copyright TU Darmstadt und Google Inc.</string>
+    <string name="privacy_friendly">Diese App gehört zur Gruppe der Privacy Friendly Apps entwickelt von der Forschungsgruppe SECUSO. Quelltext lizenziert unter GPLv3. Bilder copyright SECUSO und Google Inc.</string>
     <string name="more_info">Mehr Information unter:</string>
 
 
@@ -188,7 +188,7 @@
     <string name="title_activity_settings">Einstellungen</string>
     <string name="pref_ruler">Linealeinstellungen</string>
     <string name="pref_leftruler">Linkes Lineal</string>
-    <string name="pref_leftruler_verbose">Was soll auf dem linkel Lineal angezeigt werden?</string>
+    <string name="pref_leftruler_verbose">Was soll auf dem linken Lineal angezeigt werden?</string>
     <string name="pref_rightruler">Rechtes Lineal.</string>
     <string name="pref_rightruler_verbose">Was soll auf dem rechten Lineal angezeigt werden?</string>
     <string name="ruler_cm">Lineal (cm)</string>
@@ -228,7 +228,7 @@
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_viewer">Nutzerdefinierte Referenzobjekte</string>
     <string name="list_item">Freier Platz</string>
-    <string name="edit_dialog_title">Referenzobjekt Editieren</string>
+    <string name="edit_dialog_title">Referenzobjekt editieren</string>
     <string name="toast_input_failure">Ungültige Eingabe.</string>
     <string name="toast_edit_done">Nutzerdefinierte Referenz erfolgreich gesetzt.</string>
     <string name="toast_delete_done">Nutzerdefinierte Referenz gelöscht.</string>
@@ -244,10 +244,10 @@
 
 
     <!-- ### DISCLAIMER DIALOG ### -->
-    <string name="disclaimer_dialog_title">Disclaimer</string>
+    <string name="disclaimer_dialog_title">Haftungsausschluss</string>
     <string name="disclaimer">Diese App ist kein professionell geeichtes Messgerät. Die App kann zwar kalibriert werden, dies minimiert den Fehler, allerdings kann es abhängig vom Gerät trotzdem zu Rundungsfehlern kommen.</string>
-    <string name="disclaimer_check">Ich habe den Disclaimer über potentielle Rundungsfehler gelesen.</string>
-    <string name="disclaimer_check_toast">Bitte bestätigen Sie, dass Sie den Disclaimer gelesen haben.</string>
+    <string name="disclaimer_check">Ich habe den Haftungsausschluss über potentielle Rundungsfehler gelesen.</string>
+    <string name="disclaimer_check_toast">Bitte bestätigen Sie, dass Sie den Haftungsausschluss gelesen haben.</string>
 
 
     <!-- ### TUTORIAL SCREEN ### -->
@@ -258,7 +258,7 @@
     <string name="slide2_text">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird.</string>
 
     <string name="slide3_heading">Messen</string>
-    <string name="slide3_text">Wählen Sie das passende Referenzobjekt aus dem Menü in der oberen rechten Ecke, plazieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit den Knopf in der unteren rechten Ecke. Nun können Sie die zu messende Figur im Menü in der unteren rechten Ecke wählen. Sie können die Länge von Linien und Flächen von Dreiecken, Vierecken und Kreisen messen.</string>
+    <string name="slide3_text">Wählen Sie das passende Referenzobjekt aus dem Menü in der oberen rechten Ecke, platzieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf in der unteren rechten Ecke. Nun können Sie die zu messende Figur im Menü in der unteren rechten Ecke wählen. Sie können die Länge von Linien und Flächen von Dreiecken, Vierecken und Kreisen messen.</string>
 
     <string name="next">Weiter</string>
     <string name="skip">Skip</string>
