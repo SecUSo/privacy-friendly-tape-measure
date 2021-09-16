@@ -1,1 +1,1 @@
-Measure the size of objects in pictures with a reference object size
+(SECUSO) Measure the size of objects in pictures with a reference object size
