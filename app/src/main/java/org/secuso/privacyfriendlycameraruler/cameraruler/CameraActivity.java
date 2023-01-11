@@ -180,7 +180,9 @@ public class CameraActivity extends BaseActivity {
             public void onClick(View view) {
                 mPhotoUri = FileProvider.getUriForFile(CameraActivity.this, BuildConfig.APPLICATION_ID + ".provider", createImageFile());
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.setClipData(ClipData.newRawUri("A photo", mPhotoUri));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    intent.setClipData(ClipData.newRawUri("A photo", mPhotoUri));
+                }
                 intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoUri);
                 startActivityForResult(intent, ACTIVITY_REQUEST_CODE);
