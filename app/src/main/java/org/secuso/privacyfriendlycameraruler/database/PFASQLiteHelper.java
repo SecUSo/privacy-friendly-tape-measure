@@ -43,7 +43,7 @@ public class PFASQLiteHelper extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 1;
 
-    private static final String DATABASE_NAME = "PF_CAMERA_RULER_DB";
+    public static final String DATABASE_NAME = "PF_CAMERA_RULER_DB";
 
     //Name of table in the database
     private static final String TABLE_USERDEFINED = "USER_DEFINED_REFS";
