@@ -73,26 +73,10 @@ class BackupRestorer : IBackupRestorer {
             val name: String = reader.nextName()
             Log.d("preference", name)
             when (name) {
-                "pref_schedule_exercise",
-                "pref_keep_screen_on_during_exercise",
-                "REPEAT_STATUS",
-                "pref_hide_default_exercise_sets",
-                "pref_schedule_exercise_daystrigger",
-                "pref_exercise_continuous",
-                "IsFirstTimeLaunch",
-                "pref_schedule_random_exercise",
-                "REPEAT_EXERCISES" -> preferences.putBoolean(name, reader.nextBoolean())
-                "pref_exercise_time" -> preferences.putString(name, reader.nextString())
-                "FirstLaunchManager.PREF_PICKER_SECONDS",
-                "FirstLaunchManager.PREF_PICKER_MINUTES",
-                "FirstLaunchManager.PREF_BREAK_PICKER_SECONDS",
-                "FirstLaunchManager.PREF_PICKER_HOURS",
-                "FirstLaunchManager.PREF_BREAK_PICKER_MINUTES" -> preferences.putInt(name, reader.nextInt())
-                "pref_schedule_exercise_days" -> preferences.putStringSet(name, readPreferenceSet(reader))
-                "WORK_TIME",
-                "PAUSE TIME",
-                "pref_schedule_exercise_time",
-                "DEFAULT_EXERCISE_SET" -> preferences.putLong(name, reader.nextLong())
+                "pref_leftruler",
+                "pref_units_of_measurement",
+                "pref_rightruler" -> preferences.putString(name, reader.nextString())
+                "pref_type_selection" -> preferences.putStringSet(name, readPreferenceSet(reader))
                 else -> throw RuntimeException("Unknown preference $name")
             }
         }
