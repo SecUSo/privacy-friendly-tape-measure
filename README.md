@@ -62,6 +62,6 @@ The icons used in the nagivation drawer are licensed under the [CC BY 2.5](http:
 App-Icon: <br />
 Markus Hau<br />
 
-<a href="https://github.com/SecUSo/privacy-friendly-sudoku/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=SecUSo/privacy-friendly-sudoku&max=100&columns=20" />
+<a href="https://github.com/SecUSo/privacy-friendly-tape-measure/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=SecUSo/privacy-friendly-tape-measure&max=100&columns=20" />
 </a>
