@@ -22,8 +22,8 @@ package org.secuso.privacyfriendlycameraruler;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.secuso.privacyfriendlycameraruler.cameraruler.CameraActivity;
 import org.secuso.privacyfriendlycameraruler.screenruler.RulerActivity;
