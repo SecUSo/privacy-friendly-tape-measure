@@ -74,6 +74,7 @@ public class CalibrationActivity extends AppCompatActivity {
                 if (inputText.isEmpty()) {
                     emptyInputToast.show();
                 } else {
+                    isSubmit = true;
                     float length = Float.parseFloat(inputText);
                     boolean inchMode = ((RadioButton) findViewById(R.id.inchRadioButton)).isChecked();
                     if (inchMode) {
@@ -94,4 +95,30 @@ public class CalibrationActivity extends AppCompatActivity {
 
     }
 
+    private SharedPreferences spGen;
+
+    private boolean isSubmit;
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor spGenEditor = spGen.edit();
+        if (isSubmit) {
+            spGenEditor.putString("editInput", "");
+            spGenEditor.putBoolean("editIsInch", false);
+        } else {
+            spGenEditor.putString("editInput", ((EditText) findViewById(R.id.input)).getText().toString());
+            spGenEditor.putBoolean("editIsInch", ((RadioButton) findViewById(R.id.inchRadioButton)).isChecked());
+        }
+        spGenEditor.commit();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        spGen = getSharedPreferences("CalibrationActivity", MODE_PRIVATE);
+        ((EditText) findViewById(R.id.input)).setText(spGen.getString("editInput", ""));
+        ((RadioButton) findViewById(R.id.inchRadioButton)).setChecked(spGen.getBoolean("editIsInch", false));
+        isSubmit = false;
+    }
 }
