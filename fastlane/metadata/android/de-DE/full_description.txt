@@ -1,4 +1,6 @@
+Mit Privacy Friendly Maßband können Sie schnell und unkompliziert die Größe von Gegenständen auf Fotos herausfinden. Hierzu benötigen Sie lediglich eine Münze oder ein anderes Referenzobjekt bekannter Größe - platzieren Sie dieses neben dem zu vermessenden Gegenstand, machen Sie ein Foto und die App wird für Sie die entsprechende Größe berechnen. Stellen Sie sicher, dass alle Objekte in einer Ebene sind und dass das Bild orthogonal zu der Ebene gemacht wurde. Nun können Sie das Referenzobjekt in dem Bild markieren und beliebige Längen und Flächen vermessen!
 
+Die App kann auch ein Lineal oder ein Winkelmaß auf dem Bildschirm anzeigen. Nutzen Sie dies, um kleine Gegenstände schnell zu vermessen oder beispielsweise eine Pizza in sechs gleich große Stücke zu teilen.
 
 Was unterscheidet Privacy Friendly Maßband von anderen ähnlichen Apps?
 
