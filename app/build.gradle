@@ -18,6 +18,7 @@ android {
     }
     productFlavors {
     }
+    namespace 'org.secuso.privacyfriendlycameraruler'
 }
 
 dependencies {
