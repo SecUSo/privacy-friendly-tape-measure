@@ -11,7 +11,8 @@
         android:xlargeScreens="true" />
 
     <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
 
     <application
         android:name=".PFTapeMeasure"

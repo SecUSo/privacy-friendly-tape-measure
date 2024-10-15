@@ -270,4 +270,5 @@
     <string name="pref_uom_summary">Sie können einstellen, welche Maßeinheit im Kameralineal benutzt wird.</string>
     <string name="pref_ref_types_summary">Sie können bestimmte Kategorien von vordefinierten Referenzobjekten ausblenden lassen. Diese werden dann nicht im Menü bei der Referenzobjektwahl angezeigt.</string>
     <string name="pref_ref_editor_summary">Hier können Sie (bis zu 10) nutzerdefinierte Referenzobjekte anlegen und verwalten.</string>
+    <string name="select_image_from_gallery">Bild aus der Galerie auswählen</string>
 </resources>
