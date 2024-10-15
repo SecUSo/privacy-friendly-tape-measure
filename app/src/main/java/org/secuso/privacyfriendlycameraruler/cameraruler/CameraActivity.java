@@ -40,6 +40,7 @@ import java.util.Date;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -88,6 +89,7 @@ public class CameraActivity extends BaseActivity {
     private Status status = Status.MODE_CHOICE;
 
     private static final int PICK_IMAGE_REQUEST = 1;
+    private static final int PERMISSION_READ_EXTERNAL_STORAGE_REQUEST = 2;
     private static final int ACTIVITY_REQUEST_CODE = 101;
 
     private Activity thisActivity = this;
@@ -190,20 +192,7 @@ public class CameraActivity extends BaseActivity {
         galleryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (SDK_INT >= Build.VERSION_CODES.M) {
-                    // check if we have the permission we need -> if not request it and turn on the light afterwards
-                    if (ContextCompat.checkSelfPermission(thisActivity,
-                            Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        ActivityCompat.requestPermissions(thisActivity,
-                                new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
-                        return;
-                    }
-                }
-                Intent galleryIntent = new Intent();
-                galleryIntent.setType("image/*");
-                galleryIntent.setAction(Intent.ACTION_GET_CONTENT);
-                galleryIntent.addCategory(Intent.CATEGORY_OPENABLE);
-                startActivityForResult(galleryIntent, PICK_IMAGE_REQUEST);
+                openImagePicker();
             }
         });
 
@@ -256,6 +245,25 @@ public class CameraActivity extends BaseActivity {
         });
 
         overridePendingTransition(0, 0);
+    }
+
+    private void openImagePicker() {
+        Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+        getIntent.setType("image/*");
+        Intent pickIntent = new Intent(Intent.ACTION_PICK);
+        pickIntent.setDataAndType(android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+        Intent chooserIntent = Intent.createChooser(getIntent, getResources().getString(R.string.select_image_from_gallery));
+        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_READ_EXTERNAL_STORAGE_REQUEST);
+            } else {
+                startActivityForResult(chooserIntent, PICK_IMAGE_REQUEST);
+            }
+        } else {
+            startActivityForResult(chooserIntent, PICK_IMAGE_REQUEST);
+        }
     }
 
     @Override
@@ -407,6 +415,20 @@ public class CameraActivity extends BaseActivity {
         return false;
     }
 
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_READ_EXTERNAL_STORAGE_REQUEST) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                openImagePicker();
+            } else {
+                Toast.makeText(this, "storage permission denied", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
     /**
      * Receive response from external camera and gallery apps.
      *
@@ -416,9 +438,10 @@ public class CameraActivity extends BaseActivity {
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         InputStream stream = null;
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PICK_IMAGE_REQUEST) {
+            if (requestCode == PICK_IMAGE_REQUEST && data.getData() != null) {
                 try {
                     if (photo != null) {
                         photo.recycle();
