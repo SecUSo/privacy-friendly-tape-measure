@@ -19,6 +19,9 @@ android {
     productFlavors {
     }
     namespace 'org.secuso.privacyfriendlycameraruler'
+    lint {
+        lintConfig = file("lint.xml")
+    }
     kotlin {
         jvmToolchain(17)
     }
