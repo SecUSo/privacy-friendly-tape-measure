@@ -1,43 +1,58 @@
 # Changelog
 
-<a name="v1.1"></a>
-## [Privacy Friendly Tape Measure v1.1](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.1) - 26 Sep 2023
+<a id="v1.1.1"></a>
+## [Tape Measure (Privacy Friendly) v1.1.1](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.1.1) - 2024-10-15
 
 ## What's Changed
-* Add Google repository by [@Rudloff](https://github.com/Rudloff) in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/9
-* Update README.md by [@Poussinou](https://github.com/Poussinou) in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/11
-* Spanish translation by [@sguinetti](https://github.com/sguinetti) in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/12
-* Features/backup integration by [@coderPaddyS](https://github.com/coderPaddyS) in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/16
+* Updates Copyright by [@coderPaddyS](https://github.com/coderPaddyS) in [#22](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/22)
+* Add/Update GitHub workflows by [@udenr](https://github.com/udenr) in [#28](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/28)
 
 ## New Contributors
-* [@Rudloff](https://github.com/Rudloff) made their first contribution in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/9
-* [@Poussinou](https://github.com/Poussinou) made their first contribution in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/11
-* [@sguinetti](https://github.com/sguinetti) made their first contribution in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/12
-* [@coderPaddyS](https://github.com/coderPaddyS) made their first contribution in https://github.com/SecUSo/privacy-friendly-tape-measure/pull/16
+* [@udenr](https://github.com/udenr) made their first contribution in [#28](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/28)
+
+**Full Changelog**: https://github.com/SecUSo/privacy-friendly-tape-measure/compare/v1.1...v1.1.1
+
+[Changes][v1.1.1]
+
+
+<a id="v1.1"></a>
+## [Privacy Friendly Tape Measure v1.1](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.1) - 2023-09-26
+
+## What's Changed
+* Add Google repository by [@Rudloff](https://github.com/Rudloff) in [#9](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/9)
+* Update README.md by [@Poussinou](https://github.com/Poussinou) in [#11](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/11)
+* Spanish translation by [@sguinetti](https://github.com/sguinetti) in [#12](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/12)
+* Features/backup integration by [@coderPaddyS](https://github.com/coderPaddyS) in [#16](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/16)
+
+## New Contributors
+* [@Rudloff](https://github.com/Rudloff) made their first contribution in [#9](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/9)
+* [@Poussinou](https://github.com/Poussinou) made their first contribution in [#11](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/11)
+* [@sguinetti](https://github.com/sguinetti) made their first contribution in [#12](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/12)
+* [@coderPaddyS](https://github.com/coderPaddyS) made their first contribution in [#16](https://github.com/SecUSo/privacy-friendly-tape-measure/pull/16)
 
 **Full Changelog**: https://github.com/SecUSo/privacy-friendly-tape-measure/compare/v1.0.3...v1.1
 
 [Changes][v1.1]
 
 
-<a name="v1.0.3"></a>
-## [Privacy Friendly Tape Measure v1.0.3](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.0.3) - 04 Jun 2018
+<a id="v1.0.3"></a>
+## [Privacy Friendly Tape Measure v1.0.3](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.0.3) - 2018-06-04
 
 - Added the gradle hash for verification for the f-droid store.
 
 [Changes][v1.0.3]
 
 
-<a name="v1.0.2"></a>
-## [Privacy Friendly Tape Measure v1.0.2](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.0.2) - 25 Jan 2018
+<a id="v1.0.2"></a>
+## [Privacy Friendly Tape Measure v1.0.2](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.0.2) - 2018-01-25
 
 Minor refinements
 
 [Changes][v1.0.2]
 
 
-<a name="v1.0"></a>
-## [Privacy Friendly Tape Measure v1.0](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.0) - 25 Jun 2017
+<a id="v1.0"></a>
+## [Privacy Friendly Tape Measure v1.0](https://github.com/SecUSo/privacy-friendly-tape-measure/releases/tag/v1.0) - 2017-06-25
 
 Privacy Friendly Tape Measure can measure the size of objects in pictures based on objects of known sizes (e.g. coins) in the same picture. Just find a coin or other reference object of a known size, put it next to the item you want measured and take a picture. Make sure all objects are in the same level and the picture is taken perpendicularly to it. Now you can mark the reference object in the picture and measure any length or area you want!
  
@@ -48,9 +63,10 @@ This app belongs to the Privacy Friendly Apps group developed by the research gr
 [Changes][v1.0]
 
 
+[v1.1.1]: https://github.com/SecUSo/privacy-friendly-tape-measure/compare/v1.1...v1.1.1
 [v1.1]: https://github.com/SecUSo/privacy-friendly-tape-measure/compare/v1.0.3...v1.1
 [v1.0.3]: https://github.com/SecUSo/privacy-friendly-tape-measure/compare/v1.0.2...v1.0.3
 [v1.0.2]: https://github.com/SecUSo/privacy-friendly-tape-measure/compare/v1.0...v1.0.2
 [v1.0]: https://github.com/SecUSo/privacy-friendly-tape-measure/tree/v1.0
 
-<!-- Generated by https://github.com/rhysd/changelog-from-release v3.7.1 -->
+<!-- Generated by https://github.com/rhysd/changelog-from-release v3.8.0 -->
