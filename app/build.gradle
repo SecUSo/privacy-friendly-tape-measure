@@ -10,6 +10,12 @@ android {
         versionCode 5
         versionName '1.1.1'
     }
+    android.applicationVariants.configureEach { variant ->
+        variant.outputs.configureEach {
+            def appName = "pfa-tape-measure"
+            outputFileName = appName + "-${variant.name}-v${variant.versionName}.apk"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
