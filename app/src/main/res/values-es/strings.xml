@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cinta métrica</string>
     <string name="app_name_long">Cinta métrica Amigable con la Privacidad</string>
-
-
     <!-- ###DRAWER###-->
     <string name="action_ruler">Regla en pantalla</string>
     <string name="action_camera">Regla en cámara</string>
@@ -10,24 +9,19 @@
     <string name="action_about">Acerca de</string>
     <string name="action_settings">Ajustes</string>
     <string name="action_tutorial">Tutorial</string>
-
     <string name="navigation_drawer_open">Abrir menú de navegación</string>
     <string name="navigation_drawer_close">Cerrar menú de navegación</string>
-
-
     <!-- ###RULER### -->
     <string name="screen_ruler">Regla en pantalla</string>
     <string name="action_calibration">Calibración</string>
     <string name="action_reset_calibration">Reiniciar calibración</string>
-
-
     <!-- ###CAMERA### -->
     <string name="description_camera_gallery">Consigue una imagen a medida. Puede tomar una foto con su cámara o usar una imagen de la memoria de su teléfono.</string>
     <string name="from_camera">Imagen desde la cámara</string>
     <string name="from_gallery">Imagen desde la galería</string>
     <string name="reference_self_intersecting">El objeto de referencia no debe auto-intersecarse.</string>
     <string name="camera_ruler">Regla en cámara</string>
-    <string name="camera_crash">La aplicación de la cámara colapsó</string>
+    <string name="camera_crash">La aplicación de la cámara falló.</string>
     <string name="gallery_crash">La aplicación de la galería colapsó.</string>
     <string name="reference_phase_title">Colocar objeto de referencia</string>
     <string name="measurement_phase_title">Medir</string>
@@ -39,8 +33,6 @@
     <string name="length">Longitud:</string>
     <string name="area">Área:</string>
     <string name="self_intersection_warning">El área de un polígono de auto-intersección no se puede calcular.</string>
-
-
     <!-- ###PREDEFINED REFERENCE OBJECTS### -->
     <!-- ###US COINS### -->
     <string name="us_penny_coin">Moneda US Penny</string>
@@ -68,7 +60,7 @@
     <string name="one_pound_coin">Moneda de 1£</string>
     <string name="two_pound_coin">Moneda de 2£</string>
     <!-- ###US DOLLAR COINS### -->
-    <string name="us_dollar_note">Billete de dólar EUA</string>
+    <string name="us_dollar_note">Billete de dólar estadounidense</string>
     <!-- ###EURO NOTES### -->
     <string name="five_euro_note">Billete de 5€</string>
     <string name="ten_euro_note">Billete de 10€</string>
@@ -136,8 +128,6 @@
     <string name="a4_paper">Papel A4</string>
     <string name="a5_paper">Papel A5</string>
     <string name="a6_paper">Papel A6</string>
-
-
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Mide</string>
     <string name="measureLine">Por favor, mida la longitud de la línea izquierda con la mayor precisión posible.</string>
@@ -149,8 +139,6 @@
     <string name="calibrate">Calibrar</string>
     <string name="noInput">Por favor ingrese la longitud de la línea.</string>
     <string name="calibrationDone">Calibración realizada.</string>
-
-
     <!--###HELP###-->
     <string name="help">Ayuda</string>
     <string name="help_overview_heading">Vistazo</string>
@@ -172,17 +160,14 @@
     <string name="help_camera_ruler3">Ahora puede elegir el objeto por medir a través del botón de la parte inferior derecha. Puedes medir la longitud de las líneas y las áreas de triángulos, círculos y tetrágonos.</string>
     <string name="help_permission">Permisos</string>
     <string name="help_permission_answer">La cinta métrica respetuosa con la privacidad no necesita permisos para medir imágenes directamente desde la cámara. Para medir imágenes de la galería, la aplicación necesita el permiso de Lectura de almacenamiento externo, ya que la mayoría de las imágenes no se almacenan en la memoria interna del teléfono inteligente.</string>
-
     <!--###ABOUT###-->
     <string name="about">Acerca de</string>
     <string name="version_number">Versión v%s</string>
-    <string name="about_author">"Autor: "</string>
+    <string name="about_author">Autores:</string>
     <string name="about_author_contributors">y contribuidores.</string>
-    <string name="about_affiliation">En asociación con</string>
+    <string name="about_affiliation">En colaboración con</string>
     <string name="privacy_friendly">Esta aplicación pertenece al grupo Privacy Friendly Apps desarrolladas por el grupo SECUSO del Instituto de Tecnología de Karlsruhe. Código fuente bajo licencia GPLv3. Autores de las imágenes KIT y Google Inc.</string>
-    <string name="more_info">Más información puedes encontrar:</string>
-
-
+    <string name="more_info">Para obtener más información, consulte:</string>
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Ajustes</string>
@@ -195,8 +180,7 @@
     <string name="ruler_inch">Regla (pulgadas)</string>
     <string name="ruler_degree">Transportador (grados)</string>
     <string name="ruler_radian">Transportador (radianes)</string>
-    <string name="ruler_off">Ninguno</string>
-
+    <string name="ruler_off">Nada</string>
     <!-- ###CAMERA RULER### -->
     <string name="camera_ruler_settings">Ajustes de la regla en cámara</string>
     <string name="pref_units_of_measurement">Unidades de medida</string>
@@ -207,10 +191,9 @@
     <string name="pref_type_selection_verbose">¿Qué tipos de objetos de referencia usar?</string>
     <string name="pref_type_selection_summary">Deshabilita las categorías de objetos de referencia que no quieras usar.</string>
     <string name="pref_edit_user_def_refs">Editar referencias definidas por el usuario</string>
-
     <!-- ###OBJECT TYPES### -->
     <string name="category_us_coins">Moneda de dólar EUA</string>
-    <string name="category_us_notes">Billete de dólar EUA</string>
+    <string name="category_us_notes">Billetes de dólar estadounidense</string>
     <string name="category_eu_coins">Moneda de euro</string>
     <string name="category_eu_notes">Billete de euro</string>
     <string name="category_pound_coins">Moneda de libra esterlina</string>
@@ -223,8 +206,6 @@
     <string name="category_yen_notes">Billete de yen japonés</string>
     <string name="category_iso216_paper">Papel ISO 216 (serie A)</string>
     <string name="category_us_paper">Papel estadounidense</string>
-
-
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_viewer">Referencias definidas por el usuario</string>
     <string name="list_item">Ranura libre</string>
@@ -241,28 +222,21 @@
     <string name="diameter">Diámetro:</string>
     <string name="cancel">Cancelar</string>
     <string name="delete">Borrar</string>
-
-
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Descargo</string>
     <string name="disclaimer">Esta aplicación no es un medidor calibrado profesionalmente. Aunque la aplicación se puede calibrar, solo minimiza el margen de error, pero aún puede llegar a errores de redondeo según el dispositivo.</string>
     <string name="disclaimer_check">He leído el descargo de responsabilidad sobre posibles errores de redondeo.</string>
     <string name="disclaimer_check_toast">Por favor, confirme que ha leído el descargo de responsabilidad.</string>
-
-
     <!-- ### TUTORIAL SCREEN ### -->
-    <string name="slide1_heading">Bienvenida</string>
+    <string name="slide1_heading">Bienvenido</string>
     <string name="slide1_text">Con Privacy Friendly Tape Measure, puede medir objetos más grandes que su teléfono inteligente. Para hacer esto, debe tomar una imagen del objeto visible junto con un objeto frecuente de referencia, como una moneda.</string>
-
-    <string name="slide2_heading">Cómo medir</string>
+    <string name="slide2_heading">¿Cómo medir?</string>
     <string name="slide2_text">Puede elegir tomar una foto con la cámara o usar una de la galería. Asegúrese de que todos los objetos relevantes estén en el mismo plano y que la imagen se tome perpendicularmente a ese plano.</string>
-
     <string name="slide3_heading">Cómo medir</string>
     <string name="slide3_text">Selecciona el objeto de referencia deseado en el menú de la parte superior derecha, coloque el objeto de referencia en la región verde de imagen y presione el botón de la parte inferior derecha. Ahora puedes elegir el objeto a medir a través del botón en la parte inferior derecha. Puedes medir la longitud de las líneas y las áreas de triángulos, círculos y tetrágonos.</string>
-
     <string name="next">Siguiente</string>
     <string name="skip">Saltar</string>
-    <string name="okay">Aceptar</string>
+    <string name="okay">De acuerdo</string>
     <string name="view_help">Mostrar ayuda</string>
     <string name="help_uom">Unidades de medida</string>
     <string name="help_ref_types">Selección de tipo de referncia</string>
@@ -270,4 +244,5 @@
     <string name="pref_uom_summary">Puedes configurar las unidades de medida que se utilizarán en la regla en cámara.</string>
     <string name="pref_ref_types_summary">Puede deshabilitar ciertos tipos de objetos de referencia predefinidos. No aparecerán en el menú durante la selección del objeto de referencia.</string>
     <string name="pref_ref_editor_summary">Aquí puedes establecer y administrar objetos de referencia definidos por el usuario (hasta 10).</string>
+    <string name="select_image_from_gallery">Seleccionar imagen de la galería</string>
 </resources>

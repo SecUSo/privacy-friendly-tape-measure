@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_long">Privaatsussõbralik mõõdulint</string>
+    <string name="app_name">Mõõdulint</string>
+    <string name="action_camera">Kaamerajoonlaud</string>
+    <string name="action_ruler">Ekraanijoonlaud</string>
+    <string name="action_help">Abiteave</string>
+    <string name="action_about">Rakenduse teave</string>
+    <string name="action_tutorial">Juhend</string>
+    <string name="screen_ruler">Ekraanijoonlaud</string>
+    <string name="action_calibration">Kalibreeri</string>
+    <string name="action_reset_calibration">Nulli kalibreerimine</string>
+    <string name="action_settings">Seadistused</string>
+    <string name="description_camera_gallery">Leia pilt, millelt soovid objekti mõõta. Võid selle teha nutiseadme kaameraga või otsida galeriist välja mõne varasema pildi.</string>
+    <string name="from_camera">Pildista kaameraga</string>
+    <string name="from_gallery">Otsi pilt galeriist</string>
+    <string name="camera_ruler">Kaamerapõhine joonlaud</string>
+    <string name="camera_crash">Kaamerarakendus on kokku jooksnud.</string>
+    <string name="gallery_crash">Galeriirakendus on kokku jooksnud.</string>
+    <string name="help">Abiteave</string>
+    <string name="about">Rakenduse teave</string>
+    <string name="navigation_drawer_open">Ava menüü</string>
+    <string name="navigation_drawer_close">Sulge menüü</string>
+    <string name="version_number">Versioon %s</string>
+    <string name="about_author">Autorid:</string>
+    <string name="about_affiliation">Loodud üheskoos organisatsiooniga</string>
+    <string name="title_activity_settings">Seadistused</string>
+    <string name="more_info">Lisateavet leiad:</string>
+    <string name="slide1_heading">Tere tulemast</string>
+    <string name="skip">Jäta vahele</string>
+    <string name="next">Edasi</string>
+    <string name="length">Pikkus:</string>
+    <string name="cancel">Katkesta</string>
+    <string name="okay">Sobib</string>
+</resources>
