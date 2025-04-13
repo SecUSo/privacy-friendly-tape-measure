@@ -165,9 +165,9 @@
     <string name="version_number">Versión v%s</string>
     <string name="about_author">Autores:</string>
     <string name="about_author_contributors">y contribuidores.</string>
-    <string name="about_affiliation">En asociación con</string>
+    <string name="about_affiliation">En colaboración con</string>
     <string name="privacy_friendly">Esta aplicación pertenece al grupo Privacy Friendly Apps desarrolladas por el grupo SECUSO del Instituto de Tecnología de Karlsruhe. Código fuente bajo licencia GPLv3. Autores de las imágenes KIT y Google Inc.</string>
-    <string name="more_info">Más información puedes encontrar:</string>
+    <string name="more_info">Para obtener más información, consulte:</string>
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Ajustes</string>
@@ -228,7 +228,7 @@
     <string name="disclaimer_check">He leído el descargo de responsabilidad sobre posibles errores de redondeo.</string>
     <string name="disclaimer_check_toast">Por favor, confirme que ha leído el descargo de responsabilidad.</string>
     <!-- ### TUTORIAL SCREEN ### -->
-    <string name="slide1_heading">Bienvenida</string>
+    <string name="slide1_heading">Bienvenido</string>
     <string name="slide1_text">Con Privacy Friendly Tape Measure, puede medir objetos más grandes que su teléfono inteligente. Para hacer esto, debe tomar una imagen del objeto visible junto con un objeto frecuente de referencia, como una moneda.</string>
     <string name="slide2_heading">¿Cómo medir?</string>
     <string name="slide2_text">Puede elegir tomar una foto con la cámara o usar una de la galería. Asegúrese de que todos los objetos relevantes estén en el mismo plano y que la imagen se tome perpendicularmente a ese plano.</string>
