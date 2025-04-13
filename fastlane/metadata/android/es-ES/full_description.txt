@@ -1,0 +1,19 @@
+Privacy Friendly Tape Measure puede medir el tamaño de objetos en imágenes basándose en objetos de tamaños conocidos (por ejemplo, monedas) en la misma imagen. Sólo tienes que encontrar una moneda u otro objeto de referencia de tamaño conocido, colocarlo junto al objeto que quieres medir y hacer una foto. Asegúrate de que todos los objetos están en el mismo nivel y de que la foto se toma perpendicularmente a él. Ahora puede marcar el objeto de referencia en la foto y medir cualquier longitud o área que desee.
+
+Privacy Friendly Tape Measure pertenece al grupo Privacy Friendly Apps desarrollado por el grupo de investigación SECUSO del Instituto de Tecnología de Karlsruhe. Más información en https://secuso.org/pfa
+
+Privacy Friendly Tape Measure también puede mostrar reglas o un transportador en la pantalla. Utilízala para medir rápidamente objetos pequeños o para cortar una pizza en seis trozos iguales. ¡Qué rico!
+
+¿Qué diferencia a Privacy Friendly Tape Measure de otras aplicaciones similares?
+
+1. Menos permisos
+Privacy Friendly Tape Measure sólo utiliza el permiso Leer almacenamiento externo. Lo necesita porque la mayoría de las fotos de tu teléfono se encuentran en la tarjeta SD y no en la memoria interna del teléfono.
+
+2. Sin publicidad
+Muchas otras aplicaciones gratuitas de Google Play Store te deslumbran con molestos anuncios que, además, acortan la duración de la batería.
+
+
+No dude en ponerse en contacto con nosotros a través de:
+Twitter - @SECUSOResearch https://twitter.com/secusoresearch
+Mastodonte - @SECUSO_Research@bawü.social https://xn--baw-joa.social/@SECUSO_Research/
+Oferta de empleo - https://secuso.aifb.kit.edu/english/Job_Offers_1557.php

@@ -1,0 +1,1 @@
+(SECUSO) Mida el tamaño de los objetos en imágenes con un tamaño de referencia
