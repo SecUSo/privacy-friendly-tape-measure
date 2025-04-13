@@ -1,0 +1,19 @@
+Privaatsussõbralik mõõdulint suudab mõõta objektide suurust piltidel, kasutades piltidel olevate teadaolevate suurustega objektide (nt mündid) mõõtmeid. Leia lihtsalt mõni münt või muu teadaoleva suurusega viiteobjekt, aseta see mõõdetava objekti kõrvale ja pildista. Veendu, et kõik objektid oleksid samal tasandil ja pilt oleks tehtud risti nende suhtes. Nüüd saad pildil viiteobjekti märgistada ja mõõta mistahes pikkust või pindala, mida soovid!
+
+Privaatsussõbralik mõõdulint kuulub privaatsussõbralike rakenduste (Privacy Friendly Apps) kogumisse, mis on välja töötatud Karlsruhe Tehnoloogiainstituudi teadusgrupi SECUSO poolt. Lisateavet leiad aadressilt https://secuso.org/pfa
+
+Privaatsussõbralik mõõdulint suudab ekraanil kuvada ka joonlaudu või nurgamõõtureid. Kasuta seda väikeste objektide kiireks mõõtmiseks või näiteks pitsa lõikamiseks kuueks ühtlaseks viiluks. Mmm!
+
+Mis eristab privaatsussõbralikku mõõdulinti teistest sarnastest rakendustest?
+
+1. Vajab vähem õigusi
+Privaatsussõbralik mõõdulint kasutab ainult „Välise salvestusruumi lugemisõigust“. Seda on vaja, kuna enamik pilte sinu nutiseadmes asub SD-kaardil, mitte telefoni nutiseadmes.
+
+2. Pole reklaame
+Paljud Google Plays leiduvad tasuta sarnased rakendused on täis reklaame, mis muu hulgas suurendavad nutiseadme akukasutust.
+
+
+Meid võid leida:
+Bluesky - @secusoresearch.bsky.social https://bsky.app/profile/secusoresearch.bsky.social
+Mastodon - @SECUSO_Research@bawü.social https://xn--baw-joa.social/@SECUSO_Research/
+Tööpakkumised - https://secuso.aifb.kit.edu/english/Job_Offers.php
