@@ -39,13 +39,6 @@ android {
         jvmToolchain(17)
     }
 
-    android.applicationVariants.configureEach { variant ->
-        variant.outputs.configureEach {
-            def appName = "pfa-dame"
-            outputFileName = appName + "-${variant.name}-v${variant.versionName}.apk"
-        }
-    }
-
     lint {
         lintConfig = file("lint.xml")
     }
