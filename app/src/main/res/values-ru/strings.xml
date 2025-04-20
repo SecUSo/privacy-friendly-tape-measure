@@ -5,7 +5,7 @@
     <!-- ###DRAWER###-->
     <string name="action_ruler">Линейка на экране</string>
     <string name="action_camera">Камера-линейка</string>
-    <string name="action_help">Справка</string>
+    <string name="action_help">Помощь</string>
     <string name="action_about">Об игре</string>
     <string name="action_settings">Настройки</string>
     <string name="action_tutorial">Руководство</string>
@@ -141,13 +141,13 @@
     <string name="calibrationDone">Калибрование завершено.</string>
     <!--###HELP###-->
     <string name="help">Справка</string>
-    <string name="help_overview_heading">Знакомство</string>
+    <string name="help_overview_heading">Обзор</string>
     <string name="help_calibration">Ручное калибрование</string>
     <string name="help_disclaimer">Предупреждение</string>
     <string name="help_category_calibration">Калибрование</string>
     <string name="pref_calibration_summary">Выбрав пункт \"Калибрировать\" в меню, Вы можете в ручную калибрировать линейку на экране.</string>
     <string name="pref_disclaimer_summary">Эта аппликация не является профессионально настроенным измерительным устройством. Эту аппликацию можно калибрировать вручную, что уменьшит ошибку. Несмотря на это, в зависимости от устройства, возможна ошибка округления</string>
-    <string name="help_privacy_heading">Частная информация</string>
+    <string name="help_privacy_heading">О конфиденциальности</string>
     <string name="help_category_options">Настройки</string>
     <string name="help_units">Правая и левая линейка</string>
     <string name="pref_units_summary">Вы можете включить сантиметровую или дюймовую линейки на левой и правой стороне экрана. Обе линейки могут быть установлены независимо друг от друга.</string>
@@ -164,10 +164,10 @@
     <string name="about">Об игре</string>
     <string name="version_number">Версия v%s</string>
     <string name="about_author">Авторы:</string>
-    <string name="about_author_contributors">а также другие соавторы.</string>
-    <string name="about_affiliation">Разработано при поддержке</string>
+    <string name="about_author_contributors">и помощники</string>
+    <string name="about_affiliation">Вместе с</string>
     <string name="privacy_friendly">Это одно из приложений группы Уважающих Конфиденциальность Приложений (Privacy Friendly Apps, PFA), разработанных исследовательской группой SECUSO в Технологическом Институте Карлсруэ (KIT). Исходный код доступен по лицензии GPLv3. Авторские права на изображения принадлежат KIT и Google Inc.</string>
-    <string name="more_info">Подробнее читайте на:</string>
+    <string name="more_info">Подробнее можно узнать на:</string>
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Настройки</string>
@@ -234,9 +234,9 @@
     <string name="slide2_text">Вы можете снять фотографию камерой или выбрать фотографию из галереи. Снимите фотографию так, чтобы все важные объекты были в одной плоскости и телефон был параллельно к этой плоскости.</string>
     <string name="slide3_heading">Как измерять</string>
     <string name="slide3_text">Выберите подходящий эталон из меню  правом верхнем углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в правом нижнем углу. Теперь Вы можете выбрать фигуру, которую измерить, из меню в правом нижнем углу. Вы можете мерить длину линий и площадь треугольников, четырёхугольников и кругов.</string>
-    <string name="next">Следующий</string>
-    <string name="skip">Пропустить</string>
-    <string name="okay">Ладно</string>
+    <string name="next">Дальше</string>
+    <string name="skip">Пропуск</string>
+    <string name="okay">Хорошо</string>
     <string name="view_help">Показать помощь</string>
     <string name="help_uom">Единицы измерения</string>
     <string name="help_ref_types">Выбор типов эталонов</string>
