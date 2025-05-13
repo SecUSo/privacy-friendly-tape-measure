@@ -240,9 +240,9 @@
     <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
     <string name="slide3_heading">How to measure</string>
     <string name="slide3_text">Choose the desired reference object from the menu on the top right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
-    <string name="next">Suivant</string>
-    <string name="skip">Passer</string>
-    <string name="okay">Ok</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="okay">Okay</string>
     <string name="view_help">View Help</string>
     <string name="help_uom">Units of Measurement</string>
     <string name="help_ref_types">Reference Type Selection</string>
