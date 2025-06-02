@@ -97,7 +97,7 @@
     <string name="help_permission">Uprawnienia</string>
     <string name="about_author">Autorzy:</string>
     <string name="about_affiliation">We współpracy z</string>
-    <string name="more_info">Więcej informacji można znaleźć na stronie:</string>
+    <string name="more_info">Więcej informacji można znaleźć na:</string>
     <string name="title_activity_settings">Ustawienia</string>
     <string name="pref_ruler">Ustawienia linijki</string>
     <string name="pref_leftruler">Lewa linijka</string>
@@ -131,13 +131,13 @@
     <string name="disclaimer_dialog_title">Zastrzeżenie</string>
     <string name="disclaimer_check">Przeczytałem informację o potencjalnych problemach z zaokrąglaniem.</string>
     <string name="disclaimer_check_toast">Sprawdź, czy przeczytałeś zastrzeżenie.</string>
-    <string name="slide1_heading">Witamy</string>
+    <string name="slide1_heading">Witaj!</string>
     <string name="slide2_heading">Jak mierzyć</string>
     <string name="slide3_heading">Jak mierzyć</string>
     <string name="slide3_text">Wybierz pożądany obiekt odniesienia z menu w prawym górnym rogu, umieść zielony kształt nad obiektem odniesienia na obrazku i naciśnij przycisk w prawym dolnym rogu. Teraz możesz wybrać rzecz do zmierzenia za pomocą przycisku w prawym dolnym rogu. Możesz mierzyć długość linii i powierzchnie trójkątów, okręgów i czworokątów.</string>
     <string name="next">Dalej</string>
     <string name="skip">Pomiń</string>
-    <string name="okay">Ok</string>
+    <string name="okay">OK</string>
     <string name="view_help">Wyświetl pomoc</string>
     <string name="help_ref_editor">Edytuj odniesienia zdefiniowane przez użytkownika</string>
     <string name="pref_ref_editor_summary">Tutaj można definiować i zarządzać obiektami referencyjnymi zdefiniowanymi przez użytkownika (maksymalnie 10).</string>
@@ -156,7 +156,7 @@
     <string name="gallery_crash">Aplikacja Galeria uległa awarii.</string>
     <string name="self_intersection_warning">Nie można obliczyć pola przecinającego się wielokąta.</string>
     <string name="a1_paper">Papier A1</string>
-    <string name="about">O</string>
+    <string name="about">O aplikacji</string>
     <string name="action_about">O</string>
     <string name="one_pound_coin">Moneta 1£</string>
     <string name="slide2_text">Możesz wybrać zrobienie zdjęcia aparatem lub użyć zdjęcia z galerii. Upewnij się, że wszystkie istotne obiekty znajdują się w tej samej płaszczyźnie i zdjęcie jest zrobione prostopadle do tej płaszczyzny.</string>
@@ -208,5 +208,5 @@
     <string name="help_ref_types">Wybór typu odniesienia</string>
     <string name="pref_ref_types_summary">Możesz wyłączyć niektóre typy predefiniowanych obiektów referencyjnych. Nie pojawią się one w menu podczas wyboru obiektu referencyjnego.</string>
     <string name="navigation_drawer_open">Otwórz szufladę nawigacyjną</string>
-    <string name="navigation_drawer_close">Zamknij szufladę nawigacyjną</string>
+    <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
 </resources>
