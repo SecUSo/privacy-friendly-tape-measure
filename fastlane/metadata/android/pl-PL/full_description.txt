@@ -1,0 +1,19 @@
+Miarka Przyjazna Prywatności może mierzyć rozmiar obiektów na zdjęciach na podstawie obiektów o znanych rozmiarach (np. monet) na tym samym zdjęciu. Wystarczy znaleźć monetę lub inny obiekt odniesienia o znanym rozmiarze, położyć go obok przedmiotu, który chcesz zmierzyć i zrobić zdjęcie. Upewnij się, że wszystkie obiekty są na tym samym poziomie, a zdjęcie jest zrobione prostopadle do niego. Teraz możesz oznaczyć obiekt odniesienia na zdjęciu i zmierzyć dowolną długość lub obszar!
+
+Miarka Przyjazna Prywatności należy do grupy Aplikacji Przyjaznych Prywatności opracowanej przez grupę badawczą SECUSO w Instytucie Technologii w Karlsruhe. Więcej informacji można znaleźć na stronie https://secuso.org/pfa
+
+Miarka Przyjazna Prywatności może również wyświetlać na ekranie linijki lub kątomierz. Użyj tego, aby szybko zmierzyć małe obiekty lub pokroić pizzę na sześć równych kawałków. Pycha!
+
+Czym aplikacja Przyjazna Prywatności - Miarka różni się od innych podobnych aplikacji?
+
+1. Mniej uprawnień
+Miarka Przyjazna Prywatności korzysta tylko z uprawnienia "Odczyt pamięci zewnętrznej". Potrzebuje tego, ponieważ większość zdjęć w telefonie znajduje się na karcie SD, a nie w pamięci wewnętrznej telefonu.
+
+2. Brak reklam
+Wiele innych darmowych aplikacji w sklepie Google Play oślepia Cię irytującymi reklamami, które również skracają żywotność baterii.
+
+
+Skontaktuj się z nami za pośrednictwem:
+Bluesky - @secusoresearch.bsky.social https://bsky.app/profile/secusoresearch.bsky.social
+Mastodon - @SECUSO_Research@bawü.social https://xn--baw-joa.social/@SECUSO_Research/
+Oferta pracy - https://secuso.aifb.kit.edu/english/Job_Offers.php
