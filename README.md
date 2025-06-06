@@ -17,9 +17,6 @@
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
      alt="Get it on F-Droid"
      height="60">](https://f-droid.org/packages/org.secuso.privacyfriendlytapemeasure/)
-[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
-     alt="Get it on Google Play"
-     height="60">](https://play.google.com/store/apps/details?id=org.secuso.privacyfriendlytapemeasure)
 
 Privacy Friendly Tape Measure turns the phone screen into a ruler for quick measurements on the go. It also allows to measure size of things in a 2D scene provided a common reference object like a coin is also present.
 
