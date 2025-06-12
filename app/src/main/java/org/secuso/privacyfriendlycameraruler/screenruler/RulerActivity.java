@@ -32,6 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
+import org.secuso.privacyfriendlycameraruler.GoodbyeGoogleHelperKt;
 import org.secuso.privacyfriendlycameraruler.R;
 
 /**
@@ -64,6 +65,7 @@ public class RulerActivity extends BaseActivity {
         rulerLayout.addView(rulerView);
 
         overridePendingTransition(0, 0);
+        GoodbyeGoogleHelperKt.checkGoodbyeGoogle(this, getLayoutInflater());
     }
 
     @Override
