@@ -59,6 +59,7 @@ import android.os.Build;
 
 import org.secuso.privacyfriendlycameraruler.BaseActivity;
 import org.secuso.privacyfriendlycameraruler.BuildConfig;
+import org.secuso.privacyfriendlycameraruler.GoodbyeGoogleHelperKt;
 import org.secuso.privacyfriendlycameraruler.R;
 import org.secuso.privacyfriendlycameraruler.database.PFASQLiteHelper;
 import org.secuso.privacyfriendlycameraruler.database.ReferenceManager;
@@ -245,6 +246,7 @@ public class CameraActivity extends BaseActivity {
         });
 
         overridePendingTransition(0, 0);
+        GoodbyeGoogleHelperKt.checkGoodbyeGoogle(this, getLayoutInflater());
     }
 
     private void openImagePicker() {
