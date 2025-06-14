@@ -13,8 +13,7 @@
 Многие другие бесплатные приложения в магазине Google Play вставляют куда попало навязчивую рекламу, съедающую драгоценный заряд батареи вашего устройства.
 
 
+
 Вы можете связаться с нами через:
-<a href="https://bsky.app/profile/secusoresearch.bsky.social">Bluesky</a>
-Twitter: <a href="https://twitter.com/secusoresearch">@SECUSOResearch</a>
+Bluesky: <a href="https://bsky.app/profile/secusoresearch.bsky.social">@secusoresearch.bsky.social</a>
 Mastodon: <a href="https://xn--baw-joa.social/@SECUSO_Research/">@SECUSO_Research@bawü.social</a>
-<a href="https://secuso.aifb.kit.edu/english/Job_Offers.php">Открытые вакансии<a/>
