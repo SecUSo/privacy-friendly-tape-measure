@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tape Measure</string>
     <string name="app_name_long">Privacy Friendly Tape Measure</string>
-
-
     <!-- ###DRAWER###-->
     <string name="action_ruler">Screen Ruler</string>
     <string name="action_camera">Camera Ruler</string>
@@ -10,17 +9,12 @@
     <string name="action_about">About</string>
     <string name="action_settings">Settings</string>
     <string name="action_tutorial">Tutorial</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
-
     <!-- ###RULER### -->
     <string name="screen_ruler">Screen Ruler</string>
     <string name="action_calibration">Calibrate</string>
     <string name="action_reset_calibration">Reset Calibration</string>
-
-
     <!-- ###CAMERA### -->
     <string name="description_camera_gallery">Get a picture to measure. You can either take a picture with your camera or use a picture from your phone\'s memory.</string>
     <string name="from_camera">Picture from Camera</string>
@@ -39,8 +33,6 @@
     <string name="length">Length:</string>
     <string name="area">Area:</string>
     <string name="self_intersection_warning">Can\'t compute area of self-intersecting polygon.</string>
-
-
     <!-- ###PREDEFINED REFERENCE OBJECTS### -->
     <!-- ###US COINS### -->
     <string name="us_penny_coin">US Penny Coin</string>
@@ -136,8 +128,6 @@
     <string name="a4_paper">A4 Paper</string>
     <string name="a5_paper">A5 Paper</string>
     <string name="a6_paper">A6 Paper</string>
-
-
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Measure</string>
     <string name="measureLine">Please measure the length of the line on the left as precisely as possible.</string>
@@ -149,8 +139,6 @@
     <string name="calibrate">Calibrate</string>
     <string name="noInput">Please input the length of the line.</string>
     <string name="calibrationDone">Calibration finished.</string>
-
-
     <!--###HELP###-->
     <string name="help">Help</string>
     <string name="help_overview_heading">Overview</string>
@@ -172,7 +160,6 @@
     <string name="help_camera_ruler3">Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
     <string name="help_permission">Permissions</string>
     <string name="help_permission_answer">Privacy Friendly Tape Measure does not require any permission for taking and measuring a picture from the camera. Taking a picture from the gallery requires the Read External Storage permission as most pictures are not stored in the internal memory.</string>
-
     <!--###ABOUT###-->
     <string name="about">About</string>
     <string name="version_number">Version v%s</string>
@@ -184,8 +171,6 @@
     <string name="more_info">More information can be found on:</string>
     <string name="github" translatable="false"><a href="https://github.com/SecUSo/privacy-friendly-camera-ruler">Github-Repo</a></string>
     <string name="url" translatable="false"><a href="https://www.secuso.org/pfa">SECUSO-Website</a></string>
-
-
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Settings</string>
@@ -227,8 +212,6 @@
     <string name="category_yen_notes">Japanese Yen Notes</string>
     <string name="category_iso216_paper">ISO 216 Paper (A series)</string>
     <string name="category_us_paper">US Paper</string>
-
-
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_viewer">User Defined References</string>
     <string name="list_item">Free Slot</string>
@@ -245,25 +228,18 @@
     <string name="diameter">Diameter:</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
-
-
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Disclaimer</string>
     <string name="disclaimer">This App is not a professionally calibrated measuring device. This App can be manually calibrated which may minimize the error. However, depending on the device there still could be rounding errors.</string>
     <string name="disclaimer_check">I have read the disclaimer about potential rounding issues.</string>
     <string name="disclaimer_check_toast">Please check that you have read the disclaimer.</string>
-
-
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Welcome</string>
     <string name="slide1_text">With Privacy Friendly Tape Measure you can measure objects larger than your phone by taking a picture of them together with a reference object of known size, like a coin.</string>
-
     <string name="slide2_heading">How to measure</string>
     <string name="slide2_text">You can choose to take a picture with the camera or use one from the gallery. Be sure that all the relevant objects are in the same plane and the picture is taken perpendicularly to that plane.</string>
-
     <string name="slide3_heading">How to measure</string>
     <string name="slide3_text">Choose the desired reference object from the menu on the top right, place the green shape over the reference object in the picture and press the button in the bottom right. Now you can choose the thing to measure via the button on the bottom right. You can measure length of lines and areas of triangles, circles and tetragons.</string>
-
     <string name="next">Next</string>
     <string name="skip">Skip</string>
     <string name="okay">Okay</string>
