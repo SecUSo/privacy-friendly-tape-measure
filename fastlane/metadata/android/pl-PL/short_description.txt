@@ -1,0 +1,1 @@
+(SECUSO) Zmierz rozmiar obiektów na zdjęciach za pomocą obiektu referencyjnego
