@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Maßband</string>
     <string name="app_name_long">Privacy Friendly Maßband</string>
-
-
     <!-- ###DRAWER###-->
     <string name="action_ruler">Bildschirmlineal</string>
     <string name="action_camera">Kameralineal</string>
@@ -10,17 +9,12 @@
     <string name="action_about">Über</string>
     <string name="action_settings">Einstellungen</string>
     <string name="action_tutorial">Tutorial</string>
-
-    <string name="navigation_drawer_open">Navigationsleiste öffnen</string>
-    <string name="navigation_drawer_close">Navigationsleiste schließen</string>
-
-
+    <string name="navigation_drawer_open">Navigationsmenü öffnen</string>
+    <string name="navigation_drawer_close">Navigationsmenü schließen</string>
     <!-- ###RULER### -->
     <string name="screen_ruler">Bildschirmlineal</string>
     <string name="action_calibration">Kalibrieren</string>
     <string name="action_reset_calibration">Kalibrierung zurücksetzen</string>
-
-
     <!-- ###CAMERA### -->
     <string name="description_camera_gallery">Holen Sie sich ein Bild zum vermessen. Sie können ein Bild mit der Kamera aufnehmen oder ein Bild aus dem Speicher benutzen.</string>
     <string name="from_camera">Bild aus der Kamera</string>
@@ -39,8 +33,6 @@
     <string name="length">Länge:</string>
     <string name="area">Fläche:</string>
     <string name="self_intersection_warning">Fläche eines sich selbst schneidenen Vielecks kann nicht berechnet werden.</string>
-
-
     <!-- ###PREDEFINED REFERENCE OBJECTS### -->
     <!-- ###US COINS### -->
     <string name="us_penny_coin">US Penny Münze</string>
@@ -136,8 +128,6 @@
     <string name="a4_paper">A4 Papier</string>
     <string name="a5_paper">A5 Papier</string>
     <string name="a6_paper">A6 Papier</string>
-
-
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Messen</string>
     <string name="measureLine">Bitte messen Sie die Länge der Linie links so genau wie möglich.</string>
@@ -149,8 +139,6 @@
     <string name="calibrate">Kalibrieren</string>
     <string name="noInput">Geben Sie bitte die Länge der Linie ein.</string>
     <string name="calibrationDone">Kalibrierung erfolgt.</string>
-
-
     <!--###HELP###-->
     <string name="help">Hilfe</string>
     <string name="help_overview_heading">Übersicht</string>
@@ -172,31 +160,27 @@
     <string name="help_camera_ruler3">Nun können Sie die zu vermessende Figur mit dem Menü unten rechts auswählen. Sie können die Länge von Linien und Fläche von Kreisen, Dreiecken und Vierecken vermessen.</string>
     <string name="help_permission">Berechtigungen</string>
     <string name="help_permission_answer">Privacy Friendly Maßband benötigt keine Berechtigungen, um Bilder direkt von der Kamera zu vermessen. Um Bilder aus der Galerie zu vermessen, benötigt die App die Read External Storage Berechtigung, da die meisten Bilder nicht im internen Smartphonespeicher liegen.</string>
-
     <!--###ABOUT###-->
     <string name="about">Über</string>
     <string name="version_number">Version v%s</string>
-    <string name="about_author">"Autoren: "</string>
+    <string name="about_author">Autoren:</string>
     <string name="about_author_contributors">und Mitwirkende.</string>
     <string name="about_affiliation">In Zusammenarbeit mit</string>
     <string name="privacy_friendly">Diese App gehört zur Gruppe der Privacy Friendly Apps entwickelt von der Forschungsgruppe SECUSO. Quelltext lizenziert unter GPLv3. Bilder copyright SECUSO und Google Inc.</string>
     <string name="more_info">Mehr Information unter:</string>
-
-
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Einstellungen</string>
     <string name="pref_ruler">Linealeinstellungen</string>
     <string name="pref_leftruler">Linkes Lineal</string>
     <string name="pref_leftruler_verbose">Was soll auf dem linken Lineal angezeigt werden?</string>
-    <string name="pref_rightruler">Rechtes Lineal.</string>
+    <string name="pref_rightruler">Rechtes Lineal</string>
     <string name="pref_rightruler_verbose">Was soll auf dem rechten Lineal angezeigt werden?</string>
     <string name="ruler_cm">Lineal (cm)</string>
     <string name="ruler_inch">Lineal (Zoll)</string>
     <string name="ruler_degree">Winkelmaß (Grad)</string>
     <string name="ruler_radian">Winkelmaß (Radiant)</string>
     <string name="ruler_off">Nichts</string>
-
     <!-- ###CAMERA RULER### -->
     <string name="camera_ruler_settings">Kameralineal Einstellungen</string>
     <string name="pref_units_of_measurement">Maßeinheiten</string>
@@ -207,7 +191,6 @@
     <string name="pref_type_selection_verbose">Welche Referenzobjekttypen sollen benutzt werden?</string>
     <string name="pref_type_selection_summary">Blenden Sie die Referenzobjekttypen aus, die Sie nicht benutzen wollen.</string>
     <string name="pref_edit_user_def_refs">Nutzerdefinierte Referenzobjekte anpassen</string>
-
     <!-- ###OBJECT TYPES### -->
     <string name="category_us_coins">US-Dollar Münzen</string>
     <string name="category_us_notes">US-Dollar Banknoten</string>
@@ -223,8 +206,6 @@
     <string name="category_yen_notes">Japanische Yen Banknoten</string>
     <string name="category_iso216_paper">ISO 216 Papier (A-Serie)</string>
     <string name="category_us_paper">US Papier</string>
-
-
     <!-- ###USER DEFINED REFERENCE EDITOR### -->
     <string name="title_activity_ref_viewer">Nutzerdefinierte Referenzobjekte</string>
     <string name="list_item">Freier Platz</string>
@@ -240,28 +221,21 @@
     <string name="edit_size">Größe:</string>
     <string name="diameter">Durchmesser:</string>
     <string name="cancel">Abbrechen</string>
-    <string name="delete">Löchen</string>
-
-
+    <string name="delete">Löschen</string>
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Haftungsausschluss</string>
     <string name="disclaimer">Diese App ist kein professionell geeichtes Messgerät. Die App kann zwar kalibriert werden, dies minimiert den Fehler, allerdings kann es abhängig vom Gerät trotzdem zu Rundungsfehlern kommen.</string>
     <string name="disclaimer_check">Ich habe den Haftungsausschluss über potentielle Rundungsfehler gelesen.</string>
     <string name="disclaimer_check_toast">Bitte bestätigen Sie, dass Sie den Haftungsausschluss gelesen haben.</string>
-
-
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Willkommen</string>
     <string name="slide1_text">Mit Privacy Friendly Maßband können Sie Objekte ausmessen, die größer als ihr Smartphone sind. Dazu müssen Sie ein Foto aufnehmen, auf dem das Objekt zusammen mit einem Gegenstand bekannter Größe (Referenzobjekt), wie z.B. einer Münze, zu sehen ist.</string>
-
-    <string name="slide2_heading">Messen</string>
+    <string name="slide2_heading">Wie man misst</string>
     <string name="slide2_text">Sie können ein Bild mit der Smartphone-Kamera aufnehmen oder ein Bild aus der Galerie benutzen. Stellen Sie sicher, dass alle relevanten Objekte in einer Ebene sind und das Bild orthogonal zu der Ebene aufgenommen wird.</string>
-
-    <string name="slide3_heading">Messen</string>
+    <string name="slide3_heading">Wie man misst</string>
     <string name="slide3_text">Wählen Sie das passende Referenzobjekt aus dem Menü in der oberen rechten Ecke, platzieren Sie die grüne Figur über dem Referenzobjekt im Bild und bestätigen Sie mit dem Knopf in der unteren rechten Ecke. Nun können Sie die zu messende Figur im Menü in der unteren rechten Ecke wählen. Sie können die Länge von Linien und Flächen von Dreiecken, Vierecken und Kreisen messen.</string>
-
     <string name="next">Weiter</string>
-    <string name="skip">Skip</string>
+    <string name="skip">Überspringen</string>
     <string name="okay">Okay</string>
     <string name="view_help">Hilfe Anzeigen</string>
     <string name="help_uom">Maßeinheiten</string>
