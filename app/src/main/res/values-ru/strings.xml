@@ -5,7 +5,7 @@
     <!-- ###DRAWER###-->
     <string name="action_ruler">Линейка на экране</string>
     <string name="action_camera">Камера-линейка</string>
-    <string name="action_help">Помощь</string>
+    <string name="action_help">Справка</string>
     <string name="action_about">Об игре</string>
     <string name="action_settings">Настройки</string>
     <string name="action_tutorial">Руководство</string>
@@ -130,7 +130,7 @@
     <string name="a6_paper">Бумага A6</string>
     <!-- ###CALIBRATION### -->
     <string name="measureLineHeading">1. Отмерить</string>
-    <string name="measureLine">Отмерьте длину линии по возможность точнее.</string>
+    <string name="measureLine">Отмерьте длину линии по возможности точно.</string>
     <string name="headingEnter">2. Ввести длину линии</string>
     <string name="calibrationMM">мм</string>
     <string name="calibrationInch">дюймы</string>
@@ -140,13 +140,13 @@
     <string name="noInput">Введите длину линии.</string>
     <string name="calibrationDone">Калибрование завершено.</string>
     <!--###HELP###-->
-    <string name="help">Справка</string>
+    <string name="help">Помощь</string>
     <string name="help_overview_heading">Обзор</string>
     <string name="help_calibration">Ручное калибрование</string>
     <string name="help_disclaimer">Предупреждение</string>
     <string name="help_category_calibration">Калибрование</string>
     <string name="pref_calibration_summary">Выбрав пункт \"Калибрировать\" в меню, Вы можете в ручную калибрировать линейку на экране.</string>
-    <string name="pref_disclaimer_summary">Эта аппликация не является профессионально настроенным измерительным устройством. Эту аппликацию можно калибрировать вручную, что уменьшит ошибку. Несмотря на это, в зависимости от устройства, возможна ошибка округления</string>
+    <string name="pref_disclaimer_summary">Это приложение не является профессионально настроенным измерительным устройством. Эту приложение можно калибровать вручную, что уменьшит ошибку. SECUSO не несёт ответственности за любой ущерб, вызванный использованием этого приложения.</string>
     <string name="help_privacy_heading">О конфиденциальности</string>
     <string name="help_category_options">Настройки</string>
     <string name="help_units">Правая и левая линейка</string>
@@ -159,15 +159,15 @@
     <string name="help_camera_ruler2">Выберите подходящий эталон из меню в правом верхнем углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в правом нижнем углу.</string>
     <string name="help_camera_ruler3">Теперь Вы можете выбрать фигуру, которою измерить, из меню в правом нижнем углу. Вы можете мерить длину линий, а также площадь треугольников, четырёхугольников и кругов.</string>
     <string name="help_permission">Разрешения</string>
-    <string name="help_permission_answer">Privacy Friendly Рулетка не нуждается в разрешеньях чтобы снять фотографию камерой и измерить её. Чтобы измерить фотографию из галереи этому приложенью нужно разрешение Read External Storage, так как большинство фотографий не находятся во встроенной памяти телефона.</string>
+    <string name="help_permission_answer">Рулетка (PFA) не нуждается в разрешениях чтобы снять фотографию камерой и измерить её. Чтобы измерить фотографию из галереи этому приложению нужно разрешение Чтение внешнего хранилища, так как большинство фотографий не находятся во встроенной памяти телефона.</string>
     <!--###ABOUT###-->
-    <string name="about">Об игре</string>
+    <string name="about">О приложении</string>
     <string name="version_number">Версия v%s</string>
-    <string name="about_author">Авторы:</string>
-    <string name="about_author_contributors">и помощники</string>
-    <string name="about_affiliation">Вместе с</string>
+    <string name="about_author">Авторы：</string>
+    <string name="about_author_contributors">и другие участники.</string>
+    <string name="about_affiliation">В сотрудничестве с</string>
     <string name="privacy_friendly">Это одно из приложений группы Уважающих Конфиденциальность Приложений (Privacy Friendly Apps, PFA), разработанных исследовательской группой SECUSO в Технологическом Институте Карлсруэ (KIT). Исходный код доступен по лицензии GPLv3. Авторские права на изображения принадлежат KIT и Google Inc.</string>
-    <string name="more_info">Подробнее можно узнать на:</string>
+    <string name="more_info">Больше информации на:</string>
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Настройки</string>
@@ -220,7 +220,7 @@
     <string name="edit_tetragon">Четырёхугольник</string>
     <string name="edit_size">Размер:</string>
     <string name="diameter">Диаметр:</string>
-    <string name="cancel">Отмена</string>
+    <string name="cancel">Отменить</string>
     <string name="delete">Удалить</string>
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Предупреждение</string>
@@ -234,8 +234,8 @@
     <string name="slide2_text">Вы можете снять фотографию камерой или выбрать фотографию из галереи. Снимите фотографию так, чтобы все важные объекты были в одной плоскости и телефон был параллельно к этой плоскости.</string>
     <string name="slide3_heading">Как измерять</string>
     <string name="slide3_text">Выберите подходящий эталон из меню  правом верхнем углу, поместите зелёною фигуру над эталоном в фотографии и одобрите выбор кнопкой в правом нижнем углу. Теперь Вы можете выбрать фигуру, которую измерить, из меню в правом нижнем углу. Вы можете мерить длину линий и площадь треугольников, четырёхугольников и кругов.</string>
-    <string name="next">Дальше</string>
-    <string name="skip">Пропуск</string>
+    <string name="next">Далее</string>
+    <string name="skip">Пропустить</string>
     <string name="okay">Хорошо</string>
     <string name="view_help">Показать помощь</string>
     <string name="help_uom">Единицы измерения</string>
