@@ -15,7 +15,7 @@
  * The icons used in the nagivation drawer are licensed under the CC BY 2.5.
  * In addition to them the app uses icons from Google Design Material Icons licensed under Apache
  * License Version 2.0. All other images (the logo of Privacy Friendly Apps, the SECUSO logo and the
- * header in the navigation drawer) copyright Technische Universtität Darmstadt (2016).
+ * header in the navigation drawer) copyright Karlsruhe Institute of Technology.
  */
 
 package org.secuso.privacyfriendlycameraruler.tutorial;
