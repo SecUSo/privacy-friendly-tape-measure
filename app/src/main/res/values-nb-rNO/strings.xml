@@ -14,8 +14,8 @@
     <string name="next">Neste</string>
     <string name="skip">Hopp over</string>
     <string name="pref_ref_editor_summary">Her kan du definere og håndtere brukerdefinerte referanseobjekter (opptil 10).</string>
-    <string name="navigation_drawer_open">Åpne navigasjonsskuff</string>
-    <string name="navigation_drawer_close">Lukk navigasjonsskuff</string>
+    <string name="navigation_drawer_open">Åpne navigasjonsmeny</string>
+    <string name="navigation_drawer_close">Lukk navigasjonsmeny</string>
     <string name="action_calibration">Kalibrer</string>
     <string name="action_reset_calibration">Tilbakestill kalibrering</string>
     <string name="from_camera">Bilde fra kamera</string>
@@ -51,11 +51,14 @@
     <string name="about">Om</string>
     <string name="version_number">Versjon v%s</string>
     <string name="about_author">Utviklere:</string>
-    <string name="about_author_contributors">og andre bidragsytere.</string>
+    <string name="about_author_contributors">og medvirkende.</string>
     <string name="title_activity_settings">Innstillinger</string>
     <string name="list_item">Ledig plass</string>
     <string name="edit_line">Linje</string>
-    <string name="okay">OK</string>
+    <string name="okay">Ok</string>
     <string name="toast_input_failure">Ugyldig inndata.</string>
     <string name="view_help">Vis hjelp</string>
+    <string name="more_info">Mer informasjon finner du på:</string>
+    <string name="select_image_from_gallery">Velg bilde fra galleri</string>
+    <string name="about_affiliation">I samarbeid med</string>
 </resources>
