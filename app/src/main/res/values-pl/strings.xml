@@ -23,11 +23,11 @@
     <string name="confirm_reference">Potwierdź odniesienie</string>
     <string name="length">Długość:</string>
     <string name="area">Obszar:</string>
-    <string name="us_nickel_coin">Moneta 5 USD-Cent (Nikiel)</string>
-    <string name="us_dime_coin">Moneta 10 USD-Cent (dziesięciocentówka)</string>
-    <string name="us_quarter_coin">Moneta 25 USD-Cent (ćwiartka)</string>
+    <string name="us_nickel_coin">Moneta 5 centów amerykańskich (Nikiel)</string>
+    <string name="us_dime_coin">Moneta 10 centów amerykańskich (dziesięciocentówka)</string>
+    <string name="us_quarter_coin">Moneta 25 centów amerykańskich (ćwiartka)</string>
     <string name="us_dollar_coin">Moneta 1$</string>
-    <string name="fifty_usd_cent_coin">Moneta 50 USD-Cent</string>
+    <string name="fifty_usd_cent_coin">Moneta 50 centów amerykańskich</string>
     <string name="one_euro_cent_coin">Moneta 1 Euro-Cent</string>
     <string name="two_euro_cent_coin">Moneta 2 Euro-Cent</string>
     <string name="ten_euro_cent_coin">Moneta 10 Euro-Cent</string>
@@ -137,7 +137,7 @@
     <string name="slide3_text">Wybierz pożądany obiekt odniesienia z menu w prawym górnym rogu, umieść zielony kształt nad obiektem odniesienia na obrazku i naciśnij przycisk w prawym dolnym rogu. Teraz możesz wybrać rzecz do zmierzenia za pomocą przycisku w prawym dolnym rogu. Możesz mierzyć długość linii i powierzchnie trójkątów, okręgów i czworokątów.</string>
     <string name="next">Dalej</string>
     <string name="skip">Pomiń</string>
-    <string name="okay">OK</string>
+    <string name="okay">Ok</string>
     <string name="view_help">Wyświetl pomoc</string>
     <string name="help_ref_editor">Edytuj odniesienia zdefiniowane przez użytkownika</string>
     <string name="pref_ref_editor_summary">Tutaj można definiować i zarządzać obiektami referencyjnymi zdefiniowanymi przez użytkownika (maksymalnie 10).</string>
@@ -209,4 +209,12 @@
     <string name="pref_ref_types_summary">Możesz wyłączyć niektóre typy predefiniowanych obiektów referencyjnych. Nie pojawią się one w menu podczas wyboru obiektu referencyjnego.</string>
     <string name="navigation_drawer_open">Otwórz szufladę nawigacyjną</string>
     <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
+    <string name="us_penny_coin">Cent Amerykański</string>
+    <string name="gb_penny_coin">Brytyjska moneta jednopensowa</string>
+    <string name="tabloid_paper">Papier tabloidowy</string>
+    <string name="ledger_paper">Papier księgowy (ledger)</string>
+    <string name="junior_legal_paper">Papier typu Junior Legal</string>
+    <string name="government_letter_paper">Urzędowy papier listowy (USA)</string>
+    <string name="government_legal_paper">Urzędowy papier prawny (USA)</string>
+    <string name="category_us_paper">Papier w formacie amerykańskim</string>
 </resources>
