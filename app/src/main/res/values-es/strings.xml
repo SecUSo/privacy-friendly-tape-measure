@@ -221,7 +221,7 @@
     <string name="edit_size">Tamaño:</string>
     <string name="diameter">Diámetro:</string>
     <string name="cancel">Cancelar</string>
-    <string name="delete">Borrar</string>
+    <string name="delete">Eliminar</string>
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Descargo</string>
     <string name="disclaimer">Esta aplicación no es un medidor calibrado profesionalmente. Aunque la aplicación se puede calibrar, solo minimiza el margen de error, pero aún puede llegar a errores de redondeo según el dispositivo.</string>
