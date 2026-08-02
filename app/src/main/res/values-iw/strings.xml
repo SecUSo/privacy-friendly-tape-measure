@@ -3,4 +3,7 @@
     <string name="app_name">סרט מדידה</string>
     <string name="app_name_long">סרט מדידה ידידותי לפרטיות</string>
     <string name="about">על אודות</string>
+    <string name="skip">דילוג</string>
+    <string name="next">הבא</string>
+    <string name="okay">בסדר</string>
 </resources>
