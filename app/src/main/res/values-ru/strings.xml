@@ -140,7 +140,7 @@
     <string name="noInput">Введите длину линии.</string>
     <string name="calibrationDone">Калибрование завершено.</string>
     <!--###HELP###-->
-    <string name="help">Справка</string>
+    <string name="help">Помощь</string>
     <string name="help_overview_heading">Обзор</string>
     <string name="help_calibration">Ручное калибрование</string>
     <string name="help_disclaimer">Предупреждение</string>
@@ -161,7 +161,7 @@
     <string name="help_permission">Разрешения</string>
     <string name="help_permission_answer">Рулетка (PFA) не нуждается в разрешениях чтобы снять фотографию камерой и измерить её. Чтобы измерить фотографию из галереи этому приложению нужно разрешение Чтение внешнего хранилища, так как большинство фотографий не находятся во встроенной памяти телефона.</string>
     <!--###ABOUT###-->
-    <string name="about">О приложении</string>
+    <string name="about">О программе</string>
     <string name="version_number">Версия v%s</string>
     <string name="about_author">Авторы：</string>
     <string name="about_author_contributors">и другие участники.</string>
@@ -220,7 +220,7 @@
     <string name="edit_tetragon">Четырёхугольник</string>
     <string name="edit_size">Размер:</string>
     <string name="diameter">Диаметр:</string>
-    <string name="cancel">Отмена</string>
+    <string name="cancel">Отменить</string>
     <string name="delete">Удалить</string>
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Предупреждение</string>
