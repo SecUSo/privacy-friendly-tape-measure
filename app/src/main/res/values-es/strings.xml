@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cinta métrica</string>
-    <string name="app_name_long">Cinta métrica Amigable con la Privacidad</string>
+    <string name="app_name">Cinta Métrica</string>
+    <string name="app_name_long">Cinta Métrica Privacy Friendly</string>
     <!-- ###DRAWER###-->
     <string name="action_ruler">Regla en pantalla</string>
     <string name="action_camera">Regla en cámara</string>
@@ -51,7 +51,7 @@
     <string name="one_euro_coin">Moneda de 1€</string>
     <string name="two_euro_coin">Moneda de 2€</string>
     <!-- ###BRITISH POUND COINS### -->
-    <string name="gb_penny_coin">Moneda de centavo GB</string>
+    <string name="gb_penny_coin">Moneda de penique británica</string>
     <string name="two_pence_coin">Moneda de 2 peniques</string>
     <string name="five_pence_coin">Moneda de 5 peniques</string>
     <string name="ten_pence_coin">Moneda de 10 peniques</string>
@@ -147,27 +147,27 @@
     <string name="help_category_calibration">Calibración</string>
     <string name="pref_calibration_summary">Con la opción del menú \"Calibrar\" puede ajustar la medición manualmente.</string>
     <string name="pref_disclaimer_summary">Esta aplicación no es un medidor calibrado profesionalmente. SECUSO no se responsabiliza por los daños ocasionados del uso de esta aplicación.</string>
-    <string name="help_privacy_heading">Aviso sobre la privacidad</string>
+    <string name="help_privacy_heading">Información de privacidad</string>
     <string name="help_category_options">Ajustes</string>
     <string name="help_units">Regla izquierda y derecha</string>
     <string name="pref_units_summary">Siempre puede mostrar una regla en centímetros u otra en pulgadas (o ninguna) en los lados izquierdo y derecho de la pantalla. Ambas reglas se pueden establecer por separado en los ajustes.</string>
     <string name="help_angles">Transportador</string>
     <string name="pref_angles_summary">Puede mostrar el transportador en grados o radianes en el lugar de la regla del lado izquierdo de la pantalla.</string>
-    <string name="help_intro">La cinta métrica respetuosa con la privacidad que convierte su teléfono en una regla de medición rápida.</string>
+    <string name="help_intro">Cinta Métrica Privacy Friendly convierte tu teléfono en una regla para realizar mediciones rápidas en cualquier momento.</string>
     <string name="help_camera_ruler_heading">Regla en cámara</string>
     <string name="help_camera_ruler1">Puede elegir tomar una foto con la cámara o abrir una desde la galería. Asegúrese de que todos los objetos relevantes estén en el mismo plano y que la imagen se tome perpendicularmente a ese plano.</string>
     <string name="help_camera_ruler2">Elija el objeto de referencia deseado en el menú de la parte superior derecha, coloca el objeto de referencia en la región verde de la imagen y pulsa el botón de la parte inferior derecha.</string>
     <string name="help_camera_ruler3">Ahora puede elegir el objeto por medir a través del botón de la parte inferior derecha. Puedes medir la longitud de las líneas y las áreas de triángulos, círculos y tetrágonos.</string>
     <string name="help_permission">Permisos</string>
-    <string name="help_permission_answer">La cinta métrica respetuosa con la privacidad no necesita permisos para medir imágenes directamente desde la cámara. Para medir imágenes de la galería, la aplicación necesita el permiso de Lectura de almacenamiento externo, ya que la mayoría de las imágenes no se almacenan en la memoria interna del teléfono inteligente.</string>
+    <string name="help_permission_answer">Cinta Métrica Privacy Friendly no necesita permisos para tomar y medir una foto directamente desde la cámara. Para usar imágenes de la galería, la aplicación necesita el permiso de lectura del almacenamiento externo, ya que la mayoría de las fotos no se guardan en la memoria interna del dispositivo.</string>
     <!--###ABOUT###-->
     <string name="about">Acerca de</string>
-    <string name="version_number">Versión v%s</string>
+    <string name="version_number">Versión %s</string>
     <string name="about_author">Autores:</string>
-    <string name="about_author_contributors">y contribuidores.</string>
+    <string name="about_author_contributors">y contribuyentes.</string>
     <string name="about_affiliation">En colaboración con</string>
     <string name="privacy_friendly">Esta aplicación pertenece al grupo Privacy Friendly Apps desarrolladas por el grupo SECUSO del Instituto de Tecnología de Karlsruhe. Código fuente bajo licencia GPLv3. Autores de las imágenes KIT y Google Inc.</string>
-    <string name="more_info">Para obtener más información, consulte:</string>
+    <string name="more_info">Más información en:</string>
     <!-- ###SETTINGS### -->
     <!-- ###SCREEN RULER### -->
     <string name="title_activity_settings">Ajustes</string>
@@ -221,7 +221,7 @@
     <string name="edit_size">Tamaño:</string>
     <string name="diameter">Diámetro:</string>
     <string name="cancel">Cancelar</string>
-    <string name="delete">Borrar</string>
+    <string name="delete">Eliminar</string>
     <!-- ### DISCLAIMER DIALOG ### -->
     <string name="disclaimer_dialog_title">Descargo</string>
     <string name="disclaimer">Esta aplicación no es un medidor calibrado profesionalmente. Aunque la aplicación se puede calibrar, solo minimiza el margen de error, pero aún puede llegar a errores de redondeo según el dispositivo.</string>
@@ -229,14 +229,14 @@
     <string name="disclaimer_check_toast">Por favor, confirme que ha leído el descargo de responsabilidad.</string>
     <!-- ### TUTORIAL SCREEN ### -->
     <string name="slide1_heading">Bienvenido</string>
-    <string name="slide1_text">Con Privacy Friendly Tape Measure, puede medir objetos más grandes que su teléfono inteligente. Para hacer esto, debe tomar una imagen del objeto visible junto con un objeto frecuente de referencia, como una moneda.</string>
-    <string name="slide2_heading">¿Cómo medir?</string>
+    <string name="slide1_text">Con Cinta Métrica Privacy Friendly puedes medir objetos más grandes que tu teléfono tomando una foto del objeto junto con otro de tamaño conocido, como una moneda.</string>
+    <string name="slide2_heading">Cómo medir</string>
     <string name="slide2_text">Puede elegir tomar una foto con la cámara o usar una de la galería. Asegúrese de que todos los objetos relevantes estén en el mismo plano y que la imagen se tome perpendicularmente a ese plano.</string>
     <string name="slide3_heading">Cómo medir</string>
     <string name="slide3_text">Selecciona el objeto de referencia deseado en el menú de la parte superior derecha, coloque el objeto de referencia en la región verde de imagen y presione el botón de la parte inferior derecha. Ahora puedes elegir el objeto a medir a través del botón en la parte inferior derecha. Puedes medir la longitud de las líneas y las áreas de triángulos, círculos y tetrágonos.</string>
     <string name="next">Siguiente</string>
-    <string name="skip">Saltar</string>
-    <string name="okay">De acuerdo</string>
+    <string name="skip">Omitir</string>
+    <string name="okay">Ok</string>
     <string name="view_help">Mostrar ayuda</string>
     <string name="help_uom">Unidades de medida</string>
     <string name="help_ref_types">Selección de tipo de referncia</string>
